@@ -1052,3 +1052,53 @@ footer {
   .cta-row { flex-direction: column; }
   .cta-row .btn { width: 100%; }
 }
+
+/* ---------- Feedback widget ---------- */
+.feedback-widget {
+  border-top: 1px solid var(--border, rgba(255,255,255,0.08));
+  padding: 1.25rem 0;
+  background: var(--surface, rgba(255,255,255,0.03));
+  text-align: center;
+}
+
+.feedback-widget .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.feedback-prompt {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-dim, #aaa);
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.feedback-btn {
+  background: none;
+  border: 1px solid var(--border, rgba(255,255,255,0.15));
+  border-radius: 6px;
+  color: var(--text, #f0f0f0);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.85rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.feedback-btn:hover {
+  background: var(--accent, #7C3AED);
+  border-color: var(--accent, #7C3AED);
+  color: #fff;
+}
+
+.feedback-thanks {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-dim, #aaa);
+}

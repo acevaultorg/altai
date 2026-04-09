@@ -109,6 +109,25 @@
     }
   });
 
+  // ---------- Feedback widget ----------
+  const feedbackButtons = document.querySelectorAll(".feedback-btn[data-feedback]");
+  const feedbackButtonsWrap = document.getElementById("feedback-buttons");
+  const feedbackThanks = document.getElementById("feedback-thanks");
+
+  feedbackButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const value = btn.getAttribute("data-feedback");
+      const page = window.location.pathname;
+
+      if (typeof window.plausible === "function") {
+        window.plausible("feedback", { props: { value, page } });
+      }
+
+      if (feedbackButtonsWrap) feedbackButtonsWrap.classList.add("hidden");
+      if (feedbackThanks) feedbackThanks.classList.remove("hidden");
+    });
+  });
+
   // ---------- Category card navigation ----------
   // Category cards are <a> elements linking to /#<slug>. The click handler adds a filter-and-scroll behavior
   // on the homepage without breaking the anchor link.

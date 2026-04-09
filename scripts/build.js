@@ -199,6 +199,7 @@ const footerHtml = (data) => `
     <div class="footer-bottom">
       <span>&copy; ${new Date().getFullYear()} AltAI. Data last updated ${esc(data.site.updated)}.</span>
       <span>Built static. No tracking. No cookies.</span>
+      <span style="font-size:0.75rem;opacity:0.55;">Powered by AcePilot</span>
     </div>
   </div>
 </footer>
@@ -608,6 +609,16 @@ const buildBlogIndex = (data) => {
       </div>
     </section>
   </main>
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Was this page helpful?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
   ${footerHtml(data)}
   <script src="/js/main.js" defer></script>
 </body>
@@ -709,6 +720,16 @@ const buildBlogPost = (data, post) => {
       </div>
     </div>
   </main>
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Was this article helpful?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
   ${footerHtml(data)}
   <script src="/js/main.js" defer></script>
 </body>

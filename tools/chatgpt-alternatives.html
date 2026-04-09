@@ -25,7 +25,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"ChatGPT alternatives","description":"10 tested alternatives to ChatGPT. Compared on price, features, and fit. Find the one that actually matches your workflow.","url":"https://altai-bay.vercel.app/tools/chatgpt-alternatives.html","numberOfItems":10,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Claude","description":"Better long-form writing and code reasoning. 200K context.","applicationCategory":"Conversational AI","url":"https://altai-bay.vercel.app/tools/claude-alternatives.html"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Gemini","description":"Free access to Google's flagship model. Deep Google Workspace integration.","applicationCategory":"Conversational AI","url":"https://altai-bay.vercel.app/tools/gemini-alternatives.html"}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Perplexity","description":"Cited sources for every answer. Better for research.","applicationCategory":"Conversational AI","url":"https://altai-bay.vercel.app/tools/perplexity-alternatives.html"}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Mistral Le Chat","description":"Fast, open-weights, EU-based. Free to use.","applicationCategory":"Conversational AI","url":"https://chat.mistral.ai"}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"DeepSeek","description":"Open-source. Near-GPT-4 quality at fraction of the cost.","applicationCategory":"Conversational AI","url":"https://chat.deepseek.com"}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Poe","description":"Aggregator — one subscription, every major model.","applicationCategory":"Conversational AI","url":"https://poe.com"}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"You.com","description":"Multiple model picker plus search integration.","applicationCategory":"Conversational AI","url":"https://you.com"}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"HuggingChat","description":"Free forever. Open-source models only.","applicationCategory":"Conversational AI","url":"https://huggingface.co/chat"}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"Kimi","description":"1M+ context window. Strong on document analysis.","applicationCategory":"Conversational AI","url":"https://kimi.moonshot.cn"}},{"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"Groq","description":"Sub-second Llama inference. Speed demo.","applicationCategory":"Conversational AI","url":"https://groq.com"}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://altai-bay.vercel.app/"},{"@type":"ListItem","position":2,"name":"Conversational AI","item":"https://altai-bay.vercel.app/#chat"},{"@type":"ListItem","position":3,"name":"ChatGPT alternatives","item":"https://altai-bay.vercel.app/tools/chatgpt-alternatives.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best ChatGPT alternative?","acceptedAnswer":{"@type":"Answer","text":"The best overall alternative to ChatGPT is Claude. Better long-form writing and code reasoning. 200K context."}},{"@type":"Question","name":"Is there a free ChatGPT alternative?","acceptedAnswer":{"@type":"Answer","text":"Yes — Claude, Gemini, Perplexity all offer free tiers that cover ChatGPT's main use cases."}},{"@type":"Question","name":"How does ChatGPT compare to its top alternative?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT — The household-name AI chatbot.. Its top alternative Claude is chosen when you want: Better long-form writing and code reasoning. 200K context."}}]}</script>
-  <!-- Plausible: set site.plausible_domain in data/tools.json to enable analytics -->
+  <script defer data-domain="altai-bay.vercel.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <a href="#main" class="skip">Skip to content</a>
@@ -118,7 +118,7 @@
       </div>
       <div class="alt-cta">
         <span class="price">Free / $20/mo Pro</span>
-        <a class="btn" href="https://www.perplexity.ai/?utm_source=altai&amp;utm_medium=altai&amp;utm_campaign=chatgpt" target="_blank" rel="noopener sponsored" data-affiliate="perplexity">Try Perplexity →</a>
+        <a class="btn" href="https://www.perplexity.ai/?ref=altai&amp;utm_source=altai&amp;utm_medium=altai&amp;utm_campaign=chatgpt" target="_blank" rel="noopener sponsored" data-affiliate="perplexity">Try Perplexity →</a>
       </div>
     </article>
     <article class="alt-item">
@@ -214,6 +214,17 @@
     </div>
   </main>
 
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Was this page helpful?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
+
   <footer>
   <div class="container">
     <div class="footer-grid">
@@ -243,6 +254,7 @@
     <div class="footer-bottom">
       <span>&copy; 2026 AltAI. Data last updated 2026-04-08.</span>
       <span>Built static. No tracking. No cookies.</span>
+      <span style="font-size:0.75rem;opacity:0.55;">Powered by AcePilot</span>
     </div>
   </div>
 </footer>

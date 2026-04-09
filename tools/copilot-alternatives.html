@@ -25,7 +25,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"GitHub Copilot alternatives","description":"10 tested alternatives to GitHub Copilot. Compared on price, features, and fit. Find the one that actually matches your workflow.","url":"https://altai-bay.vercel.app/tools/copilot-alternatives.html","numberOfItems":10,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Cursor","description":"Purpose-built AI IDE with best-in-class agent mode.","applicationCategory":"Coding Assistants","url":"https://altai-bay.vercel.app/tools/cursor-alternatives.html"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Windsurf","description":"Codeium's agentic IDE. Strong autonomous edits.","applicationCategory":"Coding Assistants","url":"https://codeium.com/windsurf"}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Tabnine","description":"Privacy-first, can run fully on-prem.","applicationCategory":"Coding Assistants","url":"https://www.tabnine.com"}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Cody (Sourcegraph)","description":"Codebase-aware, stronger on large monorepos.","applicationCategory":"Coding Assistants","url":"https://sourcegraph.com/cody"}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Continue","description":"Open-source, BYO-model IDE extension.","applicationCategory":"Coding Assistants","url":"https://continue.dev"}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Aider","description":"Terminal-native AI pair programmer with git integration.","applicationCategory":"Coding Assistants","url":"https://aider.chat"}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"Claude Code","description":"Anthropic's terminal-native coding agent.","applicationCategory":"Coding Assistants","url":"https://claude.ai/code"}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"Cline","description":"Open-source agent extension for VS Code.","applicationCategory":"Coding Assistants","url":"https://cline.bot"}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"Zed AI","description":"Zed editor's built-in AI. Blazing fast.","applicationCategory":"Coding Assistants","url":"https://zed.dev"}},{"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"JetBrains AI","description":"Native for IntelliJ, PyCharm, WebStorm users.","applicationCategory":"Coding Assistants","url":"https://www.jetbrains.com/ai"}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://altai-bay.vercel.app/"},{"@type":"ListItem","position":2,"name":"Coding Assistants","item":"https://altai-bay.vercel.app/#code"},{"@type":"ListItem","position":3,"name":"GitHub Copilot alternatives","item":"https://altai-bay.vercel.app/tools/copilot-alternatives.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best GitHub Copilot alternative?","acceptedAnswer":{"@type":"Answer","text":"The best overall alternative to GitHub Copilot is Cursor. Purpose-built AI IDE with best-in-class agent mode."}},{"@type":"Question","name":"Is there a free GitHub Copilot alternative?","acceptedAnswer":{"@type":"Answer","text":"Yes — Cursor, Windsurf, Tabnine all offer free tiers that cover GitHub Copilot's main use cases."}},{"@type":"Question","name":"How does GitHub Copilot compare to its top alternative?","acceptedAnswer":{"@type":"Answer","text":"GitHub Copilot — The original AI coding assistant.. Its top alternative Cursor is chosen when you want: Purpose-built AI IDE with best-in-class agent mode."}}]}</script>
-  <!-- Plausible: set site.plausible_domain in data/tools.json to enable analytics -->
+  <script defer data-domain="altai-bay.vercel.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <a href="#main" class="skip">Skip to content</a>
@@ -96,7 +96,7 @@
       </div>
       <div class="alt-cta">
         <span class="price">Free / $20/mo Pro</span>
-        <a class="btn" href="https://cursor.sh/?utm_source=altai&amp;utm_medium=altai&amp;utm_campaign=copilot" target="_blank" rel="noopener sponsored" data-affiliate="cursor">Try Cursor →</a>
+        <a class="btn" href="https://cursor.com/referral?ref=altai&amp;utm_source=altai&amp;utm_medium=altai&amp;utm_campaign=copilot" target="_blank" rel="noopener sponsored" data-affiliate="cursor">Try Cursor →</a>
       </div>
     </article>
     <article class="alt-item">
@@ -214,6 +214,17 @@
     </div>
   </main>
 
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Was this page helpful?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
+
   <footer>
   <div class="container">
     <div class="footer-grid">
@@ -243,6 +254,7 @@
     <div class="footer-bottom">
       <span>&copy; 2026 AltAI. Data last updated 2026-04-08.</span>
       <span>Built static. No tracking. No cookies.</span>
+      <span style="font-size:0.75rem;opacity:0.55;">Powered by AcePilot</span>
     </div>
   </div>
 </footer>

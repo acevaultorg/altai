@@ -25,7 +25,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"ElevenLabs alternatives","description":"10 tested alternatives to ElevenLabs. Compared on price, features, and fit. Find the one that actually matches your workflow.","url":"https://altai-bay.vercel.app/tools/elevenlabs-alternatives.html","numberOfItems":10,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"PlayHT","description":"Strong quality, cheaper per character.","applicationCategory":"Voice & Audio","url":"https://play.ht"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Murf","description":"Studio UI for voiceovers, timeline editing.","applicationCategory":"Voice & Audio","url":"https://murf.ai"}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Resemble AI","description":"Enterprise voice cloning and deepfake detection.","applicationCategory":"Voice & Audio","url":"https://www.resemble.ai"}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"WellSaid Labs","description":"Broadcast-quality voices for enterprise.","applicationCategory":"Voice & Audio","url":"https://wellsaidlabs.com"}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Descript Overdub","description":"Bundled with Descript's editing suite.","applicationCategory":"Voice & Audio","url":"https://altai-bay.vercel.app/tools/descript-alternatives.html"}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Cartesia","description":"Very fast streaming voices for realtime apps.","applicationCategory":"Voice & Audio","url":"https://cartesia.ai"}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"OpenAI TTS","description":"Solid quality, very cheap API.","applicationCategory":"Voice & Audio","url":"https://platform.openai.com"}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"Speechify","description":"Consumer-friendly, strong mobile app.","applicationCategory":"Voice & Audio","url":"https://speechify.com"}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"Coqui","description":"Open-source TTS you can self-host.","applicationCategory":"Voice & Audio","url":"https://coqui.ai"}},{"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"Kokoro","description":"New open-weights TTS with surprising quality.","applicationCategory":"Voice & Audio","url":"https://huggingface.co/hexgrad/Kokoro-82M"}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://altai-bay.vercel.app/"},{"@type":"ListItem","position":2,"name":"Voice & Audio","item":"https://altai-bay.vercel.app/#voice"},{"@type":"ListItem","position":3,"name":"ElevenLabs alternatives","item":"https://altai-bay.vercel.app/tools/elevenlabs-alternatives.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best ElevenLabs alternative?","acceptedAnswer":{"@type":"Answer","text":"The best overall alternative to ElevenLabs is PlayHT. Strong quality, cheaper per character."}},{"@type":"Question","name":"Is there a free ElevenLabs alternative?","acceptedAnswer":{"@type":"Answer","text":"Yes — PlayHT, Murf, Cartesia all offer free tiers that cover ElevenLabs's main use cases."}},{"@type":"Question","name":"How does ElevenLabs compare to its top alternative?","acceptedAnswer":{"@type":"Answer","text":"ElevenLabs — The most realistic AI voice.. Its top alternative PlayHT is chosen when you want: Strong quality, cheaper per character."}}]}</script>
-  <!-- Plausible: set site.plausible_domain in data/tools.json to enable analytics -->
+  <script defer data-domain="altai-bay.vercel.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <a href="#main" class="skip">Skip to content</a>
@@ -77,7 +77,7 @@
         </div>
         <div class="row-flex">
           <span class="price-badge free">Free / $5+</span>
-          <a class="btn btn-secondary" href="https://elevenlabs.io/?utm_source=altai&utm_medium=reference&utm_campaign=elevenlabs" target="_blank" rel="noopener sponsored" data-affiliate="elevenlabs">Visit ElevenLabs →</a>
+          <a class="btn btn-secondary" href="https://elevenlabs.io/?via=altai&utm_source=altai&utm_medium=reference&utm_campaign=elevenlabs" target="_blank" rel="noopener sponsored" data-affiliate="elevenlabs">Visit ElevenLabs →</a>
           <span class="vendor-label">by ElevenLabs</span>
         </div>
       </section>
@@ -140,7 +140,7 @@
       </div>
       <div class="alt-cta">
         <span class="price">$15/mo</span>
-        <a class="btn" href="https://www.descript.com/?utm_source=altai&amp;utm_medium=altai&amp;utm_campaign=elevenlabs" target="_blank" rel="noopener sponsored" data-affiliate="descript">Try Descript Overdub →</a>
+        <a class="btn" href="https://www.descript.com/?via=altai&amp;utm_source=altai&amp;utm_medium=altai&amp;utm_campaign=elevenlabs" target="_blank" rel="noopener sponsored" data-affiliate="descript">Try Descript Overdub →</a>
       </div>
     </article>
     <article class="alt-item">
@@ -214,6 +214,17 @@
     </div>
   </main>
 
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Was this page helpful?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
+
   <footer>
   <div class="container">
     <div class="footer-grid">
@@ -243,6 +254,7 @@
     <div class="footer-bottom">
       <span>&copy; 2026 AltAI. Data last updated 2026-04-08.</span>
       <span>Built static. No tracking. No cookies.</span>
+      <span style="font-size:0.75rem;opacity:0.55;">Powered by AcePilot</span>
     </div>
   </div>
 </footer>

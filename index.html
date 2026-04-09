@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AltAI","url":"https://altai-bay.vercel.app","description":"A curated directory of alternatives to the most popular AI tools. 200 options, compared on price, speed, and capability. No fluff.","potentialAction":{"@type":"SearchAction","target":"https://altai-bay.vercel.app/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AltAI","url":"https://altai-bay.vercel.app","description":"A curated directory of alternatives to the most popular AI tools. 200 options, compared on price, speed, and capability. No fluff."}</script>
-  <!-- Plausible: set site.plausible_domain in data/tools.json to enable analytics -->
+  <script defer data-domain="altai-bay.vercel.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <a href="#main" class="skip">Skip to content</a>
@@ -451,6 +451,17 @@
     </section>
   </main>
 
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Is this directory useful to you?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
+
   <footer>
   <div class="container">
     <div class="footer-grid">
@@ -480,6 +491,7 @@
     <div class="footer-bottom">
       <span>&copy; 2026 AltAI. Data last updated 2026-04-08.</span>
       <span>Built static. No tracking. No cookies.</span>
+      <span style="font-size:0.75rem;opacity:0.55;">Powered by AcePilot</span>
     </div>
   </div>
 </footer>

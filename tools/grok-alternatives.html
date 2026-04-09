@@ -25,7 +25,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Grok alternatives","description":"10 tested alternatives to Grok. Compared on price, features, and fit. Find the one that actually matches your workflow.","url":"https://altai-bay.vercel.app/tools/grok-alternatives.html","numberOfItems":10,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"ChatGPT","description":"Larger plugin ecosystem, GPT-4o free tier.","applicationCategory":"Conversational AI","url":"https://altai-bay.vercel.app/tools/chatgpt-alternatives.html"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Perplexity","description":"Cited real-time web search without social paywall.","applicationCategory":"Conversational AI","url":"https://altai-bay.vercel.app/tools/perplexity-alternatives.html"}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Claude","description":"Better long-form writing and code, 200K context.","applicationCategory":"Conversational AI","url":"https://altai-bay.vercel.app/tools/claude-alternatives.html"}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Gemini","description":"Google Search grounding, free multimodal.","applicationCategory":"Conversational AI","url":"https://altai-bay.vercel.app/tools/gemini-alternatives.html"}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Mistral Le Chat","description":"Fast European open-weights model, no social paywall.","applicationCategory":"Conversational AI","url":"https://chat.mistral.ai"}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"You.com","description":"Web-grounded answers across multiple models.","applicationCategory":"Conversational AI","url":"https://you.com"}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"DeepSeek","description":"Open-source frontier reasoning at zero cost.","applicationCategory":"Conversational AI","url":"https://chat.deepseek.com"}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"Poe","description":"Aggregator access to every major model.","applicationCategory":"Conversational AI","url":"https://poe.com"}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"HuggingChat","description":"Free forever, transparent open-weights.","applicationCategory":"Conversational AI","url":"https://huggingface.co/chat"}},{"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"Copilot","description":"Microsoft Bing grounding, free web search.","applicationCategory":"Conversational AI","url":"https://altai-bay.vercel.app/tools/copilot-alternatives.html"}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://altai-bay.vercel.app/"},{"@type":"ListItem","position":2,"name":"Conversational AI","item":"https://altai-bay.vercel.app/#chat"},{"@type":"ListItem","position":3,"name":"Grok alternatives","item":"https://altai-bay.vercel.app/tools/grok-alternatives.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best Grok alternative?","acceptedAnswer":{"@type":"Answer","text":"The best overall alternative to Grok is ChatGPT. Larger plugin ecosystem, GPT-4o free tier."}},{"@type":"Question","name":"Is there a free Grok alternative?","acceptedAnswer":{"@type":"Answer","text":"Yes — ChatGPT, Perplexity, Claude all offer free tiers that cover Grok's main use cases."}},{"@type":"Question","name":"How does Grok compare to its top alternative?","acceptedAnswer":{"@type":"Answer","text":"Grok — The AI that searches X (Twitter) in real-time.. Its top alternative ChatGPT is chosen when you want: Larger plugin ecosystem, GPT-4o free tier."}}]}</script>
-  <!-- Plausible: set site.plausible_domain in data/tools.json to enable analytics -->
+  <script defer data-domain="altai-bay.vercel.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <a href="#main" class="skip">Skip to content</a>
@@ -107,7 +107,7 @@
       </div>
       <div class="alt-cta">
         <span class="price">Free / $20/mo</span>
-        <a class="btn" href="https://www.perplexity.ai/?utm_source=altai&amp;utm_medium=altai&amp;utm_campaign=grok" target="_blank" rel="noopener sponsored" data-affiliate="perplexity">Try Perplexity →</a>
+        <a class="btn" href="https://www.perplexity.ai/?ref=altai&amp;utm_source=altai&amp;utm_medium=altai&amp;utm_campaign=grok" target="_blank" rel="noopener sponsored" data-affiliate="perplexity">Try Perplexity →</a>
       </div>
     </article>
     <article class="alt-item">
@@ -214,6 +214,17 @@
     </div>
   </main>
 
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Was this page helpful?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
+
   <footer>
   <div class="container">
     <div class="footer-grid">
@@ -243,6 +254,7 @@
     <div class="footer-bottom">
       <span>&copy; 2026 AltAI. Data last updated 2026-04-08.</span>
       <span>Built static. No tracking. No cookies.</span>
+      <span style="font-size:0.75rem;opacity:0.55;">Powered by AcePilot</span>
     </div>
   </div>
 </footer>
