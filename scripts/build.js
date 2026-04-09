@@ -162,6 +162,7 @@ const headerHtml = () => `
     <ul class="nav-links">
       <li><a href="/#categories">Categories</a></li>
       <li><a href="/#tools">Tools</a></li>
+      <li><a href="/blog/">Blog</a></li>
       <li><a href="/#about">About</a></li>
     </ul>
   </div>
@@ -548,9 +549,182 @@ const buildComparePage = (data, cmp, tmpl) => {
 
 // ---------- Sitemap / robots / manifest ----------
 
+// ---------- Blog builders ----------
+
+const buildBlogIndex = (data) => {
+  const posts = data.blog || [];
+  const postCardsHtml = posts
+    .map(
+      (p) => `
+    <article class="card">
+      <div class="card-body">
+        <p class="card-category">${esc(p.category)}</p>
+        <h2 class="card-title"><a href="/blog/${esc(p.slug)}.html">${esc(p.title)}</a></h2>
+        <p class="card-desc">${esc(p.description)}</p>
+        <a class="btn btn-sm" href="/blog/${esc(p.slug)}.html">Read →</a>
+      </div>
+    </article>`
+    )
+    .join("\n");
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI Tools Blog — Guides, Comparisons &amp; Reviews | AltAI</title>
+  <meta name="description" content="In-depth guides on the best AI tools for every use case. Updated 2026.">
+  <link rel="canonical" href="${esc(data.site.url)}/blog/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Tools Blog — Guides, Comparisons &amp; Reviews | AltAI">
+  <meta property="og:description" content="In-depth guides on the best AI tools for every use case. Updated 2026.">
+  <meta property="og:url" content="${esc(data.site.url)}/blog/">
+  <meta property="og:image" content="${esc(data.site.url)}/og.svg">
+  <meta property="og:site_name" content="${esc(data.site.name)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  ${headerHtml()}
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Blog</p>
+        <h1>AI tool guides &amp; <span class="accent">comparisons</span>.</h1>
+        <p>Data-driven roundups of the best AI tools for every job. Affiliate-transparent. Jargon-free.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="tools-grid">
+          ${postCardsHtml}
+        </div>
+      </div>
+    </section>
+  </main>
+  ${footerHtml(data)}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+};
+
+const buildBlogPost = (data, post) => {
+  const toolLinksHtml = (post.tools || [])
+    .map(
+      (t, i) => `
+    <div class="alt-card" data-affiliate="${esc(t.affiliate)}">
+      <div class="alt-rank">${i + 1}</div>
+      <div class="alt-body">
+        <h3 class="alt-name">${esc(t.name)}</h3>
+        <p class="alt-why">${esc(t.why)}</p>
+        <div class="alt-meta">
+          <span class="price-text">${esc(t.price)}</span>
+          <a class="btn btn-sm" href="${esc(t.affiliate)}" target="_blank" rel="noopener nofollow sponsored" data-affiliate="${esc(t.affiliate)}">Visit ${esc(t.name)} →</a>
+        </div>
+      </div>
+    </div>`
+    )
+    .join("\n");
+
+  const schemaArticle = jsonLd({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    url: `${data.site.url}/blog/${post.slug}.html`,
+    datePublished: post.published,
+    dateModified: data.site.updated,
+    author: { "@type": "Organization", name: data.site.author, url: data.site.url },
+    publisher: { "@type": "Organization", name: data.site.name },
+  });
+
+  const schemaBreadcrumb = jsonLd({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${data.site.url}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${data.site.url}/blog/` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${data.site.url}/blog/${post.slug}.html` },
+    ],
+  });
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>${esc(post.title)} | AltAI</title>
+  <meta name="description" content="${esc(post.description)}">
+  <link rel="canonical" href="${esc(data.site.url)}/blog/${esc(post.slug)}.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="${esc(post.title)}">
+  <meta property="og:description" content="${esc(post.description)}">
+  <meta property="og:url" content="${esc(data.site.url)}/blog/${esc(post.slug)}.html">
+  <meta property="og:image" content="${esc(data.site.url)}/og.svg">
+  <meta property="og:site_name" content="${esc(data.site.name)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">${schemaArticle}</script>
+  <script type="application/ld+json">${schemaBreadcrumb}</script>
+  ${data.site.plausible_domain ? `<script defer data-domain="${esc(data.site.plausible_domain)}" src="https://plausible.io/js/script.js"></script>` : "<!-- Plausible: set site.plausible_domain in data/tools.json to enable analytics -->"}
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  ${headerHtml()}
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">/</span>
+        <a href="/blog/">Blog</a><span class="sep">/</span>
+        <span>${esc(post.title)}</span>
+      </nav>
+      <div class="tool-header">
+        <p class="hero-eyebrow">${esc(post.category)}</p>
+        <h1>${esc(post.title)}</h1>
+        <p class="tagline">${esc(post.description)}</p>
+        <div class="tool-meta-row">
+          <span><strong>${(post.tools || []).length}</strong> tools reviewed</span>
+          <span>Updated ${esc(data.site.updated)}</span>
+        </div>
+      </div>
+      <div class="blog-intro">
+        ${post.intro || ""}
+      </div>
+      <div class="alts-list">
+        ${toolLinksHtml}
+      </div>
+      <div class="blog-outro">
+        ${post.outro || ""}
+      </div>
+    </div>
+  </main>
+  ${footerHtml(data)}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+};
+
 const buildSitemap = (data) => {
+  const posts = data.blog || [];
   const urls = [
     { loc: `${data.site.url}/`, priority: "1.0", changefreq: "weekly" },
+    ...(posts.length > 0 ? [{ loc: `${data.site.url}/blog/`, priority: "0.8", changefreq: "weekly" }] : []),
+    ...posts.map((p) => ({
+      loc: `${data.site.url}/blog/${p.slug}.html`,
+      priority: "0.85",
+      changefreq: "monthly",
+    })),
     ...data.tools.map((t) => ({
       loc: `${data.site.url}/tools/${t.slug}-alternatives.html`,
       priority: "0.9",
@@ -647,13 +821,18 @@ function main() {
   const toolTmpl = readTemplate("tool.html");
   const compareTmpl = readTemplate("compare.html");
 
+  const OUT_BLOG = path.join(ROOT, "blog");
+
   // Clean previous output — guard against path escape.
   assertInsideRoot(OUT_TOOLS);
   assertInsideRoot(OUT_COMPARE);
+  assertInsideRoot(OUT_BLOG);
   if (fs.existsSync(OUT_TOOLS)) fs.rmSync(OUT_TOOLS, { recursive: true });
   if (fs.existsSync(OUT_COMPARE)) fs.rmSync(OUT_COMPARE, { recursive: true });
+  if (fs.existsSync(OUT_BLOG)) fs.rmSync(OUT_BLOG, { recursive: true });
   fs.mkdirSync(OUT_TOOLS, { recursive: true });
   fs.mkdirSync(OUT_COMPARE, { recursive: true });
+  fs.mkdirSync(OUT_BLOG, { recursive: true });
 
   // Index
   writeFile(path.join(ROOT, "index.html"), buildIndex(data, indexTmpl));
@@ -673,6 +852,17 @@ function main() {
     console.log(`  ✓ compare/${cmp.a}-vs-${cmp.b}.html`);
   });
 
+  // Blog pages
+  const posts = data.blog || [];
+  if (posts.length > 0) {
+    writeFile(path.join(OUT_BLOG, "index.html"), buildBlogIndex(data));
+    console.log("  ✓ blog/index.html");
+    posts.forEach((post) => {
+      writeFile(path.join(OUT_BLOG, `${post.slug}.html`), buildBlogPost(data, post));
+      console.log(`  ✓ blog/${post.slug}.html`);
+    });
+  }
+
   // SEO infra
   writeFile(path.join(ROOT, "sitemap.xml"), buildSitemap(data));
   writeFile(path.join(ROOT, "robots.txt"), buildRobots(data));
@@ -681,11 +871,12 @@ function main() {
   writeFile(path.join(ROOT, "404.html"), build404(data));
   console.log("  ✓ sitemap.xml, robots.txt, manifest.json, favicon.svg, 404.html\n");
 
-  const totalPages = 1 + data.tools.length + data.comparisons.length;
+  const totalPages = 1 + data.tools.length + data.comparisons.length + posts.length + (posts.length > 0 ? 1 : 0);
   console.log(`Done. Generated ${totalPages} indexable pages.`);
   console.log(`  • 1 homepage`);
   console.log(`  • ${data.tools.length} tool alternative pages`);
   console.log(`  • ${data.comparisons.length} head-to-head comparison pages`);
+  if (posts.length > 0) console.log(`  • ${posts.length + 1} blog pages (${posts.length} posts + index)`);
 }
 
 main();

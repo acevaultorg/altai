@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://altai.example.com/sitemap.xml
+Sitemap: https://altai-bay.vercel.app/sitemap.xml
