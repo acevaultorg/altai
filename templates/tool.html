@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  {{head}}
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  {{header}}
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">/</span>
+        <a href="/#{{category_slug}}">{{category_name}}</a><span class="sep">/</span>
+        <span>{{tool_name}} alternatives</span>
+      </nav>
+
+      <div class="tool-header">
+        <h1>{{page_title}}</h1>
+        <p class="tagline">{{page_sub}}</p>
+        <div class="tool-meta-row">
+          <span><strong>{{alt_count}}</strong> alternatives</span>
+          <span><strong>{{searches_per_month}}</strong> monthly searches</span>
+          <span><strong>{{category_name}}</strong> category</span>
+        </div>
+      </div>
+
+      <section class="tool-reference">
+        <h2>{{tool_name}} <span class="label">Reference</span></h2>
+        <p>{{tool_summary}}</p>
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>Strengths</h4>
+            <ul>{{pros_html}}</ul>
+          </div>
+          <div class="cons">
+            <h4>Weaknesses</h4>
+            <ul>{{cons_html}}</ul>
+          </div>
+        </div>
+        <div class="row-flex">
+          {{tool_price}}
+          <a class="btn btn-secondary" href="{{tool_affiliate}}" target="_blank" rel="noopener sponsored" data-affiliate="{{tool_slug}}">Visit {{tool_name}} →</a>
+          <span class="vendor-label">by {{tool_vendor}}</span>
+        </div>
+      </section>
+
+      <section class="alternatives">
+        <h2>The {{alt_count}} best {{tool_name}} alternatives</h2>
+        <p class="intro">Ranked by how well they replace {{tool_name}} for its main use case. Click any tool to sign up — affiliate links disclosed in the footer.</p>
+
+        <div class="alt-list">
+          {{alt_items_html}}
+        </div>
+
+        <div class="email-capture">
+          <h3>Get price drops on AI tools, weekly.</h3>
+          <p>New alternatives, launches, discounts. One email per week.</p>
+          <form class="email-form" data-email-form>
+            <label for="email-tool" class="visually-hidden">Email address</label>
+            <input id="email-tool" type="email" placeholder="you@domain.com" required>
+            <button type="submit" class="btn">Send me the roundup</button>
+          </form>
+          <p class="email-note">No spam. We never share your address.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  {{footer}}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

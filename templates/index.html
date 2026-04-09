@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  {{head}}
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  {{header}}
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">{{tool_count}} tools · {{alt_count}} alternatives · Updated weekly</p>
+        <h1>{{hero_title}}</h1>
+        <p>{{hero_sub}}</p>
+        <form class="hero-search" role="search" onsubmit="return false">
+          <label for="tool-search" class="visually-hidden">Search AI tools</label>
+          <input id="tool-search" type="search" placeholder="Search ChatGPT, Midjourney, Cursor…" autocomplete="off">
+        </form>
+        <div class="hero-stats">
+          <div><strong>{{tool_count}}</strong> tools tracked</div>
+          <div><strong>{{alt_count}}</strong> alternatives</div>
+          <div><strong>{{category_count}}</strong> categories</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Browse by category</h2>
+          <p class="section-sub">Find the right tool for the job.</p>
+        </div>
+        <div class="category-grid">
+          {{categories_html}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">All tools</h2>
+          <p class="section-sub">Click any tool to see its best alternatives.</p>
+        </div>
+        <div class="tool-grid">
+          {{tools_html}}
+        </div>
+        <p id="no-results" class="no-results hidden">No tools match your search. Try a shorter query.</p>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">What is this?</h2>
+        </div>
+        <div class="about-text">
+          <p>AltAI is a curated directory of alternatives to the most popular AI tools. Every alternative is picked for a specific reason — "cheaper", "open-source", "better long-form writing", "runs locally" — not because someone paid to be listed.</p>
+          <p>The directory is fully static. No tracking, no cookies, no login. Data comes from a single JSON file that anyone can audit.</p>
+          <p>We earn a commission if you sign up for a tool through one of our affiliate links. That's it. It never influences which tools appear or how they're ranked.</p>
+        </div>
+
+        <div class="email-capture">
+          <h3>Get the weekly AI tool roundup.</h3>
+          <p>New alternatives, price drops, launches. One email per week.</p>
+          <form class="email-form" data-email-form>
+            <label for="email-home" class="visually-hidden">Email address</label>
+            <input id="email-home" type="email" placeholder="you@domain.com" required>
+            <button type="submit" class="btn">Send me the roundup</button>
+          </form>
+          <p class="email-note">No spam. We never share your address.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{footer}}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
