@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://altai-bay.vercel.app/sitemap.xml
+Sitemap: https://thealtai.com/sitemap.xml

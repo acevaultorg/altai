@@ -1053,6 +1053,259 @@ footer {
   .cta-row .btn { width: 100%; }
 }
 
+/* ---------- Conversion badges ---------- */
+
+.best-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 99px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.free-trial-badge {
+  display: inline-block;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+/* Top-ranked alternative gets highlighted border + bigger CTA */
+.alt-item.is-best {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(124, 58, 237, 0.06) 100%);
+}
+
+.alt-item.is-best .btn {
+  background: var(--success);
+  font-size: 0.95rem;
+  padding: 0.85rem 1.5rem;
+}
+
+.alt-item.is-best .btn:hover {
+  background: #0da172;
+}
+
+/* Quick comparison table on tool pages (above the fold) */
+.quick-compare {
+  margin-bottom: 2.5rem;
+}
+
+.quick-compare h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+}
+
+.quick-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 0.88rem;
+}
+
+.quick-compare-table th,
+.quick-compare-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.quick-compare-table thead tr {
+  background: var(--bg-hover);
+}
+
+.quick-compare-table th {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+.quick-compare-table tbody tr:last-child td { border-bottom: none; }
+
+.quick-compare-table tbody tr:hover { background: var(--bg-hover); }
+
+.quick-compare-table .qc-name {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.quick-compare-table .qc-price {
+  font-family: var(--mono);
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.quick-compare-table .qc-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.9rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.quick-compare-table .qc-cta a:hover { background: var(--accent-hover); color: #fff; }
+
+.quick-compare-table tr.qc-best .qc-name::after {
+  content: " ★ Best";
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #f59e0b;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .quick-compare-table .qc-rating { display: none; }
+  .quick-compare-table th:nth-child(3),
+  .quick-compare-table td:nth-child(3) { display: none; }
+}
+
+/* Winner verdict box on compare pages */
+.winner-verdict {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0.05) 100%);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.winner-verdict .verdict-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.winner-verdict .verdict-tool {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.winner-verdict .verdict-reason {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.winner-verdict .btn {
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  min-height: 50px;
+  background: var(--success);
+}
+
+.winner-verdict .btn:hover { background: #0da172; }
+
+/* Trending comparisons on homepage */
+.trending-section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.trending-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+  color: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.trending-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  color: inherit;
+}
+
+.trending-card .vs-label {
+  color: var(--text-faint);
+  font-size: 0.75rem;
+  font-family: var(--mono);
+}
+
+.trending-card .arrow {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+/* Trust bar */
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  font-family: var(--mono);
+}
+
+.trust-bar span strong {
+  color: var(--text);
+}
+
 /* ---------- Feedback widget ---------- */
 .feedback-widget {
   border-top: 1px solid var(--border, rgba(255,255,255,0.08));

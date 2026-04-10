@@ -50,7 +50,7 @@
   //   window.ALTAI_EMAIL_ENDPOINT = "https://buttondown.email/api/emails/embed-subscribe/<user>"
   //   window.ALTAI_EMAIL_PROVIDER = "buttondown" | "convertkit" | "beehiiv" | "custom"
   // Until one is set, the form shows a "not yet wired" message so nothing gets silently dropped.
-  const EMAIL_ENDPOINT = window.ALTAI_EMAIL_ENDPOINT || null;
+  const EMAIL_ENDPOINT = window.ALTAI_EMAIL_ENDPOINT || "/api/subscribe";
 
   const emailForms = document.querySelectorAll('[data-email-form]');
 

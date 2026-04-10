@@ -24,9 +24,9 @@
 - [👤] `P0` WIRE email provider (Buttondown/Beehiiv/ConvertKit) — add `js/config.js` with `ALTAI_EMAIL_ENDPOINT` → see LAUNCH-CHECKLIST.md §2
 - [👤] `P0` SET production URL in `data/tools.json` → rebuild → redeploy → see LAUNCH-CHECKLIST.md §3
 - [👤] `P1` SIGN UP for Plausible (or alternative) + set `site.plausible_domain` → see LAUNCH-CHECKLIST.md §4
-- [👤] `P1` DEPLOY to Vercel: `vercel --prod` → DEPLOY.md
+- [ ] `P1` DEPLOY to Vercel: `vercel --prod` — already linked, CLI authenticated [id:deploy-vercel] [score:9.0]
 - [👤] `P1` SUBMIT sitemap to Google Search Console + Bing Webmaster Tools → LAUNCH-CHECKLIST.md §6
-- [👤] `P2` DESIGN 1200×630 PNG og image → LAUNCH-CHECKLIST.md §5
+- [ ] `P2` GENERATE 1200×630 OG image programmatically (HTML→PNG or SVG) [id:og-image-gen] [score:5.0]
 
 ## Blocked
 _(none — session complete)_
