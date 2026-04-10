@@ -1,0 +1,103 @@
+name: AcePilot
+
+on:
+  schedule:
+    - cron: '21 */2 * * *'
+  workflow_dispatch:
+    inputs:
+      focus:
+        description: 'Optional focus directive'
+        required: false
+        type: string
+
+concurrency:
+  group: acepilot-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  acepilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit --no-fund 2>/dev/null || npm install --no-audit --no-fund 2>/dev/null || echo "no package.json or install failed"
+
+      - name: Run AcePilot
+        id: acepilot
+        uses: anthropics/claude-code-base-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          allowed_tools: "Bash,View,Write,Edit,GlobTool,GrepTool,BatchTool"
+          prompt: |
+            You are AcePilot for altai-bay.vercel.app.
+            Stack: static generator
+            Revenue model: Affiliate + AdSense
+            Notes: AI alternatives directory, 72 pages. Build with npm run build.
+
+            PRINCIPLE: Healthy fastest revenue growth. Products must work perfectly, users must love them, zero bugs. Revenue through love, not extraction. Security is a floor.
+
+            CONSTRAINTS (non-negotiable):
+            - Analytics: Plausible + Microsoft Clarity present on every page
+            - Feedback widgets on deployed pages
+            - Analytics account: paulomdevries@gmail.com (never Mediahuis)
+            - All new domains via Cloudflare
+            - Human tasks → write [👤] entries to .claude/state/TASKS.md
+            - No hardcoded secrets, no leaked keys
+
+            BALANCE per run:
+            - Revenue/monetization: 40%
+            - UX + marketing/SEO: 25%
+            - Security + monitoring: 20%
+            - Quality (tests, performance): 10%
+            - Infrastructure: 5%
+
+            DIRECTIVE: ${{ github.event.inputs.focus || 'Scan for the highest-ROI improvement. Execute ONE meaningful change. Commit it. Apply revenue-first filter and depth-before-breadth.' }}
+
+            STEPS:
+            1. Read .claude/state/TASKS.md and .claude/state/CONTEXT.md if they exist
+            2. Pick ONE high-ROI task (revenue-first filter)
+            3. If an 80%+ in-progress task exists, finish it before starting new work
+            4. Execute: read files before editing, match existing style, keep changes focused
+            5. Verify: run lint/build if applicable
+            6. Append Behavior Log row to .claude/state/ANALYTICS.md (mandatory)
+            7. Log any human actions to .claude/state/TASKS.md as [👤] entries
+
+            REPORT: "SHIPPED: [what]. Impact: [revenue angle]. Next: [focus for next run]."
+
+      - name: Commit changes
+        if: success()
+        run: |
+          git config user.name "acepilot[bot]"
+          git config user.email "acepilot@acevault.org"
+
+          if [[ -n $(git status -s) ]]; then
+            git add -A
+            git commit -m "acepilot: automated revenue iteration ($(date -u +%Y-%m-%d))"
+            git push || echo "Push failed — likely branch protection. Changes committed locally."
+          else
+            echo "No changes produced this run."
+          fi
+
+      - name: Report status
+        if: always()
+        run: |
+          echo "=== AcePilot run complete ==="
+          echo "Status: ${{ steps.acepilot.outcome }}"
+          git log -1 --oneline 2>/dev/null || echo "No commits"
