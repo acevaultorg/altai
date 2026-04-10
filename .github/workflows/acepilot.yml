@@ -34,10 +34,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
 
       - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit --no-fund 2>/dev/null || npm install --no-audit --no-fund 2>/dev/null || echo "no package.json or install failed"
+        run: |
+          if [ -f package-lock.json ]; then npm ci --prefer-offline --no-audit --no-fund; else npm install --no-audit --no-fund; fi
 
       - name: Run AcePilot
         id: acepilot
