@@ -43,9 +43,9 @@ jobs:
       - name: Run AcePilot
         id: acepilot
         uses: anthropics/claude-code-action@v1
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          allowed_tools: "Bash,View,Write,Edit,GlobTool,GrepTool,BatchTool"
           prompt: |
             You are AcePilot for altai-bay.vercel.app.
             Stack: static generator
