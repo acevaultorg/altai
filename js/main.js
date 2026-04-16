@@ -46,11 +46,12 @@
   }
 
   // ---------- Email capture ----------
-  // Configure by setting one of these globals in a <script> on the page, or edit the consts below:
-  //   window.ALTAI_EMAIL_ENDPOINT = "https://buttondown.email/api/emails/embed-subscribe/<user>"
-  //   window.ALTAI_EMAIL_PROVIDER = "buttondown" | "convertkit" | "beehiiv" | "custom"
-  // Until one is set, the form shows a "not yet wired" message so nothing gets silently dropped.
-  const EMAIL_ENDPOINT = window.ALTAI_EMAIL_ENDPOINT || "/api/subscribe";
+  // Config is injected at build time from env vars (see scripts/build.js
+  // resolveEmailConfig + ENV-AFFILIATES.md § Email provider). Until a provider
+  // is configured, the form shows a "not yet wired" message — never a fake
+  // success, never a silent drop.
+  const EMAIL_ENDPOINT = (typeof window.ALTAI_EMAIL_ENDPOINT === "string" && window.ALTAI_EMAIL_ENDPOINT.trim()) || "";
+  const EMAIL_FIELD = (typeof window.ALTAI_EMAIL_FIELD === "string" && window.ALTAI_EMAIL_FIELD.trim()) || "email";
 
   const emailForms = document.querySelectorAll('[data-email-form]');
 
@@ -84,8 +85,8 @@
 
       try {
         const formData = new FormData();
-        formData.append("email", email);
-        const res = await fetch(EMAIL_ENDPOINT, { method: "POST", body: formData, mode: "no-cors" });
+        formData.append(EMAIL_FIELD, email);
+        await fetch(EMAIL_ENDPOINT, { method: "POST", body: formData, mode: "no-cors" });
         renderMessage(form, "Got it. Check your inbox to confirm.", "success");
 
         if (typeof window.plausible === "function") {

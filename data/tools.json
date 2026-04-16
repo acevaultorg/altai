@@ -4941,61 +4941,71 @@
           "name": "Claude",
           "why": "Best for long documents, writing, and nuanced code edits. 200K context window.",
           "price": "Free / $20/mo Pro",
-          "affiliate": "https://claude.ai"
+          "affiliate": "https://claude.ai",
+          "slug": "claude"
         },
         {
           "name": "Gemini",
           "why": "Google's flagship model. Real-time search, free Workspace integration, multimodal.",
           "price": "Free / $20/mo Advanced",
-          "affiliate": "https://gemini.google.com"
+          "affiliate": "https://gemini.google.com",
+          "slug": "gemini"
         },
         {
           "name": "Perplexity",
           "why": "Every answer cites sources. Best for research and fact-checking.",
           "price": "Free / $20/mo Pro",
-          "affiliate": "https://www.perplexity.ai/?ref=altai"
+          "affiliate": "https://www.perplexity.ai/?ref=altai",
+          "slug": "perplexity"
         },
         {
           "name": "Grok",
           "why": "Real-time X/Twitter data. No guardrails on most topics. Included with X Premium.",
           "price": "Free / $30/mo SuperGrok",
-          "affiliate": "https://grok.com"
+          "affiliate": "https://grok.com",
+          "slug": "grok"
         },
         {
           "name": "Mistral Le Chat",
           "why": "European open-weights model. Fast, free, privacy-focused.",
           "price": "Free / €14.99/mo Pro",
-          "affiliate": "https://chat.mistral.ai"
+          "affiliate": "https://chat.mistral.ai",
+          "slug": "mistral"
         },
         {
           "name": "DeepSeek",
           "why": "Chinese open-source model matching GPT-4 quality at zero cost.",
           "price": "Free",
-          "affiliate": "https://chat.deepseek.com"
+          "affiliate": "https://chat.deepseek.com",
+          "slug": "deepseek"
         },
         {
           "name": "Poe",
           "why": "One subscription to access Claude, GPT-4, Gemini, and hundreds more.",
           "price": "Free / $20/mo",
-          "affiliate": "https://poe.com"
+          "affiliate": "https://poe.com",
+          "slug": "poe"
         },
         {
           "name": "You.com",
           "why": "Model picker + built-in web search. Good all-rounder.",
           "price": "Free / $15/mo Pro",
-          "affiliate": "https://you.com"
+          "affiliate": "https://you.com",
+          "slug": "you"
         },
         {
           "name": "HuggingChat",
           "why": "Free forever. Open-source models only. No rate limits on free tier.",
           "price": "Free",
-          "affiliate": "https://huggingface.co/chat"
+          "affiliate": "https://huggingface.co/chat",
+          "slug": "huggingchat"
         },
         {
           "name": "Copilot",
           "why": "Microsoft's AI with Bing search built in. Free on Windows and Edge.",
           "price": "Free / $30/mo Pro",
-          "affiliate": "https://copilot.microsoft.com"
+          "affiliate": "https://copilot.microsoft.com",
+          "slug": "copilot"
         }
       ]
     },
@@ -5012,61 +5022,71 @@
           "name": "Midjourney",
           "why": "Highest artistic quality. Discord-based. The community benchmark.",
           "price": "$10/mo Basic",
-          "affiliate": "https://www.midjourney.com/?ref=altai"
+          "affiliate": "https://www.midjourney.com/?ref=altai",
+          "slug": "midjourney"
         },
         {
           "name": "DALL·E 3",
           "why": "Best prompt adherence. Integrated into ChatGPT. No separate account needed.",
           "price": "Included with ChatGPT Plus ($20/mo)",
-          "affiliate": "https://openai.com/dall-e-3"
+          "affiliate": "https://openai.com/dall-e-3",
+          "slug": "dalle"
         },
         {
           "name": "Adobe Firefly",
           "why": "Commercially safe — trained on licensed Adobe Stock images only.",
           "price": "Free (25 credits) / $4.99/mo",
-          "affiliate": "https://firefly.adobe.com"
+          "affiliate": "https://firefly.adobe.com",
+          "slug": "adobe-firefly"
         },
         {
           "name": "Stable Diffusion",
           "why": "Open-source, self-hostable, unlimited free generations. Maximum control.",
           "price": "Free (self-hosted)",
-          "affiliate": "https://stability.ai"
+          "affiliate": "https://stability.ai",
+          "slug": "stable-diffusion"
         },
         {
           "name": "Ideogram",
           "why": "Best at rendering text inside images — logos, signs, posters.",
           "price": "Free (10/day) / $8/mo",
-          "affiliate": "https://ideogram.ai/?ref=altai"
+          "affiliate": "https://ideogram.ai/?ref=altai",
+          "slug": "ideogram"
         },
         {
           "name": "Leonardo AI",
           "why": "Fine-tune models on your own style. Game asset specialists.",
           "price": "Free (150/day) / $12/mo",
-          "affiliate": "https://leonardo.ai/?via=altai"
+          "affiliate": "https://leonardo.ai/?via=altai",
+          "slug": "leonardo-ai"
         },
         {
           "name": "Canva AI",
           "why": "Non-designer friendly. Integrated into Canva's full design suite.",
           "price": "Free / $14.99/mo Pro",
-          "affiliate": "https://www.canva.com/ai-image-generator?fref=altai"
+          "affiliate": "https://www.canva.com/ai-image-generator?fref=altai",
+          "slug": "canva-ai"
         },
         {
           "name": "Recraft",
           "why": "Vector-native AI image generation. Designers love it.",
           "price": "Free (50/day) / $12/mo",
-          "affiliate": "https://www.recraft.ai/?ref=altai"
+          "affiliate": "https://www.recraft.ai/?ref=altai",
+          "slug": "recraft"
         },
         {
           "name": "Bing Image Creator",
           "why": "Free unlimited DALL·E 3 images via Microsoft. No account needed.",
           "price": "Free",
-          "affiliate": "https://www.bing.com/images/create"
+          "affiliate": "https://www.bing.com/images/create",
+          "slug": "bing-image"
         },
         {
           "name": "Playground AI",
           "why": "Generous free tier, community prompts, multi-model support.",
           "price": "Free (100/day) / $12/mo",
-          "affiliate": "https://playground.com"
+          "affiliate": "https://playground.com",
+          "slug": "playground-ai"
         }
       ]
     },
@@ -5083,61 +5103,71 @@
           "name": "Cursor",
           "why": "Best AI IDE for existing codebases. Multi-file context, Composer for refactors.",
           "price": "Free (2 weeks) / $20/mo Pro",
-          "affiliate": "https://cursor.com/referral?ref=altai"
+          "affiliate": "https://cursor.com/referral?ref=altai",
+          "slug": "cursor"
         },
         {
           "name": "GitHub Copilot",
           "why": "Lowest friction. Works in VS Code, JetBrains, Neovim. Free for students.",
           "price": "Free / $10/mo Individual",
-          "affiliate": "https://copilot.github.com"
+          "affiliate": "https://copilot.github.com",
+          "slug": "copilot"
         },
         {
           "name": "Bolt",
           "why": "Build a full-stack app from one prompt. In-browser Node.js, one-click Netlify deploy.",
           "price": "Free / $20/mo",
-          "affiliate": "https://bolt.new"
+          "affiliate": "https://bolt.new",
+          "slug": "bolt"
         },
         {
           "name": "Claude",
           "why": "Best AI for code review, architecture discussions, and complex refactors.",
           "price": "Free / $20/mo Pro",
-          "affiliate": "https://claude.ai"
+          "affiliate": "https://claude.ai",
+          "slug": "claude"
         },
         {
           "name": "Windsurf",
           "why": "Codeium's IDE. Free alternative to Cursor with Cascade multi-file agent.",
           "price": "Free / $15/mo Pro",
-          "affiliate": "https://codeium.com/windsurf"
+          "affiliate": "https://codeium.com/windsurf",
+          "slug": "windsurf"
         },
         {
           "name": "v0 by Vercel",
           "why": "Best for generating React and Next.js UI components. One-click Vercel deploy.",
           "price": "Free / $20/mo",
-          "affiliate": "https://v0.dev"
+          "affiliate": "https://v0.dev",
+          "slug": "v0"
         },
         {
           "name": "Lovable",
           "why": "Natural language to full-stack app. Best for product builders, not developers.",
           "price": "Free / $20/mo",
-          "affiliate": "https://lovable.dev"
+          "affiliate": "https://lovable.dev",
+          "slug": "lovable"
         },
         {
           "name": "Replit Agent",
           "why": "Coding + hosting in one. Best for prototypes and demos.",
           "price": "Free / $25/mo",
-          "affiliate": "https://replit.com"
+          "affiliate": "https://replit.com",
+          "slug": "replit"
         },
         {
           "name": "Aider",
           "why": "Open-source CLI coding agent. Power users only — maximum control.",
           "price": "Free (open-source)",
-          "affiliate": "https://aider.chat"
+          "affiliate": "https://aider.chat",
+          "slug": "aider"
         },
         {
           "name": "Amazon CodeWhisperer",
           "why": "Free for individuals. Best if you're already in AWS ecosystem.",
           "price": "Free / $19/mo Pro",
-          "affiliate": "https://aws.amazon.com/codewhisperer"
+          "affiliate": "https://aws.amazon.com/codewhisperer",
+          "slug": "codewhisperer"
         }
       ]
     },
@@ -5154,61 +5184,71 @@
           "name": "Claude",
           "why": "GPT-4 quality chat, writing, and code. Free tier is genuinely generous.",
           "price": "Free (Claude 3.5 Sonnet)",
-          "affiliate": "https://claude.ai"
+          "affiliate": "https://claude.ai",
+          "slug": "claude"
         },
         {
           "name": "Gemini",
           "why": "Google's best model, free. Includes real-time web search and Google Docs integration.",
           "price": "Free (Gemini 2.0 Flash)",
-          "affiliate": "https://gemini.google.com"
+          "affiliate": "https://gemini.google.com",
+          "slug": "gemini"
         },
         {
           "name": "Perplexity",
           "why": "Research AI with citations. Free tier covers most daily research needs.",
           "price": "Free (5 Pro searches/day)",
-          "affiliate": "https://www.perplexity.ai/?ref=altai"
+          "affiliate": "https://www.perplexity.ai/?ref=altai",
+          "slug": "perplexity"
         },
         {
           "name": "Stable Diffusion",
           "why": "Free unlimited AI image generation. Run locally or use free Hugging Face demo.",
           "price": "Free (self-hosted)",
-          "affiliate": "https://stability.ai"
+          "affiliate": "https://stability.ai",
+          "slug": "stable-diffusion"
         },
         {
           "name": "Ideogram",
           "why": "Best free AI image generator for text-in-image. 10 free images/day.",
           "price": "Free (10/day)",
-          "affiliate": "https://ideogram.ai/?ref=altai"
+          "affiliate": "https://ideogram.ai/?ref=altai",
+          "slug": "ideogram"
         },
         {
           "name": "GitHub Copilot",
           "why": "Free for students and open source contributors. AI coding in VS Code.",
           "price": "Free for students",
-          "affiliate": "https://copilot.github.com"
+          "affiliate": "https://copilot.github.com",
+          "slug": "copilot"
         },
         {
           "name": "HuggingChat",
           "why": "Free forever. Access to Llama, Mixtral, Command R. No rate limit.",
           "price": "Free",
-          "affiliate": "https://huggingface.co/chat"
+          "affiliate": "https://huggingface.co/chat",
+          "slug": "huggingchat"
         },
         {
           "name": "Kling AI",
           "why": "Generous free video generation tier — better than Runway's free plan.",
           "price": "Free (66 credits/month)",
-          "affiliate": "https://klingai.com/?ref=altai"
+          "affiliate": "https://klingai.com/?ref=altai",
+          "slug": "kling"
         },
         {
           "name": "ElevenLabs",
           "why": "Professional voice cloning and TTS. Free tier: 10,000 characters/month.",
           "price": "Free (10K chars/mo)",
-          "affiliate": "https://elevenlabs.io/?via=altai"
+          "affiliate": "https://elevenlabs.io/?via=altai",
+          "slug": "elevenlabs"
         },
         {
           "name": "Bolt",
           "why": "Build and deploy a full-stack web app for free. Limited daily tokens but genuinely useful.",
           "price": "Free (150K tokens/day)",
-          "affiliate": "https://bolt.new"
+          "affiliate": "https://bolt.new",
+          "slug": "bolt"
         }
       ]
     }

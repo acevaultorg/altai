@@ -29,14 +29,18 @@ Follow in order. Each item tells you exactly what to change and where.
 | P2 | Perplexity | — | No public program yet | — |
 | P2 | ChatGPT / Claude / Gemini | — | No public affiliate | Use for traffic, not revenue |
 
-**Process for each approved program:**
+**Process for each approved program (recommended — via env vars):**
+
 1. Log into Impact / PartnerStack / the vendor dashboard
-2. Generate a tracking link (set SubID to `altai`)
-3. Open `data/tools.json`
-4. Find the tool and every alternative that references it
-5. Replace the `affiliate` URL with the tracking link — keep UTM params or strip them, per program rules
-6. Run `npm run build`
-7. Redeploy
+2. Generate a tracking link; include `{source}` or `{campaign}` placeholder in the subid/clickref param if the program supports one (see **ENV-AFFILIATES.md** for examples)
+3. Go to Vercel → Project → Settings → Environment Variables
+4. Add `ALTAI_AFFILIATE_<SLUG>` — see the slug → env-var table in **ENV-AFFILIATES.md** (e.g. `ALTAI_AFFILIATE_JASPER`, `ALTAI_AFFILIATE_COPYAI`, `ALTAI_AFFILIATE_LEONARDO_AI`)
+5. If the program strips extra query params from its tracking URL, also add `ALTAI_AFFILIATE_<SLUG>_NO_UTM=1`
+6. Redeploy — Vercel rebuilds and the new URL is baked into every page that features the tool (its own page, alternative listings on other tools, compare pages, blog posts — all at once)
+
+That's it. No code change, no `tools.json` edit, no PR. One env var per approved program.
+
+**Alternative — edit `tools.json` directly:** still works. Pick env vars for anything you'll want to swap later (rotating tracking URLs, changing subid formats).
 
 **Budget realistic:** Expect 3–7 days per program for approval. Start all applications in parallel on day 1.
 
@@ -51,20 +55,42 @@ Follow in order. Each item tells you exactly what to change and where.
 - **Beehiiv** (https://beehiiv.com) — free up to 2,500 subs, has a referral/growth stack
 - **ConvertKit** (https://convertkit.com) — free up to 1,000 subs, most marketer-friendly
 
-**Wire it (Buttondown example):**
+**Wire it — set env vars on Vercel, then redeploy.** No file edits required.
 
-1. Create an account and note your subdomain (e.g. `altai`)
-2. Add a new file `js/config.js`:
-   ```js
-   window.ALTAI_EMAIL_ENDPOINT = "https://buttondown.email/api/emails/embed-subscribe/altai";
-   ```
-3. In each of `templates/index.html`, `templates/tool.html`, `templates/compare.html`, add above `<script src="/js/main.js" defer></script>`:
-   ```html
-   <script src="/js/config.js"></script>
-   ```
-4. Run `npm run build`
-5. Redeploy
-6. Test by submitting the form on the live homepage
+Pick the block below for your chosen provider and add those variables in Vercel → Project → Settings → Environment Variables:
+
+**Buttondown**
+```
+ALTAI_EMAIL_PROVIDER=buttondown
+ALTAI_EMAIL_BUTTONDOWN_USER=<your_buttondown_username>
+```
+
+**ConvertKit**
+```
+ALTAI_EMAIL_PROVIDER=convertkit
+ALTAI_EMAIL_CONVERTKIT_FORM_ID=<your_form_id>
+```
+(Find form ID: Form → embed code → the digits in `/forms/<digits>/subscribe`.)
+
+**Beehiiv**
+```
+ALTAI_EMAIL_PROVIDER=beehiiv
+ALTAI_EMAIL_BEEHIIV_PUB_ID=<your_publication_id>
+```
+
+**Custom endpoint** (self-hosted, Mailgun, SendGrid, etc.)
+```
+ALTAI_EMAIL_PROVIDER=custom
+ALTAI_EMAIL_CUSTOM_ENDPOINT=https://your.api/subscribe
+ALTAI_EMAIL_CUSTOM_FIELD=email   # optional — the POST field name, default "email"
+```
+
+**Then:**
+1. Redeploy (Vercel rebuilds and bakes the endpoint into every page)
+2. Test by submitting the homepage form — you should see "Got it. Check your inbox to confirm."
+3. Check your provider dashboard for the test signup
+
+If `ALTAI_EMAIL_PROVIDER` is unset or empty, the form stays in "not yet wired" mode — no silent drops.
 
 ---
 

@@ -89,7 +89,7 @@ const categoryName = (data, slug) => {
 
 // ---------- Meta / schema builders ----------
 
-const commonHead = ({ title, description, canonical, ogImage, ogType = "website", schema, plausibleDomain }) => {
+const commonHead = ({ title, description, canonical, ogImage, ogType = "website", schema, plausibleDomain, emailConfig = "" }) => {
   const schemas = Array.isArray(schema) ? schema : [schema];
   const schemaBlocks = schemas
     .map((s) => `<script type="application/ld+json">${jsonLd(s)}</script>`)
@@ -133,6 +133,7 @@ window.addEventListener('unhandledrejection', function(e) {
   ${schemaBlocks}
   ${plausibleTag}
   ${errorMonitor}
+  ${emailConfig}
 `.trim();
 };
 
@@ -148,17 +149,109 @@ const breadcrumbSchema = (crumbs) => ({
   })),
 });
 
-// Affiliate URL builder — appends UTM params so clicks are attributable even before a proper affiliate program is wired.
-const affiliateUrl = (rawUrl, source, medium = "altai") => {
+// Email provider config — baked into every page head at build time from env vars.
+//
+// Operator flow:
+//   1. Pick a provider: Buttondown / Beehiiv / ConvertKit / custom.
+//   2. Set ALTAI_EMAIL_PROVIDER + the one identifier that provider needs:
+//        ALTAI_EMAIL_PROVIDER=buttondown      ALTAI_EMAIL_BUTTONDOWN_USER=<username>
+//        ALTAI_EMAIL_PROVIDER=convertkit      ALTAI_EMAIL_CONVERTKIT_FORM_ID=<form_id>
+//        ALTAI_EMAIL_PROVIDER=beehiiv         ALTAI_EMAIL_BEEHIIV_PUB_ID=<pub_id>
+//        ALTAI_EMAIL_PROVIDER=custom          ALTAI_EMAIL_CUSTOM_ENDPOINT=<url>
+//                                             ALTAI_EMAIL_CUSTOM_FIELD=email       (optional)
+//   3. Redeploy. Full spec: /ENV-AFFILIATES.md (§ Email provider).
+//
+// If no provider is set → js/main.js shows "not wired yet" without pretending to succeed.
+const resolveEmailConfig = (site) => {
+  const provider = String(
+    process.env.ALTAI_EMAIL_PROVIDER || site.email_provider || ""
+  ).toLowerCase().trim();
+
+  let endpoint = "";
+  let field = "email";
+
+  if (provider === "buttondown") {
+    const user = (process.env.ALTAI_EMAIL_BUTTONDOWN_USER || "").trim();
+    if (user) endpoint = `https://buttondown.email/api/emails/embed-subscribe/${encodeURIComponent(user)}`;
+  } else if (provider === "convertkit") {
+    const formId = (process.env.ALTAI_EMAIL_CONVERTKIT_FORM_ID || "").trim();
+    if (formId) {
+      endpoint = `https://app.convertkit.com/forms/${encodeURIComponent(formId)}/subscriptions`;
+      field = "email_address";
+    }
+  } else if (provider === "beehiiv") {
+    const pubId = (process.env.ALTAI_EMAIL_BEEHIIV_PUB_ID || "").trim();
+    if (pubId) {
+      endpoint = `https://subscribe-forms.beehiiv.com/${encodeURIComponent(pubId)}`;
+    }
+  } else if (provider === "custom") {
+    endpoint = (process.env.ALTAI_EMAIL_CUSTOM_ENDPOINT || "").trim();
+    const customField = (process.env.ALTAI_EMAIL_CUSTOM_FIELD || "").trim();
+    if (customField) field = customField;
+  }
+
+  return { provider, endpoint, field };
+};
+
+const emailConfigScript = (site) => {
+  const cfg = resolveEmailConfig(site);
+  if (!cfg.endpoint) return ""; // unset → main.js shows "not wired"
+  // Inline config. Safe: strings are JSON-serialized so any quotes/backslashes are escaped.
+  return `<script>window.ALTAI_EMAIL_ENDPOINT=${JSON.stringify(cfg.endpoint)};window.ALTAI_EMAIL_FIELD=${JSON.stringify(cfg.field)};window.ALTAI_EMAIL_PROVIDER=${JSON.stringify(cfg.provider)};</script>`;
+};
+
+// Affiliate URL builder.
+//
+// Priority:
+//   1. Env override — ALTAI_AFFILIATE_<SLUG> replaces the base URL when set.
+//      (Slug: uppercase, dashes → underscores. e.g. `leonardo-ai` → ALTAI_AFFILIATE_LEONARDO_AI.)
+//      Env values may contain {source}, {campaign}, {medium} placeholders which
+//      are substituted URI-encoded — useful for programs that require a
+//      subid/clickref parameter (Impact, PartnerStack, ShareASale).
+//   2. Raw URL from tools.json — used when no env var is set.
+//   3. UTM layering — utm_source=altai, utm_medium=[medium], utm_campaign=[source]
+//      is applied on top unless opted out via ALTAI_AFFILIATE_<SLUG>_NO_UTM=1
+//      (some programs strip/forbid extra query params on their tracking URLs).
+//
+// Operator flow once approved for a program:
+//   • set the tracking URL as a Vercel env var (e.g. ALTAI_AFFILIATE_JASPER)
+//   • rebuild
+//   That's it — no code change, no tools.json edit.
+//
+// Slug map + supported placeholders documented in /ENV-AFFILIATES.md.
+const ENV_AFFILIATE_PREFIX = "ALTAI_AFFILIATE_";
+
+const envVarName = (slug) =>
+  ENV_AFFILIATE_PREFIX + String(slug || "").replace(/-/g, "_").toUpperCase();
+
+const affiliateUrl = (rawUrl, affiliateSlug, source, medium = "altai") => {
   if (!rawUrl || typeof rawUrl !== "string") return rawUrl;
+
+  let base = rawUrl;
+  let stripUtm = false;
+
+  if (affiliateSlug) {
+    const envVal = process.env[envVarName(affiliateSlug)];
+    if (envVal && typeof envVal === "string" && envVal.trim()) {
+      base = envVal.trim()
+        .replace(/\{source\}/g, encodeURIComponent(source || "directory"))
+        .replace(/\{campaign\}/g, encodeURIComponent(source || "directory"))
+        .replace(/\{medium\}/g, encodeURIComponent(medium));
+      const noUtmVal = process.env[envVarName(affiliateSlug) + "_NO_UTM"];
+      if (noUtmVal && /^(1|true|yes|on)$/i.test(noUtmVal.trim())) stripUtm = true;
+    }
+  }
+
+  if (stripUtm) return base;
+
   try {
-    const u = new URL(rawUrl);
+    const u = new URL(base);
     if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", "altai");
     if (!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", medium);
     if (!u.searchParams.has("utm_campaign")) u.searchParams.set("utm_campaign", source || "directory");
     return u.toString();
   } catch (_) {
-    return rawUrl;
+    return base;
   }
 };
 
@@ -275,6 +368,7 @@ const buildIndex = (data, tmpl) => {
     ogType: "website",
     schema: [websiteSchema, orgSchema],
     plausibleDomain: data.site.plausible_domain,
+    emailConfig: emailConfigScript(data.site),
   });
 
   // Trending comparisons — pick up to 8 highest-search-volume tools and pair with their first comparison
@@ -354,7 +448,7 @@ const buildToolPage = (data, tool, tmpl) => {
       <div class="alt-cta">
         <span class="price">${esc(a.price)}</span>
         ${freeTrialBadge}
-        <a class="btn" href="${esc(affiliateUrl(a.affiliate, tool.slug))}" target="_blank" rel="noopener sponsored" data-affiliate="${esc(a.slug)}">${ctaLabel}</a>
+        <a class="btn" href="${esc(affiliateUrl(a.affiliate, a.slug, tool.slug))}" target="_blank" rel="noopener sponsored" data-affiliate="${esc(a.slug)}">${ctaLabel}</a>
       </div>
     </article>`;
     })
@@ -371,7 +465,7 @@ const buildToolPage = (data, tool, tmpl) => {
       return `<tr${isBest ? ' class="qc-best"' : ""}>
         <td class="qc-name">${esc(a.name)}</td>
         <td class="qc-price">${esc(a.price)} ${freeLabel}</td>
-        <td class="qc-cta"><a href="${esc(affiliateUrl(a.affiliate, tool.slug))}" target="_blank" rel="noopener sponsored" data-affiliate="${esc(a.slug)}">Try ${esc(a.name)} →</a></td>
+        <td class="qc-cta"><a href="${esc(affiliateUrl(a.affiliate, a.slug, tool.slug))}" target="_blank" rel="noopener sponsored" data-affiliate="${esc(a.slug)}">Try ${esc(a.name)} →</a></td>
       </tr>`;
     })
     .join("");
@@ -475,6 +569,7 @@ const buildToolPage = (data, tool, tmpl) => {
     ogType: "website",
     schema: [itemListSchema, crumbSchema, faqSchema],
     plausibleDomain: data.site.plausible_domain,
+    emailConfig: emailConfigScript(data.site),
   });
 
   return render(tmpl, {
@@ -487,7 +582,7 @@ const buildToolPage = (data, tool, tmpl) => {
     tool_summary: tool.summary,
     tool_headline: tool.headline,
     tool_price: priceBadge(tool),
-    tool_affiliate: affiliateUrl(tool.affiliate.url, tool.slug, "reference"),
+    tool_affiliate: affiliateUrl(tool.affiliate.url, tool.slug, tool.slug, "reference"),
     category_name: categoryName(data, tool.category),
     category_slug: tool.category,
     alt_count: tool.alternatives.length,
@@ -499,7 +594,7 @@ const buildToolPage = (data, tool, tmpl) => {
     quick_compare_html: quickCompareHtml,
     searches_per_month: tool.searches_per_month.toLocaleString(),
     best_alt_name: tool.alternatives[0]?.name || "",
-    best_alt_affiliate: affiliateUrl(tool.alternatives[0]?.affiliate, tool.slug),
+    best_alt_affiliate: affiliateUrl(tool.alternatives[0]?.affiliate, tool.alternatives[0]?.slug, tool.slug),
   });
 };
 
@@ -611,16 +706,16 @@ const buildComparePage = (data, cmp, tmpl) => {
   const priceB = Number(toolB.pricing.paid_from) || 9999;
   let winner, winnerAffiliate, winnerSlug, winnerReason;
   if (scoreA > scoreB) {
-    winner = toolA; winnerAffiliate = affiliateUrl(toolA.affiliate.url, `vs-${toolB.slug}-winner`); winnerSlug = toolA.slug;
+    winner = toolA; winnerAffiliate = affiliateUrl(toolA.affiliate.url, toolA.slug, `vs-${toolB.slug}-winner`); winnerSlug = toolA.slug;
     winnerReason = toolA.pricing.free && Number(toolA.pricing.paid_from) === 0 ? "Fully free — no card required." : `Free tier available. Paid from $${toolA.pricing.paid_from}/mo.`;
   } else if (scoreB > scoreA) {
-    winner = toolB; winnerAffiliate = affiliateUrl(toolB.affiliate.url, `vs-${toolA.slug}-winner`); winnerSlug = toolB.slug;
+    winner = toolB; winnerAffiliate = affiliateUrl(toolB.affiliate.url, toolB.slug, `vs-${toolA.slug}-winner`); winnerSlug = toolB.slug;
     winnerReason = toolB.pricing.free && Number(toolB.pricing.paid_from) === 0 ? "Fully free — no card required." : `Free tier available. Paid from $${toolB.pricing.paid_from}/mo.`;
   } else if (priceA <= priceB) {
-    winner = toolA; winnerAffiliate = affiliateUrl(toolA.affiliate.url, `vs-${toolB.slug}-winner`); winnerSlug = toolA.slug;
+    winner = toolA; winnerAffiliate = affiliateUrl(toolA.affiliate.url, toolA.slug, `vs-${toolB.slug}-winner`); winnerSlug = toolA.slug;
     winnerReason = `Starts at $${toolA.pricing.paid_from}/mo — better value for most users.`;
   } else {
-    winner = toolB; winnerAffiliate = affiliateUrl(toolB.affiliate.url, `vs-${toolA.slug}-winner`); winnerSlug = toolB.slug;
+    winner = toolB; winnerAffiliate = affiliateUrl(toolB.affiliate.url, toolB.slug, `vs-${toolA.slug}-winner`); winnerSlug = toolB.slug;
     winnerReason = `Starts at $${toolB.pricing.paid_from}/mo — better value for most users.`;
   }
 
@@ -640,6 +735,7 @@ const buildComparePage = (data, cmp, tmpl) => {
     ogType: "article",
     schema: [articleSchema, crumbSchema, faqSchema],
     plausibleDomain: data.site.plausible_domain,
+    emailConfig: emailConfigScript(data.site),
   });
 
   return render(tmpl, {
@@ -652,13 +748,13 @@ const buildComparePage = (data, cmp, tmpl) => {
     tool_a_vendor: toolA.vendor,
     tool_a_summary: toolA.summary,
     tool_a_price: priceBadge(toolA),
-    tool_a_affiliate: affiliateUrl(toolA.affiliate.url, `vs-${toolB.slug}`),
+    tool_a_affiliate: affiliateUrl(toolA.affiliate.url, toolA.slug, `vs-${toolB.slug}`),
     tool_a_slug: toolA.slug,
     tool_b_name: toolB.name,
     tool_b_vendor: toolB.vendor,
     tool_b_summary: toolB.summary,
     tool_b_price: priceBadge(toolB),
-    tool_b_affiliate: affiliateUrl(toolB.affiliate.url, `vs-${toolA.slug}`),
+    tool_b_affiliate: affiliateUrl(toolB.affiliate.url, toolB.slug, `vs-${toolA.slug}`),
     tool_b_slug: toolB.slug,
     compare_table_html: table,
     verdict: cmp.headline,
@@ -744,20 +840,32 @@ const buildBlogIndex = (data) => {
 };
 
 const buildBlogPost = (data, post) => {
+  // Blog post tool entries don't carry a slug — derive one from name so affiliate
+  // env overrides (ALTAI_AFFILIATE_<SLUG>) and UTM attribution still apply.
+  const slugify = (s) =>
+    String(s || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
   const toolLinksHtml = (post.tools || [])
     .map(
-      (t, i) => `
-    <div class="alt-card" data-affiliate="${esc(t.affiliate)}">
+      (t, i) => {
+        const tSlug = t.slug || slugify(t.name);
+        const href = affiliateUrl(t.affiliate, tSlug, `blog-${post.slug}`);
+        return `
+    <div class="alt-card" data-affiliate="${esc(tSlug)}">
       <div class="alt-rank">${i + 1}</div>
       <div class="alt-body">
         <h3 class="alt-name">${esc(t.name)}</h3>
         <p class="alt-why">${esc(t.why)}</p>
         <div class="alt-meta">
           <span class="price-text">${esc(t.price)}</span>
-          <a class="btn btn-sm" href="${esc(t.affiliate)}" target="_blank" rel="noopener nofollow sponsored" data-affiliate="${esc(t.affiliate)}">Visit ${esc(t.name)} →</a>
+          <a class="btn btn-sm" href="${esc(href)}" target="_blank" rel="noopener nofollow sponsored" data-affiliate="${esc(tSlug)}">Visit ${esc(t.name)} →</a>
         </div>
       </div>
-    </div>`
+    </div>`;
+      }
     )
     .join("\n");
 
