@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AltAI — AI Tool Guides</title>
+    <link>https://thealtai.com/blog/</link>
+    <atom:link href="https://thealtai.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>A curated directory of alternatives to the most popular AI tools. 200 options, compared on price, speed, and capability. No fluff.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Best ChatGPT Alternatives in 2026 (Free &amp; Paid)</title>
+      <link>https://thealtai.com/blog/best-chatgpt-alternatives-2026.html</link>
+      <guid isPermaLink="true">https://thealtai.com/blog/best-chatgpt-alternatives-2026.html</guid>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Chatbots</category>
+      <description>10 tested ChatGPT alternatives ranked by writing quality, speed, and price. Includes free options that match GPT-4o on most tasks.</description>
+    </item>
+    <item>
+      <title>Best AI Image Generators in 2026 — Ranked &amp; Compared</title>
+      <link>https://thealtai.com/blog/best-ai-image-generators-2026.html</link>
+      <guid isPermaLink="true">https://thealtai.com/blog/best-ai-image-generators-2026.html</guid>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <category>Image Generation</category>
+      <description>The 10 best AI image generators tested side-by-side. Which creates the most realistic photos? Best for art? Best free option? We answer all three.</description>
+    </item>
+    <item>
+      <title>Best AI Coding Assistants in 2026 — Ranked by Developers</title>
+      <link>https://thealtai.com/blog/best-ai-coding-tools-2026.html</link>
+      <guid isPermaLink="true">https://thealtai.com/blog/best-ai-coding-tools-2026.html</guid>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <category>Coding Assistants</category>
+      <description>We compared the 10 best AI coding tools on real-world tasks: bug fixing, code generation, refactoring, and full-stack app building. Here&apos;s the honest ranking.</description>
+    </item>
+    <item>
+      <title>Best Free AI Tools in 2026 — No Credit Card Required</title>
+      <link>https://thealtai.com/blog/best-free-ai-tools-2026.html</link>
+      <guid isPermaLink="true">https://thealtai.com/blog/best-free-ai-tools-2026.html</guid>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <category>Free AI Tools</category>
+      <description>The 10 most powerful AI tools you can use completely free in 2026. No trial, no credit card, no catch. We list the genuinely free options for chat, images, code, and video.</description>
+    </item>
+  </channel>
+</rss>

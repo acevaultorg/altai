@@ -719,6 +719,7 @@ const buildBlogIndex = (data) => {
   <title>AI Tools Blog — Guides, Comparisons &amp; Reviews | AltAI</title>
   <meta name="description" content="In-depth guides on the best AI tools for every use case. Updated 2026.">
   <link rel="canonical" href="${esc(data.site.url)}/blog/">
+  <link rel="alternate" type="application/rss+xml" title="${esc(data.site.name)} Blog RSS" href="${esc(data.site.url)}/rss.xml">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0a0a0f">
   <meta name="color-scheme" content="dark light">
@@ -816,6 +817,7 @@ const buildBlogPost = (data, post) => {
   <title>${esc(post.title)} | AltAI</title>
   <meta name="description" content="${esc(post.description)}">
   <link rel="canonical" href="${esc(data.site.url)}/blog/${esc(post.slug)}.html">
+  <link rel="alternate" type="application/rss+xml" title="${esc(data.site.name)} Blog RSS" href="${esc(data.site.url)}/rss.xml">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0a0a0f">
   <meta name="color-scheme" content="dark light">
@@ -926,6 +928,45 @@ Allow: /
 Sitemap: ${data.site.url}/sitemap.xml
 `;
 
+// RFC-822 date formatter for RSS <pubDate>
+const rssDate = (dateStr) => {
+  const d = new Date(dateStr);
+  return isNaN(d.getTime()) ? new Date().toUTCString() : d.toUTCString();
+};
+
+// Blog RSS feed — serves /rss.xml for reader/aggregator autodiscovery.
+// Included posts are ordered newest-first by `published` (descending).
+const buildBlogRss = (data) => {
+  const posts = (data.blog || [])
+    .slice()
+    .sort((a, b) => String(b.published || "").localeCompare(String(a.published || "")));
+  const latestDate = posts[0]?.published || data.site.updated;
+  const items = posts
+    .map(
+      (p) => `    <item>
+      <title>${xmlEsc(p.title)}</title>
+      <link>${xmlEsc(data.site.url)}/blog/${xmlEsc(p.slug)}.html</link>
+      <guid isPermaLink="true">${xmlEsc(data.site.url)}/blog/${xmlEsc(p.slug)}.html</guid>
+      <pubDate>${xmlEsc(rssDate(p.published))}</pubDate>
+      <category>${xmlEsc(p.category || "AI Tools")}</category>
+      <description>${xmlEsc(p.description || "")}</description>
+    </item>`
+    )
+    .join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${xmlEsc(data.site.name)} — AI Tool Guides</title>
+    <link>${xmlEsc(data.site.url)}/blog/</link>
+    <atom:link href="${xmlEsc(data.site.url)}/rss.xml" rel="self" type="application/rss+xml" />
+    <description>${xmlEsc(data.site.description)}</description>
+    <language>en-us</language>
+    <lastBuildDate>${xmlEsc(rssDate(latestDate))}</lastBuildDate>
+${items}
+  </channel>
+</rss>`;
+};
+
 const buildManifest = (data) => JSON.stringify(
   {
     name: data.site.name,
@@ -1034,7 +1075,12 @@ function main() {
   writeFile(path.join(ROOT, "manifest.json"), buildManifest(data));
   writeFile(path.join(ROOT, "favicon.svg"), buildFaviconSvg());
   writeFile(path.join(ROOT, "404.html"), build404(data));
-  console.log("  ✓ sitemap.xml, robots.txt, manifest.json, favicon.svg, 404.html\n");
+  if (posts.length > 0) {
+    writeFile(path.join(ROOT, "rss.xml"), buildBlogRss(data));
+    console.log("  ✓ sitemap.xml, robots.txt, manifest.json, favicon.svg, 404.html, rss.xml\n");
+  } else {
+    console.log("  ✓ sitemap.xml, robots.txt, manifest.json, favicon.svg, 404.html\n");
+  }
 
   const totalPages = 1 + data.tools.length + data.comparisons.length + posts.length + (posts.length > 0 ? 1 : 0);
   console.log(`Done. Generated ${totalPages} indexable pages.`);
