@@ -49,3 +49,19 @@ console will scream.
 **Rationale:** Twitter/X and LinkedIn render SVG OG images fine. Facebook/Slack prefer PNG
 but will fall back to text preview. A real 1200×630 PNG is documented as a post-launch
 task — not a launch blocker.
+
+## 2026-04-17 — Sitemap lastmod refresh to prompt Google re-crawl
+**Decision:** Bump `data.site.updated` from 2026-04-08 → 2026-04-17 and rebuild all 88 pages.
+**Rationale:** Live site at thealtai.com had stale sitemap `<lastmod>` dates 9 days old.
+Google uses lastmod as a crawl-priority signal. Refreshing costs nothing (pure string
+replacement + regeneration) but nudges re-indexing. Revenue-adjacent but small absolute
+impact — Oracle archetype `SEO_page_addition × 0.15`, current project weekly revenue = $0
+until affiliate IDs wired. Compounding value arrives when those IDs land.
+
+## 2026-04-17 — TASKS.md reconciled with live deploy state
+**Decision:** Mark production URL + Plausible tasks as DONE (were still `[👤]` in TASKS.md).
+**Rationale:** Live site verified: thealtai.com serves HTTP 200, custom domain active,
+Plausible script loads with `data-domain="thealtai.com"`. State file was lying —
+`status-report-honesty.md` requires state accuracy. Remaining P0 blockers narrowed to two
+genuine ones: affiliate KYC + email provider wiring. Both operator-blocked (platform auth),
+cannot be automated.
