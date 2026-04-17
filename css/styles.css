@@ -679,6 +679,91 @@ header {
   text-decoration: underline;
 }
 
+/* Trust pages (about/privacy/terms/contact) */
+.trust-content {
+  max-width: 48rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.trust-content p,
+.trust-content ul,
+.trust-content ol {
+  margin: 0 0 1.25rem;
+}
+.trust-content ul,
+.trust-content ol {
+  padding-left: 1.5rem;
+}
+.trust-content li {
+  margin-bottom: 0.4rem;
+}
+.trust-content h2 {
+  color: var(--text, #f0f0f0);
+  font-size: 1.35rem;
+  margin: 2.25rem 0 0.9rem;
+  letter-spacing: -0.01em;
+}
+.trust-content a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.trust-content code {
+  background: rgba(255,255,255,0.08);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+.trust-content .trust-lead {
+  font-size: 1.075rem;
+  color: var(--text, #f0f0f0);
+}
+.trust-content .trust-note {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: -0.5rem;
+}
+.trust-content .btn {
+  margin-top: 1rem;
+}
+
+/* Social share row on blog posts */
+.share-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border, rgba(255,255,255,0.12));
+}
+.share-row-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-right: 0.25rem;
+}
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--border, rgba(255,255,255,0.15));
+  border-radius: 999px;
+  color: var(--text, #f0f0f0);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.15s, border-color 0.15s;
+  background: none;
+  cursor: pointer;
+}
+.share-btn:hover,
+.share-btn:focus-visible {
+  background: var(--accent, #7C3AED);
+  border-color: var(--accent, #7C3AED);
+  color: #fff;
+}
+
 @media (max-width: 640px) {
   .alt-item {
     grid-template-columns: 2rem 1fr;

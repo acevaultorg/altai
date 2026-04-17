@@ -128,6 +128,46 @@
     });
   });
 
+  // ---------- Social share — copy link ----------
+  document.querySelectorAll('.share-btn[data-share="copy"]').forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const url = window.location.href;
+      const original = btn.textContent;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          const ta = document.createElement("textarea");
+          ta.value = url;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "absolute";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+        }
+        btn.textContent = "Copied ✓";
+      } catch (_) {
+        btn.textContent = "Copy failed";
+      }
+      setTimeout(() => { btn.textContent = original; }, 2000);
+      if (typeof window.plausible === "function") {
+        window.plausible("share", { props: { network: "copy", url } });
+      }
+    });
+  });
+
+  // ---------- Social share — outbound click analytics ----------
+  document.querySelectorAll('.share-btn[data-share]:not([data-share="copy"])').forEach((link) => {
+    link.addEventListener("click", () => {
+      const network = link.getAttribute("data-share");
+      if (typeof window.plausible === "function") {
+        window.plausible("share", { props: { network, url: window.location.href } });
+      }
+    });
+  });
+
   // ---------- Category card navigation ----------
   // Category cards are <a> elements linking to /#<slug>. The click handler adds a filter-and-scroll behavior
   // on the homepage without breaking the anchor link.

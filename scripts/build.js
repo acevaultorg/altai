@@ -182,7 +182,7 @@ const headerHtml = () => `
       <li><a href="/#categories">Categories</a></li>
       <li><a href="/#tools">Tools</a></li>
       <li><a href="/blog/">Blog</a></li>
-      <li><a href="/#about">About</a></li>
+      <li><a href="/about/">About</a></li>
     </ul>
   </div>
 </header>
@@ -207,8 +207,18 @@ const footerHtml = (data) => `
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/#tools">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
           <li><a href="/sitemap.xml">Sitemap</a></li>
-          <li><a href="/#about">About</a></li>
+          <li><a href="/rss.xml">RSS feed</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Trust &amp; legal</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
         </ul>
       </div>
     </div>
@@ -864,6 +874,13 @@ const buildBlogPost = (data, post) => {
       <div class="blog-outro">
         ${post.outro || ""}
       </div>
+      <div class="share-row" aria-label="Share this article">
+        <p class="share-row-label">Found this useful? Share it.</p>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title + " — " + data.site.name)}&amp;url=${encodeURIComponent(data.site.url + "/blog/" + post.slug + ".html")}" target="_blank" rel="noopener" data-share="x">Share on X</a>
+        <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(data.site.url + "/blog/" + post.slug + ".html")}" target="_blank" rel="noopener" data-share="linkedin">Share on LinkedIn</a>
+        <a class="share-btn" href="https://news.ycombinator.com/submitlink?u=${encodeURIComponent(data.site.url + "/blog/" + post.slug + ".html")}&amp;t=${encodeURIComponent(post.title)}" target="_blank" rel="noopener" data-share="hn">Post to HN</a>
+        <button class="share-btn" type="button" data-share="copy" aria-label="Copy link to this article">Copy link</button>
+      </div>
     </div>
   </main>
   <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
@@ -902,6 +919,10 @@ const buildSitemap = (data) => {
       priority: "0.85",
       changefreq: "monthly",
     })),
+    { loc: `${data.site.url}/about/`, priority: "0.4", changefreq: "yearly" },
+    { loc: `${data.site.url}/privacy/`, priority: "0.3", changefreq: "yearly" },
+    { loc: `${data.site.url}/terms/`, priority: "0.3", changefreq: "yearly" },
+    { loc: `${data.site.url}/contact/`, priority: "0.4", changefreq: "yearly" },
   ];
 
   const body = urls
@@ -927,6 +948,12 @@ Allow: /
 
 Sitemap: ${data.site.url}/sitemap.xml
 `;
+
+// ads.txt — AdSense requires this file at domain root for programmatic ad verification.
+// Placeholder until AdSense approval lands; swap for Google's line: `google.com, pub-XXX, DIRECT, f08c47fec0942fa0`.
+const buildAdsTxt = (data) => data.site.adsense_publisher_id
+  ? `google.com, ${data.site.adsense_publisher_id}, DIRECT, f08c47fec0942fa0\n`
+  : `# ads.txt placeholder — operator to replace with the Google-supplied line after AdSense approval.\n# Format: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0\n# See rules/adsense-compliance.md § post-approval checklist.\n`;
 
 // RFC-822 date formatter for RSS <pubDate>
 const rssDate = (dateStr) => {
@@ -965,6 +992,239 @@ const buildBlogRss = (data) => {
 ${items}
   </channel>
 </rss>`;
+};
+
+// ---------- Trust pages (About, Privacy, Terms, Contact) ----------
+// One generator shared across all four pages. Each page reuses commonHead +
+// headerHtml + footerHtml so branding, analytics, security headers stay in sync.
+// AdSense readiness: footer must link to each; present on every content page.
+
+const trustPageShell = (data, { slug, title, description, bodyHtml, ogType = "website" }) => {
+  const canonical = `${data.site.url}/${slug}/`;
+  const head = commonHead({
+    title: `${title} | ${data.site.name}`,
+    description,
+    canonical,
+    ogImage: data.site.url + "/og.svg",
+    ogType,
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: title,
+      description,
+      url: canonical,
+      isPartOf: { "@type": "WebSite", name: data.site.name, url: data.site.url },
+    },
+    plausibleDomain: data.site.plausible_domain,
+    gscVerification: data.site.gsc_verification_code,
+    bingVerification: data.site.bing_verification_code,
+  });
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  ${head}
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  ${headerHtml()}
+  <main id="main">
+    <section class="section trust-page">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="sep">/</span>
+          <span>${esc(title)}</span>
+        </nav>
+        <div class="section-header">
+          <h1 class="section-title">${esc(title)}</h1>
+        </div>
+        <div class="trust-content">
+${bodyHtml}
+        </div>
+      </div>
+    </section>
+  </main>
+  ${footerHtml(data)}
+  ${CONFIG_SCRIPT}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+};
+
+const buildAboutPage = (data) => {
+  const body = `
+          <p class="trust-lead">${esc(data.site.name)} is a curated directory of alternatives to the most popular AI tools. 200+ options, compared on price, speed, and capability. No fluff, no pay-to-play, no fake reviews.</p>
+
+          <h2>What this site is</h2>
+          <p>Every tool listed exists on public websites. Every alternative is picked for a specific reason — "cheaper", "open source", "runs locally", "better at long-form writing" — not because someone paid for placement. Rankings are based on real-world capability, pricing, and fit for the job.</p>
+          <p>The entire directory is static HTML. No logins, no personalisation, no tracking cookies. The data that generates every page lives in a single <code>data/tools.json</code> file anyone can audit.</p>
+
+          <h2>How we compare tools</h2>
+          <ul>
+            <li><strong>Pricing:</strong> pulled from the vendor's public pricing page. Updated weekly.</li>
+            <li><strong>Strengths &amp; weaknesses:</strong> based on documentation, hands-on testing, and public benchmarks where available.</li>
+            <li><strong>"Best Pick" badge:</strong> highlights the alternative that most users should try first for that category. It's a recommendation, not a guarantee.</li>
+            <li><strong>Free tier flag:</strong> only shown when the vendor offers a real free tier (not "free trial").</li>
+          </ul>
+
+          <h2>Affiliate disclosure</h2>
+          <p>Some outbound links on this site are affiliate links. If you sign up through one of them we may earn a commission at no extra cost to you. <strong>This never affects which tools appear or how they're ranked.</strong> Rankings predate any affiliate relationship and stay put regardless of payout rate.</p>
+          <p>When an affiliate link is active, the outbound URL carries <code>utm_source=altai</code> so the vendor can attribute the signup. That's it.</p>
+
+          <h2>What we don't do</h2>
+          <ul>
+            <li>No fake urgency ("Only 2 seats left!")</li>
+            <li>No artificial scarcity counters</li>
+            <li>No fake user counts or testimonial quotes</li>
+            <li>No "sponsored placement that looks like editorial"</li>
+            <li>No dark-pattern email capture (the newsletter signup shows a truthful message when the endpoint isn't wired)</li>
+            <li>No tracking cookies — we use Plausible for privacy-respecting page counts</li>
+          </ul>
+
+          <h2>Who runs this</h2>
+          <p>${esc(data.site.name)} is operated by <strong>${esc(data.site.operator_entity || data.site.name)}</strong>${data.site.operator_location ? ` (based in ${esc(data.site.operator_location)})` : ""}. You can reach us at <a href="mailto:${esc(data.site.contact_email || "hello@thealtai.com")}">${esc(data.site.contact_email || "hello@thealtai.com")}</a>.</p>
+
+          <h2>Corrections</h2>
+          <p>If something on this site is wrong — a price, a feature, a tool that's been acquired or shut down — email us and we'll fix it. We aim to correct within 48 hours.</p>
+
+          <p><a class="btn" href="/">Back to the directory →</a></p>
+`;
+  return trustPageShell(data, {
+    slug: "about",
+    title: "About",
+    description: `About ${data.site.name} — a curated directory of AI tool alternatives. Our methodology, affiliate disclosure, and how to reach us.`,
+    bodyHtml: body,
+  });
+};
+
+const buildPrivacyPage = (data) => {
+  const op = esc(data.site.operator_entity || data.site.name);
+  const email = esc(data.site.contact_email || "hello@thealtai.com");
+  const body = `
+          <p class="trust-lead">This page explains what data ${op} collects when you use ${esc(data.site.name)}, why, and what rights you have. We try to collect as little as possible.</p>
+          <p class="trust-note"><em>Last updated: ${esc(data.site.updated)}</em></p>
+
+          <h2>TL;DR</h2>
+          <ul>
+            <li>We do not use tracking cookies.</li>
+            <li>We use <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" rel="noopener">Plausible Analytics</a> — a privacy-first, cookie-less page-counter.</li>
+            <li>We log email addresses only if you submit the newsletter form, and only to send the newsletter.</li>
+            <li>We never sell your data to anyone.</li>
+          </ul>
+
+          <h2>Data we collect automatically</h2>
+          <p>When you visit a page, Plausible records: the URL you viewed, the referrer (where you came from), the user-agent (your browser family), and your approximate country. All of it is aggregated into anonymous counts. No cookies, no fingerprinting, no cross-site tracking. <a href="https://plausible.io/data-policy" target="_blank" rel="noopener">Plausible's data policy</a>.</p>
+
+          <h2>Data you give us voluntarily</h2>
+          <p>If you submit the newsletter form, we store your email address to send you the weekly roundup. You can unsubscribe from any email or by emailing <a href="mailto:${email}">${email}</a> and we'll delete your address.</p>
+          <p>If you contact us by email, we keep the conversation in our inbox until it's resolved.</p>
+
+          <h2>Third-party services</h2>
+          <ul>
+            <li><strong>Plausible Analytics</strong> — page counts (cookie-less).</li>
+            <li><strong>Vercel</strong> — hosting. Standard server logs (IP address, user-agent, request URL) kept briefly for abuse/security.</li>
+            <li><strong>Outbound tool links</strong> — clicking a tool's link takes you to that vendor's site, which has its own privacy policy.</li>
+          </ul>
+
+          <h2>Advertising (if enabled in the future)</h2>
+          <p>If we enable Google AdSense or similar display advertising, this section will be updated to describe: what cookies those networks set, how to opt out of personalised ads (<a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a>), and a link to <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses data when you use our partners' sites</a>. Until then: we do not serve advertising.</p>
+
+          <h2>Your rights (GDPR / CCPA)</h2>
+          <p>You have the right to: access the data we hold about you, correct it, delete it, and export it in a portable format. Email <a href="mailto:${email}">${email}</a> with "Privacy request" in the subject and we'll respond within 30 days.</p>
+
+          <h2>Children</h2>
+          <p>${esc(data.site.name)} is not directed at children under 13. We do not knowingly collect data from children under 13. If you believe we have, email us and we'll delete it.</p>
+
+          <h2>Changes to this policy</h2>
+          <p>If we materially change this policy we'll update the "last updated" date and, where practical, note the change at the top of this page.</p>
+
+          <h2>Contact</h2>
+          <p>${op} — <a href="mailto:${email}">${email}</a>${data.site.operator_location ? ` — ${esc(data.site.operator_location)}` : ""}</p>
+
+          <p><a class="btn" href="/">Back to the directory →</a></p>
+`;
+  return trustPageShell(data, {
+    slug: "privacy",
+    title: "Privacy Policy",
+    description: `Privacy policy for ${data.site.name} — what we collect, why, and how to contact us.`,
+    bodyHtml: body,
+  });
+};
+
+const buildTermsPage = (data) => {
+  const op = esc(data.site.operator_entity || data.site.name);
+  const email = esc(data.site.contact_email || "hello@thealtai.com");
+  const body = `
+          <p class="trust-lead">By using ${esc(data.site.name)} you agree to these terms. They're short. Please read them.</p>
+          <p class="trust-note"><em>Last updated: ${esc(data.site.updated)}</em></p>
+
+          <h2>What this site is</h2>
+          <p>${esc(data.site.name)} is a free, curated directory of AI tool alternatives operated by ${op}. The content is informational. It is not professional advice.</p>
+
+          <h2>Accuracy</h2>
+          <p>We do our best to keep prices, features, and rankings up to date — they're refreshed from public sources. Things change. Check the vendor's own site before making a purchase decision, and email us if you spot an error at <a href="mailto:${email}">${email}</a>.</p>
+
+          <h2>Affiliate links</h2>
+          <p>Some outbound links are affiliate links. If you sign up through one we may earn a commission. See the <a href="/about/">About page</a> and <a href="/privacy/">Privacy Policy</a> for full disclosure. Rankings are not influenced by affiliate status.</p>
+
+          <h2>Intellectual property</h2>
+          <p>The layout, copy, and curated rankings on ${esc(data.site.name)} are © ${new Date().getFullYear()} ${op}. Tool names, logos, and descriptions belong to their respective vendors and are used descriptively. If you are a vendor and want a listing corrected or removed, email <a href="mailto:${email}">${email}</a>.</p>
+
+          <h2>No warranty</h2>
+          <p>${esc(data.site.name)} is provided "as is". We make no warranties about the fitness of any listed tool for your specific use case. You are responsible for your own due diligence before signing up for or paying for any third-party tool.</p>
+
+          <h2>Limitation of liability</h2>
+          <p>To the maximum extent permitted by law, ${op} is not liable for any direct, indirect, incidental, or consequential damages arising from use of this site or any listed tool. Your sole remedy is to stop using the site.</p>
+
+          <h2>Prohibited uses</h2>
+          <p>Do not scrape the site at a rate that degrades it for other users. Do not republish the content as your own. Do not use the site to build a competing directory via automated extraction.</p>
+
+          <h2>Changes</h2>
+          <p>We may update these terms. Material changes will be reflected in the "last updated" date. Continued use after a change constitutes acceptance.</p>
+
+          <h2>Contact</h2>
+          <p>${op} — <a href="mailto:${email}">${email}</a></p>
+
+          <p><a class="btn" href="/">Back to the directory →</a></p>
+`;
+  return trustPageShell(data, {
+    slug: "terms",
+    title: "Terms of Service",
+    description: `Terms of service for ${data.site.name}. Short, plain-English terms covering affiliate disclosure, accuracy, and liability.`,
+    bodyHtml: body,
+  });
+};
+
+const buildContactPage = (data) => {
+  const op = esc(data.site.operator_entity || data.site.name);
+  const email = esc(data.site.contact_email || "hello@thealtai.com");
+  const body = `
+          <p class="trust-lead">The fastest way to reach us is email. We read every message. Most replies go out within 48 hours.</p>
+
+          <h2>Email</h2>
+          <p><a class="btn" href="mailto:${email}">${email}</a></p>
+
+          <h2>What to email about</h2>
+          <ul>
+            <li><strong>Correction:</strong> a price, feature, or ranking that's wrong. Include the page URL.</li>
+            <li><strong>New tool suggestion:</strong> we love these. Include the tool, category, and why you think it should be listed.</li>
+            <li><strong>Vendor:</strong> want your tool listed or a listing corrected? Email us. No payment required — we don't take "pay to list" money.</li>
+            <li><strong>Newsletter issue:</strong> missed a week, didn't get it, want to unsubscribe — same email.</li>
+            <li><strong>Privacy request:</strong> use subject "Privacy request". See the <a href="/privacy/">privacy policy</a> for what we collect.</li>
+            <li><strong>Press / partnership:</strong> yes please. Tell us what you're working on.</li>
+          </ul>
+
+          <h2>Who you're emailing</h2>
+          <p>${op}${data.site.operator_location ? `, ${esc(data.site.operator_location)}` : ""}. A small operator, not a team of reps. Expect a human, not a ticketing system.</p>
+
+          <p><a class="btn" href="/">Back to the directory →</a></p>
+`;
+  return trustPageShell(data, {
+    slug: "contact",
+    title: "Contact",
+    description: `Contact ${data.site.name} — how to reach us for corrections, new tool suggestions, press, and privacy requests.`,
+    bodyHtml: body,
+  });
 };
 
 const buildManifest = (data) => JSON.stringify(
@@ -1069,17 +1329,31 @@ function main() {
     });
   }
 
+  // Trust pages — AdSense compliance + competitive parity (about/privacy/terms/contact)
+  const trustPages = [
+    { slug: "about", html: buildAboutPage(data) },
+    { slug: "privacy", html: buildPrivacyPage(data) },
+    { slug: "terms", html: buildTermsPage(data) },
+    { slug: "contact", html: buildContactPage(data) },
+  ];
+  trustPages.forEach((p) => {
+    writeFile(path.join(ROOT, p.slug, "index.html"), p.html);
+    console.log(`  ✓ ${p.slug}/index.html`);
+  });
+
   // SEO infra
   writeFile(path.join(ROOT, "sitemap.xml"), buildSitemap(data));
   writeFile(path.join(ROOT, "robots.txt"), buildRobots(data));
   writeFile(path.join(ROOT, "manifest.json"), buildManifest(data));
   writeFile(path.join(ROOT, "favicon.svg"), buildFaviconSvg());
   writeFile(path.join(ROOT, "404.html"), build404(data));
+  // AdSense readiness: ads.txt placeholder. Replace with Google-supplied line post-approval.
+  writeFile(path.join(ROOT, "ads.txt"), buildAdsTxt(data));
   if (posts.length > 0) {
     writeFile(path.join(ROOT, "rss.xml"), buildBlogRss(data));
-    console.log("  ✓ sitemap.xml, robots.txt, manifest.json, favicon.svg, 404.html, rss.xml\n");
+    console.log("  ✓ sitemap.xml, robots.txt, manifest.json, favicon.svg, 404.html, rss.xml, ads.txt\n");
   } else {
-    console.log("  ✓ sitemap.xml, robots.txt, manifest.json, favicon.svg, 404.html\n");
+    console.log("  ✓ sitemap.xml, robots.txt, manifest.json, favicon.svg, 404.html, ads.txt\n");
   }
 
   const totalPages = 1 + data.tools.length + data.comparisons.length + posts.length + (posts.length > 0 ? 1 : 0);
