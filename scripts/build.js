@@ -283,7 +283,7 @@ const footerHtml = (data) => `
       <div class="footer-col">
         <h4>Categories</h4>
         <ul>
-          ${data.categories.map((c) => `<li><a href="/#${esc(c.slug)}">${esc(c.name)}</a></li>`).join("")}
+          ${data.categories.map((c) => `<li><a href="/category/${esc(c.slug)}/">${esc(c.name)}</a></li>`).join("")}
         </ul>
       </div>
       <div class="footer-col">
@@ -314,7 +314,7 @@ const buildIndex = (data, tmpl) => {
   const categoriesHtml = data.categories
     .map(
       (c) => `
-    <a class="category-card" href="#${esc(c.slug)}" data-category="${esc(c.slug)}" id="${esc(c.slug)}">
+    <a class="category-card" href="/category/${esc(c.slug)}/" data-category="${esc(c.slug)}" id="${esc(c.slug)}">
       <h3>${esc(c.name)}</h3>
       <p>${esc(c.desc)}</p>
     </a>`
@@ -762,6 +762,198 @@ const buildComparePage = (data, cmp, tmpl) => {
   });
 };
 
+// ---------- Category pages ----------
+
+// Per-category display strings — title, H1, noun form for the description.
+// Hand-picked phrases that match what people actually search for
+// ("AI image generators" beats "Image Generation Tools" on search volume)
+// and that avoid the double-acronym / double-noun pitfalls of a naive
+// `Best AI ${cat.name} Tools` template.
+const CATEGORY_DISPLAY = {
+  chat:     { h1: "Best conversational AI tools in 2026.",  title: "Best Conversational AI Tools in 2026 — Compared",  noun: "conversational AI tools" },
+  image:    { h1: "Best AI image generators in 2026.",      title: "Best AI Image Generators in 2026 — Compared",       noun: "AI image generators" },
+  video:    { h1: "Best AI video generators in 2026.",      title: "Best AI Video Generators in 2026 — Compared",       noun: "AI video generators" },
+  code:     { h1: "Best AI coding assistants in 2026.",     title: "Best AI Coding Assistants in 2026 — Compared",      noun: "AI coding assistants" },
+  voice:    { h1: "Best AI voice & audio tools in 2026.",   title: "Best AI Voice & Audio Tools in 2026 — Compared",    noun: "AI voice & audio tools" },
+  writing:  { h1: "Best AI writing tools in 2026.",         title: "Best AI Writing Tools in 2026 — Compared",          noun: "AI writing tools" },
+  search:   { h1: "Best AI search engines in 2026.",        title: "Best AI Search Engines in 2026 — Compared",         noun: "AI search engines" },
+  platform: { h1: "Best ML platforms in 2026.",             title: "Best ML Platforms in 2026 — Compared",              noun: "ML platforms" },
+};
+
+// Editorial intros — one hand-written 2-3 sentence intro per category.
+// These exist to give each category page unique, signal-carrying content
+// (real buyer criteria per category) rather than generic filler. Updating
+// these when the market shifts is a revenue action, not fluff.
+const CATEGORY_INTROS = {
+  chat:
+    "General-purpose AI assistants are the most crowded category in 2026 and also the most commoditized. Picking the right one usually comes down to context length, speed, source citations, and price of the paid tier. Every tool listed has a free tier worth trying before you pay.",
+  image:
+    "Image generation splits into two camps: model-first tools (Midjourney, DALL·E, Stable Diffusion) where craft lives in prompting, and editor-first tools (Adobe Firefly, Canva AI, Recraft) that integrate into existing design workflows. Pick based on how finished the output needs to be at generation time.",
+  video:
+    "Video AI in 2026 is split between text-to-video synthesis (Sora, Runway, Pika, Luma) and avatar/presenter tools (Synthesia, HeyGen). The synthesis group is for creative shots without a camera; the avatar group is for talking-head explainer videos without a crew. They are not interchangeable — pick by the finished format you actually need.",
+  code:
+    "AI coding assistants cluster on three axes: context depth (how much of the repo they can see at once), action autonomy (read-only autocomplete vs. agentic editor), and deployment platform fit. Cursor, Windsurf, and Claude Code lead on depth; GitHub Copilot leads on reach; Bolt, Lovable, and v0 lead on web-app scaffolding from a prompt.",
+  voice:
+    "Voice AI is mature enough that the leading tools are hard to tell apart in blind tests. Pick based on voice-cloning policy (ElevenLabs is permissive with an opt-in library; Murf and WellSaid are stock-voice-first), latency (critical for live and conversational use), and enterprise features like brand-voice lock.",
+  writing:
+    "Writing and marketing-copy tools compete on three dimensions: quality at long length, integration with your actual workflow (Google Docs, standalone editor, or API), and SEO optimization baked into the product. Free-tier leaders have effectively caught up to paid tools for short-form tasks — start there before paying.",
+  search:
+    "AI search (Perplexity, You, Komo, Andi, Kagi) replaces \"search + skim + summarize\" with a single query. The one thing to check before committing: citation quality. Tools that link clearly back to sources are useful research; tools that synthesize without sources are black boxes you cannot audit.",
+  platform:
+    "ML platforms are infrastructure — you pick them on inference cost, cold-start latency, GPU availability, and whether you need to serve open-weight models (Replicate, Together, Fireworks) or train and deploy your own (Modal, Baseten, RunPod). Not for casual use; consider only if the off-the-shelf tools in other categories are not enough.",
+};
+
+const buildCategoryPage = (data, cat) => {
+  const tools = data.tools.filter((t) => t.category === cat.slug);
+  const intro = CATEGORY_INTROS[cat.slug] || cat.desc;
+  const toolWord = tools.length === 1 ? "tool" : "tools";
+  const altTotal = tools.reduce((a, t) => a + t.alternatives.length, 0);
+
+  // Per-category display strings avoid naive-template pitfalls (double-AI,
+  // plural-noun + "Tools" redundancy) and match higher-search-volume phrases.
+  // Fallback for any category not in the display dict: use cat.name with a
+  // generic "tools" suffix.
+  const display = CATEGORY_DISPLAY[cat.slug] || {
+    h1: `Best ${cat.name} tools in 2026.`,
+    title: `Best ${cat.name} Tools in 2026 — Compared`,
+    noun: `${cat.name.toLowerCase()} tools`,
+  };
+  const title = `${display.title} | AltAI`;
+  // Naive singularization — drops trailing 's' when count=1 so "1 AI search
+  // engines compared" becomes "1 AI search engine compared". Good enough for
+  // the 8 curated category display strings above.
+  const nounForCount = tools.length === 1 ? display.noun.replace(/s$/, "") : display.noun;
+  const description = `${tools.length} ${nounForCount} compared. ${cat.desc} Transparent editorial rankings, free-tier info, and alternatives for each.`;
+  const canonical = `${data.site.url}/category/${cat.slug}/`;
+
+  const toolsHtml = tools
+    .map((t) => {
+      const altNames = t.alternatives.slice(0, 3).map((a) => a.name).join(" · ");
+      const altTail = t.alternatives.length > 3 ? ` · +${t.alternatives.length - 3} more` : "";
+      return `
+      <article class="tool-card">
+        <div class="tool-card-head">
+          <h3><a href="/tools/${esc(t.slug)}-alternatives.html">${esc(t.name)}</a></h3>
+          ${priceBadge(t)}
+        </div>
+        <p class="tool-card-headline">${esc(t.headline)}</p>
+        <p class="tool-card-meta"><span>Top alternatives: ${esc(altNames)}${esc(altTail)}</span></p>
+        <div class="tool-card-meta">
+          <span class="alts"><a href="/tools/${esc(t.slug)}-alternatives.html">See all ${t.alternatives.length} alternatives →</a></span>
+        </div>
+      </article>`;
+    })
+    .join("");
+
+  const related = data.categories.filter((c) => c.slug !== cat.slug);
+  const relatedHtml = `
+        <div class="related-grid">
+          ${related
+            .map(
+              (c) =>
+                `<a class="related-card" href="/category/${esc(c.slug)}/"><strong>${esc(c.name)}</strong><span>${esc(c.desc)}</span></a>`
+            )
+            .join("")}
+        </div>`;
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: display.title,
+    description,
+    url: canonical,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: tools.length,
+      itemListElement: tools.map((t, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "SoftwareApplication",
+          name: t.name,
+          description: t.headline,
+          applicationCategory: cat.name,
+          url: `${data.site.url}/tools/${t.slug}-alternatives.html`,
+        },
+      })),
+    },
+  };
+
+  const crumbSchema = breadcrumbSchema([
+    { name: "Home", url: data.site.url + "/" },
+    { name: cat.name, url: canonical },
+  ]);
+
+  const head = commonHead({
+    title,
+    description,
+    canonical,
+    ogImage: data.site.url + "/og.svg",
+    ogType: "website",
+    schema: [collectionSchema, crumbSchema],
+    plausibleDomain: data.site.plausible_domain,
+    emailConfig: emailConfigScript(data.site),
+  });
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  ${head}
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  ${headerHtml()}
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="sep">/</span>
+          <span>${esc(cat.name)}</span>
+        </nav>
+        <p class="hero-eyebrow">${esc(cat.name)}</p>
+        <h1>Best <span class="accent">${esc(display.noun)}</span> in 2026.</h1>
+        <p class="hero-sub">${esc(intro)}</p>
+        <div class="trust-bar">
+          <span><strong>${tools.length}</strong> ${toolWord} tracked</span>
+          <span><strong>${altTotal}</strong> alternatives</span>
+          <span>Updated <strong>${esc(data.site.updated)}</strong></span>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="tool-grid">
+          ${toolsHtml}
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Other categories</h2>
+          <p class="section-sub">Looking for something different? Every category on AltAI.</p>
+        </div>
+        ${relatedHtml}
+      </div>
+    </section>
+  </main>
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Was this page helpful?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
+  ${footerHtml(data)}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+};
+
 // ---------- Sitemap / robots / manifest ----------
 
 // ---------- Blog builders ----------
@@ -966,6 +1158,11 @@ const buildSitemap = (data) => {
   const posts = data.blog || [];
   const urls = [
     { loc: `${data.site.url}/`, priority: "1.0", changefreq: "weekly" },
+    ...data.categories.map((c) => ({
+      loc: `${data.site.url}/category/${c.slug}/`,
+      priority: "0.85",
+      changefreq: "weekly",
+    })),
     ...(posts.length > 0 ? [{ loc: `${data.site.url}/blog/`, priority: "0.8", changefreq: "weekly" }] : []),
     ...posts.map((p) => ({
       loc: `${data.site.url}/blog/${p.slug}.html`,
@@ -1069,17 +1266,21 @@ function main() {
   const compareTmpl = readTemplate("compare.html");
 
   const OUT_BLOG = path.join(ROOT, "blog");
+  const OUT_CATEGORY = path.join(ROOT, "category");
 
   // Clean previous output — guard against path escape.
   assertInsideRoot(OUT_TOOLS);
   assertInsideRoot(OUT_COMPARE);
   assertInsideRoot(OUT_BLOG);
+  assertInsideRoot(OUT_CATEGORY);
   if (fs.existsSync(OUT_TOOLS)) fs.rmSync(OUT_TOOLS, { recursive: true });
   if (fs.existsSync(OUT_COMPARE)) fs.rmSync(OUT_COMPARE, { recursive: true });
   if (fs.existsSync(OUT_BLOG)) fs.rmSync(OUT_BLOG, { recursive: true });
+  if (fs.existsSync(OUT_CATEGORY)) fs.rmSync(OUT_CATEGORY, { recursive: true });
   fs.mkdirSync(OUT_TOOLS, { recursive: true });
   fs.mkdirSync(OUT_COMPARE, { recursive: true });
   fs.mkdirSync(OUT_BLOG, { recursive: true });
+  fs.mkdirSync(OUT_CATEGORY, { recursive: true });
 
   // Index
   writeFile(path.join(ROOT, "index.html"), buildIndex(data, indexTmpl));
@@ -1097,6 +1298,13 @@ function main() {
     const html = buildComparePage(data, cmp, compareTmpl);
     writeFile(path.join(OUT_COMPARE, `${cmp.a}-vs-${cmp.b}.html`), html);
     console.log(`  ✓ compare/${cmp.a}-vs-${cmp.b}.html`);
+  });
+
+  // Category pages
+  data.categories.forEach((cat) => {
+    const html = buildCategoryPage(data, cat);
+    writeFile(path.join(OUT_CATEGORY, cat.slug, "index.html"), html);
+    console.log(`  ✓ category/${cat.slug}/index.html`);
   });
 
   // Blog pages
@@ -1118,9 +1326,16 @@ function main() {
   writeFile(path.join(ROOT, "404.html"), build404(data));
   console.log("  ✓ sitemap.xml, robots.txt, manifest.json, favicon.svg, 404.html\n");
 
-  const totalPages = 1 + data.tools.length + data.comparisons.length + posts.length + (posts.length > 0 ? 1 : 0);
+  const totalPages =
+    1 +
+    data.categories.length +
+    data.tools.length +
+    data.comparisons.length +
+    posts.length +
+    (posts.length > 0 ? 1 : 0);
   console.log(`Done. Generated ${totalPages} indexable pages.`);
   console.log(`  • 1 homepage`);
+  console.log(`  • ${data.categories.length} category landing pages`);
   console.log(`  • ${data.tools.length} tool alternative pages`);
   console.log(`  • ${data.comparisons.length} head-to-head comparison pages`);
   if (posts.length > 0) console.log(`  • ${posts.length + 1} blog pages (${posts.length} posts + index)`);

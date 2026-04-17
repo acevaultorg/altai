@@ -129,18 +129,7 @@
     });
   });
 
-  // ---------- Category card navigation ----------
-  // Category cards are <a> elements linking to /#<slug>. The click handler adds a filter-and-scroll behavior
-  // on the homepage without breaking the anchor link.
-  document.querySelectorAll("a[data-category]").forEach((card) => {
-    card.addEventListener("click", (e) => {
-      if (!searchInput) return; // let the anchor navigate normally if search isn't present
-      e.preventDefault();
-      const name = card.querySelector("h3")?.textContent || "";
-      searchInput.value = name;
-      searchInput.dispatchEvent(new Event("input"));
-      const toolsSection = document.getElementById("tools");
-      if (toolsSection) toolsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
+  // Category cards are <a> elements linking to /category/<slug>/. They navigate
+  // to dedicated category landing pages — no click-intercept needed. Users can
+  // filter tools on the homepage via the search box.
 })();
