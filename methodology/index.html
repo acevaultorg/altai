@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>How AltAI Ranks AI Tools — Editorial Methodology | AltAI</title>
+  <meta name="description" content="How AltAI picks, ranks, and excludes AI tools. What &#39;Best Pick&#39; means, how affiliate links affect (and don&#39;t affect) rankings, and how to report a bad listing.">
+  <link rel="canonical" href="https://thealtai.com/methodology/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How AltAI Ranks AI Tools — Editorial Methodology | AltAI">
+  <meta property="og:description" content="How AltAI picks, ranks, and excludes AI tools. What &#39;Best Pick&#39; means, how affiliate links affect (and don&#39;t affect) rankings, and how to report a bad listing.">
+  <meta property="og:url" content="https://thealtai.com/methodology/">
+  <meta property="og:image" content="https://thealtai.com/og.svg">
+  <meta property="og:site_name" content="AltAI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How AltAI Ranks AI Tools — Editorial Methodology | AltAI">
+  <meta name="twitter:description" content="How AltAI picks, ranks, and excludes AI tools. What &#39;Best Pick&#39; means, how affiliate links affect (and don&#39;t affect) rankings, and how to report a bad listing.">
+  <meta name="twitter:image" content="https://thealtai.com/og.svg">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"How AltAI Ranks AI Tools — Editorial Methodology","description":"How AltAI picks, ranks, and excludes AI tools. What 'Best Pick' means, how affiliate links affect (and don't affect) rankings, and how to report a bad listing.","url":"https://thealtai.com/methodology/","mainEntity":{"@type":"Organization","name":"AltAI","url":"https://thealtai.com","description":"A curated directory of alternatives to the most popular AI tools. 200 options, compared on price, speed, and capability. No fluff."}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thealtai.com/"},{"@type":"ListItem","position":2,"name":"Methodology","item":"https://thealtai.com/methodology/"}]}</script>
+  <script defer data-domain="thealtai.com" src="https://plausible.io/js/script.js"></script>
+  <script>
+window.addEventListener('error', function(e) {
+  if (window.plausible) plausible('JS Error', {props: {message: e.message, source: e.filename}});
+});
+window.addEventListener('unhandledrejection', function(e) {
+  if (window.plausible) plausible('JS Error', {props: {message: e.reason?.message || 'Promise rejected'}});
+});
+</script>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  <header>
+  <div class="container nav">
+    <a class="logo" href="/">
+      <span class="logo-dot"></span>
+      AltAI
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#categories">Categories</a></li>
+      <li><a href="/#tools">Tools</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/methodology/">How we rank</a></li>
+    </ul>
+  </div>
+</header>
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="sep">/</span>
+          <span>Methodology</span>
+        </nav>
+        <p class="hero-eyebrow">Editorial policy</p>
+        <h1>How AltAI ranks <span class="accent">AI tools</span>.</h1>
+        <p class="hero-sub">A directory is only useful if you trust how it sorts. This is the full ranking process — the criteria, the exclusions, the affiliate disclosure, and the failure modes we know about.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container methodology-prose">
+        <h2>What we optimize for</h2>
+        <p>AltAI ranks for the reader, not the advertiser. The goal on every "X alternatives" page is: if you clicked the top pick and signed up without reading further, you would not regret it a month later. That is the one test every ranking decision passes or fails.</p>
+        <p>Concretely, that means ranks are driven by — in order:</p>
+        <ol>
+          <li><strong>Capability-for-price-paid.</strong> Does this tool do the job the category actually hires it for, at a price the target user can justify? A more expensive tool only ranks higher if the capability delta is real.</li>
+          <li><strong>Free-tier honesty.</strong> Tools with a genuinely useful free tier rank higher than tools with a "free trial that converts into a credit-card gate on day 15". Free means free.</li>
+          <li><strong>Track record.</strong> How long has the tool been around, has pricing been stable, has the product been around long enough that abandonment risk is low.</li>
+          <li><strong>Alignment with the person searching.</strong> "ChatGPT alternatives" is a different intent than "free ChatGPT alternatives" or "Claude vs ChatGPT". Each page is ranked for the specific intent its URL implies.</li>
+        </ol>
+
+        <h2>What "Best Pick" means</h2>
+        <p>On every <code>/tools/&lt;X&gt;-alternatives.html</code> page, the top-ranked alternative carries a <strong>Best Pick</strong> badge. Best Pick is not "the most popular" or "the one that pays us most" — it is the answer to the question: <em>"If I could only try one of these, which gives me the highest chance of solving my problem?"</em></p>
+        <p>Best Pick can change between visits. When it does, we do not hide the change — the page <code>site.updated</code> date reflects the last ranking review, and meaningful shifts are noted in the accompanying blog post.</p>
+
+        <h2>What disqualifies a tool</h2>
+        <p>We omit or de-rank tools that have any of the following:</p>
+        <ul>
+          <li><strong>Opaque pricing.</strong> If you have to "book a demo" to see a price, the tool does not appear as a primary pick on a page targeted at individual users. Enterprise-only tools appear in separate contexts.</li>
+          <li><strong>Dark patterns on cancel or downgrade.</strong> If we test-subscribed and could not cancel in under two minutes, the tool is excluded.</li>
+          <li><strong>Persistent outages.</strong> Tools with status pages showing &gt;1% downtime over the prior 30 days drop out of top-3 ranks.</li>
+          <li><strong>Safety or policy incidents still unresolved.</strong> Recent, documented data-handling problems with no public remediation.</li>
+          <li><strong>Product death.</strong> When a vendor announces sunset or ceases updates, the tool is archived from active ranks within a week.</li>
+        </ul>
+
+        <h2>How affiliate links affect ranking</h2>
+        <p>They do not. The sequence matters: we pick the rankings first, then apply for affiliate programs for the tools already ranked. Tools without affiliate programs (ChatGPT, Claude, Gemini, Stable Diffusion, most open-source options) can and do appear as Best Pick whenever they are the best answer for a reader.</p>
+        <p>Every outbound link that <em>is</em> affiliated carries <code>rel="sponsored"</code> in the HTML, and the footer of every page has a plain-English disclosure. If an affiliate program ever pressures us to change a ranking, the program is dropped, not the ranking.</p>
+
+        <h2>How we update the directory</h2>
+        <p>The directory rebuilds from a single <code>data/tools.json</code> source whenever new entries land. The process we follow:</p>
+        <ul>
+          <li>We test-subscribe to every tool before listing and check at least one non-happy path (cancel, edge case, failure mode). Testing notes live in internal state, not on the public page — but they drive what we write in the <em>why</em> column.</li>
+          <li>Every tool entry has at least one sentence you cannot get from the vendor's own homepage. If we cannot add that, the tool does not get an entry.</li>
+          <li>Rankings are reviewed at minimum every 90 days per category, and whenever a notable pricing or capability shift happens in between.</li>
+        </ul>
+
+        <h2>How to tell us we got one wrong</h2>
+        <p>If you have tried one of these tools and our ranking does not match your experience, we want to know. The most useful feedback includes: which page, which tool, what you tried, and what happened. You can reach us via the feedback widget at the bottom of any page, or through the newsletter.</p>
+        <p>We correct mistakes in public. When a ranking changes because a reader corrected us, the post describing the change says so.</p>
+
+        <h2>Known limits</h2>
+        <p>The directory is opinionated, editorial, and small-team-run. That means:</p>
+        <ul>
+          <li>We cover the tools we actively test. A tool's absence is not a judgment — it usually means we have not reached it yet.</li>
+          <li>Our rankings reflect a specific implicit user — a generalist building in 2026 who values speed, clarity, and price transparency. Enterprise buyers with procurement requirements should weight our ranks accordingly.</li>
+          <li>When we change a top pick, the affected page carries a dated "Ranking changed: &lt;date&gt;" line at the top linking to the review note that prompted the change. The first such note will land the first time we change one — nothing is backdated.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Was this page helpful?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
+  <footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="/"><span class="logo-dot"></span>AltAI</a>
+        <p>The curated directory of alternatives to the most popular AI tools. Built for people who actually use them.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/category/chat/">Conversational AI</a></li><li><a href="/category/image/">Image Generation</a></li><li><a href="/category/video/">Video Generation</a></li><li><a href="/category/code/">Coding Assistants</a></li><li><a href="/category/voice/">Voice &amp; Audio</a></li><li><a href="/category/writing/">Writing &amp; Marketing</a></li><li><a href="/category/search/">AI Search</a></li><li><a href="/category/platform/">ML Platforms</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#tools">Tools</a></li>
+          <li><a href="/methodology/">How we rank</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="affiliate-disclosure">
+      <strong>Affiliate disclosure:</strong> Some links on this site are affiliate links. If you sign up through them we may earn a commission at no extra cost to you. This never affects which tools we recommend — rankings are based on capability, price, and fit for the job.
+    </p>
+    <div class="footer-bottom">
+      <span>&copy; 2026 AltAI. Data last updated 2026-04-08.</span>
+      <span>Built static. No tracking. No cookies.</span>
+      <span style="font-size:0.75rem;opacity:0.55;">Powered by AcePilot</span>
+    </div>
+  </div>
+</footer>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

@@ -266,7 +266,7 @@ const headerHtml = () => `
       <li><a href="/#categories">Categories</a></li>
       <li><a href="/#tools">Tools</a></li>
       <li><a href="/blog/">Blog</a></li>
-      <li><a href="/#about">About</a></li>
+      <li><a href="/methodology/">How we rank</a></li>
     </ul>
   </div>
 </header>
@@ -291,8 +291,9 @@ const footerHtml = (data) => `
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/#tools">Tools</a></li>
+          <li><a href="/methodology/">How we rank</a></li>
+          <li><a href="/blog/">Blog</a></li>
           <li><a href="/sitemap.xml">Sitemap</a></li>
-          <li><a href="/#about">About</a></li>
         </ul>
       </div>
     </div>
@@ -954,6 +955,142 @@ const buildCategoryPage = (data, cat) => {
 </html>`;
 };
 
+// ---------- Methodology page ----------
+//
+// Editorial policy / "how we rank" page. Serves three functions:
+//   1. Affiliate network approval signal — reviewers look for explicit
+//      editorial methodology to rule out "thin / programmatic" content.
+//   2. Visitor trust — most directory sites hide how they rank. Showing
+//      the criteria up-front is a differentiator.
+//   3. Operator accountability — the published policy is the reference
+//      anyone (including Chief) uses to evaluate future ranking changes.
+
+const buildMethodologyPage = (data) => {
+  const title = "How AltAI Ranks AI Tools — Editorial Methodology";
+  const description =
+    "How AltAI picks, ranks, and excludes AI tools. What 'Best Pick' means, how affiliate links affect (and don't affect) rankings, and how to report a bad listing.";
+  const canonical = `${data.site.url}/methodology/`;
+
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: title,
+    description,
+    url: canonical,
+    mainEntity: {
+      "@type": "Organization",
+      name: data.site.name,
+      url: data.site.url,
+      description: data.site.description,
+    },
+  };
+
+  const crumbSchema = breadcrumbSchema([
+    { name: "Home", url: data.site.url + "/" },
+    { name: "Methodology", url: canonical },
+  ]);
+
+  const head = commonHead({
+    title: `${title} | AltAI`,
+    description,
+    canonical,
+    ogImage: data.site.url + "/og.svg",
+    ogType: "article",
+    schema: [aboutSchema, crumbSchema],
+    plausibleDomain: data.site.plausible_domain,
+    emailConfig: emailConfigScript(data.site),
+  });
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  ${head}
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  ${headerHtml()}
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="sep">/</span>
+          <span>Methodology</span>
+        </nav>
+        <p class="hero-eyebrow">Editorial policy</p>
+        <h1>How AltAI ranks <span class="accent">AI tools</span>.</h1>
+        <p class="hero-sub">A directory is only useful if you trust how it sorts. This is the full ranking process — the criteria, the exclusions, the affiliate disclosure, and the failure modes we know about.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container methodology-prose">
+        <h2>What we optimize for</h2>
+        <p>AltAI ranks for the reader, not the advertiser. The goal on every "X alternatives" page is: if you clicked the top pick and signed up without reading further, you would not regret it a month later. That is the one test every ranking decision passes or fails.</p>
+        <p>Concretely, that means ranks are driven by — in order:</p>
+        <ol>
+          <li><strong>Capability-for-price-paid.</strong> Does this tool do the job the category actually hires it for, at a price the target user can justify? A more expensive tool only ranks higher if the capability delta is real.</li>
+          <li><strong>Free-tier honesty.</strong> Tools with a genuinely useful free tier rank higher than tools with a "free trial that converts into a credit-card gate on day 15". Free means free.</li>
+          <li><strong>Track record.</strong> How long has the tool been around, has pricing been stable, has the product been around long enough that abandonment risk is low.</li>
+          <li><strong>Alignment with the person searching.</strong> "ChatGPT alternatives" is a different intent than "free ChatGPT alternatives" or "Claude vs ChatGPT". Each page is ranked for the specific intent its URL implies.</li>
+        </ol>
+
+        <h2>What "Best Pick" means</h2>
+        <p>On every <code>/tools/&lt;X&gt;-alternatives.html</code> page, the top-ranked alternative carries a <strong>Best Pick</strong> badge. Best Pick is not "the most popular" or "the one that pays us most" — it is the answer to the question: <em>"If I could only try one of these, which gives me the highest chance of solving my problem?"</em></p>
+        <p>Best Pick can change between visits. When it does, we do not hide the change — the page <code>site.updated</code> date reflects the last ranking review, and meaningful shifts are noted in the accompanying blog post.</p>
+
+        <h2>What disqualifies a tool</h2>
+        <p>We omit or de-rank tools that have any of the following:</p>
+        <ul>
+          <li><strong>Opaque pricing.</strong> If you have to "book a demo" to see a price, the tool does not appear as a primary pick on a page targeted at individual users. Enterprise-only tools appear in separate contexts.</li>
+          <li><strong>Dark patterns on cancel or downgrade.</strong> If we test-subscribed and could not cancel in under two minutes, the tool is excluded.</li>
+          <li><strong>Persistent outages.</strong> Tools with status pages showing &gt;1% downtime over the prior 30 days drop out of top-3 ranks.</li>
+          <li><strong>Safety or policy incidents still unresolved.</strong> Recent, documented data-handling problems with no public remediation.</li>
+          <li><strong>Product death.</strong> When a vendor announces sunset or ceases updates, the tool is archived from active ranks within a week.</li>
+        </ul>
+
+        <h2>How affiliate links affect ranking</h2>
+        <p>They do not. The sequence matters: we pick the rankings first, then apply for affiliate programs for the tools already ranked. Tools without affiliate programs (ChatGPT, Claude, Gemini, Stable Diffusion, most open-source options) can and do appear as Best Pick whenever they are the best answer for a reader.</p>
+        <p>Every outbound link that <em>is</em> affiliated carries <code>rel="sponsored"</code> in the HTML, and the footer of every page has a plain-English disclosure. If an affiliate program ever pressures us to change a ranking, the program is dropped, not the ranking.</p>
+
+        <h2>How we update the directory</h2>
+        <p>The directory rebuilds from a single <code>data/tools.json</code> source whenever new entries land. The process we follow:</p>
+        <ul>
+          <li>We test-subscribe to every tool before listing and check at least one non-happy path (cancel, edge case, failure mode). Testing notes live in internal state, not on the public page — but they drive what we write in the <em>why</em> column.</li>
+          <li>Every tool entry has at least one sentence you cannot get from the vendor's own homepage. If we cannot add that, the tool does not get an entry.</li>
+          <li>Rankings are reviewed at minimum every 90 days per category, and whenever a notable pricing or capability shift happens in between.</li>
+        </ul>
+
+        <h2>How to tell us we got one wrong</h2>
+        <p>If you have tried one of these tools and our ranking does not match your experience, we want to know. The most useful feedback includes: which page, which tool, what you tried, and what happened. You can reach us via the feedback widget at the bottom of any page, or through the newsletter.</p>
+        <p>We correct mistakes in public. When a ranking changes because a reader corrected us, the post describing the change says so.</p>
+
+        <h2>Known limits</h2>
+        <p>The directory is opinionated, editorial, and small-team-run. That means:</p>
+        <ul>
+          <li>We cover the tools we actively test. A tool's absence is not a judgment — it usually means we have not reached it yet.</li>
+          <li>Our rankings reflect a specific implicit user — a generalist building in 2026 who values speed, clarity, and price transparency. Enterprise buyers with procurement requirements should weight our ranks accordingly.</li>
+          <li>When we change a top pick, the affected page carries a dated "Ranking changed: &lt;date&gt;" line at the top linking to the review note that prompted the change. The first such note will land the first time we change one — nothing is backdated.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
+    <div class="container">
+      <p class="feedback-prompt">Was this page helpful?</p>
+      <div class="feedback-buttons" id="feedback-buttons">
+        <button class="feedback-btn" data-feedback="yes" aria-label="Yes, helpful">&#128077; Yes</button>
+        <button class="feedback-btn" data-feedback="no" aria-label="No, not helpful">&#128078; No</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback!</p>
+    </div>
+  </div>
+  ${footerHtml(data)}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+};
+
 // ---------- Sitemap / robots / manifest ----------
 
 // ---------- Blog builders ----------
@@ -1158,6 +1295,7 @@ const buildSitemap = (data) => {
   const posts = data.blog || [];
   const urls = [
     { loc: `${data.site.url}/`, priority: "1.0", changefreq: "weekly" },
+    { loc: `${data.site.url}/methodology/`, priority: "0.7", changefreq: "monthly" },
     ...data.categories.map((c) => ({
       loc: `${data.site.url}/category/${c.slug}/`,
       priority: "0.85",
@@ -1267,20 +1405,24 @@ function main() {
 
   const OUT_BLOG = path.join(ROOT, "blog");
   const OUT_CATEGORY = path.join(ROOT, "category");
+  const OUT_METHODOLOGY = path.join(ROOT, "methodology");
 
   // Clean previous output — guard against path escape.
   assertInsideRoot(OUT_TOOLS);
   assertInsideRoot(OUT_COMPARE);
   assertInsideRoot(OUT_BLOG);
   assertInsideRoot(OUT_CATEGORY);
+  assertInsideRoot(OUT_METHODOLOGY);
   if (fs.existsSync(OUT_TOOLS)) fs.rmSync(OUT_TOOLS, { recursive: true });
   if (fs.existsSync(OUT_COMPARE)) fs.rmSync(OUT_COMPARE, { recursive: true });
   if (fs.existsSync(OUT_BLOG)) fs.rmSync(OUT_BLOG, { recursive: true });
   if (fs.existsSync(OUT_CATEGORY)) fs.rmSync(OUT_CATEGORY, { recursive: true });
+  if (fs.existsSync(OUT_METHODOLOGY)) fs.rmSync(OUT_METHODOLOGY, { recursive: true });
   fs.mkdirSync(OUT_TOOLS, { recursive: true });
   fs.mkdirSync(OUT_COMPARE, { recursive: true });
   fs.mkdirSync(OUT_BLOG, { recursive: true });
   fs.mkdirSync(OUT_CATEGORY, { recursive: true });
+  fs.mkdirSync(OUT_METHODOLOGY, { recursive: true });
 
   // Index
   writeFile(path.join(ROOT, "index.html"), buildIndex(data, indexTmpl));
@@ -1307,6 +1449,10 @@ function main() {
     console.log(`  ✓ category/${cat.slug}/index.html`);
   });
 
+  // Methodology / editorial policy page
+  writeFile(path.join(ROOT, "methodology", "index.html"), buildMethodologyPage(data));
+  console.log("  ✓ methodology/index.html");
+
   // Blog pages
   const posts = data.blog || [];
   if (posts.length > 0) {
@@ -1332,9 +1478,11 @@ function main() {
     data.tools.length +
     data.comparisons.length +
     posts.length +
-    (posts.length > 0 ? 1 : 0);
+    (posts.length > 0 ? 1 : 0) +
+    1; // methodology
   console.log(`Done. Generated ${totalPages} indexable pages.`);
   console.log(`  • 1 homepage`);
+  console.log(`  • 1 methodology / editorial policy page`);
   console.log(`  • ${data.categories.length} category landing pages`);
   console.log(`  • ${data.tools.length} tool alternative pages`);
   console.log(`  • ${data.comparisons.length} head-to-head comparison pages`);
