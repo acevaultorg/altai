@@ -790,6 +790,108 @@ header {
   padding-bottom: 0.1em;
 }
 
+/* ---------- Updates / What's new page ---------- */
+
+.updates-section {
+  margin: 2rem 0 0;
+}
+
+.updates-section:first-child {
+  margin-top: 0;
+}
+
+.updates-section > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.updates-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  line-height: 1.5;
+}
+
+.updates-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.updates-list li {
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.updates-list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.updates-link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  color: var(--text);
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+}
+
+.updates-link:hover .updates-title {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.updates-kind {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.12rem 0.45rem;
+  flex-shrink: 0;
+  min-width: 6rem;
+  text-align: center;
+}
+
+.updates-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: color 0.15s ease;
+}
+
+.updates-summary {
+  margin: 0 0 0 6.75rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+@media (max-width: 640px) {
+  .updates-link {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .updates-kind {
+    align-self: flex-start;
+  }
+  .updates-summary {
+    margin-left: 0;
+  }
+}
+
 /* ---------- Cookie consent banner ---------- */
 
 .cookie-banner {

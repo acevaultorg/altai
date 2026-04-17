@@ -130,6 +130,8 @@ window.addEventListener('unhandledrejection', function(e) {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="alternate" type="application/rss+xml" title="AltAI — RSS" href="/feed.xml">
+  <link rel="alternate" type="application/atom+xml" title="AltAI — Atom" href="/feed.atom">
   ${schemaBlocks}
   ${plausibleTag}
   ${errorMonitor}
@@ -376,10 +378,11 @@ const footerHtml = (data) => {
           <li><a href="/#tools">Tools</a></li>
           <li><a href="/methodology/">How we rank</a></li>
           <li><a href="/blog/">Blog</a></li>
+          <li><a href="/updates/">What's new</a></li>
           <li><a href="/privacy/">Privacy</a></li>
           <li><a href="/terms/">Terms</a></li>
           <li><a href="/contact/">Contact</a></li>
-          <li><a href="/sitemap.xml">Sitemap</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a> · <a href="/feed.xml">RSS</a></li>
         </ul>
       </div>
     </div>
@@ -1512,6 +1515,317 @@ google.com, ${cfg.publisher}, DIRECT, f08c47fec0942fa0
 `;
 };
 
+// ---------- Feeds + /updates/ page ----------
+//
+// Feeds give readers a zero-effort way to follow ranking changes, new
+// comparisons, and blog posts without relying on social algorithms. The
+// /updates/ page is the human-readable version of the same feed.
+//
+// Distribution archetype: `recurring_distribution_loop` — new content lands
+// in subscribers' readers without a re-share step, compounding reach over
+// time. Pairs naturally with the commitment in methodology: "nothing is
+// backdated", since the feed timestamps are what tell subscribers what
+// actually changed.
+
+// Collect all public-facing items + sort by most recent change.
+// Tool pages, compare pages, blog posts, and editorial pages all land here.
+// Recency is the single ordering signal — `data.site.updated` for anything
+// that doesn't carry its own publish date, and `post.published` for blog.
+const collectUpdateItems = (data) => {
+  const items = [];
+  const siteUpdated = data.site.updated || "";
+
+  // Blog posts — highest priority, carry real publish dates.
+  for (const post of data.blog || []) {
+    items.push({
+      kind: "blog",
+      title: post.title,
+      url: `${data.site.url}/blog/${post.slug}.html`,
+      summary: post.description,
+      published: post.published || siteUpdated,
+      updated: siteUpdated,
+    });
+  }
+
+  // Category landing pages — editorial roundups.
+  for (const cat of data.categories || []) {
+    const display = (typeof CATEGORY_DISPLAY !== "undefined" && CATEGORY_DISPLAY[cat.slug]) || null;
+    items.push({
+      kind: "category",
+      title: display?.title || `Best ${cat.name} Tools in 2026`,
+      url: `${data.site.url}/category/${cat.slug}/`,
+      summary: cat.desc,
+      published: siteUpdated,
+      updated: siteUpdated,
+    });
+  }
+
+  // Comparison pages.
+  for (const cmp of data.comparisons || []) {
+    const toolA = (data.tools || []).find((t) => t.slug === cmp.a);
+    const toolB = (data.tools || []).find((t) => t.slug === cmp.b);
+    if (!toolA || !toolB) continue;
+    items.push({
+      kind: "compare",
+      title: `${toolA.name} vs ${toolB.name}`,
+      url: `${data.site.url}/compare/${cmp.a}-vs-${cmp.b}.html`,
+      summary: cmp.headline || `${toolA.name} vs ${toolB.name} — head-to-head on price, features, and fit.`,
+      published: siteUpdated,
+      updated: siteUpdated,
+    });
+  }
+
+  // Tool alternatives pages — sorted by searches_per_month desc so the most
+  // in-demand entries lead the feed.
+  const toolsSorted = [...(data.tools || [])].sort(
+    (a, b) => (b.searches_per_month || 0) - (a.searches_per_month || 0)
+  );
+  for (const tool of toolsSorted) {
+    items.push({
+      kind: "tool",
+      title: `Best ${tool.name} alternatives in 2026`,
+      url: `${data.site.url}/tools/${tool.slug}-alternatives.html`,
+      summary: `${tool.alternatives.length} tested alternatives to ${tool.name}. ${tool.headline}`,
+      published: siteUpdated,
+      updated: siteUpdated,
+    });
+  }
+
+  // Editorial pages — methodology first (foundational), then privacy/terms/
+  // contact (infrequent but important).
+  items.push({
+    kind: "editorial",
+    title: "How AltAI ranks AI tools",
+    url: `${data.site.url}/methodology/`,
+    summary: "Ranking criteria, disqualifiers, affiliate stance, correction commitments.",
+    published: siteUpdated,
+    updated: siteUpdated,
+  });
+
+  // Stable sort: blog first (by published desc), then category, then compare,
+  // then tool, then editorial. Within each kind, newest first.
+  const kindOrder = { blog: 0, category: 1, compare: 2, tool: 3, editorial: 4 };
+  items.sort((a, b) => {
+    const ka = kindOrder[a.kind] ?? 99;
+    const kb = kindOrder[b.kind] ?? 99;
+    if (ka !== kb) return ka - kb;
+    return (b.published || "").localeCompare(a.published || "");
+  });
+
+  // Dedup by URL — catches accidentally-duplicated comparisons in tools.json
+  // (e.g. same a/b pair listed twice) + any future overlap between kinds.
+  // First occurrence wins, preserving the kindOrder sort above.
+  const seenUrls = new Set();
+  return items.filter((it) => {
+    if (seenUrls.has(it.url)) return false;
+    seenUrls.add(it.url);
+    return true;
+  });
+};
+
+// Most-recent item published date from an items array. Used for feed
+// <lastBuildDate> / <updated> so the feed header reflects reality when
+// individual posts have newer dates than `data.site.updated`.
+const mostRecentDate = (items, fallback) => {
+  let latest = fallback || "";
+  for (const it of items) {
+    const d = it.published || it.updated || "";
+    if (d && d > latest) latest = d;
+  }
+  return latest;
+};
+
+// Convert a YYYY-MM-DD string to RFC 822 / RFC 3339 as appropriate.
+// Both feeds are valid when the time portion is midnight UTC.
+const toRfc822 = (ymd) => {
+  if (!ymd) return "";
+  const d = new Date(`${ymd}T00:00:00Z`);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toUTCString();
+};
+const toRfc3339 = (ymd) => {
+  if (!ymd) return "";
+  const d = new Date(`${ymd}T00:00:00Z`);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toISOString();
+};
+
+const buildRssFeed = (data) => {
+  const items = collectUpdateItems(data);
+  const recent = mostRecentDate(items, data.site.updated);
+  const lastBuild = toRfc822(recent) || new Date().toUTCString();
+
+  const itemsXml = items
+    .map((it) => {
+      return `  <item>
+    <title>${xmlEsc(it.title)}</title>
+    <link>${xmlEsc(it.url)}</link>
+    <guid isPermaLink="true">${xmlEsc(it.url)}</guid>
+    <description>${xmlEsc(it.summary)}</description>
+    <category>${xmlEsc(it.kind)}</category>
+    <pubDate>${xmlEsc(toRfc822(it.published) || lastBuild)}</pubDate>
+  </item>`;
+    })
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>${xmlEsc(data.site.name)} — ${xmlEsc(data.site.tagline || "")}</title>
+  <link>${xmlEsc(data.site.url)}/</link>
+  <description>${xmlEsc(data.site.description)}</description>
+  <language>en-us</language>
+  <lastBuildDate>${xmlEsc(lastBuild)}</lastBuildDate>
+  <atom:link href="${xmlEsc(data.site.url)}/feed.xml" rel="self" type="application/rss+xml"/>
+${itemsXml}
+</channel>
+</rss>
+`;
+};
+
+const buildAtomFeed = (data) => {
+  const items = collectUpdateItems(data);
+  const selfUrl = `${data.site.url}/feed.atom`;
+  const recent = mostRecentDate(items, data.site.updated);
+  const lastUpdated = toRfc3339(recent) || new Date().toISOString();
+
+  const entriesXml = items
+    .map((it) => {
+      const pubDate = toRfc3339(it.published) || lastUpdated;
+      return `  <entry>
+    <title>${xmlEsc(it.title)}</title>
+    <link href="${xmlEsc(it.url)}"/>
+    <id>${xmlEsc(it.url)}</id>
+    <updated>${xmlEsc(pubDate)}</updated>
+    <published>${xmlEsc(pubDate)}</published>
+    <summary>${xmlEsc(it.summary)}</summary>
+    <category term="${xmlEsc(it.kind)}"/>
+  </entry>`;
+    })
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>${xmlEsc(data.site.name)}</title>
+  <subtitle>${xmlEsc(data.site.tagline || "")}</subtitle>
+  <link rel="self" href="${xmlEsc(selfUrl)}"/>
+  <link rel="alternate" type="text/html" href="${xmlEsc(data.site.url)}/"/>
+  <id>${xmlEsc(data.site.url)}/</id>
+  <updated>${xmlEsc(lastUpdated)}</updated>
+  <author><name>${xmlEsc(data.site.author || data.site.name)}</name></author>
+${entriesXml}
+</feed>
+`;
+};
+
+const buildUpdatesPage = (data) => {
+  const items = collectUpdateItems(data);
+  const canonical = `${data.site.url}/updates/`;
+
+  const kindLabel = {
+    blog: "Blog",
+    category: "Category",
+    compare: "Compare",
+    tool: "Alternatives",
+    editorial: "Editorial",
+  };
+
+  // Group by kind for the main content list. The feed gives chronological;
+  // the page gives topical — same data, different navigation.
+  const byKind = {};
+  for (const it of items) {
+    (byKind[it.kind] ||= []).push(it);
+  }
+
+  const section = (kind, label) => {
+    const list = byKind[kind];
+    if (!list || list.length === 0) return "";
+    return `
+    <section class="updates-section">
+      <h2>${esc(label)} <span class="updates-count">${list.length}</span></h2>
+      <ul class="updates-list">
+        ${list
+          .map(
+            (it) => `
+        <li>
+          <a class="updates-link" href="${esc(it.url)}">
+            <span class="updates-kind">${esc(kindLabel[it.kind] || it.kind)}</span>
+            <span class="updates-title">${esc(it.title)}</span>
+          </a>
+          <p class="updates-summary">${esc(it.summary)}</p>
+        </li>`
+          )
+          .join("")}
+      </ul>
+    </section>`;
+  };
+
+  const head = commonHead({
+    title: `What's new on AltAI | ${data.site.name}`,
+    description: "Recent changes, new comparisons, blog posts, and ranking updates on AltAI. Follow via RSS or Atom.",
+    canonical,
+    ogImage: data.site.url + "/og.svg",
+    ogType: "website",
+    schema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: `What's new on ${data.site.name}`,
+        url: canonical,
+        description: "Recent changes, comparisons, and rankings on AltAI.",
+      },
+      breadcrumbSchema([
+        { name: "Home", url: data.site.url + "/" },
+        { name: "Updates", url: canonical },
+      ]),
+    ],
+    plausibleDomain: data.site.plausible_domain,
+    emailConfig: emailConfigScript(data.site),
+    adsense: adsenseScript(),
+  });
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  ${head}
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  ${headerHtml()}
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="sep">/</span>
+          <span>Updates</span>
+        </nav>
+        <p class="hero-eyebrow">Updates</p>
+        <h1>What's <span class="accent">new</span> on AltAI.</h1>
+        <p class="hero-sub">Every public page on the site — recent blog posts first, then category roundups, compare pages, tool alternatives, and editorial policy. Follow without opening the tab: <a href="/feed.xml">RSS</a> · <a href="/feed.atom">Atom</a>.</p>
+        <div class="trust-bar">
+          <span><strong>${items.length}</strong> total pages</span>
+          <span>Updated <strong>${esc(data.site.updated)}</strong></span>
+          <span>Feed auto-updates on every deploy</span>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container methodology-prose">
+        ${section("blog", "Blog")}
+        ${section("category", "Categories")}
+        ${section("compare", "Comparisons")}
+        ${section("tool", "Tool alternatives")}
+        ${section("editorial", "Editorial + policy")}
+      </div>
+    </section>
+  </main>
+  ${footerHtml(data)}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+};
+
 // ---------- Sitemap / robots / manifest ----------
 
 // ---------- Blog builders ----------
@@ -1717,6 +2031,7 @@ const buildSitemap = (data) => {
   const urls = [
     { loc: `${data.site.url}/`, priority: "1.0", changefreq: "weekly" },
     { loc: `${data.site.url}/methodology/`, priority: "0.7", changefreq: "monthly" },
+    { loc: `${data.site.url}/updates/`, priority: "0.7", changefreq: "weekly" },
     { loc: `${data.site.url}/privacy/`, priority: "0.4", changefreq: "yearly" },
     { loc: `${data.site.url}/terms/`, priority: "0.4", changefreq: "yearly" },
     { loc: `${data.site.url}/contact/`, priority: "0.5", changefreq: "yearly" },
@@ -1833,6 +2148,7 @@ function main() {
   const OUT_PRIVACY = path.join(ROOT, "privacy");
   const OUT_TERMS = path.join(ROOT, "terms");
   const OUT_CONTACT = path.join(ROOT, "contact");
+  const OUT_UPDATES = path.join(ROOT, "updates");
 
   // Clean previous output — guard against path escape.
   assertInsideRoot(OUT_TOOLS);
@@ -1843,6 +2159,7 @@ function main() {
   assertInsideRoot(OUT_PRIVACY);
   assertInsideRoot(OUT_TERMS);
   assertInsideRoot(OUT_CONTACT);
+  assertInsideRoot(OUT_UPDATES);
   if (fs.existsSync(OUT_TOOLS)) fs.rmSync(OUT_TOOLS, { recursive: true });
   if (fs.existsSync(OUT_COMPARE)) fs.rmSync(OUT_COMPARE, { recursive: true });
   if (fs.existsSync(OUT_BLOG)) fs.rmSync(OUT_BLOG, { recursive: true });
@@ -1851,6 +2168,7 @@ function main() {
   if (fs.existsSync(OUT_PRIVACY)) fs.rmSync(OUT_PRIVACY, { recursive: true });
   if (fs.existsSync(OUT_TERMS)) fs.rmSync(OUT_TERMS, { recursive: true });
   if (fs.existsSync(OUT_CONTACT)) fs.rmSync(OUT_CONTACT, { recursive: true });
+  if (fs.existsSync(OUT_UPDATES)) fs.rmSync(OUT_UPDATES, { recursive: true });
   // ads.txt is conditional on ALTAI_ADSENSE_PUBLISHER_ID. Always clear at
   // build-start so unsetting the env var actually removes the file — otherwise
   // an unauthorized-seller line lingers after the operator disables AdSense.
@@ -1864,6 +2182,7 @@ function main() {
   fs.mkdirSync(OUT_PRIVACY, { recursive: true });
   fs.mkdirSync(OUT_TERMS, { recursive: true });
   fs.mkdirSync(OUT_CONTACT, { recursive: true });
+  fs.mkdirSync(OUT_UPDATES, { recursive: true });
 
   // Index
   writeFile(path.join(ROOT, "index.html"), buildIndex(data, indexTmpl));
@@ -1908,6 +2227,12 @@ function main() {
     writeFile(path.join(ROOT, "ads.txt"), adsTxt);
     console.log("  ✓ ads.txt (AdSense publisher-ID detected)");
   }
+
+  // Feeds + updates page — distribution loop.
+  writeFile(path.join(ROOT, "feed.xml"), buildRssFeed(data));
+  writeFile(path.join(ROOT, "feed.atom"), buildAtomFeed(data));
+  writeFile(path.join(OUT_UPDATES, "index.html"), buildUpdatesPage(data));
+  console.log("  ✓ feed.xml, feed.atom, updates/index.html");
 
   // Blog pages
   const posts = data.blog || [];
