@@ -121,6 +121,33 @@ If `ALTAI_EMAIL_PROVIDER` is unset or empty, the form stays in "not yet wired" m
 
 ---
 
+## 4b. Google AdSense (optional — ad revenue on top of affiliate)
+
+**Why:** AdSense can earn on pages that don't convert to an affiliate sale. It layers revenue without changing the directory's editorial. Approval requires the site to be publicly live on a real domain (§ 3) and the policy pages below.
+
+**What's already in place:**
+
+- `/privacy/`, `/terms/`, `/contact/`, `/methodology/` — required for site review
+- Cookie banner wiring in `js/main.js` — appears automatically when AdSense is enabled
+- `ads.txt` generator + AdSense snippet injection — activated by one env var
+- Footer + privacy disclosure — automatically flips to the AdSense posture when enabled
+
+**What the operator does:**
+
+1. Make sure the site is live on a public production domain (§ 3 above). AdSense refuses Vercel preview URLs that are SSO-gated.
+2. Sign up at https://adsense.google.com. Add your production domain. Get your publisher ID (looks like `pub-1234567890123456`).
+3. On Vercel → Project → Settings → Environment Variables, add:
+   ```
+   ALTAI_ADSENSE_PUBLISHER_ID=pub-1234567890123456
+   ```
+4. Redeploy. The snippet goes live in every page head, `ads.txt` is published at the root, the cookie banner appears, and the footer disclosure flips.
+5. In AdSense, verify your site (it now sees the snippet). Approval review can take a few days to 2-4 weeks.
+6. Once approved, enable Auto Ads in the AdSense dashboard to let Google pick placements — no further code changes required.
+
+**Full spec:** `ENV-AFFILIATES.md § Google AdSense`.
+
+---
+
 ## 5. Design a real OG image (optional but worth it)
 
 **Why:** Every page currently references `/og.svg` as its social share image. SVG works on Twitter/X and LinkedIn, but some platforms (Facebook, Reddit, Slack preview) prefer a 1200×630 PNG.

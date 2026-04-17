@@ -89,7 +89,7 @@ const categoryName = (data, slug) => {
 
 // ---------- Meta / schema builders ----------
 
-const commonHead = ({ title, description, canonical, ogImage, ogType = "website", schema, plausibleDomain, emailConfig = "" }) => {
+const commonHead = ({ title, description, canonical, ogImage, ogType = "website", schema, plausibleDomain, emailConfig = "", adsense = "" }) => {
   const schemas = Array.isArray(schema) ? schema : [schema];
   const schemaBlocks = schemas
     .map((s) => `<script type="application/ld+json">${jsonLd(s)}</script>`)
@@ -134,6 +134,7 @@ window.addEventListener('unhandledrejection', function(e) {
   ${plausibleTag}
   ${errorMonitor}
   ${emailConfig}
+  ${adsense}
 `.trim();
 };
 
@@ -198,6 +199,77 @@ const emailConfigScript = (site) => {
   if (!cfg.endpoint) return ""; // unset → main.js shows "not wired"
   // Inline config. Safe: strings are JSON-serialized so any quotes/backslashes are escaped.
   return `<script>window.ALTAI_EMAIL_ENDPOINT=${JSON.stringify(cfg.endpoint)};window.ALTAI_EMAIL_FIELD=${JSON.stringify(cfg.field)};window.ALTAI_EMAIL_PROVIDER=${JSON.stringify(cfg.provider)};</script>`;
+};
+
+// AdSense detection — publisher ID drives: (a) <script> injection in <head>,
+// (b) ads.txt emission at root, (c) privacy-policy cookie disclosure state,
+// (d) cookie-consent banner activation. Single env var turns the posture on
+// site-wide.
+//
+// ALTAI_ADSENSE_PUBLISHER_ID looks like `pub-1234567890123456` (what AdSense
+// gives you on approval). The `ca-` prefix is added by the build as needed.
+const resolveAdsenseConfig = () => {
+  const raw = (process.env.ALTAI_ADSENSE_PUBLISHER_ID || "").trim();
+  if (!raw) return { enabled: false, publisher: "", clientId: "" };
+  // Accept either `pub-...` or the already-prefixed `ca-pub-...` form.
+  const publisher = raw.startsWith("ca-") ? raw.slice(3) : raw;
+  if (!/^pub-\d{10,20}$/.test(publisher)) {
+    console.warn(
+      `  ⚠ ALTAI_ADSENSE_PUBLISHER_ID=${JSON.stringify(raw)} doesn't match "pub-<digits>"; ignoring.`
+    );
+    return { enabled: false, publisher: "", clientId: "" };
+  }
+  return { enabled: true, publisher, clientId: `ca-${publisher}` };
+};
+
+// Tracking-active signal: true when ANY tracking/ads technology is configured.
+// Used for the conditional footer disclosure, the cookie banner, and the
+// privacy policy's "what we collect" paragraph.
+//
+// Cookie-setting sources today:
+//   - AdSense (always sets cookies → requires consent banner in EU/UK)
+//   - Standard Plausible (no cookies — exempt from banner by default)
+// Future extensions (Umami, PostHog, GA) should add their detection here.
+const trackingPosture = (site) => {
+  const adsense = resolveAdsenseConfig();
+  const plausibleDomain = !!(site && site.plausible_domain);
+  return {
+    adsense: adsense.enabled,
+    plausible: plausibleDomain,
+    setsCookies: adsense.enabled, // only AdSense sets cookies in the current stack
+    anyTracking: adsense.enabled || plausibleDomain,
+  };
+};
+
+const adsenseScript = () => {
+  const cfg = resolveAdsenseConfig();
+  if (!cfg.enabled) return "";
+  // Async, crossorigin per Google's install snippet. `data-ad-client` must be
+  // ca-pub-... form. We include the Auto Ads meta verification tag so AdSense
+  // can identify the site during review without manual code changes later.
+  return `<meta name="google-adsense-account" content="${esc(cfg.clientId)}">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${esc(cfg.clientId)}" crossorigin="anonymous"></script>`;
+};
+
+// Cookie banner HTML — only rendered on pages in commonHead() when
+// trackingPosture.setsCookies is true. The banner itself blocks nothing; the
+// actual consent gate is in js/main.js which reads localStorage before
+// activating tracking. EU / UK GDPR requires explicit opt-in for cookies.
+const cookieBannerHtml = (site) => {
+  const posture = trackingPosture(site);
+  if (!posture.setsCookies) return "";
+  return `
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie consent">
+    <div class="container">
+      <div class="cookie-body">
+        <p><strong>We use cookies for ads.</strong> AltAI shows Google ads to help keep the directory free. Ads use cookies to measure and personalize. <a href="/privacy/">Full privacy policy →</a></p>
+      </div>
+      <div class="cookie-actions">
+        <button type="button" class="btn btn-sm cookie-decline" data-cookie-decline>Reject</button>
+        <button type="button" class="btn btn-sm cookie-accept" data-cookie-accept>Accept</button>
+      </div>
+    </div>
+  </div>`;
 };
 
 // Affiliate URL builder.
@@ -272,7 +344,18 @@ const headerHtml = () => `
 </header>
 `.trim();
 
-const footerHtml = (data) => `
+const footerHtml = (data) => {
+  const posture = trackingPosture(data.site);
+  // The "No tracking. No cookies." claim in the footer must stay honest. When
+  // ALTAI_ADSENSE_PUBLISHER_ID is set, AdSense cookies are active and the
+  // footer switches to the accurate disclosure. Plausible on its own (cookieless)
+  // doesn't flip this.
+  const trustLine = posture.setsCookies
+    ? `<span>Ads use cookies. See <a href="/privacy/">privacy</a>.</span>`
+    : posture.plausible
+    ? `<span>Cookieless analytics. No third-party cookies.</span>`
+    : `<span>Built static. No tracking. No cookies.</span>`;
+  return `
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -293,6 +376,9 @@ const footerHtml = (data) => `
           <li><a href="/#tools">Tools</a></li>
           <li><a href="/methodology/">How we rank</a></li>
           <li><a href="/blog/">Blog</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="/contact/">Contact</a></li>
           <li><a href="/sitemap.xml">Sitemap</a></li>
         </ul>
       </div>
@@ -302,12 +388,14 @@ const footerHtml = (data) => `
     </p>
     <div class="footer-bottom">
       <span>&copy; ${new Date().getFullYear()} AltAI. Data last updated ${esc(data.site.updated)}.</span>
-      <span>Built static. No tracking. No cookies.</span>
+      ${trustLine}
       <span style="font-size:0.75rem;opacity:0.55;">Powered by AcePilot</span>
     </div>
   </div>
 </footer>
+${cookieBannerHtml(data.site)}
 `.trim();
+};
 
 // ---------- Page builders ----------
 
@@ -370,6 +458,7 @@ const buildIndex = (data, tmpl) => {
     schema: [websiteSchema, orgSchema],
     plausibleDomain: data.site.plausible_domain,
     emailConfig: emailConfigScript(data.site),
+    adsense: adsenseScript(),
   });
 
   // Trending comparisons — pick up to 8 highest-search-volume tools and pair with their first comparison
@@ -571,6 +660,7 @@ const buildToolPage = (data, tool, tmpl) => {
     schema: [itemListSchema, crumbSchema, faqSchema],
     plausibleDomain: data.site.plausible_domain,
     emailConfig: emailConfigScript(data.site),
+    adsense: adsenseScript(),
   });
 
   return render(tmpl, {
@@ -737,6 +827,7 @@ const buildComparePage = (data, cmp, tmpl) => {
     schema: [articleSchema, crumbSchema, faqSchema],
     plausibleDomain: data.site.plausible_domain,
     emailConfig: emailConfigScript(data.site),
+    adsense: adsenseScript(),
   });
 
   return render(tmpl, {
@@ -894,6 +985,7 @@ const buildCategoryPage = (data, cat) => {
     schema: [collectionSchema, crumbSchema],
     plausibleDomain: data.site.plausible_domain,
     emailConfig: emailConfigScript(data.site),
+    adsense: adsenseScript(),
   });
 
   return `<!doctype html>
@@ -999,6 +1091,7 @@ const buildMethodologyPage = (data) => {
     schema: [aboutSchema, crumbSchema],
     plausibleDomain: data.site.plausible_domain,
     emailConfig: emailConfigScript(data.site),
+    adsense: adsenseScript(),
   });
 
   return `<!doctype html>
@@ -1089,6 +1182,334 @@ const buildMethodologyPage = (data) => {
   <script src="/js/main.js" defer></script>
 </body>
 </html>`;
+};
+
+// ---------- Privacy / Terms / Contact / ads.txt ----------
+//
+// Three static editorial pages + the AdSense-required ads.txt file. All four
+// are generated from live env-var state, so the disclosures always reflect
+// what the site actually does at build time (no stale claims).
+
+// Renderer: each section is `<h2>` + paragraphs/blocks. Block elements
+// (<ul>, <ol>, <p>, <div>, <table>) are kept as-is; text strings are wrapped
+// in <p>. Avoids invalid-HTML like <ul> nested inside <p>. Used by privacy,
+// terms, contact, and any future editorial static page.
+const isBlockHtml = (s) => /^\s*<(ul|ol|p|div|table|blockquote|pre|figure)\b/i.test(s);
+
+const renderSections = (sections) =>
+  sections
+    .map(
+      (s) =>
+        `<h2>${esc(s.h)}</h2>\n` +
+        s.p.map((p) => (isBlockHtml(p) ? p : `<p>${p}</p>`)).join("\n")
+    )
+    .join("\n");
+
+const buildStaticPage = (data, { slug, title, description, hero_eyebrow, h1, breadcrumbName, ogType = "article", sections, leadingHtml = "" }) => {
+  const canonical = `${data.site.url}/${slug}/`;
+
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": ogType === "article" ? "AboutPage" : "WebPage",
+    name: title,
+    description,
+    url: canonical,
+  };
+
+  const crumbSchema = breadcrumbSchema([
+    { name: "Home", url: data.site.url + "/" },
+    { name: breadcrumbName, url: canonical },
+  ]);
+
+  const head = commonHead({
+    title: `${title} | AltAI`,
+    description,
+    canonical,
+    ogImage: data.site.url + "/og.svg",
+    ogType,
+    schema: [pageSchema, crumbSchema],
+    plausibleDomain: data.site.plausible_domain,
+    emailConfig: emailConfigScript(data.site),
+    adsense: adsenseScript(),
+  });
+
+  const prose = leadingHtml + renderSections(sections);
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  ${head}
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  ${headerHtml()}
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="sep">/</span>
+          <span>${esc(breadcrumbName)}</span>
+        </nav>
+        <p class="hero-eyebrow">${esc(hero_eyebrow)}</p>
+        <h1>${h1}</h1>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container methodology-prose">
+        ${prose}
+      </div>
+    </section>
+  </main>
+  ${footerHtml(data)}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+};
+
+const buildPrivacyPage = (data) => {
+  const posture = trackingPosture(data.site);
+  const today = new Date().toISOString().slice(0, 10);
+
+  const collectList = [];
+  collectList.push("<strong>Newsletter email addresses</strong> — only if you submit the footer signup form, and only to send you the newsletter. We never sell or rent email addresses. You can unsubscribe from any email using the link at the bottom.");
+  if (posture.plausible) {
+    collectList.push("<strong>Aggregated, anonymous page-view counts via Plausible</strong> — no cookies, no individual user tracking, no IP addresses stored. The stats tell us which pages are read; they cannot identify you.");
+  } else {
+    collectList.push("<strong>Aggregated, anonymous page-view counts</strong> — if and when we enable analytics. We will only use cookieless analytics; we will never enable a tool that sets third-party cookies without updating this page and the cookie banner first.");
+  }
+  if (posture.adsense) {
+    collectList.push("<strong>Google AdSense cookies and ad-measurement data</strong> — Google uses cookies to serve ads based on your visits to this and other sites. You can opt out of personalized advertising via <a href=\"https://adssettings.google.com/\">Google Ads Settings</a> or via the cookie banner on this site. See <a href=\"https://policies.google.com/technologies/partner-sites\">Google's partner-site policy</a> for detail.");
+  }
+  collectList.push("<strong>Affiliate click attribution via UTM parameters</strong> — outbound clicks to vendor sites pass a UTM source tag so we can tell which tools drove clicks. No personal data is included. Some vendors may set their own cookies after you arrive on their site; that is between you and them.");
+  collectList.push("<strong>Anonymous feedback signals</strong> — the \"Was this page helpful?\" buttons record yes/no plus the page URL. No identifier is attached.");
+
+  const notCollectList = [
+    "We do not collect names, addresses, phone numbers, or any identifiers beyond what you voluntarily submit.",
+    "We do not ask for payment information on this site. All financial transactions happen on the vendors' sites, under their own policies.",
+    "We do not run third-party session-recording, heatmap, or behavior-tracking tools.",
+    "We do not sell or share data with marketing networks.",
+  ];
+
+  const sections = [
+    {
+      h: "The short version",
+      p: [
+        "AltAI is a static website. It does not run a login system, does not store user accounts, and does not collect data beyond what is strictly needed to run the directory and the newsletter.",
+        posture.setsCookies
+          ? "Google AdSense serves ads on this site and uses cookies to do so. If you are in the EU or UK, the cookie banner lets you accept or reject those cookies before any personalized ads load. Everything else described below runs regardless of your consent because it does not set cookies or track you."
+          : "We do not currently set any third-party cookies. This may change if we enable ads in the future; when it does, this page and a clear cookie banner will be updated in the same release — we will not change the behavior silently.",
+      ],
+    },
+    {
+      h: "What we collect",
+      p: [`<ul>${collectList.map((i) => `<li>${i}</li>`).join("")}</ul>`],
+    },
+    {
+      h: "What we don't collect",
+      p: [`<ul>${notCollectList.map((i) => `<li>${i}</li>`).join("")}</ul>`],
+    },
+    {
+      h: "Cookies used on this site",
+      p: [
+        posture.setsCookies
+          ? "Cookies set on the AltAI domain and by embedded scripts, as of the last update to this page:"
+          : "As of the last update to this page, AltAI sets no cookies on your device. The entries below describe what will appear here when we enable ads; they are listed so you can see in advance what the plan is.",
+        `<ul>` +
+          (posture.setsCookies
+            ? `<li><strong>Google AdSense cookies</strong> — set by <code>pagead2.googlesyndication.com</code> and Google's ad-serving infrastructure. Purpose: ad measurement, fraud prevention, frequency capping, personalized advertising (subject to consent). Retention: set by Google; see <a href="https://policies.google.com/technologies/cookies">Google's cookie page</a>.</li>`
+            : `<li><em>(No cookies active today. Future AdSense cookies will be listed here when enabled.)</em></li>`) +
+          `</ul>`,
+      ],
+    },
+    {
+      h: "Your rights",
+      p: [
+        "If you are in the European Economic Area, the United Kingdom, Switzerland, California, or any jurisdiction with equivalent privacy legislation, you have the right to ask us: what data we hold on you, how to correct it, how to delete it, and where it came from.",
+        "To exercise any of these rights, email the address on the <a href=\"/contact/\">contact page</a>. We aim to respond within 14 days. We cannot reasonably do anything with rights requests from addresses we do not hold — for most visitors to a static directory, the honest answer is \"we already hold nothing\".",
+      ],
+    },
+    {
+      h: "Who handles our data",
+      p: [
+        "The site is hosted on Vercel (static files, no origin compute). The newsletter (when wired) uses one of Buttondown, ConvertKit, or Beehiiv — whichever is currently configured. The current provider is listed on the <a href=\"/contact/\">contact page</a>.",
+        posture.adsense ? "Ad serving is handled by Google AdSense and its certified ad partners; see Google's policies for what they do with the data." : "If and when we enable Google AdSense, ad serving will be handled by Google and its certified ad partners.",
+        "We do not use any other third-party processors.",
+      ],
+    },
+    {
+      h: "Contact + changes",
+      p: [
+        "This policy can be contacted via the <a href=\"/contact/\">contact page</a>. Material changes will be announced at the top of this page with a new effective date and, when the change is meaningful, in the newsletter.",
+      ],
+    },
+  ];
+
+  return buildStaticPage(data, {
+    slug: "privacy",
+    title: "Privacy Policy",
+    description: `How AltAI handles data. Last updated ${today}.`,
+    hero_eyebrow: "Privacy",
+    h1: `Privacy policy — <span class="accent">what we collect</span>, what we don't.`,
+    breadcrumbName: "Privacy",
+    leadingHtml: `<p class="hero-sub">Effective ${esc(today)}. Short read: AltAI is a static directory, collects very little, and prefers to tell you in advance what will change rather than after.</p>\n`,
+    sections,
+  });
+};
+
+const buildTermsPage = (data) => {
+  const today = new Date().toISOString().slice(0, 10);
+  const sections = [
+    {
+      h: "Acceptance",
+      p: [
+        "By using AltAI (the \"site\"), you agree to these terms. If you do not agree, do not use the site. These terms govern your access and use; they do not create an agency, partnership, or employment relationship.",
+      ],
+    },
+    {
+      h: "What AltAI is",
+      p: [
+        "AltAI is an editorial directory of AI software alternatives. The site is provided for informational purposes. Rankings, recommendations, and commentary reflect our editorial opinion at the time of publication. See the <a href=\"/methodology/\">methodology page</a> for how we rank.",
+      ],
+    },
+    {
+      h: "No warranty — use at your own judgement",
+      p: [
+        "The site is provided \"as is\". We do not guarantee that every tool listed still exists, that prices shown are current, that features described are still supported, or that any recommendation will fit your specific use case. You are responsible for evaluating any tool before you adopt, subscribe to, or rely on it.",
+        "Where we test a tool before listing it, the test was conducted at a specific point in time. Vendors change pricing, features, and policies without notice. Follow the outbound link, read the vendor's current page, and check our <code>Data last updated</code> date before you commit.",
+      ],
+    },
+    {
+      h: "Affiliate links",
+      p: [
+        "Some outbound links on this site are affiliate links. If you click through and sign up or purchase, the vendor may pay us a commission at no extra cost to you. Affiliate participation does not affect rankings — see the <a href=\"/methodology/\">methodology page</a> for the full commitment.",
+        "Every affiliate outbound link on this site is marked with <code>rel=\"sponsored\"</code> in its HTML per FTC guidance.",
+      ],
+    },
+    {
+      h: "What we will never do",
+      p: [
+        "To make the editorial line concrete, a short list of things AltAI will not do regardless of payment, pressure, or convenience:",
+        `<ul>
+          <li>Accept paid placements, \"sponsored\" top-pick positions, or rank-for-pay arrangements.</li>
+          <li>Insert affiliate links into editorial copy without the <code>rel=\"sponsored\"</code> tag.</li>
+          <li>Remove or soften a critical finding at a vendor's request when the finding reflects actual tool behavior.</li>
+          <li>Sell, rent, or trade newsletter subscriber data.</li>
+          <li>Run interstitial ads, autoplay video, or any placement that blocks content on load.</li>
+          <li>Track users with session-recording or heatmap tools.</li>
+        </ul>`,
+        "If any of these ever changes, these terms will be updated in the same release and the change will be announced — we do not quietly relax the rules.",
+      ],
+    },
+    {
+      h: "Your use of the site",
+      p: [
+        "You may read, share, and link to pages on AltAI freely. You may quote short excerpts with attribution.",
+        "You may not: scrape the site in a way that imposes an unreasonable load on our infrastructure; redistribute the full dataset as your own product; attempt to gain unauthorized access to admin surfaces; or use the site to harass other readers.",
+      ],
+    },
+    {
+      h: "Intellectual property",
+      p: [
+        "The site's design, editorial content, rankings methodology, and page code are © AltAI unless marked otherwise. Tool names, logos, and trademarks belong to their respective owners; we use them for identification and review purposes only.",
+      ],
+    },
+    {
+      h: "Liability",
+      p: [
+        "To the extent permitted by law, AltAI is not liable for indirect, incidental, consequential, or punitive damages arising from your use of the site or any tool you discover through it. Our maximum aggregate liability to any one user is limited to the amount you have paid us directly — which, for a free directory, is zero.",
+      ],
+    },
+    {
+      h: "Changes to these terms",
+      p: [
+        "We may update these terms as the site grows. Material changes will be announced at the top of this page with a new effective date. Continued use of the site after such changes constitutes acceptance.",
+      ],
+    },
+    {
+      h: "Contact",
+      p: [
+        "Questions about these terms can be sent via the <a href=\"/contact/\">contact page</a>.",
+      ],
+    },
+  ];
+
+  return buildStaticPage(data, {
+    slug: "terms",
+    title: "Terms of Use",
+    description: `Terms of use for AltAI. Last updated ${today}.`,
+    hero_eyebrow: "Terms",
+    h1: `Terms of <span class="accent">use</span>.`,
+    breadcrumbName: "Terms",
+    leadingHtml: `<p class="hero-sub">Effective ${esc(today)}. Short read: AltAI is editorial, outbound links may be affiliated, you evaluate tools on your own judgement, no warranties.</p>\n`,
+    sections,
+  });
+};
+
+const buildContactPage = (data) => {
+  const posture = trackingPosture(data.site);
+  const sections = [
+    {
+      h: "Editorial — what we got wrong",
+      p: [
+        "If a ranking on AltAI does not match your experience with a tool, we want to know. The best way to reach us is the email address below. You can also reply to any AltAI newsletter issue once you are subscribed — newsletter replies land in the same inbox.",
+        "Useful corrections include: which page, which tool, what you tried, what happened. We keep corrections in public — when a ranking changes because a reader corrected us, the accompanying note on the affected page says so.",
+      ],
+    },
+    {
+      h: "Affiliate / partnership",
+      p: [
+        "We accept affiliate program applications for any tool that is, or could be, listed on AltAI. See the <a href=\"/methodology/\">methodology page</a> for how rankings work; affiliate status does not change the ranking order.",
+        "We do not accept paid placements, sponsored listings, link insertions, or \"submit your tool for $X\" offers. The answer on these is always the same and there is no negotiation.",
+      ],
+    },
+    {
+      h: "Press + citations",
+      p: [
+        "You may cite AltAI pages in articles, research, and reviews with attribution. For extended use (a dataset, a syndicated rank table, or a bulk quote), email the address below so we can talk about scope and timing — we're generally permissive for non-commercial and academic uses.",
+      ],
+    },
+    {
+      h: "Privacy + data requests",
+      p: [
+        "If you are in the EU, UK, California, or an equivalent jurisdiction and want to exercise rights over your data, see the <a href=\"/privacy/\">privacy policy</a>. Requests go to the same address as everything else.",
+      ],
+    },
+    {
+      h: "The email address",
+      p: [
+        `<p class="contact-email"><a href="mailto:hello@thealtai.com">hello@thealtai.com</a></p>`,
+        "Response target: 3 business days for editorial corrections, affiliate, press. Up to 14 days for privacy requests that require verification.",
+        posture.anyTracking
+          ? "Please note: email received on this address is read by the site operator and handled manually. We don't route it through a shared helpdesk or ticketing system."
+          : "Please note: email received on this address is read by the site operator directly. No automated parsing, no CRM.",
+      ],
+    },
+  ];
+
+  return buildStaticPage(data, {
+    slug: "contact",
+    title: "Contact AltAI",
+    description: "How to reach AltAI — editorial corrections, affiliate applications, press, and privacy requests.",
+    hero_eyebrow: "Contact",
+    h1: `Contact <span class="accent">AltAI</span>.`,
+    breadcrumbName: "Contact",
+    leadingHtml: `<p class="hero-sub">Editorial corrections, affiliate applications, press and press-adjacent, privacy-data requests. One inbox, read by a human, 3-day target.</p>\n`,
+    sections,
+  });
+};
+
+const buildAdsTxt = () => {
+  const cfg = resolveAdsenseConfig();
+  if (!cfg.enabled) return null;
+  // Canonical AdSense ads.txt line. `google.com`, direct relationship, TAG ID
+  // `f08c47fec0942fa0` is the public TAG-Seller identifier for AdSense. Format:
+  //   <ad-system-domain>, <publisher-account-id>, <relationship>, <cert-id>
+  return `# ads.txt — authorized digital sellers for thealtai.com
+# Generated at build time from ALTAI_ADSENSE_PUBLISHER_ID.
+# See https://iabtechlab.com/ads-txt/ for spec.
+google.com, ${cfg.publisher}, DIRECT, f08c47fec0942fa0
+`;
 };
 
 // ---------- Sitemap / robots / manifest ----------
@@ -1296,6 +1717,9 @@ const buildSitemap = (data) => {
   const urls = [
     { loc: `${data.site.url}/`, priority: "1.0", changefreq: "weekly" },
     { loc: `${data.site.url}/methodology/`, priority: "0.7", changefreq: "monthly" },
+    { loc: `${data.site.url}/privacy/`, priority: "0.4", changefreq: "yearly" },
+    { loc: `${data.site.url}/terms/`, priority: "0.4", changefreq: "yearly" },
+    { loc: `${data.site.url}/contact/`, priority: "0.5", changefreq: "yearly" },
     ...data.categories.map((c) => ({
       loc: `${data.site.url}/category/${c.slug}/`,
       priority: "0.85",
@@ -1406,6 +1830,9 @@ function main() {
   const OUT_BLOG = path.join(ROOT, "blog");
   const OUT_CATEGORY = path.join(ROOT, "category");
   const OUT_METHODOLOGY = path.join(ROOT, "methodology");
+  const OUT_PRIVACY = path.join(ROOT, "privacy");
+  const OUT_TERMS = path.join(ROOT, "terms");
+  const OUT_CONTACT = path.join(ROOT, "contact");
 
   // Clean previous output — guard against path escape.
   assertInsideRoot(OUT_TOOLS);
@@ -1413,16 +1840,30 @@ function main() {
   assertInsideRoot(OUT_BLOG);
   assertInsideRoot(OUT_CATEGORY);
   assertInsideRoot(OUT_METHODOLOGY);
+  assertInsideRoot(OUT_PRIVACY);
+  assertInsideRoot(OUT_TERMS);
+  assertInsideRoot(OUT_CONTACT);
   if (fs.existsSync(OUT_TOOLS)) fs.rmSync(OUT_TOOLS, { recursive: true });
   if (fs.existsSync(OUT_COMPARE)) fs.rmSync(OUT_COMPARE, { recursive: true });
   if (fs.existsSync(OUT_BLOG)) fs.rmSync(OUT_BLOG, { recursive: true });
   if (fs.existsSync(OUT_CATEGORY)) fs.rmSync(OUT_CATEGORY, { recursive: true });
   if (fs.existsSync(OUT_METHODOLOGY)) fs.rmSync(OUT_METHODOLOGY, { recursive: true });
+  if (fs.existsSync(OUT_PRIVACY)) fs.rmSync(OUT_PRIVACY, { recursive: true });
+  if (fs.existsSync(OUT_TERMS)) fs.rmSync(OUT_TERMS, { recursive: true });
+  if (fs.existsSync(OUT_CONTACT)) fs.rmSync(OUT_CONTACT, { recursive: true });
+  // ads.txt is conditional on ALTAI_ADSENSE_PUBLISHER_ID. Always clear at
+  // build-start so unsetting the env var actually removes the file — otherwise
+  // an unauthorized-seller line lingers after the operator disables AdSense.
+  const adsTxtPath = path.join(ROOT, "ads.txt");
+  if (fs.existsSync(adsTxtPath)) fs.rmSync(adsTxtPath);
   fs.mkdirSync(OUT_TOOLS, { recursive: true });
   fs.mkdirSync(OUT_COMPARE, { recursive: true });
   fs.mkdirSync(OUT_BLOG, { recursive: true });
   fs.mkdirSync(OUT_CATEGORY, { recursive: true });
   fs.mkdirSync(OUT_METHODOLOGY, { recursive: true });
+  fs.mkdirSync(OUT_PRIVACY, { recursive: true });
+  fs.mkdirSync(OUT_TERMS, { recursive: true });
+  fs.mkdirSync(OUT_CONTACT, { recursive: true });
 
   // Index
   writeFile(path.join(ROOT, "index.html"), buildIndex(data, indexTmpl));
@@ -1453,6 +1894,21 @@ function main() {
   writeFile(path.join(ROOT, "methodology", "index.html"), buildMethodologyPage(data));
   console.log("  ✓ methodology/index.html");
 
+  // Privacy / Terms / Contact — required for AdSense + affiliate trust
+  writeFile(path.join(ROOT, "privacy", "index.html"), buildPrivacyPage(data));
+  console.log("  ✓ privacy/index.html");
+  writeFile(path.join(ROOT, "terms", "index.html"), buildTermsPage(data));
+  console.log("  ✓ terms/index.html");
+  writeFile(path.join(ROOT, "contact", "index.html"), buildContactPage(data));
+  console.log("  ✓ contact/index.html");
+
+  // ads.txt — emitted only when ALTAI_ADSENSE_PUBLISHER_ID is set.
+  const adsTxt = buildAdsTxt();
+  if (adsTxt) {
+    writeFile(path.join(ROOT, "ads.txt"), adsTxt);
+    console.log("  ✓ ads.txt (AdSense publisher-ID detected)");
+  }
+
   // Blog pages
   const posts = data.blog || [];
   if (posts.length > 0) {
@@ -1479,10 +1935,10 @@ function main() {
     data.comparisons.length +
     posts.length +
     (posts.length > 0 ? 1 : 0) +
-    1; // methodology
+    4; // methodology + privacy + terms + contact
   console.log(`Done. Generated ${totalPages} indexable pages.`);
   console.log(`  • 1 homepage`);
-  console.log(`  • 1 methodology / editorial policy page`);
+  console.log(`  • 4 editorial / policy pages (methodology, privacy, terms, contact)`);
   console.log(`  • ${data.categories.length} category landing pages`);
   console.log(`  • ${data.tools.length} tool alternative pages`);
   console.log(`  • ${data.comparisons.length} head-to-head comparison pages`);

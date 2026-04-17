@@ -132,4 +132,45 @@
   // Category cards are <a> elements linking to /category/<slug>/. They navigate
   // to dedicated category landing pages — no click-intercept needed. Users can
   // filter tools on the homepage via the search box.
+
+  // ---------- Cookie consent ----------
+  // The banner is rendered server-side only when AdSense is enabled
+  // (trackingPosture.setsCookies in scripts/build.js). JS here just handles
+  // accept/reject + persists the choice. Once the user has chosen, the banner
+  // stays hidden on future visits regardless of route.
+  //
+  // Storage keys:
+  //   altai_consent = "accept" | "reject"   (persistent, localStorage)
+  //   altai_consent_at = ISO timestamp       (audit trail)
+  const consentBanner = document.getElementById("cookie-banner");
+  if (consentBanner) {
+    const existing = (() => {
+      try { return window.localStorage.getItem("altai_consent"); }
+      catch (_) { return null; } // privacy-mode browsers → null; banner stays visible
+    })();
+
+    if (existing === "accept" || existing === "reject") {
+      consentBanner.hidden = true;
+    } else {
+      // Show the banner. It is rendered in-DOM but starts visible; we ensure it
+      // is not hidden in case CSS defaults hide it.
+      consentBanner.hidden = false;
+    }
+
+    const persist = (value) => {
+      try {
+        window.localStorage.setItem("altai_consent", value);
+        window.localStorage.setItem("altai_consent_at", new Date().toISOString());
+      } catch (_) { /* no-op */ }
+      consentBanner.hidden = true;
+      if (typeof window.plausible === "function") {
+        window.plausible("consent", { props: { value } });
+      }
+    };
+
+    const acceptBtn = consentBanner.querySelector("[data-cookie-accept]");
+    const declineBtn = consentBanner.querySelector("[data-cookie-decline]");
+    if (acceptBtn) acceptBtn.addEventListener("click", () => persist("accept"));
+    if (declineBtn) declineBtn.addEventListener("click", () => persist("reject"));
+  }
 })();

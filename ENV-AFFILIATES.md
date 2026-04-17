@@ -375,6 +375,68 @@ ALTAI_AFFILIATE_JASPER_NO_UTM=1 \
 
 ---
 
+## Google AdSense — `ALTAI_ADSENSE_PUBLISHER_ID`
+
+One env var activates the full AdSense posture site-wide. The build emits
+the AdSense snippet in every page head, publishes `ads.txt` at the root
+with the correct authorized-seller line, flips the footer disclosure to
+"Ads use cookies" + links to the privacy policy, and renders a cookie
+consent banner on every page.
+
+**Prerequisites (operator actions, external platforms):**
+
+1. Have a publicly live site on your production domain (AdSense refuses
+   Vercel preview URLs that are SSO-gated).
+2. Sign up at [adsense.google.com](https://adsense.google.com). Add your
+   production domain. Google will give you a publisher ID that looks
+   like `pub-1234567890123456`.
+3. Complete the AdSense verification step — it requires the snippet to
+   be live on the site, which step 4 below handles.
+
+**Env var to set on Vercel:**
+
+```
+ALTAI_ADSENSE_PUBLISHER_ID=pub-1234567890123456
+```
+
+(Accepts the `pub-…` form directly. The build adds the `ca-` prefix
+wherever Google needs it — `ca-pub-…` — so you don't have to remember.)
+
+**What changes at build time when this is set:**
+
+| Change | Where |
+| --- | --- |
+| `<meta name="google-adsense-account">` verification tag | Every page `<head>` |
+| Async AdSense loader `<script>` | Every page `<head>` |
+| `ads.txt` at the root with `google.com, pub-…, DIRECT, f08c47fec0942fa0` | `/ads.txt` |
+| Cookie consent banner | Bottom of every page body |
+| Footer line flips to `"Ads use cookies. See privacy."` | Every footer |
+| Privacy policy adds AdSense-specific disclosure | `/privacy/` |
+
+**When you unset `ALTAI_ADSENSE_PUBLISHER_ID`** (AdSense disabled):
+`ads.txt` is deleted on the next build, cookie banner disappears,
+footer flips back to the cookieless claim, privacy policy future-state
+language returns. Nothing lingers.
+
+**Consent flow:** the banner renders server-side only when AdSense is
+enabled. `js/main.js` reads `localStorage.altai_consent` on load; if the
+user has chosen accept or reject, the banner stays hidden. If no choice
+yet, the banner stays visible until they click one of the two buttons.
+
+**Testing locally:**
+```bash
+# Activate AdSense at build time
+ALTAI_ADSENSE_PUBLISHER_ID='pub-1234567890123456' node scripts/build.js
+cat ads.txt
+# → google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
+
+# Clear AdSense, rebuild — ads.txt is removed
+node scripts/build.js
+ls ads.txt  # → No such file
+```
+
+---
+
 ## Email provider — `ALTAI_EMAIL_PROVIDER` family
 
 The homepage + every tool/compare page carries an email form. Until a
