@@ -89,16 +89,23 @@ const categoryName = (data, slug) => {
 
 // ---------- Meta / schema builders ----------
 
-const commonHead = ({ title, description, canonical, ogImage, ogType = "website", schema, plausibleDomain }) => {
+const commonHead = ({ title, description, canonical, ogImage, ogType = "website", schema, plausibleDomain, gscVerification, bingVerification }) => {
   const schemas = Array.isArray(schema) ? schema : [schema];
   const schemaBlocks = schemas
     .map((s) => `<script type="application/ld+json">${jsonLd(s)}</script>`)
     .join("\n  ");
 
-  // Plausible is instrumented — add NEXT_PUBLIC_PLAUSIBLE_DOMAIN at deploy time and set tools.json site.plausible_domain.
   const plausibleTag = plausibleDomain
     ? `<script defer data-domain="${esc(plausibleDomain)}" src="https://plausible.io/js/script.js"></script>`
     : `<!-- Plausible: set site.plausible_domain in data/tools.json to enable analytics -->`;
+
+  const gscTag = gscVerification
+    ? `<meta name="google-site-verification" content="${esc(gscVerification)}">`
+    : `<!-- Google Search Console: set site.gsc_verification_code in data/tools.json to auto-inject verification meta tag -->`;
+
+  const bingTag = bingVerification
+    ? `<meta name="msvalidate.01" content="${esc(bingVerification)}">`
+    : `<!-- Bing Webmaster Tools: set site.bing_verification_code in data/tools.json to auto-inject verification meta tag -->`;
 
   const errorMonitor = `<script>
 window.addEventListener('error', function(e) {
@@ -117,6 +124,8 @@ window.addEventListener('unhandledrejection', function(e) {
   <meta name="theme-color" content="#0a0a0f">
   <meta name="color-scheme" content="dark light">
   <meta name="robots" content="index, follow, max-image-preview:large">
+  ${gscTag}
+  ${bingTag}
   <meta property="og:type" content="${esc(ogType)}">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
@@ -217,6 +226,14 @@ const footerHtml = (data) => `
 
 // ---------- Page builders ----------
 
+// Optional js/config.js — operator copies js/config.js.example to js/config.js
+// and sets window.ALTAI_EMAIL_ENDPOINT (or other runtime config). Build detects
+// the file; when present, every page gets a <script src="/js/config.js"> tag
+// before /js/main.js so main.js reads the config on init.
+const CONFIG_SCRIPT = fs.existsSync(path.join(ROOT, "js", "config.js"))
+  ? `<script src="/js/config.js"></script>`
+  : `<!-- js/config.js not present — copy js/config.js.example to wire an email provider -->`;
+
 const buildIndex = (data, tmpl) => {
   const categoriesHtml = data.categories
     .map(
@@ -275,6 +292,8 @@ const buildIndex = (data, tmpl) => {
     ogType: "website",
     schema: [websiteSchema, orgSchema],
     plausibleDomain: data.site.plausible_domain,
+    gscVerification: data.site.gsc_verification_code,
+    bingVerification: data.site.bing_verification_code,
   });
 
   // Trending comparisons — pick up to 8 highest-search-volume tools and pair with their first comparison
@@ -314,6 +333,7 @@ const buildIndex = (data, tmpl) => {
   </div>`;
 
   return render(tmpl, {
+    config_script: CONFIG_SCRIPT,
     head,
     header: headerHtml(),
     footer: footerHtml(data),
@@ -475,9 +495,12 @@ const buildToolPage = (data, tool, tmpl) => {
     ogType: "website",
     schema: [itemListSchema, crumbSchema, faqSchema],
     plausibleDomain: data.site.plausible_domain,
+    gscVerification: data.site.gsc_verification_code,
+    bingVerification: data.site.bing_verification_code,
   });
 
   return render(tmpl, {
+    config_script: CONFIG_SCRIPT,
     head,
     header: headerHtml(),
     footer: footerHtml(data),
@@ -640,9 +663,12 @@ const buildComparePage = (data, cmp, tmpl) => {
     ogType: "article",
     schema: [articleSchema, crumbSchema, faqSchema],
     plausibleDomain: data.site.plausible_domain,
+    gscVerification: data.site.gsc_verification_code,
+    bingVerification: data.site.bing_verification_code,
   });
 
   return render(tmpl, {
+    config_script: CONFIG_SCRIPT,
     head,
     header: headerHtml(),
     footer: footerHtml(data),

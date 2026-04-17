@@ -8,7 +8,11 @@
     "plausible_domain": "thealtai.com",
     "_plausible_note": "Set to e.g. 'altai.com' to enable Plausible analytics (adds <script> tag to every page)",
     "email_provider": "",
-    "_email_note": "TODO: set to 'buttondown' | 'beehiiv' | 'convertkit' and wire ALTAI_EMAIL_ENDPOINT in main.js (see LAUNCH-CHECKLIST.md)",
+    "_email_note": "Email flow: default form posts to /api/subscribe (Vercel function, already shipped). To use Buttondown/Beehiiv/ConvertKit, copy js/config.js.example to js/config.js and fill in window.ALTAI_EMAIL_ENDPOINT, then rebuild.",
+    "gsc_verification_code": "",
+    "_gsc_note": "Google Search Console domain verification. Paste the content value from GSC's HTML tag verification method (e.g. 'abc123...'). Rebuild auto-injects <meta name=\"google-site-verification\"> on every page.",
+    "bing_verification_code": "",
+    "_bing_note": "Bing Webmaster Tools meta tag verification. Paste the content value from Bing's HTML tag method. Rebuild auto-injects <meta name=\"msvalidate.01\"> on every page.",
     "author": "AltAI",
     "accent": "#7C3AED",
     "updated": "2026-04-17"

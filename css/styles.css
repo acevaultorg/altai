@@ -1339,8 +1339,10 @@ footer {
   border-radius: 6px;
   color: var(--text, #f0f0f0);
   cursor: pointer;
-  font-size: 0.85rem;
-  padding: 0.35rem 0.85rem;
+  font-size: 0.9rem;
+  min-height: 44px;
+  min-width: 64px;
+  padding: 0.65rem 1rem;
   transition: background 0.15s, border-color 0.15s;
 }
 

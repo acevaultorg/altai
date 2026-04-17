@@ -1,0 +1,42 @@
+/**
+ * AltAI runtime config — OPTIONAL.
+ *
+ * Copy this file to `js/config.js` and fill in one of the three email providers
+ * below. Rename the example then `npm run build` — build.js detects config.js
+ * and adds a <script> tag to every page.
+ *
+ * If you do NOT copy this file, the newsletter form posts to /api/subscribe
+ * (the Vercel serverless function already shipped — see api/subscribe.js).
+ * That endpoint logs each email to the Vercel function log and optionally
+ * writes to Vercel KV if KV_REST_API_URL + KV_REST_API_TOKEN are set.
+ *
+ * Once you pick a real provider, set window.ALTAI_EMAIL_ENDPOINT below and the
+ * form will submit there instead — the provider handles confirmation emails,
+ * double-opt-in, etc. The Vercel function stays as a fallback.
+ */
+
+// ---------- Option A: Buttondown (free up to 100 subs) ----------
+// 1. Sign up at https://buttondown.email
+// 2. Your subdomain is in your dashboard URL (e.g. `altai` for altai.buttondown.email)
+// 3. Uncomment and fill in:
+// window.ALTAI_EMAIL_ENDPOINT = "https://buttondown.email/api/emails/embed-subscribe/<your-subdomain>";
+
+// ---------- Option B: Beehiiv (free up to 2500 subs) ----------
+// 1. Sign up at https://beehiiv.com and create a publication
+// 2. Settings → Integrations → API → create key
+// 3. Get your publication ID from the dashboard URL
+// 4. Build your own endpoint (Beehiiv requires server-side auth, so point
+//    ALTAI_EMAIL_ENDPOINT at a wrapper serverless function, NOT Beehiiv directly):
+// window.ALTAI_EMAIL_ENDPOINT = "/api/beehiiv-subscribe";
+
+// ---------- Option C: ConvertKit (free up to 1000 subs) ----------
+// 1. Sign up at https://convertkit.com
+// 2. Grow → Landing Pages & Forms → create an embed form
+// 3. The form ID is in the embed HTML
+// 4. Replace <form-id>:
+// window.ALTAI_EMAIL_ENDPOINT = "https://app.convertkit.com/forms/<form-id>/subscriptions";
+
+// ---------- Option D: Keep Vercel function (default) ----------
+// Leave ALTAI_EMAIL_ENDPOINT unset. The form posts to /api/subscribe.
+// Emails land in Vercel function logs. Set KV_REST_API_URL + KV_REST_API_TOKEN
+// in Vercel project settings to also persist to Vercel KV.
