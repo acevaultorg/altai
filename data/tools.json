@@ -4743,6 +4743,542 @@
           "affiliate": "https://albato.com"
         }
       ]
+    },
+    {
+      "slug": "deepseek",
+      "name": "DeepSeek",
+      "category": "chat",
+      "vendor": "DeepSeek AI",
+      "pricing": {
+        "free": true,
+        "paid_from": 0,
+        "currency": "USD",
+        "model": "free"
+      },
+      "headline": "The open-source AI that shook the industry.",
+      "summary": "DeepSeek R1 matched GPT-4 performance at a fraction of the training cost, triggering a global re-evaluation of AI economics. DeepSeek V3 is free, fast, and competitive with OpenAI's best models. The open-source R1 model is freely downloadable and runs locally.",
+      "strengths": [
+        "free and unlimited on web",
+        "strong reasoning with R1 model",
+        "fully open-source weights available",
+        "low API cost for developers"
+      ],
+      "weaknesses": [
+        "Chinese company — data privacy concerns",
+        "censors politically sensitive topics",
+        "no native image generation"
+      ],
+      "affiliate": {
+        "url": "https://chat.deepseek.com",
+        "program": "none"
+      },
+      "searches_per_month": 9100000,
+      "alternatives": [
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "No censorship, rich plugins ecosystem, image generation, voice mode.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "Better long-form writing. 200K context. No data concerns.",
+          "price": "Free / $20/mo Pro",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "Gemini",
+          "slug": "gemini",
+          "why": "Real-time Google Search integration. Strong multimodal.",
+          "price": "Free / $20/mo Advanced",
+          "affiliate": "https://gemini.google.com"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral",
+          "why": "European open-source model. GDPR-compliant. No censorship.",
+          "price": "Free / €14.99/mo",
+          "affiliate": "https://chat.mistral.ai"
+        },
+        {
+          "name": "Grok",
+          "slug": "grok",
+          "why": "Real-time X/Twitter data. No guardrails. Direct competition to DeepSeek.",
+          "price": "Free / $30/mo",
+          "affiliate": "https://grok.com"
+        }
+      ]
+    },
+    {
+      "slug": "meta-ai",
+      "name": "Meta AI",
+      "category": "chat",
+      "vendor": "Meta",
+      "pricing": {
+        "free": true,
+        "paid_from": 0,
+        "currency": "USD",
+        "model": "free"
+      },
+      "headline": "Facebook's free AI assistant, powered by Llama 4.",
+      "summary": "Meta AI is a free assistant built on Llama 4, Meta's latest open-source model family. Available in WhatsApp, Instagram, Facebook, and at meta.ai. Llama 4 Scout and Maverick bring a 10M token context window and competitive performance against GPT-4o.",
+      "strengths": [
+        "completely free",
+        "WhatsApp and Instagram integration",
+        "Llama 4 is genuinely competitive",
+        "open-source Llama for self-hosting"
+      ],
+      "weaknesses": [
+        "data used to improve Meta's AI",
+        "no code interpreter or image generation",
+        "less polished than ChatGPT"
+      ],
+      "affiliate": {
+        "url": "https://meta.ai",
+        "program": "none"
+      },
+      "searches_per_month": 1800000,
+      "alternatives": [
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "Broader features, plugins, image generation, voice mode.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Gemini",
+          "slug": "gemini",
+          "why": "Deep Google integration. Better search and real-time information.",
+          "price": "Free / $20/mo Advanced",
+          "affiliate": "https://gemini.google.com"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "More nuanced writing and instruction-following. 200K context.",
+          "price": "Free / $20/mo Pro",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "DeepSeek",
+          "slug": "deepseek",
+          "why": "Free like Meta AI but stronger on math and reasoning tasks.",
+          "price": "Free",
+          "affiliate": "https://chat.deepseek.com"
+        },
+        {
+          "name": "Copilot",
+          "slug": "copilot",
+          "why": "Microsoft's free AI with Bing real-time web search.",
+          "price": "Free / $30/mo Pro",
+          "affiliate": "https://copilot.microsoft.com"
+        }
+      ]
+    },
+    {
+      "slug": "mistral",
+      "name": "Mistral Le Chat",
+      "category": "chat",
+      "vendor": "Mistral AI",
+      "pricing": {
+        "free": true,
+        "paid_from": 14,
+        "currency": "EUR",
+        "model": "subscription"
+      },
+      "headline": "Europe's fastest, most open frontier AI model.",
+      "summary": "Mistral AI is a French AI startup that built open-source models matching GPT-4 at a fraction of the size. Le Chat is their free consumer app — fast, multilingual, and GDPR-compliant. Mistral Large 2 and the Mixtral models are open-weight and freely available for self-hosting.",
+      "strengths": [
+        "GDPR-compliant European company",
+        "fast response times",
+        "open-source Mixtral available",
+        "strong French, German, Spanish support"
+      ],
+      "weaknesses": [
+        "smaller ecosystem than OpenAI",
+        "no native image generation",
+        "less brand recognition outside Europe"
+      ],
+      "affiliate": {
+        "url": "https://chat.mistral.ai",
+        "program": "none"
+      },
+      "searches_per_month": 1100000,
+      "alternatives": [
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "Richer ecosystem, plugins, image gen. The industry standard.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "Better writing quality. 200K context. Strong instruction following.",
+          "price": "Free / $20/mo Pro",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "DeepSeek",
+          "slug": "deepseek",
+          "why": "Also free and open-source. Strong on math and coding.",
+          "price": "Free",
+          "affiliate": "https://chat.deepseek.com"
+        },
+        {
+          "name": "Gemini",
+          "slug": "gemini",
+          "why": "Real-time search. Strong multimodal. Google Workspace integration.",
+          "price": "Free / $20/mo Advanced",
+          "affiliate": "https://gemini.google.com"
+        },
+        {
+          "name": "Copilot",
+          "slug": "copilot",
+          "why": "Free with Bing search built in. Works in Windows and Edge.",
+          "price": "Free / $30/mo",
+          "affiliate": "https://copilot.microsoft.com"
+        }
+      ]
+    },
+    {
+      "slug": "flux",
+      "name": "FLUX.1",
+      "category": "image",
+      "vendor": "Black Forest Labs",
+      "pricing": {
+        "free": true,
+        "paid_from": 0,
+        "currency": "USD",
+        "model": "freemium"
+      },
+      "headline": "The open-source image model that challenged Midjourney.",
+      "summary": "FLUX.1 by Black Forest Labs set new benchmarks for open-source image generation. FLUX.1 [schnell] is fast and free; FLUX.1 [dev] is open for research; FLUX.1 [pro] via API rivals subscription tools. Run it free on Replicate, Hugging Face, or any of dozens of hosted interfaces.",
+      "strengths": [
+        "open-source dev/schnell variants",
+        "state-of-the-art prompt adherence",
+        "free to run locally",
+        "available on Replicate, Comfy, A1111"
+      ],
+      "weaknesses": [
+        "no official consumer web app",
+        "hardware-intensive to run locally",
+        "pro API costs add up"
+      ],
+      "affiliate": {
+        "url": "https://blackforestlabs.ai",
+        "program": "none"
+      },
+      "searches_per_month": 1200000,
+      "alternatives": [
+        {
+          "name": "Midjourney",
+          "slug": "midjourney",
+          "why": "Best artistic quality and active community. Consistent aesthetic.",
+          "price": "$10/mo Basic",
+          "affiliate": "https://www.midjourney.com/?ref=altai"
+        },
+        {
+          "name": "Stable Diffusion",
+          "slug": "stable-diffusion",
+          "why": "The original open-source model. Huge fine-tune and LoRA library.",
+          "price": "Free (self-hosted)",
+          "affiliate": "https://stability.ai"
+        },
+        {
+          "name": "DALL·E 3",
+          "slug": "dalle",
+          "why": "Best prompt adherence on complex scenes. Integrated into ChatGPT.",
+          "price": "Included with ChatGPT Plus ($20/mo)",
+          "affiliate": "https://openai.com/dall-e-3"
+        },
+        {
+          "name": "Adobe Firefly",
+          "slug": "adobe-firefly",
+          "why": "Commercially safe — trained only on licensed images.",
+          "price": "Free (25 credits) / $4.99/mo",
+          "affiliate": "https://firefly.adobe.com"
+        },
+        {
+          "name": "Ideogram",
+          "slug": "ideogram",
+          "why": "Best AI for text-in-image. 10 free generations/day.",
+          "price": "Free (10/day) / $8/mo",
+          "affiliate": "https://ideogram.ai/?ref=altai"
+        }
+      ]
+    },
+    {
+      "slug": "udio",
+      "name": "Udio",
+      "category": "voice",
+      "vendor": "Udio",
+      "pricing": {
+        "free": true,
+        "paid_from": 10,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "AI music generator with studio-quality output.",
+      "summary": "Udio generates complete songs from text prompts — vocals, instruments, lyrics, mastering. Founded by ex-Google DeepMind researchers, Udio is Suno's main competitor. The free plan gives 100 tracks/month, and output quality rivals paid music production software.",
+      "strengths": [
+        "100 free tracks/month",
+        "professional audio quality",
+        "strong custom vocals",
+        "full song with lyrics from one prompt"
+      ],
+      "weaknesses": [
+        "copyright uncertainty for commercial use",
+        "limited control over individual instruments",
+        "smaller community than Suno"
+      ],
+      "affiliate": {
+        "url": "https://www.udio.com",
+        "program": "none"
+      },
+      "searches_per_month": 450000,
+      "alternatives": [
+        {
+          "name": "Suno",
+          "slug": "suno",
+          "why": "The market leader. Larger community, 50 free songs/day, more style control.",
+          "price": "Free (50/day) / $8/mo",
+          "affiliate": "https://suno.com"
+        },
+        {
+          "name": "ElevenLabs",
+          "slug": "elevenlabs",
+          "why": "Best for voice cloning and TTS. Pro-grade vocals without full song generation.",
+          "price": "Free / $5/mo Starter",
+          "affiliate": "https://elevenlabs.io/?via=altai"
+        },
+        {
+          "name": "Murf",
+          "slug": "murf",
+          "why": "Studio voiceovers for commercial narration and ads. 10-min free tier.",
+          "price": "Free (10 min) / $19/mo",
+          "affiliate": "https://murf.ai"
+        },
+        {
+          "name": "Descript",
+          "slug": "descript",
+          "why": "Record, edit, and overdub audio/video. Full podcast production suite.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.descript.com"
+        },
+        {
+          "name": "ElevenLabs Music",
+          "slug": "elevenlabs",
+          "why": "ElevenLabs now generates music too. Same quality bar as their voice tools.",
+          "price": "Included with ElevenLabs plan",
+          "affiliate": "https://elevenlabs.io/?via=altai"
+        }
+      ]
+    },
+    {
+      "slug": "poe",
+      "name": "Poe",
+      "category": "chat",
+      "vendor": "Quora",
+      "pricing": {
+        "free": true,
+        "paid_from": 20,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "One subscription to access every top AI model.",
+      "summary": "Poe by Quora is an AI aggregator letting you chat with Claude, GPT-4o, Gemini, Llama, Mistral, and 100+ bots in one app. A $20/mo Poe subscription gives access to models that would otherwise cost $60-80/mo combined. Also lets you build and share custom AI bots.",
+      "strengths": [
+        "access 100+ AI models in one place",
+        "flat monthly price",
+        "build and share custom bots",
+        "iOS/Android/Web apps"
+      ],
+      "weaknesses": [
+        "point limits still apply per model",
+        "one extra subscription layer",
+        "features often lag behind native apps"
+      ],
+      "affiliate": {
+        "url": "https://poe.com",
+        "program": "none"
+      },
+      "searches_per_month": 800000,
+      "alternatives": [
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "Best for OpenAI-specific features: GPT-5, DALL·E 3, voice mode, plugins.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "Best for writing and long documents. Direct subscription for full features.",
+          "price": "Free / $20/mo Pro",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "Gemini",
+          "slug": "gemini",
+          "why": "Google's model with real-time search. Free with Google account.",
+          "price": "Free / $20/mo Advanced",
+          "affiliate": "https://gemini.google.com"
+        },
+        {
+          "name": "DeepSeek",
+          "slug": "deepseek",
+          "why": "Free and unlimited. GPT-4-class reasoning at zero cost.",
+          "price": "Free",
+          "affiliate": "https://chat.deepseek.com"
+        },
+        {
+          "name": "HuggingChat",
+          "slug": "huggingface",
+          "why": "Free access to Llama, Mixtral, Command R. No subscription required.",
+          "price": "Free",
+          "affiliate": "https://huggingface.co/chat"
+        }
+      ]
+    },
+    {
+      "slug": "notebooklm",
+      "name": "NotebookLM",
+      "category": "search",
+      "vendor": "Google",
+      "pricing": {
+        "free": true,
+        "paid_from": 20,
+        "currency": "USD",
+        "model": "freemium"
+      },
+      "headline": "Google's AI research assistant grounded in your sources.",
+      "summary": "NotebookLM lets you upload documents, PDFs, videos, and websites, then ask questions answered exclusively from YOUR sources — no hallucinations from general training data, only citations from what you uploaded. The Audio Overview feature converts any document into a podcast-style dialogue.",
+      "strengths": [
+        "answers grounded only in your sources",
+        "PDF/YouTube/Google Doc ingestion",
+        "Audio Overview podcast generation",
+        "free for most use cases"
+      ],
+      "weaknesses": [
+        "limited to uploaded sources (no real-time web search)",
+        "50 notebook limit on free plan",
+        "weaker at coding or creative tasks"
+      ],
+      "affiliate": {
+        "url": "https://notebooklm.google.com",
+        "program": "none"
+      },
+      "searches_per_month": 1900000,
+      "alternatives": [
+        {
+          "name": "Perplexity",
+          "slug": "perplexity",
+          "why": "Real-time web research with citations. Better for current events.",
+          "price": "Free / $20/mo Pro",
+          "affiliate": "https://www.perplexity.ai/?ref=altai"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "200K token context. Upload PDFs and whole documents. Great analysis.",
+          "price": "Free / $20/mo Pro",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "File upload and analysis. GPT-4o handles documents well.",
+          "price": "Free / $20/mo Plus",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Copilot",
+          "slug": "copilot",
+          "why": "Built into Microsoft 365. Deep Word, Excel, and SharePoint integration.",
+          "price": "Free / $30/mo Pro",
+          "affiliate": "https://copilot.microsoft.com"
+        },
+        {
+          "name": "Gemini",
+          "slug": "gemini",
+          "why": "Google's model with Google Drive integration and 1M token context.",
+          "price": "Free / $20/mo Advanced",
+          "affiliate": "https://gemini.google.com"
+        }
+      ]
+    },
+    {
+      "slug": "krea",
+      "name": "Krea AI",
+      "category": "image",
+      "vendor": "Krea",
+      "pricing": {
+        "free": true,
+        "paid_from": 24,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Real-time AI canvas for image generation and upscaling.",
+      "summary": "Krea is an AI creative studio with a unique real-time generation canvas — sketch rough shapes and watch AI refine them as you draw. Also features a best-in-class upscaler and AI video generation. Free plan: 50 daily generations. Strong for product photography, brand imagery, and concept art.",
+      "strengths": [
+        "real-time canvas generation",
+        "class-leading upscaler",
+        "50 free generations/day",
+        "strong for product and brand imagery"
+      ],
+      "weaknesses": [
+        "less photorealistic than Midjourney v6",
+        "premium tier expensive at $24/mo",
+        "smaller model variety"
+      ],
+      "affiliate": {
+        "url": "https://www.krea.ai",
+        "program": "none"
+      },
+      "searches_per_month": 380000,
+      "alternatives": [
+        {
+          "name": "Midjourney",
+          "slug": "midjourney",
+          "why": "The benchmark for AI image quality. Huge style library.",
+          "price": "$10/mo Basic",
+          "affiliate": "https://www.midjourney.com/?ref=altai"
+        },
+        {
+          "name": "Adobe Firefly",
+          "slug": "adobe-firefly",
+          "why": "Commercially safe. Trained on licensed images. Built into Photoshop.",
+          "price": "Free (25 credits) / $4.99/mo",
+          "affiliate": "https://firefly.adobe.com"
+        },
+        {
+          "name": "FLUX.1",
+          "slug": "flux",
+          "why": "Open-source. State-of-the-art prompt adherence. Free to run locally.",
+          "price": "Free (self-hosted) / API credits",
+          "affiliate": "https://blackforestlabs.ai"
+        },
+        {
+          "name": "Canva AI",
+          "slug": "canva-ai",
+          "why": "Best for social media and marketing. Design tools built around AI.",
+          "price": "Free / $15/mo Pro",
+          "affiliate": "https://www.canva.com"
+        },
+        {
+          "name": "Ideogram",
+          "slug": "ideogram",
+          "why": "Best AI for text-in-image. 10 free generations/day.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://ideogram.ai/?ref=altai"
+        }
+      ]
     }
   ],
   "comparisons": [
@@ -4925,6 +5461,31 @@
       "a": "replit",
       "b": "bolt",
       "headline": "Which browser-based AI builder is right for you?"
+    },
+    {
+      "a": "deepseek",
+      "b": "chatgpt",
+      "headline": "The disruptor vs the incumbent. Which AI wins in 2026?"
+    },
+    {
+      "a": "chatgpt",
+      "b": "meta-ai",
+      "headline": "OpenAI's flagship vs Meta's free assistant."
+    },
+    {
+      "a": "suno",
+      "b": "udio",
+      "headline": "The two best AI music generators, head to head."
+    },
+    {
+      "a": "midjourney",
+      "b": "flux",
+      "headline": "Premium subscription vs open-source challenger."
+    },
+    {
+      "a": "notebooklm",
+      "b": "perplexity",
+      "headline": "Source-grounded AI vs real-time web research."
     }
   ],
   "blog": [
@@ -5209,6 +5770,106 @@
           "why": "Build and deploy a full-stack web app for free. Limited daily tokens but genuinely useful.",
           "price": "Free (150K tokens/day)",
           "affiliate": "https://bolt.new"
+        }
+      ]
+    },
+    {
+      "slug": "best-deepseek-alternatives-2026",
+      "title": "Best DeepSeek Alternatives in 2026 (Tested & Ranked)",
+      "description": "DeepSeek shook the AI world in 2025 — but it's not right for everyone. Here are the 8 best alternatives ranked by quality, privacy, and price.",
+      "category": "AI Chatbots",
+      "published": "2026-04-18",
+      "intro": "<p>DeepSeek's R1 model matched GPT-4 performance at a fraction of the training cost, triggering a global rethink of AI economics. But for many users, concerns about data privacy (it's a Chinese company), content censorship, and lack of features like image generation mean it's not the right long-term choice.</p><p>We tested 8 alternatives across writing, coding, research, and reasoning. Here's the honest ranking.</p>",
+      "outro": "<p><strong>Bottom line:</strong> For most users who want DeepSeek-level quality without the privacy trade-offs, Claude or ChatGPT is the answer. For those who want an open-source model they can run locally, Llama 4 or Mistral's open-weight models are the right move.</p><p>→ <a href='/compare/deepseek-vs-chatgpt.html'>See the full DeepSeek vs ChatGPT comparison</a> · <a href='/tools/deepseek-alternatives.html'>All DeepSeek alternatives ranked</a></p>",
+      "tools": [
+        {
+          "name": "Claude",
+          "why": "Best writing quality and instruction-following. 200K context. No Chinese data concerns.",
+          "price": "Free / $20/mo Pro",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "ChatGPT",
+          "why": "Broader ecosystem: plugins, image generation, voice mode, code interpreter.",
+          "price": "Free / $20/mo Plus",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Gemini",
+          "why": "Free. Real-time Google search integration. Strong multimodal capabilities.",
+          "price": "Free / $20/mo Advanced",
+          "affiliate": "https://gemini.google.com"
+        },
+        {
+          "name": "Mistral",
+          "why": "European open-source model. GDPR-compliant, no censorship, privacy-first.",
+          "price": "Free / €14.99/mo",
+          "affiliate": "https://chat.mistral.ai"
+        },
+        {
+          "name": "Grok",
+          "why": "Real-time X/Twitter data. Uncensored. Included with X Premium.",
+          "price": "Free / $30/mo SuperGrok",
+          "affiliate": "https://grok.com"
+        },
+        {
+          "name": "Perplexity",
+          "why": "Every answer cites sources. Best for research and fact-checking.",
+          "price": "Free / $20/mo Pro",
+          "affiliate": "https://www.perplexity.ai/?ref=altai"
+        },
+        {
+          "name": "Copilot",
+          "why": "Microsoft's AI with Bing search. Free on Windows. No account needed.",
+          "price": "Free / $30/mo Pro",
+          "affiliate": "https://copilot.microsoft.com"
+        },
+        {
+          "name": "Meta AI",
+          "why": "Completely free. Llama 4 is competitive. Available in WhatsApp.",
+          "price": "Free",
+          "affiliate": "https://meta.ai"
+        }
+      ]
+    },
+    {
+      "slug": "best-ai-music-generators-2026",
+      "title": "Best AI Music Generators in 2026 — Full Songs from Text",
+      "description": "Generate complete songs with vocals and instruments from a text prompt. We tested 8 AI music tools on quality, style range, and free tier generosity.",
+      "category": "Voice & Audio",
+      "published": "2026-04-18",
+      "intro": "<p>AI music generation has hit a turning point. In 2026, you can type a sentence and get a complete, produced song with vocals, instruments, and mastering in under 30 seconds — for free. The gap between AI-generated music and human production has narrowed dramatically.</p><p>We generated 20 songs across genres (pop, lo-fi, electronic, rock, jazz) with each tool. Here's what we found.</p>",
+      "outro": "<p><strong>Bottom line:</strong> Suno leads on sheer song volume and community. Udio edges ahead on vocal quality and production depth. For voice-only work without full songs, ElevenLabs is the clear winner. For video content creators who need background music, Soundraw or Murf are better choices.</p><p>→ <a href='/compare/suno-vs-udio.html'>See the full Suno vs Udio comparison</a> · <a href='/tools/suno-alternatives.html'>All Suno alternatives ranked</a></p>",
+      "tools": [
+        {
+          "name": "Suno",
+          "why": "Market leader. 50 free songs/day. Huge style range. The easiest to use.",
+          "price": "Free (50/day) / $8/mo",
+          "affiliate": "https://suno.com"
+        },
+        {
+          "name": "Udio",
+          "why": "Best vocal quality. 100 free tracks/month. Founded by ex-DeepMind researchers.",
+          "price": "Free (100/mo) / $10/mo",
+          "affiliate": "https://www.udio.com"
+        },
+        {
+          "name": "ElevenLabs",
+          "why": "Best for voice cloning. TTS for songs, not full production. 10K free chars/mo.",
+          "price": "Free / $5/mo Starter",
+          "affiliate": "https://elevenlabs.io/?via=altai"
+        },
+        {
+          "name": "Murf",
+          "why": "Studio voiceovers for commercial use. 150 voices in 20 languages.",
+          "price": "Free (10 min) / $19/mo",
+          "affiliate": "https://murf.ai"
+        },
+        {
+          "name": "Descript",
+          "why": "Record, edit, remix audio + video. Full podcast production in one tool.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.descript.com"
         }
       ]
     }
