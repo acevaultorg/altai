@@ -53,6 +53,16 @@
       "slug": "platform",
       "name": "ML Platforms",
       "desc": "Model hosting, training, and deployment."
+    },
+    {
+      "slug": "design",
+      "name": "Design & Prototyping",
+      "desc": "AI-powered design tools, prototyping platforms, and creative suites."
+    },
+    {
+      "slug": "automation",
+      "name": "AI Automation",
+      "desc": "Workflow automation, AI orchestration, and no-code integration platforms."
     }
   ],
   "tools": [
@@ -5649,6 +5659,578 @@
           "affiliate": "https://kagi.com"
         }
       ]
+    },
+    {
+      "slug": "capcut",
+      "name": "CapCut",
+      "category": "video",
+      "vendor": "ByteDance",
+      "pricing": {
+        "free": true,
+        "paid_from": 0,
+        "currency": "USD",
+        "model": "freemium"
+      },
+      "headline": "The viral short-form video editor.",
+      "summary": "CapCut dominates TikTok-style editing with one-tap templates, auto-captions, AI background removal, and script-to-video. Free on desktop and mobile. ByteDance-owned.",
+      "strengths": [
+        "free forever",
+        "huge template library",
+        "auto-captions",
+        "mobile + desktop",
+        "AI green screen"
+      ],
+      "weaknesses": [
+        "ByteDance data concerns",
+        "limited pro export formats",
+        "not suited for long-form"
+      ],
+      "affiliate": {
+        "url": "https://capcut.com",
+        "program": "none-official"
+      },
+      "searches_per_month": 950000,
+      "alternatives": [
+        {
+          "name": "Runway",
+          "slug": "runway",
+          "why": "Professional AI video generation + editing. Gen-3 Alpha for cinematic quality.",
+          "price": "$15/mo",
+          "affiliate": "https://runwayml.com"
+        },
+        {
+          "name": "Pika",
+          "slug": "pika",
+          "why": "Text-to-video in seconds. Pika 2.0 produces smooth, high-quality clips.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://pika.art"
+        },
+        {
+          "name": "InVideo AI",
+          "slug": "invideo",
+          "why": "Full script-to-video pipeline with stock footage. Best for YouTube and social.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://invideo.io"
+        },
+        {
+          "name": "Descript",
+          "slug": "descript",
+          "why": "Edit video by editing the transcript. Best for podcasters and interviews.",
+          "price": "Free / $24/mo",
+          "affiliate": "https://www.descript.com"
+        },
+        {
+          "name": "Loom",
+          "slug": "loom",
+          "why": "Screen + cam recording with instant sharing. Zero editing needed.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.loom.com"
+        },
+        {
+          "name": "HeyGen",
+          "slug": "heygen",
+          "why": "AI avatar videos with lip-sync in 40+ languages. Best for sales and marketing.",
+          "price": "$29/mo",
+          "affiliate": "https://www.heygen.com"
+        },
+        {
+          "name": "OpusClip",
+          "slug": "opus-clip",
+          "why": "Auto-clips long videos into viral shorts. Repurpose podcasts in one click.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.opus.pro"
+        }
+      ]
+    },
+    {
+      "slug": "invideo",
+      "name": "InVideo AI",
+      "category": "video",
+      "vendor": "InVideo",
+      "pricing": {
+        "free": true,
+        "paid_from": 20,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Script to polished video in minutes.",
+      "summary": "InVideo AI turns prompts or scripts into full videos with stock footage, voiceover, subtitles, and music. Ideal for YouTube, social media, and marketing teams without editors.",
+      "strengths": [
+        "script-to-video pipeline",
+        "millions of stock clips",
+        "AI voiceover in 50+ languages",
+        "auto-subtitles",
+        "brand kits"
+      ],
+      "weaknesses": [
+        "watermark on free plan",
+        "stock footage can look generic",
+        "less creative than Runway"
+      ],
+      "affiliate": {
+        "url": "https://invideo.io",
+        "program": "invideo-affiliate"
+      },
+      "searches_per_month": 145000,
+      "alternatives": [
+        {
+          "name": "CapCut",
+          "slug": "capcut",
+          "why": "Free forever. Best for short-form social content and TikTok-style cuts.",
+          "price": "Free",
+          "affiliate": "https://capcut.com"
+        },
+        {
+          "name": "Runway",
+          "slug": "runway",
+          "why": "AI video generation (text→video). For creative, cinematic content.",
+          "price": "$15/mo",
+          "affiliate": "https://runwayml.com"
+        },
+        {
+          "name": "Pika",
+          "slug": "pika",
+          "why": "Fast text-to-video. Great for social clips from a single prompt.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://pika.art"
+        },
+        {
+          "name": "HeyGen",
+          "slug": "heygen",
+          "why": "AI presenter avatar. Looks like a real person speaking your script.",
+          "price": "$29/mo",
+          "affiliate": "https://www.heygen.com"
+        },
+        {
+          "name": "Synthesia",
+          "slug": "synthesia",
+          "why": "Enterprise-grade AI presenter videos. 140+ avatars, 120+ languages.",
+          "price": "$29/mo",
+          "affiliate": "https://www.synthesia.io"
+        },
+        {
+          "name": "OpusClip",
+          "slug": "opus-clip",
+          "why": "Repurpose long videos into viral shorts automatically.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.opus.pro"
+        }
+      ]
+    },
+    {
+      "slug": "zapier",
+      "name": "Zapier",
+      "category": "automation",
+      "vendor": "Zapier Inc.",
+      "pricing": {
+        "free": true,
+        "paid_from": 20,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Connect your apps without code.",
+      "summary": "Zapier connects 7,000+ apps with no-code automation. Used by teams to sync data, automate workflows, and trigger actions across tools. Now includes AI Actions for natural-language automation.",
+      "strengths": [
+        "7,000+ integrations",
+        "no-code interface",
+        "reliable",
+        "huge community",
+        "AI Actions"
+      ],
+      "weaknesses": [
+        "expensive at scale",
+        "limited advanced logic",
+        "not real-time on free plan"
+      ],
+      "affiliate": {
+        "url": "https://zapier.com",
+        "program": "zapier-partners"
+      },
+      "searches_per_month": 890000,
+      "alternatives": [
+        {
+          "name": "Make",
+          "slug": "make",
+          "why": "Visual workflow builder with complex branching. 1,000+ apps. More powerful than Zapier for advanced logic.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://www.make.com"
+        },
+        {
+          "name": "n8n",
+          "slug": "n8n",
+          "why": "Open-source and self-hostable. No per-task pricing. Best for developers.",
+          "price": "Free (self-host) / $20/mo cloud",
+          "affiliate": "https://n8n.io"
+        },
+        {
+          "name": "Framer",
+          "slug": "framer",
+          "why": "If you need design + publish automation, Framer's built-in CMS is simpler.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.framer.com"
+        },
+        {
+          "name": "Replicate",
+          "slug": "replicate",
+          "why": "API-first AI automation for developers. Run any model programmatically.",
+          "price": "Pay-per-use",
+          "affiliate": "https://replicate.com"
+        },
+        {
+          "name": "HuggingFace",
+          "slug": "huggingface",
+          "why": "Build AI pipelines directly. Spaces + Inference API replace simple automation.",
+          "price": "Free / $9/mo Pro",
+          "affiliate": "https://huggingface.co"
+        }
+      ]
+    },
+    {
+      "slug": "n8n",
+      "name": "n8n",
+      "category": "automation",
+      "vendor": "n8n GmbH",
+      "pricing": {
+        "free": true,
+        "paid_from": 20,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Open-source workflow automation for developers.",
+      "summary": "n8n is a fair-code workflow automation tool you can self-host for free. 400+ integrations, visual node editor, and full code access via JavaScript/Python. AI-native with LLM nodes built in.",
+      "strengths": [
+        "self-hostable (free)",
+        "open-source",
+        "code nodes for custom logic",
+        "AI/LLM built-in",
+        "no per-execution pricing"
+      ],
+      "weaknesses": [
+        "setup complexity vs Zapier",
+        "smaller integration library",
+        "community support only on free"
+      ],
+      "affiliate": {
+        "url": "https://n8n.io",
+        "program": "n8n-partners"
+      },
+      "searches_per_month": 215000,
+      "alternatives": [
+        {
+          "name": "Zapier",
+          "slug": "zapier",
+          "why": "No setup required. 7,000+ integrations. Better for non-developers.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://zapier.com"
+        },
+        {
+          "name": "Make",
+          "slug": "make",
+          "why": "Visual flow builder. More powerful than Zapier, less code-heavy than n8n.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://www.make.com"
+        },
+        {
+          "name": "Replicate",
+          "slug": "replicate",
+          "why": "API-first AI model runner. Better than n8n for pure AI pipeline automation.",
+          "price": "Pay-per-use",
+          "affiliate": "https://replicate.com"
+        },
+        {
+          "name": "HuggingFace",
+          "slug": "huggingface",
+          "why": "Spaces + Inference API for AI-specific workflows. Better model selection.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://huggingface.co"
+        }
+      ]
+    },
+    {
+      "slug": "figma",
+      "name": "Figma",
+      "category": "design",
+      "vendor": "Figma Inc.",
+      "pricing": {
+        "free": true,
+        "paid_from": 15,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "The design tool that ate the industry.",
+      "summary": "Figma is the browser-based design platform used by most product teams. Real-time collaboration, design tokens, prototyping, and now Figma AI for auto-design, first drafts, and component suggestions.",
+      "strengths": [
+        "real-time collab",
+        "design systems",
+        "dev mode",
+        "free for students",
+        "now has AI features"
+      ],
+      "weaknesses": [
+        "offline mode limited",
+        "pricing jumped 2024",
+        "Adobe acquisition fallout"
+      ],
+      "affiliate": {
+        "url": "https://figma.com",
+        "program": "figma-affiliate"
+      },
+      "searches_per_month": 1400000,
+      "alternatives": [
+        {
+          "name": "Framer",
+          "slug": "framer",
+          "why": "Design + publish in one tool. AI-generated landing pages. Better for marketing sites.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.framer.com"
+        },
+        {
+          "name": "Canva AI",
+          "slug": "canva-ai",
+          "why": "No-code design for non-designers. Strongest AI image + presentation features.",
+          "price": "Free / $15/mo Pro",
+          "affiliate": "https://www.canva.com"
+        },
+        {
+          "name": "Adobe Firefly",
+          "slug": "adobe-firefly",
+          "why": "Adobe's AI layer. Best for users already in Creative Cloud.",
+          "price": "Free / $5/mo credits",
+          "affiliate": "https://firefly.adobe.com"
+        },
+        {
+          "name": "Gamma",
+          "slug": "gamma",
+          "why": "AI-generated presentations and docs. Design quality without design skills.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://gamma.app"
+        },
+        {
+          "name": "Tome",
+          "slug": "tome",
+          "why": "AI narrative presentations. Generates slides from a prompt.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://tome.app"
+        },
+        {
+          "name": "Beautiful.ai",
+          "slug": "beautiful-ai",
+          "why": "Smart slide templates that auto-adjust layout as you add content.",
+          "price": "$12/mo",
+          "affiliate": "https://www.beautiful.ai"
+        }
+      ]
+    },
+    {
+      "slug": "cohere",
+      "name": "Cohere",
+      "category": "platform",
+      "vendor": "Cohere Inc.",
+      "pricing": {
+        "free": true,
+        "paid_from": 0,
+        "currency": "USD",
+        "model": "pay-per-token"
+      },
+      "headline": "Enterprise LLMs built for business.",
+      "summary": "Cohere offers Command, Embed, and Rerank models optimized for enterprise search, RAG, and text generation. Strong on data privacy with private cloud deployment. Competing with OpenAI at the API tier.",
+      "strengths": [
+        "private cloud deploy",
+        "RAG-optimized Embed + Rerank",
+        "enterprise SLAs",
+        "multilingual",
+        "Command R+ competitive quality"
+      ],
+      "weaknesses": [
+        "smaller ecosystem than OpenAI",
+        "no consumer product",
+        "less GPT-4 name recognition"
+      ],
+      "affiliate": {
+        "url": "https://cohere.com",
+        "program": "cohere-partners"
+      },
+      "searches_per_month": 95000,
+      "alternatives": [
+        {
+          "name": "Replicate",
+          "slug": "replicate",
+          "why": "Run any open-source model via API. More model diversity than Cohere.",
+          "price": "Pay-per-use",
+          "affiliate": "https://replicate.com"
+        },
+        {
+          "name": "HuggingFace",
+          "slug": "huggingface",
+          "why": "Largest open-model hub. Inference API for embedding + generation.",
+          "price": "Free / $9/mo Pro",
+          "affiliate": "https://huggingface.co"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral",
+          "why": "European open-weights models. Competitive quality, strong privacy posture.",
+          "price": "Free / €14.99 Pro",
+          "affiliate": "https://chat.mistral.ai"
+        },
+        {
+          "name": "DeepSeek",
+          "slug": "deepseek",
+          "why": "Open-source, near-GPT-4 quality at fraction of the API cost.",
+          "price": "Free / pay-per-token",
+          "affiliate": "https://deepseek.com"
+        },
+        {
+          "name": "Llama (Meta)",
+          "slug": "llama",
+          "why": "Meta's open-weight LLMs. Self-host for free or run via Ollama.",
+          "price": "Free (self-host)",
+          "affiliate": "https://llama.meta.com"
+        }
+      ]
+    },
+    {
+      "slug": "luma-ai",
+      "name": "Luma Dream Machine",
+      "category": "video",
+      "vendor": "Luma AI",
+      "pricing": {
+        "free": true,
+        "paid_from": 30,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Photorealistic AI video from text or image.",
+      "summary": "Luma Dream Machine generates smooth, photorealistic video clips from text prompts or images. Luma 1.6 produces fluid motion with impressive physical realism. 5 free generations per day.",
+      "strengths": [
+        "photorealistic quality",
+        "fluid motion",
+        "image-to-video",
+        "free tier available",
+        "fast generation"
+      ],
+      "weaknesses": [
+        "limited free credits",
+        "shorter clip length vs Runway",
+        "fewer editing controls"
+      ],
+      "affiliate": {
+        "url": "https://lumalabs.ai/dream-machine",
+        "program": "none-official"
+      },
+      "searches_per_month": 195000,
+      "alternatives": [
+        {
+          "name": "Runway",
+          "slug": "runway",
+          "why": "Gen-3 Alpha. More editing controls, longer clips, video-to-video. Professional grade.",
+          "price": "$15/mo",
+          "affiliate": "https://runwayml.com"
+        },
+        {
+          "name": "Sora",
+          "slug": "sora",
+          "why": "OpenAI's video model. Longer clips, strong physics simulation. ChatGPT Plus only.",
+          "price": "$20/mo Plus required",
+          "affiliate": "https://sora.com"
+        },
+        {
+          "name": "Kling",
+          "slug": "kling",
+          "why": "Chinese competitor with realistic motion. 5-min video output at high tier.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://klingai.com"
+        },
+        {
+          "name": "Pika",
+          "slug": "pika",
+          "why": "Faster and cheaper. Pika 2.0 is strong for short social clips.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://pika.art"
+        },
+        {
+          "name": "CapCut",
+          "slug": "capcut",
+          "why": "If you need editing + effects (not pure generation), CapCut is free and powerful.",
+          "price": "Free",
+          "affiliate": "https://capcut.com"
+        }
+      ]
+    },
+    {
+      "slug": "huggingchat",
+      "name": "HuggingChat",
+      "category": "chat",
+      "vendor": "Hugging Face",
+      "pricing": {
+        "free": true,
+        "paid_from": 0,
+        "currency": "USD",
+        "model": "free"
+      },
+      "headline": "Open-source AI chat, free forever.",
+      "summary": "HuggingChat is Hugging Face's free chatbot interface running the best open-source models — Llama, Mistral, Qwen, and more. Switch between models instantly. No account required to start.",
+      "strengths": [
+        "free forever",
+        "multiple model picker",
+        "no account needed",
+        "open-source",
+        "privacy-focused"
+      ],
+      "weaknesses": [
+        "no DALL-E / image gen",
+        "slower than paid services",
+        "less polished UX"
+      ],
+      "affiliate": {
+        "url": "https://huggingface.co/chat",
+        "program": "none"
+      },
+      "searches_per_month": 85000,
+      "alternatives": [
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "More capable (GPT-4o), wider ecosystem, plugins and GPTs.",
+          "price": "Free / $20/mo Plus",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "Anthropic's assistant. Better long-context and writing. Free tier available.",
+          "price": "Free / $20/mo Pro",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "Gemini",
+          "slug": "gemini",
+          "why": "Google's assistant. Real-time search. Free Advanced for students.",
+          "price": "Free / $20/mo Advanced",
+          "affiliate": "https://gemini.google.com"
+        },
+        {
+          "name": "DeepSeek",
+          "slug": "deepseek",
+          "why": "Open-source, near-GPT-4 quality. Free like HuggingChat.",
+          "price": "Free",
+          "affiliate": "https://chat.deepseek.com"
+        },
+        {
+          "name": "Mistral Le Chat",
+          "slug": "mistral",
+          "why": "Mistral's own chat UI. Same open-weights, better interface than HuggingChat.",
+          "price": "Free / €14.99 Pro",
+          "affiliate": "https://chat.mistral.ai"
+        },
+        {
+          "name": "Poe",
+          "slug": "poe",
+          "why": "One subscription, every major model including open-source.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://poe.com"
+        }
+      ]
     }
   ],
   "comparisons": [
@@ -5876,6 +6458,81 @@
       "a": "llama",
       "b": "chatgpt",
       "headline": "Llama is open-source and free to host yourself; ChatGPT is easier to use and more capable out of the box."
+    },
+    {
+      "a": "capcut",
+      "b": "runway",
+      "headline": "Free viral editor vs pro AI studio."
+    },
+    {
+      "a": "capcut",
+      "b": "invideo",
+      "headline": "ByteDance's editor vs script-to-video AI."
+    },
+    {
+      "a": "luma-ai",
+      "b": "runway",
+      "headline": "Photorealism vs creative control."
+    },
+    {
+      "a": "luma-ai",
+      "b": "sora",
+      "headline": "The two most hyped AI video generators."
+    },
+    {
+      "a": "zapier",
+      "b": "make",
+      "headline": "The automation giants, compared head to head."
+    },
+    {
+      "a": "zapier",
+      "b": "n8n",
+      "headline": "No-code convenience vs open-source power."
+    },
+    {
+      "a": "n8n",
+      "b": "make",
+      "headline": "Developer freedom vs visual simplicity."
+    },
+    {
+      "a": "figma",
+      "b": "framer",
+      "headline": "Design tool vs design-to-publish platform."
+    },
+    {
+      "a": "figma",
+      "b": "canva-ai",
+      "headline": "Pro design vs no-code creative AI."
+    },
+    {
+      "a": "cohere",
+      "b": "replicate",
+      "headline": "Enterprise LLM platform vs open-model API."
+    },
+    {
+      "a": "cohere",
+      "b": "huggingface",
+      "headline": "Commercial LLM API vs open-source hub."
+    },
+    {
+      "a": "huggingchat",
+      "b": "chatgpt",
+      "headline": "Open-source free vs the paid market leader."
+    },
+    {
+      "a": "huggingchat",
+      "b": "deepseek",
+      "headline": "HuggingFace vs China's open-source model."
+    },
+    {
+      "a": "invideo",
+      "b": "heygen",
+      "headline": "Stock footage video vs AI avatar video."
+    },
+    {
+      "a": "luma-ai",
+      "b": "kling",
+      "headline": "US photorealism vs Chinese motion realism."
     }
   ],
   "blog": [
@@ -6502,6 +7159,153 @@
           "why": "Completely free. Powered by DALL·E. No account required.",
           "price": "Free",
           "affiliate": "https://www.bing.com/images/create"
+        }
+      ]
+    },
+    {
+      "slug": "best-capcut-alternatives-2026",
+      "title": "Best CapCut Alternatives in 2026 — Free & Pro Options",
+      "description": "CapCut great for TikTok, but what about YouTube, marketing, or professional video? 7 tested alternatives ranked by quality, price, and use case.",
+      "category": "AI Video",
+      "published": "2026-04-18",
+      "intro": "<p>CapCut is the go-to editor for short-form content — but it's owned by ByteDance, has data privacy concerns, and hits a ceiling fast for YouTube creators, marketers, or anyone who needs professional output.</p><p>We tested 7 alternatives across template quality, AI features, and export options. Here's what wins by use case.</p>",
+      "outro": "<p><strong>Bottom line:</strong> For script-to-video YouTube content, InVideo AI is the clearest CapCut alternative. For cinematic AI-generated clips, Runway Gen-3 is in a different league. For quick repurposing of existing content, OpusClip does what CapCut can't.</p><p>→ <a href='/tools/capcut-alternatives.html'>See the full CapCut alternatives comparison</a></p>",
+      "tools": [
+        {
+          "name": "InVideo AI",
+          "why": "Script → stock footage → voiceover → publish. Best for YouTube creators replacing CapCut for longer videos.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://invideo.io"
+        },
+        {
+          "name": "Runway",
+          "why": "Gen-3 Alpha generates video from text. For creators who need AI-generated footage, not template editing.",
+          "price": "$15/mo",
+          "affiliate": "https://runwayml.com"
+        },
+        {
+          "name": "OpusClip",
+          "why": "Auto-clips long videos into viral shorts with captions. Replaces CapCut's repurposing workflow.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.opus.pro"
+        },
+        {
+          "name": "Pika",
+          "why": "Fast text-to-video for social. Pika 2.0 matches CapCut's template speed with AI generation.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://pika.art"
+        },
+        {
+          "name": "Descript",
+          "why": "Edit video by editing the transcript. Built for podcasters and interview-based content.",
+          "price": "Free / $24/mo",
+          "affiliate": "https://www.descript.com"
+        },
+        {
+          "name": "HeyGen",
+          "why": "Replace screen recordings with a professional AI avatar speaking your script.",
+          "price": "$29/mo",
+          "affiliate": "https://www.heygen.com"
+        },
+        {
+          "name": "Luma Dream Machine",
+          "why": "Photorealistic AI video from images or prompts. Better quality ceiling than CapCut's AI effects.",
+          "price": "Free / $30/mo",
+          "affiliate": "https://lumalabs.ai/dream-machine"
+        }
+      ]
+    },
+    {
+      "slug": "best-zapier-alternatives-2026",
+      "title": "Best Zapier Alternatives in 2026 — Cheaper & More Powerful",
+      "description": "Zapier's pricing jumped. Here are 6 alternatives that do the same job for less — including a free open-source option developers love.",
+      "category": "AI Automation",
+      "published": "2026-04-18",
+      "intro": "<p>Zapier was the default no-code automation tool for years — but its 2023 pricing changes pushed many teams to look elsewhere. At $20/mo for 750 tasks, it gets expensive fast.</p><p>We looked at 6 alternatives across price, integration count, and AI capabilities. Two stand out above the rest.</p>",
+      "outro": "<p><strong>Bottom line:</strong> Make is the best Zapier alternative for most teams — same visual builder, more powerful branching, fraction of the price. n8n wins for developers who want full control and zero per-execution costs. Both are meaningfully cheaper than Zapier at scale.</p><p>→ <a href='/tools/zapier-alternatives.html'>See the full Zapier alternatives comparison</a></p>",
+      "tools": [
+        {
+          "name": "Make",
+          "why": "Visual flow builder with complex branching, iteration, and data transformation. 1,000+ apps. Significantly cheaper than Zapier at scale.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://www.make.com"
+        },
+        {
+          "name": "n8n",
+          "why": "Open-source and self-hostable with no per-execution pricing. AI nodes built in. Best for developers.",
+          "price": "Free (self-host) / $20/mo",
+          "affiliate": "https://n8n.io"
+        },
+        {
+          "name": "Replicate",
+          "why": "If your automation is AI-heavy (run models, transform content), Replicate's API is purpose-built.",
+          "price": "Pay-per-use",
+          "affiliate": "https://replicate.com"
+        },
+        {
+          "name": "HuggingFace",
+          "why": "Spaces + Inference API for AI-specific pipelines. Free tier generous.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://huggingface.co"
+        },
+        {
+          "name": "Framer",
+          "why": "For design/publish automation specifically, Framer's built-in CMS and publish pipeline beats Zapier for marketing teams.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.framer.com"
+        },
+        {
+          "name": "Notion AI",
+          "why": "If your Zapier workflows are primarily Notion-based, Notion AI's built-in automations eliminate the middleware entirely.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://www.notion.so"
+        }
+      ]
+    },
+    {
+      "slug": "best-ai-design-tools-2026",
+      "title": "Best AI Design Tools in 2026 — Figma, Canva, and Beyond",
+      "description": "AI is rewriting design workflows. From Figma's AI features to Canva's Magic Studio to pure AI design generators — here's what's actually worth using in 2026.",
+      "category": "AI Design",
+      "published": "2026-04-18",
+      "intro": "<p>In 2024 and 2025, every design tool added AI. In 2026, the best ones have integrated it so deeply that non-designers can ship professional output in minutes.</p><p>We tested Figma AI, Canva Magic Studio, Framer AI, and 4 more. Here's the honest breakdown.</p>",
+      "outro": "<p><strong>Bottom line:</strong> Figma remains the standard for product teams doing serious UI work — its AI speeds up workflows but doesn't replace design skill. Canva AI is the winner for marketers and non-designers. Framer is the best option if you're designing and publishing marketing sites. Adobe Firefly is unmatched for photorealistic image generation inside a design context.</p><p>→ <a href='/tools/figma-alternatives.html'>See Figma alternatives</a> | <a href='/tools/canva-ai-alternatives.html'>See Canva AI alternatives</a></p>",
+      "tools": [
+        {
+          "name": "Figma",
+          "why": "Industry standard for product design. AI features add first draft generation, component suggestions, and auto-layout adjustments. Best for teams.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://figma.com"
+        },
+        {
+          "name": "Canva AI",
+          "why": "Magic Studio turns anyone into a designer. Text-to-image, presentation AI, background removal, and brand kits. Best for non-designers.",
+          "price": "Free / $15/mo Pro",
+          "affiliate": "https://www.canva.com"
+        },
+        {
+          "name": "Framer",
+          "why": "Design in Figma, publish with Framer — or just use Framer AI to generate landing pages from a prompt. Best for marketing sites.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.framer.com"
+        },
+        {
+          "name": "Adobe Firefly",
+          "why": "Commercially safe AI image generation integrated into Photoshop, Illustrator, and Express. Best for existing Adobe CC subscribers.",
+          "price": "Free / $5/mo credits",
+          "affiliate": "https://firefly.adobe.com"
+        },
+        {
+          "name": "Gamma",
+          "why": "AI presentation builder. Generates polished decks from a prompt. Best for sales decks and investor presentations.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://gamma.app"
+        },
+        {
+          "name": "Beautiful.ai",
+          "why": "Smart slide templates that auto-adjust. For teams that need consistent, on-brand presentations without a designer.",
+          "price": "$12/mo",
+          "affiliate": "https://www.beautiful.ai"
         }
       ]
     }

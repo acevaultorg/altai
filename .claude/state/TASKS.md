@@ -20,13 +20,20 @@
 - [x] `P1` WRITE README.md + DEPLOY.md + LAUNCH-CHECKLIST.md — root [id:docs]
 
 ## Queue (human actions — blocked on external platforms)
-- [👤] `P0` APPLY to affiliate programs (Impact, PartnerStack) — `platform:impact.com` → swap URLs in `data/tools.json` → see LAUNCH-CHECKLIST.md §1
-- [👤] `P0` WIRE email provider (Buttondown/Beehiiv/ConvertKit) — add `js/config.js` with `ALTAI_EMAIL_ENDPOINT` → see LAUNCH-CHECKLIST.md §2
+- [👤] `P0` APPLY to affiliate programs — paste from AFFILIATE-MEDIA-KIT.md, once approved set `ALTAI_AFFILIATE_<SLUG>` on Vercel → see LAUNCH-CHECKLIST.md §1 + ENV-AFFILIATES.md
+- [👤] `P0` PICK email provider (Buttondown/Beehiiv/ConvertKit/custom) → set `ALTAI_EMAIL_PROVIDER` + provider env vars on Vercel → redeploy → see LAUNCH-CHECKLIST.md §2
 - [👤] `P0` SET production URL in `data/tools.json` → rebuild → redeploy → see LAUNCH-CHECKLIST.md §3
 - [👤] `P1` SIGN UP for Plausible (or alternative) + set `site.plausible_domain` → see LAUNCH-CHECKLIST.md §4
 - [x] `P1` DEPLOY to Vercel: `vercel --prod` — already linked, CLI authenticated [id:deploy-vercel] [score:9.0] ⏱ done 2026-04-14 — dpl_2ove8zhpdFU7iaGJbZqiGDii7DA7 READY, 88 pages built. Preview URL SSO-gated (Vercel team default); public access blocked on operator custom-domain setup (see [👤] LAUNCH-CHECKLIST §3)
 - [👤] `P1` SUBMIT sitemap to Google Search Console + Bing Webmaster Tools → LAUNCH-CHECKLIST.md §6
 - [ ] `P2` GENERATE 1200×630 OG image programmatically (HTML→PNG or SVG) [id:og-image-gen] [score:5.0]
 
+## Queue (shipped — env-var refactor 2026-04-16)
+- [x] `P0` REFACTOR affiliate URL mechanism → env-var-driven (`ALTAI_AFFILIATE_<SLUG>`) with `{source}/{campaign}/{medium}` placeholders + `_NO_UTM` opt-out [id:env-affiliate] [oracle: ~$50-200/wk via faster ship-to-live after program approval] ⏱ sovereign-auto 2026-04-16
+- [x] `P0` REFACTOR email provider mechanism → env-var-driven (`ALTAI_EMAIL_PROVIDER` + per-provider key) for Buttondown/ConvertKit/Beehiiv/custom; removed misleading `/api/subscribe` fallback [id:env-email] [oracle: ~$10-30/wk] ⏱ sovereign-auto 2026-04-16
+- [x] `P1` WRITE ENV-AFFILIATES.md — complete slug→env-var map (212 slugs) + placeholder docs + email provider spec [id:env-docs] ⏱ sovereign-auto 2026-04-16
+- [x] `P1` WRITE AFFILIATE-MEDIA-KIT.md — copy-paste answers for 11 program applications (Impact/PartnerStack/ShareASale/CJ + direct vendors) [id:media-kit] [oracle: ~$30/wk via faster approval, compounds with env-affiliate] ⏱ sovereign-auto 2026-04-16
+- [x] `P1` UPDATE LAUNCH-CHECKLIST.md §1 + §2 — surface the env-var path as the primary operator workflow [id:launch-checklist-update] ⏱ sovereign-auto 2026-04-16
+
 ## Blocked
-_(none — session complete)_
+_(none — waiting on human external-platform tasks above)_
