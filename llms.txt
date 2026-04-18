@@ -1,0 +1,55 @@
+# AltAI
+
+> A curated directory of alternatives to the most popular AI tools. 200 options, compared on price, speed, and capability. No fluff.
+
+AltAI is an editorial directory. Rankings are curated, not algorithmic. See [Methodology](https://thealtai.com/methodology/) for the full ranking process and disqualifier list, and [Privacy](https://thealtai.com/privacy/) for data handling. Outbound links to vendors may be affiliate-tagged; affiliate status never affects rank order.
+
+## Editorial policy
+
+- [Methodology](https://thealtai.com/methodology/): How AltAI ranks AI tools — criteria, disqualifiers, affiliate stance, correction commitments.
+- [Terms of use](https://thealtai.com/terms/): Use terms + "what we will never do" editorial commitments.
+- [Privacy policy](https://thealtai.com/privacy/): Data collection, cookies, third-party disclosures.
+- [Contact](https://thealtai.com/contact/): Corrections, affiliate, press, privacy requests.
+
+## Category indexes
+
+- [Conversational AI](https://thealtai.com/category/chat/): General-purpose chatbots and assistants.
+- [Image Generation](https://thealtai.com/category/image/): Text-to-image and image editing models.
+- [Video Generation](https://thealtai.com/category/video/): Text-to-video and AI video editing.
+- [Coding Assistants](https://thealtai.com/category/code/): AI pair programmers and code completion.
+- [Voice & Audio](https://thealtai.com/category/voice/): Text-to-speech, voice cloning, audio editing.
+- [Writing & Marketing](https://thealtai.com/category/writing/): Copywriting, marketing content, SEO.
+- [AI Search](https://thealtai.com/category/search/): AI-powered search and research tools.
+- [ML Platforms](https://thealtai.com/category/platform/): Model hosting, training, and deployment.
+
+## Top tool alternatives pages
+
+- [ChatGPT alternatives](https://thealtai.com/tools/chatgpt-alternatives.html): The household-name AI chatbot.
+- [Character.AI alternatives](https://thealtai.com/tools/character-ai-alternatives.html): Millions of user-created AI characters to chat with.
+- [Grammarly alternatives](https://thealtai.com/tools/grammarly-alternatives.html): Writing assistant and grammar checker.
+- [Replit alternatives](https://thealtai.com/tools/replit-alternatives.html): Build and deploy apps with AI in the browser.
+- [Midjourney alternatives](https://thealtai.com/tools/midjourney-alternatives.html): The aesthetic image generator.
+- [Grok alternatives](https://thealtai.com/tools/grok-alternatives.html): The AI that searches X (Twitter) in real-time.
+- [Claude alternatives](https://thealtai.com/tools/claude-alternatives.html): The writer's and coder's AI.
+- [Stable Diffusion alternatives](https://thealtai.com/tools/stable-diffusion-alternatives.html): Open-source image generation.
+- [Leonardo AI alternatives](https://thealtai.com/tools/leonardo-ai-alternatives.html): Pro-grade AI image generation with fine-tuned models.
+- [Sora alternatives](https://thealtai.com/tools/sora-alternatives.html): OpenAI's text-to-video model.
+- [Bolt alternatives](https://thealtai.com/tools/bolt-alternatives.html): Build full-stack web apps from a single prompt.
+- [GitHub Copilot alternatives](https://thealtai.com/tools/copilot-alternatives.html): The original AI coding assistant.
+
+## Blog / deep dives
+
+- [Best ChatGPT Alternatives in 2026 (Free & Paid)](https://thealtai.com/blog/best-chatgpt-alternatives-2026.html): 10 tested ChatGPT alternatives ranked by writing quality, speed, and price. Includes free options that match GPT-4o on most tasks.
+- [Best AI Image Generators in 2026 — Ranked & Compared](https://thealtai.com/blog/best-ai-image-generators-2026.html): The 10 best AI image generators tested side-by-side. Which creates the most realistic photos? Best for art? Best free option? We answer all three.
+- [Best AI Coding Assistants in 2026 — Ranked by Developers](https://thealtai.com/blog/best-ai-coding-tools-2026.html): We compared the 10 best AI coding tools on real-world tasks: bug fixing, code generation, refactoring, and full-stack app building. Here's the honest ranking.
+- [Best Free AI Tools in 2026 — No Credit Card Required](https://thealtai.com/blog/best-free-ai-tools-2026.html): The 10 most powerful AI tools you can use completely free in 2026. No trial, no credit card, no catch. We list the genuinely free options for chat, images, code, and video.
+
+## Feeds
+
+- RSS: https://thealtai.com/feed.xml
+- Atom: https://thealtai.com/feed.atom
+- Human-readable updates: https://thealtai.com/updates/
+
+## Optional
+
+- [Sitemap](https://thealtai.com/sitemap.xml): full page index

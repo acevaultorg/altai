@@ -512,6 +512,7 @@ const buildIndex = (data, tmpl) => {
     categories_html: categoriesHtml,
     tools_html: toolsHtml,
     trending_html: trendingHtml,
+    subscribe_html: subscribeBlockHtml("hero"),
     trust_bar_html: trustBarHtml,
   });
 };
@@ -1515,6 +1516,92 @@ google.com, ${cfg.publisher}, DIRECT, f08c47fec0942fa0
 `;
 };
 
+// ---------- Subscribe block ----------
+//
+// Visible subscribe CTA on homepage hero, blog index, blog posts, and
+// /updates/. Complements the <link rel="alternate"> feed auto-discovery
+// by giving humans a surface they actually see. @distributor cycle-5
+// flagged the discovery-path gap as the single highest-leverage fix —
+// this is the fix.
+//
+// Variants:
+//   'hero'    — compact horizontal card for homepage + blog index
+//   'inline'  — vertical card for blog post footers + /updates/ top
+//
+// Email form reuses the same data-email-form hook as the footer form,
+// so the tracking-injected endpoint (ALTAI_EMAIL_PROVIDER) works
+// without a second integration.
+const subscribeBlockHtml = (variant = "hero") => {
+  const compact = variant === "hero";
+  return `
+  <section class="subscribe-block subscribe-block-${esc(variant)}" aria-label="Subscribe">
+    <div class="subscribe-intro">
+      <h3>${compact ? "Follow ranking changes" : "Follow new comparisons + ranking changes"}</h3>
+      <p>${compact
+        ? "Weekly-ish. Only when the directory actually changes."
+        : "Get a note in your reader or inbox when new comparisons, tool additions, or ranking changes land. No drip sequences, no marketing chaff — only when the directory actually changes."}</p>
+    </div>
+    <form class="subscribe-form" data-email-form>
+      <label class="sr-only" for="subscribe-email-${esc(variant)}">Email address</label>
+      <input id="subscribe-email-${esc(variant)}" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
+    <p class="subscribe-alt">Prefer a reader? <a href="/feed.xml">RSS</a> · <a href="/feed.atom">Atom</a> · <a href="/updates/">what's new</a></p>
+  </section>`;
+};
+
+// ---------- llms.txt ----------
+//
+// Emerging spec (proposed 2024) for AI-crawler hints. One-page
+// markdown-like file at root that tells LLM crawlers (OpenAI,
+// Anthropic, Perplexity, etc.) what the site is and where the
+// editorial content lives. Cheap, differentiated, signals editorial
+// site. Spec: https://llmstxt.org/
+const buildLlmsTxt = (data) => {
+  const posts = (data.blog || []).map((p) => `- [${p.title}](${data.site.url}/blog/${p.slug}.html): ${p.description}`).join("\n");
+  const cats = (data.categories || []).map((c) => `- [${c.name}](${data.site.url}/category/${c.slug}/): ${c.desc}`).join("\n");
+  const topTools = [...(data.tools || [])]
+    .sort((a, b) => (b.searches_per_month || 0) - (a.searches_per_month || 0))
+    .slice(0, 12)
+    .map((t) => `- [${t.name} alternatives](${data.site.url}/tools/${t.slug}-alternatives.html): ${t.headline}`)
+    .join("\n");
+  return `# ${data.site.name}
+
+> ${data.site.description}
+
+${data.site.name} is an editorial directory. Rankings are curated, not algorithmic. See [Methodology](${data.site.url}/methodology/) for the full ranking process and disqualifier list, and [Privacy](${data.site.url}/privacy/) for data handling. Outbound links to vendors may be affiliate-tagged; affiliate status never affects rank order.
+
+## Editorial policy
+
+- [Methodology](${data.site.url}/methodology/): How AltAI ranks AI tools — criteria, disqualifiers, affiliate stance, correction commitments.
+- [Terms of use](${data.site.url}/terms/): Use terms + "what we will never do" editorial commitments.
+- [Privacy policy](${data.site.url}/privacy/): Data collection, cookies, third-party disclosures.
+- [Contact](${data.site.url}/contact/): Corrections, affiliate, press, privacy requests.
+
+## Category indexes
+
+${cats}
+
+## Top tool alternatives pages
+
+${topTools}
+
+## Blog / deep dives
+
+${posts}
+
+## Feeds
+
+- RSS: ${data.site.url}/feed.xml
+- Atom: ${data.site.url}/feed.atom
+- Human-readable updates: ${data.site.url}/updates/
+
+## Optional
+
+- [Sitemap](${data.site.url}/sitemap.xml): full page index
+`;
+};
+
 // ---------- Feeds + /updates/ page ----------
 //
 // Feeds give readers a zero-effort way to follow ranking changes, new
@@ -1810,6 +1897,11 @@ const buildUpdatesPage = (data) => {
         </div>
       </div>
     </section>
+    <section class="section section-subscribe">
+      <div class="container">
+        ${subscribeBlockHtml("inline")}
+      </div>
+    </section>
     <section class="section">
       <div class="container methodology-prose">
         ${section("blog", "Blog")}
@@ -1884,6 +1976,11 @@ const buildBlogIndex = (data) => {
         <div class="tools-grid">
           ${postCardsHtml}
         </div>
+      </div>
+    </section>
+    <section class="section section-subscribe">
+      <div class="container">
+        ${subscribeBlockHtml("inline")}
       </div>
     </section>
   </main>
@@ -2008,6 +2105,9 @@ const buildBlogPost = (data, post) => {
       <div class="blog-outro">
         ${post.outro || ""}
       </div>
+      <section class="section-subscribe">
+        ${subscribeBlockHtml("inline")}
+      </section>
     </div>
   </main>
   <div class="feedback-widget" id="feedback-widget" aria-label="Page feedback">
@@ -2233,6 +2333,10 @@ function main() {
   writeFile(path.join(ROOT, "feed.atom"), buildAtomFeed(data));
   writeFile(path.join(OUT_UPDATES, "index.html"), buildUpdatesPage(data));
   console.log("  ✓ feed.xml, feed.atom, updates/index.html");
+
+  // llms.txt — AI-crawler hint file (emerging spec, llmstxt.org).
+  writeFile(path.join(ROOT, "llms.txt"), buildLlmsTxt(data));
+  console.log("  ✓ llms.txt");
 
   // Blog pages
   const posts = data.blog || [];
