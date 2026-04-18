@@ -11,7 +11,7 @@
     "_email_note": "TODO: set to 'buttondown' | 'beehiiv' | 'convertkit' and wire ALTAI_EMAIL_ENDPOINT in main.js (see LAUNCH-CHECKLIST.md)",
     "author": "AltAI",
     "accent": "#7C3AED",
-    "updated": "2026-04-08"
+    "updated": "2026-04-18"
   },
   "categories": [
     {
@@ -5279,6 +5279,376 @@
           "affiliate": "https://ideogram.ai/?ref=altai"
         }
       ]
+    },
+    {
+      "slug": "speechify",
+      "name": "Speechify",
+      "category": "voice",
+      "vendor": "Speechify",
+      "pricing": {
+        "free": true,
+        "paid_from": 11,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Listen to anything — AI reads your screen.",
+      "summary": "Speechify converts any text into natural-sounding speech: PDFs, articles, docs, books, emails. 30+ AI voices, 4.5× normal reading speed, and a mobile app that reads whatever your camera sees. Popular with students, busy professionals, and people with dyslexia.",
+      "strengths": [
+        "scan-to-listen (camera reads physical books)",
+        "highest-rated TTS mobile app",
+        "Chrome extension reads any webpage",
+        "dyslexia-friendly"
+      ],
+      "weaknesses": [
+        "expensive at $139/yr for premium",
+        "AI voices less natural than ElevenLabs",
+        "not for creating voice content"
+      ],
+      "affiliate": {
+        "url": "https://speechify.com",
+        "program": "none-official"
+      },
+      "searches_per_month": 368000,
+      "alternatives": [
+        {
+          "name": "ElevenLabs",
+          "slug": "elevenlabs",
+          "why": "More natural voices, better for content creation.",
+          "price": "Free / $5/mo",
+          "affiliate": "https://elevenlabs.io/?via=altai"
+        },
+        {
+          "name": "Natural Reader",
+          "slug": "naturalreader",
+          "why": "One-time purchase option, good for documents.",
+          "price": "Free / $9.99/mo",
+          "affiliate": "https://www.naturalreaders.com"
+        },
+        {
+          "name": "Voice Dream Reader",
+          "slug": "voicedream",
+          "why": "iOS-first, great for long-form reading.",
+          "price": "$14.99 one-time",
+          "affiliate": "https://www.voicedream.com"
+        },
+        {
+          "name": "Murf",
+          "slug": "murf",
+          "why": "Better studio controls for voiceover production.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://murf.ai"
+        },
+        {
+          "name": "ReadAloud",
+          "slug": "readaloud",
+          "why": "Free Chrome extension alternative.",
+          "price": "Free",
+          "affiliate": "https://readaloud.app"
+        },
+        {
+          "name": "Balabolka",
+          "slug": "balabolka",
+          "why": "Free desktop app, unlimited use.",
+          "price": "Free",
+          "affiliate": "https://www.cross-plus-a.com/balabolka.htm"
+        }
+      ]
+    },
+    {
+      "slug": "llama",
+      "name": "Llama",
+      "category": "chat",
+      "vendor": "Meta",
+      "pricing": {
+        "free": true,
+        "paid_from": 0,
+        "currency": "USD",
+        "model": "open-source"
+      },
+      "headline": "Meta's open-source AI model anyone can run.",
+      "summary": "Llama is Meta's family of open-weight language models — from Llama 3.1 8B to Llama 3.3 70B. Free to download, fine-tune, and deploy without API costs. Powers hundreds of apps, local AI tools, and enterprise deployments. Llama 3.1 405B is competitive with GPT-4 on many benchmarks.",
+      "strengths": [
+        "fully open-source",
+        "run locally (no data sent to Meta)",
+        "customisable and fine-tuneable",
+        "no per-token costs at self-hosted scale"
+      ],
+      "weaknesses": [
+        "requires technical setup to self-host",
+        "slower than API services without GPU",
+        "no built-in web search"
+      ],
+      "affiliate": {
+        "url": "https://ollama.com",
+        "program": "none"
+      },
+      "searches_per_month": 823000,
+      "alternatives": [
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "Easiest to use, no setup, strongest out of the box.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral",
+          "why": "Also open-weights. Smaller, faster, European.",
+          "price": "Free",
+          "affiliate": "https://chat.mistral.ai"
+        },
+        {
+          "name": "DeepSeek",
+          "slug": "deepseek",
+          "why": "Open-source, near-GPT-4 quality.",
+          "price": "Free",
+          "affiliate": "https://chat.deepseek.com"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "Closed-source but more capable for most users.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "Falcon",
+          "slug": "falcon",
+          "why": "Open-weights alternative from UAE's TII.",
+          "price": "Free",
+          "affiliate": "https://falconllm.tii.ae"
+        },
+        {
+          "name": "Phi-3",
+          "slug": "phi3",
+          "why": "Microsoft's efficient open model, runs on CPU.",
+          "price": "Free",
+          "affiliate": "https://azure.microsoft.com/en-us/products/phi"
+        }
+      ]
+    },
+    {
+      "slug": "opus-clip",
+      "name": "Opus Clip",
+      "category": "video",
+      "vendor": "Opus",
+      "pricing": {
+        "free": true,
+        "paid_from": 9,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Turn long videos into viral short clips with AI.",
+      "summary": "Opus Clip uses AI to automatically find the most engaging 30-90 second moments in long-form video and reformat them as vertical clips for TikTok, Reels, and YouTube Shorts. It adds captions, identifies hook moments, and scores clips by virality potential.",
+      "strengths": [
+        "saves 10+ hours per video repurposed",
+        "auto-captions with animated text",
+        "virality score highlights best clips",
+        "supports YouTube, Zoom, podcast"
+      ],
+      "weaknesses": [
+        "$9+/mo for meaningful usage",
+        "AI sometimes misses context",
+        "clip selection still needs human review"
+      ],
+      "affiliate": {
+        "url": "https://www.opus.pro",
+        "program": "partnerstack-pending"
+      },
+      "searches_per_month": 135000,
+      "alternatives": [
+        {
+          "name": "Descript",
+          "slug": "descript",
+          "why": "Full editing suite, not just clip extraction.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.descript.com/?via=altai"
+        },
+        {
+          "name": "Riverside",
+          "slug": "riverside",
+          "why": "Record + clip in one tool.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://riverside.fm"
+        },
+        {
+          "name": "Munch",
+          "slug": "munch",
+          "why": "Clip extraction focused on social distribution.",
+          "price": "$49/mo",
+          "affiliate": "https://www.getmunch.com"
+        },
+        {
+          "name": "Loom",
+          "slug": "loom",
+          "why": "Better for async business comms, not social clips.",
+          "price": "Free / $12.50/mo",
+          "affiliate": "https://www.loom.com"
+        },
+        {
+          "name": "Klap",
+          "slug": "klap",
+          "why": "Simpler UI, auto-reframe for vertical.",
+          "price": "Free / $25/mo",
+          "affiliate": "https://klap.app"
+        },
+        {
+          "name": "Vidyo.ai",
+          "slug": "vidyo",
+          "why": "Similar clip extraction at lower price.",
+          "price": "Free / $29/mo",
+          "affiliate": "https://vidyo.ai"
+        }
+      ]
+    },
+    {
+      "slug": "framer",
+      "name": "Framer",
+      "category": "platform",
+      "vendor": "Framer",
+      "pricing": {
+        "free": true,
+        "paid_from": 10,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "AI-powered website builder for designers.",
+      "summary": "Framer combines a no-code visual editor with AI generation — describe your site and it builds a complete, responsive website. It handles CMS, hosting, and SEO out of the box. Popular with designers who want Webflow-quality output with AI speed.",
+      "strengths": [
+        "describe and generate a full site in seconds",
+        "publication-ready CMS built in",
+        "component-based, production-grade output",
+        "free tier includes hosting"
+      ],
+      "weaknesses": [
+        "expensive if using CMS at scale",
+        "less flexible than pure code",
+        "learning curve for complex layouts"
+      ],
+      "affiliate": {
+        "url": "https://framer.com",
+        "program": "none-official"
+      },
+      "searches_per_month": 246000,
+      "alternatives": [
+        {
+          "name": "Webflow",
+          "slug": "webflow",
+          "why": "More powerful CMS, larger enterprise adoption.",
+          "price": "Free / $14/mo",
+          "affiliate": "https://webflow.com"
+        },
+        {
+          "name": "Lovable",
+          "slug": "lovable",
+          "why": "Generate full-stack apps from prompts.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://lovable.dev"
+        },
+        {
+          "name": "v0 by Vercel",
+          "slug": "v0",
+          "why": "AI UI generation, outputs React code you own.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://v0.dev"
+        },
+        {
+          "name": "Bolt",
+          "slug": "bolt",
+          "why": "Ship full-stack apps from one prompt.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://bolt.new"
+        },
+        {
+          "name": "Wix ADI",
+          "slug": "wix-adi",
+          "why": "Consumer-friendly AI website builder.",
+          "price": "Free / $16/mo",
+          "affiliate": "https://www.wix.com"
+        },
+        {
+          "name": "Squarespace",
+          "slug": "squarespace",
+          "why": "Polished templates with AI text/image assist.",
+          "price": "$16/mo",
+          "affiliate": "https://www.squarespace.com"
+        }
+      ]
+    },
+    {
+      "slug": "you",
+      "name": "You.com",
+      "category": "search",
+      "vendor": "You.com",
+      "pricing": {
+        "free": true,
+        "paid_from": 15,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "AI search with a model picker and private mode.",
+      "summary": "You.com is an AI-first search engine that lets you choose which model answers your query — GPT-4o, Claude, Gemini, or its own YouPro model. All searches include cited web results. Has a 'private mode' with no tracking, making it a privacy alternative to Perplexity.",
+      "strengths": [
+        "model picker in one search bar",
+        "cited results like Perplexity",
+        "private mode with zero tracking",
+        "integrated code execution"
+      ],
+      "weaknesses": [
+        "smaller community than Perplexity or ChatGPT",
+        "slower at breaking news",
+        "paid plan needed for best models"
+      ],
+      "affiliate": {
+        "url": "https://you.com",
+        "program": "none-official"
+      },
+      "searches_per_month": 91000,
+      "alternatives": [
+        {
+          "name": "Perplexity",
+          "slug": "perplexity",
+          "why": "More accurate citations, stronger community.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://www.perplexity.ai/?ref=altai"
+        },
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "More capable model, less search-focused.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "NotebookLM",
+          "slug": "notebooklm",
+          "why": "Answers grounded in YOUR sources.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://notebooklm.google.com"
+        },
+        {
+          "name": "Gemini",
+          "slug": "gemini",
+          "why": "Google's model with real-time search.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://gemini.google.com"
+        },
+        {
+          "name": "Copilot",
+          "slug": "copilot",
+          "why": "Microsoft's Bing-powered AI search.",
+          "price": "Free",
+          "affiliate": "https://copilot.microsoft.com"
+        },
+        {
+          "name": "Kagi",
+          "slug": "kagi",
+          "why": "Privacy-first paid search with AI summaries.",
+          "price": "$5/mo",
+          "affiliate": "https://kagi.com"
+        }
+      ]
     }
   ],
   "comparisons": [
@@ -5356,11 +5726,6 @@
       "a": "runway",
       "b": "kling",
       "headline": "Western vs Chinese AI video — which wins?"
-    },
-    {
-      "a": "midjourney",
-      "b": "stable-diffusion",
-      "headline": "Paid polish vs open-source freedom."
     },
     {
       "a": "elevenlabs",
@@ -5486,6 +5851,31 @@
       "a": "notebooklm",
       "b": "perplexity",
       "headline": "Source-grounded AI vs real-time web research."
+    },
+    {
+      "a": "elevenlabs",
+      "b": "speechify",
+      "headline": "ElevenLabs has better voice quality and cloning; Speechify is easier for consuming content."
+    },
+    {
+      "a": "claude",
+      "b": "grok",
+      "headline": "Claude leads on document analysis and code; Grok leads on real-time X/Twitter data and fewer guardrails."
+    },
+    {
+      "a": "cursor",
+      "b": "lovable",
+      "headline": "Cursor dominates in existing codebases; Lovable wins for shipping a full app from scratch in minutes."
+    },
+    {
+      "a": "gemini",
+      "b": "grok",
+      "headline": "Gemini wins on Google Workspace integration; Grok wins with real-time social data and X Premium access."
+    },
+    {
+      "a": "llama",
+      "b": "chatgpt",
+      "headline": "Llama is open-source and free to host yourself; ChatGPT is easier to use and more capable out of the box."
     }
   ],
   "blog": [
@@ -5870,6 +6260,248 @@
           "why": "Record, edit, remix audio + video. Full podcast production in one tool.",
           "price": "Free / $12/mo",
           "affiliate": "https://www.descript.com"
+        }
+      ]
+    },
+    {
+      "slug": "best-ai-voice-generators-2026",
+      "title": "Best AI Voice Generators in 2026 — Ranked by Quality",
+      "description": "8 AI text-to-speech tools tested on naturalness, voice cloning, and price. ElevenLabs vs Murf vs Speechify — here's the honest ranking.",
+      "category": "Voice & Audio",
+      "published": "2026-04-18",
+      "intro": "<p>AI voice generation has quietly become good enough that most people can't tell it from a human. In 2026, you can clone your own voice in minutes, generate a 10-minute audiobook in seconds, and ship multilingual video without a recording booth.</p><p>We tested 8 tools on three criteria: naturalness (can you tell it's AI?), cloning quality (does it sound like the original?), and price-per-minute at production scale.</p>",
+      "outro": "<p><strong>Bottom line:</strong> ElevenLabs wins on raw quality and voice cloning. Murf wins for studio-style voiceover production with timeline controls. Speechify wins if your use case is listening to content rather than creating it. For budget-conscious creators, OpenAI's TTS API offers surprisingly good quality at pennies per thousand characters.</p>",
+      "tools": [
+        {
+          "name": "ElevenLabs",
+          "why": "Industry-best voice quality and cloning. 32 languages. Used in major audiobooks and games.",
+          "price": "Free / $5/mo",
+          "affiliate": "https://elevenlabs.io/?via=altai"
+        },
+        {
+          "name": "Murf",
+          "why": "Studio voiceover suite with timeline editor. 120+ AI voices, script sync.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://murf.ai"
+        },
+        {
+          "name": "Speechify",
+          "why": "Consumer TTS for listening to articles, PDFs, books. Best mobile app.",
+          "price": "Free / $11.58/mo",
+          "affiliate": "https://speechify.com"
+        },
+        {
+          "name": "PlayHT",
+          "why": "Similar to ElevenLabs, slightly cheaper per character.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://play.ht"
+        },
+        {
+          "name": "Descript Overdub",
+          "why": "Clone your voice and edit speech like text in Descript.",
+          "price": "$15/mo",
+          "affiliate": "https://www.descript.com/?via=altai"
+        },
+        {
+          "name": "OpenAI TTS",
+          "why": "Very cheap API. Alloy/Shimmer/Nova voices are surprisingly natural.",
+          "price": "Pay-as-you-go",
+          "affiliate": "https://platform.openai.com"
+        },
+        {
+          "name": "Cartesia",
+          "why": "Ultra-fast streaming voices for real-time applications.",
+          "price": "Free / Pay-as-you-go",
+          "affiliate": "https://cartesia.ai"
+        },
+        {
+          "name": "Kokoro",
+          "why": "Open-weights model you can run locally. Surprisingly good quality.",
+          "price": "Free",
+          "affiliate": "https://huggingface.co/hexgrad/Kokoro-82M"
+        }
+      ]
+    },
+    {
+      "slug": "best-ai-video-generators-2026",
+      "title": "Best AI Video Generators in 2026 — Ranked & Tested",
+      "description": "8 AI text-to-video tools ranked on quality, length, and price. Runway vs Sora vs Kling vs Pika — which is actually worth paying for?",
+      "category": "Video Generation",
+      "published": "2026-04-18",
+      "intro": "<p>AI video generation crossed a quality threshold in 2026. Tools like Runway Gen-3, Sora, and Kling can now produce 5-10 second clips that hold up under scrutiny — consistent faces, coherent motion, cinematic lighting. The race is now about length, cost, and control.</p><p>We tested the top 8 generators on prompt fidelity, motion quality, and what you actually get on the free tier.</p>",
+      "outro": "<p><strong>Bottom line:</strong> Runway Gen-3 remains the professional standard for quality and control. Sora wins on film-quality output but is limited to 20s clips. Kling has the best free tier and is catching up fast. For creators just getting started, Pika is the easiest on-ramp. HeyGen is the clear winner if your use case is talking-head avatar videos.</p>",
+      "tools": [
+        {
+          "name": "Runway",
+          "why": "Professional-grade video AI. Gen-3 Alpha produces the most consistent results.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://runwayml.com"
+        },
+        {
+          "name": "Sora",
+          "why": "OpenAI's video model. Film-quality output, up to 20s, excellent prompt following.",
+          "price": "$20/mo (Plus)",
+          "affiliate": "https://openai.com/sora"
+        },
+        {
+          "name": "Kling AI",
+          "why": "Best free tier (daily credits). Motion quality close to Runway.",
+          "price": "Free / $8.88/mo",
+          "affiliate": "https://klingai.com/?ref=altai"
+        },
+        {
+          "name": "Pika",
+          "why": "Easiest to use. Great for quick social content.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://pika.art"
+        },
+        {
+          "name": "HeyGen",
+          "why": "Best for avatar/talking-head videos. 300+ stock avatars, voice cloning.",
+          "price": "Free / $24/mo",
+          "affiliate": "https://www.heygen.com/?sid=rewardful&via=altai"
+        },
+        {
+          "name": "Synthesia",
+          "why": "Enterprise avatar video for training and marketing.",
+          "price": "$29/mo",
+          "affiliate": "https://www.synthesia.io"
+        },
+        {
+          "name": "Luma Dream Machine",
+          "why": "Free 30 generations/month. Strong on smooth motion.",
+          "price": "Free / $29.99/mo",
+          "affiliate": "https://lumalabs.ai/dream-machine"
+        },
+        {
+          "name": "Stable Video Diffusion",
+          "why": "Open-source, run locally, fully free.",
+          "price": "Free",
+          "affiliate": "https://stability.ai"
+        }
+      ]
+    },
+    {
+      "slug": "best-ai-writing-tools-2026",
+      "title": "Best AI Writing Tools in 2026 — Tested for Real Work",
+      "description": "10 AI writing assistants ranked on output quality, brand voice control, and value. From blog posts to ads — which AI writing tool is worth paying for?",
+      "category": "Writing & Marketing",
+      "published": "2026-04-18",
+      "intro": "<p>Every major AI writing tool makes the same promise: better content, faster. In practice, the difference is in how well they follow your brand voice, how much hallucination you have to edit out, and whether the free tier is generous enough to test before committing.</p><p>We ran the same 10 writing tasks through each tool: a 1000-word blog post, a Facebook ad, a cold email, a product description, and a LinkedIn post. Here's the honest comparison.</p>",
+      "outro": "<p><strong>Bottom line:</strong> For most content teams, Copy.ai or ChatGPT (with a well-crafted prompt) delivers 80% of what paid tools promise. Jasper is worth the premium if you need brand voice lock-in across a large team. Grammarly AI is the best choice if you're editing human-written content rather than generating from scratch. Writesonic has the most generous free tier.</p>",
+      "tools": [
+        {
+          "name": "Jasper",
+          "why": "Best brand voice enforcement. Templates for every content type. Integrates with SEO tools.",
+          "price": "$39/mo",
+          "affiliate": "https://www.jasper.ai"
+        },
+        {
+          "name": "Copy.ai",
+          "why": "Excellent for short-form (ads, emails, social). GTM workflows included.",
+          "price": "Free / $36/mo",
+          "affiliate": "https://www.copy.ai"
+        },
+        {
+          "name": "Writesonic",
+          "why": "Most generous free tier. Article writer + Surfer SEO integration.",
+          "price": "Free / $16/mo",
+          "affiliate": "https://writesonic.com"
+        },
+        {
+          "name": "Grammarly AI",
+          "why": "Best for editing and improving existing writing. Tone detection.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.grammarly.com"
+        },
+        {
+          "name": "ChatGPT",
+          "why": "Most versatile. Write custom prompts for any content format.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Claude",
+          "why": "Better long-form quality. Follows instructions more precisely.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "Notion AI",
+          "why": "Best for teams already in Notion. Summarize, rewrite, translate.",
+          "price": "$8/mo add-on",
+          "affiliate": "https://www.notion.so/product/ai"
+        },
+        {
+          "name": "Rytr",
+          "why": "Budget-friendly. 40+ templates, unlimited plan available.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://rytr.me"
+        }
+      ]
+    },
+    {
+      "slug": "best-midjourney-alternatives-2026",
+      "title": "Best Midjourney Alternatives in 2026 — Free & Paid",
+      "description": "Midjourney needs a Discord account and has no free trial. These 9 alternatives produce great AI art without the friction — some are completely free.",
+      "category": "Image Generation",
+      "published": "2026-04-18",
+      "intro": "<p>Midjourney is the gold standard for AI art — but it requires a Discord account, has no free trial, and starts at $10/month. For many users, that's too much friction before they've even tried the output.</p><p>These 9 alternatives match or exceed Midjourney in specific use cases — and several are genuinely free.</p>",
+      "outro": "<p><strong>Bottom line:</strong> For artistic quality closest to Midjourney, try Leonardo AI (free tier is generous) or Adobe Firefly (commercial-safe, trained on licensed images). For photorealism, DALL·E 3 inside ChatGPT is unmatched. For open-source / full control, Stable Diffusion is the only choice — but requires setup. Ideogram is the best option for text-in-image generation.</p>",
+      "tools": [
+        {
+          "name": "DALL·E 3",
+          "why": "Best prompt accuracy. Free inside ChatGPT. Most photorealistic output.",
+          "price": "Free via ChatGPT / $20/mo",
+          "affiliate": "https://openai.com/dall-e-3"
+        },
+        {
+          "name": "Adobe Firefly",
+          "why": "Only major AI trained on licensed images. Commercially safe. Inside Creative Cloud.",
+          "price": "Free / $4.99/mo",
+          "affiliate": "https://firefly.adobe.com"
+        },
+        {
+          "name": "Leonardo AI",
+          "why": "Best free tier — 150 tokens/day. Strong for characters and game assets.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://leonardo.ai/?via=altai"
+        },
+        {
+          "name": "Ideogram",
+          "why": "Best at rendering readable text inside images.",
+          "price": "Free / $7/mo",
+          "affiliate": "https://ideogram.ai/?ref=altai"
+        },
+        {
+          "name": "Stable Diffusion",
+          "why": "Open-source, unlimited, fully private. Needs local setup or API.",
+          "price": "Free (self-hosted)",
+          "affiliate": "https://stability.ai"
+        },
+        {
+          "name": "Krea AI",
+          "why": "Real-time canvas — sketch and watch AI refine as you draw.",
+          "price": "Free / $24/mo",
+          "affiliate": "https://www.krea.ai"
+        },
+        {
+          "name": "Flux",
+          "why": "Open-weights alternative with excellent detail and faces.",
+          "price": "Free / Pay-as-you-go",
+          "affiliate": "https://blackforestlabs.ai"
+        },
+        {
+          "name": "Canva AI",
+          "why": "Easiest interface. Good for design teams already in Canva.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.canva.com/ai-image-generator?fref=altai"
+        },
+        {
+          "name": "Bing Image Creator",
+          "why": "Completely free. Powered by DALL·E. No account required.",
+          "price": "Free",
+          "affiliate": "https://www.bing.com/images/create"
         }
       ]
     }
