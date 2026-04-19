@@ -4823,6 +4823,41 @@
           "why": "Real-time X/Twitter data. No guardrails. Direct competition to DeepSeek.",
           "price": "Free / $30/mo",
           "affiliate": "https://grok.com"
+        },
+        {
+          "name": "Poe",
+          "slug": "poe",
+          "why": "Multi-model hub with access to DeepSeek and dozens of other AI models",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "LLaMA",
+          "slug": "llama",
+          "why": "Meta's open-weight model you can run locally for full privacy",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "HuggingChat",
+          "slug": "huggingchat",
+          "why": "Open-source chat frontend with access to many free models",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Copilot",
+          "slug": "copilot",
+          "why": "Microsoft's AI assistant with GPT-4 access, free in Windows and Edge",
+          "price": "Free / $20/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Perplexity",
+          "slug": "perplexity",
+          "why": "AI search with real-time web citations — fills DeepSeek's offline gap",
+          "price": "Free / $20/mo",
+          "affiliate": null
         }
       ]
     },
@@ -4890,6 +4925,48 @@
           "why": "Microsoft's free AI with Bing real-time web search.",
           "price": "Free / $30/mo Pro",
           "affiliate": "https://copilot.microsoft.com"
+        },
+        {
+          "name": "Poe",
+          "slug": "poe",
+          "why": "Access Meta AI and 100+ other models in one hub",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Grok",
+          "slug": "grok",
+          "why": "Real-time knowledge chatbot baked into X — no jailbreak limits",
+          "price": "Free / $8/mo",
+          "affiliate": null
+        },
+        {
+          "name": "LLaMA",
+          "slug": "llama",
+          "why": "Meta's own base model for local, uncensored use via Ollama or LM Studio",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "HuggingChat",
+          "slug": "huggingchat",
+          "why": "Free open-source chat interface with several open models including Meta's",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Perplexity",
+          "slug": "perplexity",
+          "why": "AI answer engine with real-time citations and web search",
+          "price": "Free / $20/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Mistral Le Chat",
+          "slug": "mistral",
+          "why": "European open AI with no training-data consent issues",
+          "price": "Free / $14.99/mo",
+          "affiliate": null
         }
       ]
     },
@@ -4957,6 +5034,41 @@
           "why": "Free with Bing search built in. Works in Windows and Edge.",
           "price": "Free / $30/mo",
           "affiliate": "https://copilot.microsoft.com"
+        },
+        {
+          "name": "Poe",
+          "slug": "poe",
+          "why": "Run Mistral alongside GPT-4, Claude, and Gemini in one interface",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Grok",
+          "slug": "grok",
+          "why": "X AI's ChatGPT rival with real-time search baked in",
+          "price": "Free / $8/mo",
+          "affiliate": null
+        },
+        {
+          "name": "LLaMA",
+          "slug": "llama",
+          "why": "Meta's open-weight model with comparable benchmark scores",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "HuggingChat",
+          "slug": "huggingchat",
+          "why": "Free open chatbot with Mistral and other open models available",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Perplexity",
+          "slug": "perplexity",
+          "why": "Mistral-powered search mode available in Perplexity's interface",
+          "price": "Free / $20/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5024,6 +5136,41 @@
           "why": "Best AI for text-in-image. 10 free generations/day.",
           "price": "Free (10/day) / $8/mo",
           "affiliate": "https://ideogram.ai/?ref=altai"
+        },
+        {
+          "name": "Krea AI",
+          "slug": "krea",
+          "why": "Real-time AI canvas with FLUX and other models, great for ideation",
+          "price": "Free / $24/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Replicate",
+          "slug": "replicate",
+          "why": "API access to FLUX and hundreds of other diffusion models",
+          "price": "Pay-per-use from $0.003",
+          "affiliate": null
+        },
+        {
+          "name": "Kling AI",
+          "slug": "kling",
+          "why": "Extends FLUX-quality stills to smooth video generation",
+          "price": "Free / $10/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Pika",
+          "slug": "pika",
+          "why": "AI video platform with strong image-to-video from any source",
+          "price": "Free / $8/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Runway",
+          "slug": "runway",
+          "why": "Industry-standard creative AI suite for image and video generation",
+          "price": "Free / $15/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5091,6 +5238,41 @@
           "why": "ElevenLabs now generates music too. Same quality bar as their voice tools.",
           "price": "Included with ElevenLabs plan",
           "affiliate": "https://elevenlabs.io/?via=altai"
+        },
+        {
+          "name": "Play.ht",
+          "slug": "playht",
+          "why": "Ultra-realistic voice cloning and TTS for audio content",
+          "price": "Free / $31.20/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Replicate",
+          "slug": "replicate",
+          "why": "API access to MusicGen and other open music models per-use",
+          "price": "Pay-per-use",
+          "affiliate": null
+        },
+        {
+          "name": "Captions",
+          "slug": "captions",
+          "why": "Add AI music and audio to your videos from a creator platform",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Fliki",
+          "slug": "fliki",
+          "why": "Text-to-video with built-in royalty-free music selection",
+          "price": "Free / $28/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Runway",
+          "slug": "runway",
+          "why": "Add AI-generated audio to video projects in one creative suite",
+          "price": "Free / $15/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5158,6 +5340,48 @@
           "why": "Free access to Llama, Mixtral, Command R. No subscription required.",
           "price": "Free",
           "affiliate": "https://huggingface.co/chat"
+        },
+        {
+          "name": "HuggingChat",
+          "slug": "huggingchat",
+          "why": "Free open-source model hub — no subscription required",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Grok",
+          "slug": "grok",
+          "why": "X AI's chatbot with live web search, available free in X app",
+          "price": "Free / $8/mo",
+          "affiliate": null
+        },
+        {
+          "name": "LLaMA",
+          "slug": "llama",
+          "why": "Run multiple models locally with Ollama — your own private Poe",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Mistral Le Chat",
+          "slug": "mistral",
+          "why": "European multi-model platform with Mistral Small, Medium, Large access",
+          "price": "Free / $14.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Copilot",
+          "slug": "copilot",
+          "why": "Free GPT-4 access from Microsoft — no subscription needed",
+          "price": "Free / $20/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Perplexity",
+          "slug": "perplexity",
+          "why": "Research-focused multi-model search including Claude and GPT-4",
+          "price": "Free / $20/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5225,6 +5449,41 @@
           "why": "Google's model with Google Drive integration and 1M token context.",
           "price": "Free / $20/mo Advanced",
           "affiliate": "https://gemini.google.com"
+        },
+        {
+          "name": "You.com",
+          "slug": "you",
+          "why": "AI search with document uploads, citations, and research mode",
+          "price": "Free / $20/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Grok",
+          "slug": "grok",
+          "why": "Real-time search-grounded answers with no hallucination on current events",
+          "price": "Free / $8/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Poe",
+          "slug": "poe",
+          "why": "Multi-model research hub with Claude and GPT-4 for document analysis",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Coda",
+          "slug": "coda",
+          "why": "AI-powered docs that can parse, summarize, and query uploaded content",
+          "price": "Free / $12/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Notion AI",
+          "slug": "notion-ai",
+          "why": "Summarize, extract, and chat over your Notion knowledge base",
+          "price": "Free / $16/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5292,6 +5551,41 @@
           "why": "Best AI for text-in-image. 10 free generations/day.",
           "price": "Free / $8/mo",
           "affiliate": "https://ideogram.ai/?ref=altai"
+        },
+        {
+          "name": "Replicate",
+          "slug": "replicate",
+          "why": "API hub for every major image model including real-time diffusion",
+          "price": "Pay-per-use from $0.003",
+          "affiliate": null
+        },
+        {
+          "name": "Runway",
+          "slug": "runway",
+          "why": "Professional creative suite with image + video AI in one tool",
+          "price": "Free / $15/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Kling AI",
+          "slug": "kling",
+          "why": "Best text-to-video with image reference input — extends Krea stills",
+          "price": "Free / $10/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Pika",
+          "slug": "pika",
+          "why": "Animate any image to video — great companion to AI image generators",
+          "price": "Free / $8/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Leonardo AI",
+          "slug": "leonardo-ai",
+          "why": "Pro image generation with advanced fine-tuning and Canvas tools",
+          "price": "Free / $12/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5366,6 +5660,34 @@
           "why": "Free desktop app, unlimited use.",
           "price": "Free",
           "affiliate": "https://www.cross-plus-a.com/balabolka.htm"
+        },
+        {
+          "name": "Play.ht",
+          "slug": "playht",
+          "why": "Ultra-realistic voices with emotion control and 900+ voice library",
+          "price": "Free / $31.20/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Adobe Podcast",
+          "slug": "adobe-podcast",
+          "why": "Enhance, transcribe, and generate audio in Adobe's creative suite",
+          "price": "Free / $4.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Descript",
+          "slug": "descript",
+          "why": "Overdub, transcription, and podcast editing beyond TTS",
+          "price": "Free / $24/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Captions",
+          "slug": "captions",
+          "why": "AI video creator with voiceover and subtitle automation",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5440,6 +5762,34 @@
           "why": "Microsoft's efficient open model, runs on CPU.",
           "price": "Free",
           "affiliate": "https://azure.microsoft.com/en-us/products/phi"
+        },
+        {
+          "name": "LM Studio",
+          "slug": "lm-studio",
+          "why": "Best desktop app for downloading and running LLaMA and any GGUF model",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Ollama",
+          "slug": "ollama",
+          "why": "One-line CLI to pull and run any LLaMA variant locally",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "HuggingChat",
+          "slug": "huggingchat",
+          "why": "Chat with LLaMA online for free without installing anything",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Poe",
+          "slug": "poe",
+          "why": "Chat with LLaMA online via Poe without running it locally",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5514,6 +5864,41 @@
           "why": "Similar clip extraction at lower price.",
           "price": "Free / $29/mo",
           "affiliate": "https://vidyo.ai"
+        },
+        {
+          "name": "Captions",
+          "slug": "captions",
+          "why": "AI short-form creator with viral clip detection and auto-captions",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Veed",
+          "slug": "veed",
+          "why": "Browser-based video editor with one-click clip repurposing",
+          "price": "Free / $18/mo",
+          "affiliate": null
+        },
+        {
+          "name": "CapCut",
+          "slug": "capcut",
+          "why": "Mobile-first video editor with auto-highlight and subtitle tools",
+          "price": "Free / $9.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Fliki",
+          "slug": "fliki",
+          "why": "Turn any article or script into short-form video clips automatically",
+          "price": "Free / $28/mo",
+          "affiliate": null
+        },
+        {
+          "name": "InVideo AI",
+          "slug": "invideo",
+          "why": "Script-to-shorts workflow with auto-highlights and captions",
+          "price": "Free / $25/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5588,6 +5973,34 @@
           "why": "Polished templates with AI text/image assist.",
           "price": "$16/mo",
           "affiliate": "https://www.squarespace.com"
+        },
+        {
+          "name": "Gamma",
+          "slug": "gamma",
+          "why": "AI-generated beautiful presentations and docs, not code-heavy",
+          "price": "Free / $10/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Canva AI",
+          "slug": "canva-ai",
+          "why": "Design and publish websites without code using AI-generated layouts",
+          "price": "Free / $15/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Replit",
+          "slug": "replit",
+          "why": "AI-powered online IDE that builds and hosts full-stack apps",
+          "price": "Free / $25/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Windsurf",
+          "slug": "windsurf",
+          "why": "AI coding environment to build custom frontend projects with ease",
+          "price": "Free / $15/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5662,6 +6075,34 @@
           "why": "Privacy-first paid search with AI summaries.",
           "price": "$5/mo",
           "affiliate": "https://kagi.com"
+        },
+        {
+          "name": "Grok",
+          "slug": "grok",
+          "why": "X AI search with live web index and no result censorship",
+          "price": "Free / $8/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Poe",
+          "slug": "poe",
+          "why": "Multi-model research hub with internet search and document upload",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Coda",
+          "slug": "coda",
+          "why": "AI-powered workspace that connects to data and answers questions",
+          "price": "Free / $12/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "Long-context AI great for reading and summarizing uploaded documents",
+          "price": "Free / $20/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5744,6 +6185,27 @@
           "why": "Auto-clips long videos into viral shorts. Repurpose podcasts in one click.",
           "price": "Free / $15/mo",
           "affiliate": "https://www.opus.pro"
+        },
+        {
+          "name": "Veed",
+          "slug": "veed",
+          "why": "Browser-based editor with AI captions, subtitles, and translations",
+          "price": "Free / $18/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Captions",
+          "slug": "captions",
+          "why": "AI-native video creator built for short-form and creator content",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Fliki",
+          "slug": "fliki",
+          "why": "Text-to-video platform that scripts and narrates automatically",
+          "price": "Free / $28/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5819,6 +6281,34 @@
           "why": "Repurpose long videos into viral shorts automatically.",
           "price": "Free / $15/mo",
           "affiliate": "https://www.opus.pro"
+        },
+        {
+          "name": "Fliki",
+          "slug": "fliki",
+          "why": "Text-to-video with blog-to-video converter and 2000+ voices",
+          "price": "Free / $28/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Veed",
+          "slug": "veed",
+          "why": "All-in-one online editor with screen record, subtitles, and AI tools",
+          "price": "Free / $18/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Captions",
+          "slug": "captions",
+          "why": "AI video creator optimized for short-form creator content",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Descript",
+          "slug": "descript",
+          "why": "Transcript-driven editing best for long-form repurposing",
+          "price": "Free / $24/mo",
+          "affiliate": null
         }
       ]
     },
@@ -5887,6 +6377,41 @@
           "why": "Build AI pipelines directly. Spaces + Inference API replace simple automation.",
           "price": "Free / $9/mo Pro",
           "affiliate": "https://huggingface.co"
+        },
+        {
+          "name": "Manus",
+          "slug": "manus",
+          "why": "AI agent that executes multi-step web tasks autonomously",
+          "price": "Free / $39/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Cline",
+          "slug": "cline",
+          "why": "AI coding agent that automates browser, terminal, and code workflows",
+          "price": "Free (VS Code ext)",
+          "affiliate": null
+        },
+        {
+          "name": "Notion AI",
+          "slug": "notion-ai",
+          "why": "Automate content creation and database operations inside Notion",
+          "price": "Free / $16/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Coda",
+          "slug": "coda",
+          "why": "Doc and database platform with Packs to connect and automate tools",
+          "price": "Free / $12/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Bolt",
+          "slug": "bolt",
+          "why": "Build custom workflow apps without code using AI-generated interfaces",
+          "price": "Free / $20/mo",
+          "affiliate": null
         }
       ]
     },
@@ -6065,6 +6590,34 @@
           "why": "Smart slide templates that auto-adjust layout as you add content.",
           "price": "$12/mo",
           "affiliate": "https://www.beautiful.ai"
+        },
+        {
+          "name": "Lovable",
+          "slug": "lovable",
+          "why": "Prompt-to-production web app — skips the design handoff entirely",
+          "price": "Free / $25/mo",
+          "affiliate": null
+        },
+        {
+          "name": "V0",
+          "slug": "v0",
+          "why": "Generate React/Tailwind UI components directly from Figma-like prompts",
+          "price": "Free / $20/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Bolt",
+          "slug": "bolt",
+          "why": "Build pixel-perfect UI apps in browser with AI — skip design-to-dev handoff",
+          "price": "Free / $20/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Replit",
+          "slug": "replit",
+          "why": "Code and deploy web interfaces with AI pair programmer in the browser",
+          "price": "Free / $25/mo",
+          "affiliate": null
         }
       ]
     },
@@ -6133,6 +6686,41 @@
           "why": "Meta's open-weight LLMs. Self-host for free or run via Ollama.",
           "price": "Free (self-host)",
           "affiliate": "https://llama.meta.com"
+        },
+        {
+          "name": "LM Studio",
+          "slug": "lm-studio",
+          "why": "Run open-weight models locally — no API costs, full data privacy",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Ollama",
+          "slug": "ollama",
+          "why": "Lightweight local model runner with Cohere-class models like Command R+",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Groq",
+          "slug": "grok",
+          "why": "Fastest LLM inference available — great for Cohere-grade speed needs",
+          "price": "Free / $8/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Poe",
+          "slug": "poe",
+          "why": "Access Cohere models via Poe alongside GPT-4 and Claude",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Gemini",
+          "slug": "gemini",
+          "why": "Google's multimodal API for embeddings, chat, and vision at scale",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
         }
       ]
     },
@@ -6201,6 +6789,41 @@
           "why": "If you need editing + effects (not pure generation), CapCut is free and powerful.",
           "price": "Free",
           "affiliate": "https://capcut.com"
+        },
+        {
+          "name": "InVideo AI",
+          "slug": "invideo",
+          "why": "Script-to-video with narration — better for full-length content",
+          "price": "Free / $25/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Fliki",
+          "slug": "fliki",
+          "why": "AI text-to-video with stock clips — faster for content creators",
+          "price": "Free / $28/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Captions",
+          "slug": "captions",
+          "why": "Short-form video creation with AI avatar and auto-motion tools",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Synthesia",
+          "slug": "synthesia",
+          "why": "AI video with realistic avatars — better for explainer and training video",
+          "price": "$29/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Veed",
+          "slug": "veed",
+          "why": "Browser-based video platform with AI background removal and animations",
+          "price": "Free / $18/mo",
+          "affiliate": null
         }
       ]
     },
@@ -6276,6 +6899,34 @@
           "why": "One subscription, every major model including open-source.",
           "price": "Free / $20/mo",
           "affiliate": "https://poe.com"
+        },
+        {
+          "name": "Ollama",
+          "slug": "ollama",
+          "why": "Run the same open models locally with no API limits or internet",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "LM Studio",
+          "slug": "lm-studio",
+          "why": "Desktop GUI to manage and chat with any HuggingFace GGUF model",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Llama",
+          "slug": "llama",
+          "why": "Meta's open-weight model available locally via Ollama or LM Studio",
+          "price": "Free",
+          "affiliate": null
+        },
+        {
+          "name": "Meta AI",
+          "slug": "meta-ai",
+          "why": "Official Meta AI chat backed by latest LLaMA models for free",
+          "price": "Free",
+          "affiliate": null
         }
       ]
     },
@@ -6350,6 +7001,34 @@
           "why": "Excellent at rewriting long documents with style preservation.",
           "price": "Free / $20/mo Pro",
           "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "Rytr",
+          "slug": "rytr",
+          "why": "Budget paraphrasing and rewriting tool at $9/mo vs QuillBot's $20/mo",
+          "price": "Free / $9/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Notion AI",
+          "slug": "notion-ai",
+          "why": "Rewrite, summarize, and paraphrase directly inside your docs",
+          "price": "Free / $16/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Perplexity",
+          "slug": "perplexity",
+          "why": "AI search-writer that can paraphrase and expand with live sources",
+          "price": "Free / $20/mo",
+          "affiliate": null
+        },
+        {
+          "name": "Gemini",
+          "slug": "gemini",
+          "why": "Google's AI rewrites and improves text in Google Docs natively",
+          "price": "Free / $19.99/mo",
+          "affiliate": null
         }
       ]
     },
