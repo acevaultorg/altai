@@ -8916,6 +8916,542 @@
         "url": "https://www.adobe.com/express",
         "program": null
       }
+    },
+    {
+      "slug": "tabnine",
+      "name": "Tabnine",
+      "category": "code",
+      "vendor": "Tabnine",
+      "pricing": {
+        "free": true,
+        "paid_from": 12,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Enterprise-grade AI code completion with privacy controls.",
+      "summary": "AI code completion focused on enterprise privacy. Supports self-hosted models so code never leaves your infra. Works in VS Code, JetBrains, vim, and more.",
+      "strengths": [
+        "self-hostable",
+        "strong data privacy",
+        "broad IDE support",
+        "team learning from your codebase"
+      ],
+      "weaknesses": [
+        "weaker agent mode vs Cursor",
+        "less capable at generation vs Copilot",
+        "UI feels dated"
+      ],
+      "affiliate": {
+        "url": "https://www.tabnine.com/?ref=altai",
+        "program": "direct-ref"
+      },
+      "searches_per_month": 90000,
+      "alternatives": [
+        {
+          "name": "GitHub Copilot",
+          "slug": "copilot",
+          "why": "Better inline completion with Microsoft/OpenAI backing.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://github.com/features/copilot"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor",
+          "why": "Agent mode and chat make it far more powerful for complex tasks.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://cursor.com/referral?ref=altai"
+        },
+        {
+          "name": "Codeium",
+          "slug": "codeium",
+          "why": "Free tier is far more generous, similar completion quality.",
+          "price": "Free",
+          "affiliate": "https://codeium.com"
+        },
+        {
+          "name": "Windsurf",
+          "slug": "windsurf",
+          "why": "Full AI editor experience with agentic code editing.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://codeium.com/windsurf?ref=altai"
+        },
+        {
+          "name": "Amazon Q Developer",
+          "slug": "amazon-q",
+          "why": "Better for AWS-heavy stacks with security scanning built in.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://aws.amazon.com/q/developer/"
+        }
+      ]
+    },
+    {
+      "slug": "amazon-q",
+      "name": "Amazon Q Developer",
+      "category": "code",
+      "vendor": "Amazon Web Services",
+      "pricing": {
+        "free": true,
+        "paid_from": 19,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "AI coding assistant built for AWS and enterprise.",
+      "summary": "Formerly CodeWhisperer, now Amazon Q Developer. Integrates into VS Code, JetBrains, and the AWS console. Free tier is generous. Strong security vulnerability scanning.",
+      "strengths": [
+        "AWS ecosystem integration",
+        "security scanning built-in",
+        "generous free tier",
+        "compliance certifications"
+      ],
+      "weaknesses": [
+        "weaker outside AWS stacks",
+        "agent mode less capable than Cursor",
+        "fewer model options"
+      ],
+      "affiliate": {
+        "url": "https://aws.amazon.com/q/developer/",
+        "program": "none"
+      },
+      "searches_per_month": 40000,
+      "alternatives": [
+        {
+          "name": "GitHub Copilot",
+          "slug": "copilot",
+          "why": "Better cross-platform support and stronger inline completion.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://github.com/features/copilot"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor",
+          "why": "Best agent mode for complex multi-file tasks.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://cursor.com/referral?ref=altai"
+        },
+        {
+          "name": "Tabnine",
+          "slug": "tabnine",
+          "why": "Better for enterprises needing self-hosted, no-cloud options.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.tabnine.com/?ref=altai"
+        },
+        {
+          "name": "Codeium",
+          "slug": "codeium",
+          "why": "Completely free, comparable completion quality.",
+          "price": "Free",
+          "affiliate": "https://codeium.com"
+        },
+        {
+          "name": "Windsurf",
+          "slug": "windsurf",
+          "why": "More capable AI editing experience for day-to-day coding.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://codeium.com/windsurf?ref=altai"
+        }
+      ]
+    },
+    {
+      "slug": "wordtune",
+      "name": "Wordtune",
+      "category": "writing",
+      "vendor": "AI21 Labs",
+      "pricing": {
+        "free": true,
+        "paid_from": 14,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "AI writing companion that rewrites and improves your sentences.",
+      "summary": "Made by AI21 Labs. Focuses on rewriting existing text rather than generating from scratch. Offers tone adjustments, shortening, expanding, and sentence-level rewrites. Chrome extension works across the web.",
+      "strengths": [
+        "excellent sentence rewriting",
+        "tone adjustment",
+        "Chrome extension for any site",
+        "explains why a rewrite is better"
+      ],
+      "weaknesses": [
+        "less capable at long-form generation",
+        "not as strong as Grammarly on pure grammar checking",
+        "slower than newer AI tools"
+      ],
+      "affiliate": {
+        "url": "https://www.wordtune.com/?ref=altai",
+        "program": "direct-ref"
+      },
+      "searches_per_month": 110000,
+      "alternatives": [
+        {
+          "name": "Grammarly",
+          "slug": "grammarly",
+          "why": "Better grammar correction and broader browser/app support.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.grammarly.com"
+        },
+        {
+          "name": "QuillBot",
+          "slug": "quillbot",
+          "why": "Stronger paraphrasing modes and better plagiarism checker.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://quillbot.com"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "Far more capable at rewriting entire documents, free.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "Writesonic",
+          "slug": "writesonic",
+          "why": "Better for long-form content and marketing copy generation.",
+          "price": "Free / $16/mo",
+          "affiliate": "https://writesonic.com/?via=altai"
+        },
+        {
+          "name": "Rytr",
+          "slug": "rytr",
+          "why": "Cheaper for short-form content and one-time rewrites.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://rytr.me"
+        }
+      ]
+    },
+    {
+      "slug": "anyword",
+      "name": "Anyword",
+      "category": "writing",
+      "vendor": "Anyword",
+      "pricing": {
+        "free": false,
+        "paid_from": 39,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "AI copywriting with built-in performance prediction.",
+      "summary": "Generates marketing copy and predicts which version will perform better before you publish. Trained on ad performance data. Strong for Facebook/Google ad copy, landing pages, and email subject lines.",
+      "strengths": [
+        "performance prediction score per variant",
+        "trained on ad data",
+        "strong for email/ad copy",
+        "A/B variant generation"
+      ],
+      "weaknesses": [
+        "expensive relative to alternatives",
+        "no meaningful free tier",
+        "weaker for long-form content"
+      ],
+      "affiliate": {
+        "url": "https://anyword.com/?via=altai",
+        "program": "direct-ref"
+      },
+      "searches_per_month": 40000,
+      "alternatives": [
+        {
+          "name": "Jasper",
+          "slug": "jasper",
+          "why": "More templates and longer-form content generation.",
+          "price": "$39/mo",
+          "affiliate": "https://www.jasper.ai"
+        },
+        {
+          "name": "Copy.ai",
+          "slug": "copyai",
+          "why": "More generous free tier and faster for short-form copy.",
+          "price": "Free / $36/mo",
+          "affiliate": "https://www.copy.ai"
+        },
+        {
+          "name": "Writesonic",
+          "slug": "writesonic",
+          "why": "Cheaper, more flexible, has a real free tier.",
+          "price": "Free / $16/mo",
+          "affiliate": "https://writesonic.com/?via=altai"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "Free and often better at nuanced marketing copy.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "Rytr",
+          "slug": "rytr",
+          "why": "Budget option for simple marketing copy at a fraction of the cost.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://rytr.me"
+        }
+      ]
+    },
+    {
+      "slug": "pictory",
+      "name": "Pictory",
+      "category": "video",
+      "vendor": "Pictory AI",
+      "pricing": {
+        "free": false,
+        "paid_from": 19,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Turn blog posts and scripts into short videos automatically.",
+      "summary": "Paste a URL or script and Pictory creates a video with stock footage, captions, and voiceover. Popular for repurposing long-form content into social clips and YouTube Shorts.",
+      "strengths": [
+        "URL-to-video from blog posts",
+        "auto-captions",
+        "large stock footage library",
+        "good for content repurposing"
+      ],
+      "weaknesses": [
+        "output feels templated",
+        "limited AI avatar options",
+        "stock footage can look generic"
+      ],
+      "affiliate": {
+        "url": "https://pictory.ai/?ref=altai",
+        "program": "direct-ref"
+      },
+      "searches_per_month": 60000,
+      "alternatives": [
+        {
+          "name": "InVideo",
+          "slug": "invideo",
+          "why": "More templates and stronger AI script-to-video capabilities.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://invideo.io"
+        },
+        {
+          "name": "Descript",
+          "slug": "descript",
+          "why": "Better for podcast editing and screen recording repurposing.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.descript.com"
+        },
+        {
+          "name": "VEED",
+          "slug": "veed",
+          "why": "Simpler editor with good subtitle and translation tools.",
+          "price": "Free / $18/mo",
+          "affiliate": "https://www.veed.io"
+        },
+        {
+          "name": "Captions",
+          "slug": "captions",
+          "why": "Better for talking-head video AI editing and eye contact correction.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://www.captions.ai"
+        },
+        {
+          "name": "Synthesia",
+          "slug": "synthesia",
+          "why": "Better for training and HR videos with AI avatars.",
+          "price": "$22/mo",
+          "affiliate": "https://www.synthesia.io"
+        }
+      ]
+    },
+    {
+      "slug": "d-id",
+      "name": "D-ID",
+      "category": "video",
+      "vendor": "D-ID",
+      "pricing": {
+        "free": true,
+        "paid_from": 5.9,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Create AI avatar videos from photos and text.",
+      "summary": "Upload a photo, type a script, and D-ID generates a talking-head video. Popular for explainer videos, social content, and personalized outreach. Free tier allows 5 videos.",
+      "strengths": [
+        "photo-to-avatar video",
+        "very cheap entry price",
+        "good lip sync quality",
+        "API for personalized video at scale"
+      ],
+      "weaknesses": [
+        "avatar quality lower than Synthesia",
+        "watermark on free tier",
+        "limited backgrounds/environments"
+      ],
+      "affiliate": {
+        "url": "https://www.d-id.com/?ref=altai",
+        "program": "direct-ref"
+      },
+      "searches_per_month": 110000,
+      "alternatives": [
+        {
+          "name": "HeyGen",
+          "slug": "heygen",
+          "why": "Better avatar quality and more customization options.",
+          "price": "Free / $24/mo",
+          "affiliate": "https://www.heygen.com/?ref=altai"
+        },
+        {
+          "name": "Synthesia",
+          "slug": "synthesia",
+          "why": "More professional-looking avatars, better for corporate use.",
+          "price": "$22/mo",
+          "affiliate": "https://www.synthesia.io"
+        },
+        {
+          "name": "Captions",
+          "slug": "captions",
+          "why": "Better for social short-form video with real video input.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://www.captions.ai"
+        },
+        {
+          "name": "Pictory",
+          "slug": "pictory",
+          "why": "Better for repurposing text content without needing a photo.",
+          "price": "$19/mo",
+          "affiliate": "https://pictory.ai/?ref=altai"
+        },
+        {
+          "name": "InVideo",
+          "slug": "invideo",
+          "why": "More video templates and stock footage, no photo needed.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://invideo.io"
+        }
+      ]
+    },
+    {
+      "slug": "coze",
+      "name": "Coze",
+      "category": "platform",
+      "vendor": "ByteDance",
+      "pricing": {
+        "free": true,
+        "paid_from": 0,
+        "currency": "USD",
+        "model": "usage"
+      },
+      "headline": "Build and deploy AI chatbots and agents without code.",
+      "summary": "ByteDance's no-code AI bot builder. Create chatbots with memory, plugins, and workflows. Deploy to websites, Slack, Discord, and more. Generous free tier powered by Doubao models.",
+      "strengths": [
+        "no-code bot builder",
+        "plugin ecosystem",
+        "generous free tier",
+        "multi-platform deployment"
+      ],
+      "weaknesses": [
+        "ByteDance data concerns for some users",
+        "less capable than custom-coded agents",
+        "limited enterprise controls"
+      ],
+      "affiliate": {
+        "url": "https://www.coze.com/?ref=altai",
+        "program": "direct-ref"
+      },
+      "searches_per_month": 200000,
+      "alternatives": [
+        {
+          "name": "Poe",
+          "slug": "poe",
+          "why": "Access multiple AI models in one interface, simpler than Coze.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://poe.com"
+        },
+        {
+          "name": "Claude",
+          "slug": "claude",
+          "why": "Better raw capability for conversations without building a bot.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "GPT Store for custom GPTs is the direct competitor.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Make",
+          "slug": "make",
+          "why": "Better for complex multi-system workflows, not just chat.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://www.make.com/en/register?pc=altai"
+        },
+        {
+          "name": "n8n",
+          "slug": "n8n",
+          "why": "Open-source, self-hostable alternative for full data control.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://n8n.io"
+        }
+      ]
+    },
+    {
+      "slug": "phind",
+      "name": "Phind",
+      "category": "search",
+      "vendor": "Phind",
+      "pricing": {
+        "free": true,
+        "paid_from": 20,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "AI search engine built specifically for developers.",
+      "summary": "Searches the web and technical docs to answer coding questions with citations. Uses its own Phind-70B model plus Claude and GPT-4. Free tier is genuinely useful for daily dev questions.",
+      "strengths": [
+        "developer-focused answers",
+        "cites sources inline",
+        "understands technical context",
+        "searches docs + StackOverflow + GitHub"
+      ],
+      "weaknesses": [
+        "weaker for non-technical queries",
+        "smaller context window on free tier",
+        "no image generation"
+      ],
+      "affiliate": {
+        "url": "https://www.phind.com/?ref=altai",
+        "program": "direct-ref"
+      },
+      "searches_per_month": 90000,
+      "alternatives": [
+        {
+          "name": "Perplexity",
+          "slug": "perplexity",
+          "why": "Better for general research, also cites sources, larger model selection.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://www.perplexity.ai/?ref=altai"
+        },
+        {
+          "name": "You.com",
+          "slug": "you",
+          "why": "More model choices and broader topic coverage beyond coding.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://you.com"
+        },
+        {
+          "name": "Kagi",
+          "slug": "kagi",
+          "why": "Ad-free, privacy-first, covers technical and non-technical equally well.",
+          "price": "$10/mo",
+          "affiliate": "https://kagi.com"
+        },
+        {
+          "name": "GitHub Copilot",
+          "slug": "copilot",
+          "why": "Better for coding assistance inside your IDE vs web search.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://github.com/features/copilot"
+        },
+        {
+          "name": "ChatGPT",
+          "slug": "chatgpt",
+          "why": "More capable at reasoning and generating code solutions.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        }
+      ]
     }
   ],
   "comparisons": [
@@ -9463,6 +9999,66 @@
       "a": "adobe-express",
       "b": "figma",
       "headline": "Quick content creation and templates vs professional UI/UX design."
+    },
+    {
+      "a": "tabnine",
+      "b": "copilot",
+      "headline": "Privacy-first self-hostable AI coding vs Microsoft/OpenAI-backed completion."
+    },
+    {
+      "a": "tabnine",
+      "b": "cursor",
+      "headline": "Enterprise-safe code completion vs full AI-first editor experience."
+    },
+    {
+      "a": "amazon-q",
+      "b": "copilot",
+      "headline": "AWS-native AI coding assistant vs GitHub-native Copilot."
+    },
+    {
+      "a": "wordtune",
+      "b": "grammarly",
+      "headline": "Sentence rewriting and tone adjustment vs grammar correction and style."
+    },
+    {
+      "a": "wordtune",
+      "b": "quillbot",
+      "headline": "AI21 Labs sentence rewriter vs QuillBot paraphrasing tool."
+    },
+    {
+      "a": "anyword",
+      "b": "jasper",
+      "headline": "Performance-predicting marketing copy vs the most feature-rich AI writer."
+    },
+    {
+      "a": "anyword",
+      "b": "copyai",
+      "headline": "Ad performance scoring vs fast short-form copy generation."
+    },
+    {
+      "a": "pictory",
+      "b": "invideo",
+      "headline": "Blog-to-video repurposing vs full AI video studio."
+    },
+    {
+      "a": "d-id",
+      "b": "heygen",
+      "headline": "Photo-to-talking-avatar vs premium AI avatar video creator."
+    },
+    {
+      "a": "d-id",
+      "b": "synthesia",
+      "headline": "Low-cost avatar video vs enterprise-grade AI presenter."
+    },
+    {
+      "a": "coze",
+      "b": "chatgpt",
+      "headline": "No-code bot builder vs ChatGPT Custom GPTs."
+    },
+    {
+      "a": "phind",
+      "b": "perplexity",
+      "headline": "Developer-focused AI search vs general-purpose AI research assistant."
     }
   ],
   "blog": [
@@ -10718,6 +11314,24 @@
       "published": "2026-04-19",
       "intro": "<p>The productivity software market has been completely reinvented by AI. Meeting recorders that summarize action items automatically. Writing tools that draft emails in your tone. Search engines that answer questions with cited sources instead of a list of links.</p><p>After testing 30+ tools, we narrowed it to the 10 that actually change how much you get done. No filler. These are the tools that professional users — developers, marketers, managers, and researchers — reach for every day.</p>",
       "outro": "<p><strong>Bottom line:</strong> The highest-ROI AI productivity stack in 2026 is: Claude or Gemini for writing and reasoning, Notion AI or Coda for workspace, Otter or Fireflies for meetings, Grammarly or QuillBot for writing polish, and Perplexity for research. Most of these have meaningful free tiers — start with three and layer in more as needed.</p><p>→ <a href='/category/meeting/'>Best AI meeting tools</a> · <a href='/category/writing/'>Best AI writing tools</a> · <a href='/category/search/'>Best AI search tools</a></p>"
+    },
+    {
+      "slug": "best-ai-coding-assistants-2026",
+      "title": "Best AI Coding Assistants in 2026 — Ranked by Real Developers",
+      "description": "Cursor, GitHub Copilot, Windsurf, Tabnine, Amazon Q — we ranked the best AI coding assistants for 2026 by actual developer productivity.",
+      "category": "Coding Assistants",
+      "published": "2026-04-19",
+      "intro": "<p>The AI coding assistant market exploded in 2024-2025. Every major IDE has a native AI plugin now, and standalone AI editors like Cursor and Windsurf have redefined what \"code completion\" means. The choices are genuinely confusing.</p><p>We tested 10 AI coding tools on three criteria: inline completion quality, agent mode for complex multi-file tasks, and real-world IDE integration. Here is the honest ranking based on daily developer use.</p>",
+      "outro": "<p><strong>Bottom line:</strong> Cursor is the best choice for most developers who want the most capable AI pair programmer available — its agent mode is unmatched. GitHub Copilot is the best choice if you want to stay in your existing editor and need enterprise compliance. Amazon Q Developer is the best choice if your stack is AWS-heavy. Tabnine is the right pick for enterprises needing self-hosted, no-cloud models. All four have meaningful free tiers.</p><p>→ <a href='/tools/cursor-alternatives.html'>See all Cursor alternatives</a> · <a href='/compare/cursor-vs-copilot.html'>Cursor vs Copilot full comparison</a> · <a href='/tools/copilot-alternatives.html'>GitHub Copilot alternatives</a></p>"
+    },
+    {
+      "slug": "best-ai-avatar-video-tools-2026",
+      "title": "Best AI Avatar Video Generators in 2026 — Compared",
+      "description": "HeyGen, Synthesia, D-ID, Captions — ranked for quality, price, and use case. The best AI avatar video tools for training, social, and marketing.",
+      "category": "Video Generation",
+      "published": "2026-04-19",
+      "intro": "<p>AI avatar video has gone from novelty to production-ready in 18 months. HR teams use Synthesia for training videos. Social media creators use HeyGen to clone their own voice and likeness. Marketers use D-ID to personalize outreach at scale. Prices have dropped dramatically.</p><p>We generated 50+ test videos across five categories — training content, social short-form, product explainers, multilingual dubbing, and personalized outreach. Here is what we found.</p>",
+      "outro": "<p><strong>Bottom line:</strong> HeyGen has the best overall avatar quality and is the right choice for marketers and content creators. Synthesia is the right choice for enterprise training content — it has the best compliance controls. D-ID is the best budget option, especially if you just need to animate a photo. Captions is the right choice for creators who want to enhance real video footage rather than generate synthetic avatars.</p><p>→ <a href='/tools/heygen-alternatives.html'>See all HeyGen alternatives</a> · <a href='/compare/d-id-vs-heygen.html'>D-ID vs HeyGen full comparison</a> · <a href='/tools/synthesia-alternatives.html'>See all Synthesia alternatives</a></p>"
     }
   ]
 }
