@@ -64,6 +64,9 @@ AltAI is an editorial directory. Rankings are curated, not algorithmic. See [Met
 - [Best Claude Alternatives in 2026](https://thealtai.com/blog/best-claude-alternatives-2026.html): ChatGPT, Gemini, DeepSeek, Grok — the best AI assistants to use instead of or alongside Claude.
 - [Best Cursor Alternatives in 2026](https://thealtai.com/blog/best-cursor-alternatives-2026.html): Windsurf, Cline, GitHub Copilot, Aider — top AI coding tools to use instead of Cursor in 2026.
 - [Best Gemini Alternatives in 2026](https://thealtai.com/blog/best-gemini-alternatives-2026.html): ChatGPT, Claude, DeepSeek, Perplexity — the best AI tools to use instead of Google Gemini in 2026.
+- [Best AI Search Engines in 2026 — Ranked & Compared](https://thealtai.com/blog/best-ai-search-engines-2026.html): Perplexity, Kagi, You.com, and more — we ranked the best AI search engines for research, privacy, and accuracy in 2026.
+- [Best Grammarly Alternatives in 2026 (Free & Paid)](https://thealtai.com/blog/best-grammarly-alternatives-2026.html): Free and paid Grammarly alternatives ranked for grammar checking, writing style, plagiarism detection, and AI writing assistance in 2026.
+- [Best AI Productivity Tools in 2026 — Work Smarter](https://thealtai.com/blog/best-ai-productivity-tools-2026.html): The 10 best AI tools to boost daily productivity in 2026 — from meeting recorders to writing assistants to smart search engines.
 
 ## Feeds
 

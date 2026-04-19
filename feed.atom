@@ -89,6 +89,33 @@
     <category term="blog"/>
   </entry>
   <entry>
+    <title>Best AI Search Engines in 2026 — Ranked &amp; Compared</title>
+    <link href="https://thealtai.com/blog/best-ai-search-engines-2026.html"/>
+    <id>https://thealtai.com/blog/best-ai-search-engines-2026.html</id>
+    <updated>2026-04-19T00:00:00.000Z</updated>
+    <published>2026-04-19T00:00:00.000Z</published>
+    <summary>Perplexity, Kagi, You.com, and more — we ranked the best AI search engines for research, privacy, and accuracy in 2026.</summary>
+    <category term="blog"/>
+  </entry>
+  <entry>
+    <title>Best Grammarly Alternatives in 2026 (Free &amp; Paid)</title>
+    <link href="https://thealtai.com/blog/best-grammarly-alternatives-2026.html"/>
+    <id>https://thealtai.com/blog/best-grammarly-alternatives-2026.html</id>
+    <updated>2026-04-19T00:00:00.000Z</updated>
+    <published>2026-04-19T00:00:00.000Z</published>
+    <summary>Free and paid Grammarly alternatives ranked for grammar checking, writing style, plagiarism detection, and AI writing assistance in 2026.</summary>
+    <category term="blog"/>
+  </entry>
+  <entry>
+    <title>Best AI Productivity Tools in 2026 — Work Smarter</title>
+    <link href="https://thealtai.com/blog/best-ai-productivity-tools-2026.html"/>
+    <id>https://thealtai.com/blog/best-ai-productivity-tools-2026.html</id>
+    <updated>2026-04-19T00:00:00.000Z</updated>
+    <published>2026-04-19T00:00:00.000Z</published>
+    <summary>The 10 best AI tools to boost daily productivity in 2026 — from meeting recorders to writing assistants to smart search engines.</summary>
+    <category term="blog"/>
+  </entry>
+  <entry>
     <title>Best DeepSeek Alternatives in 2026 (Tested &amp; Ranked)</title>
     <link href="https://thealtai.com/blog/best-deepseek-alternatives-2026.html"/>
     <id>https://thealtai.com/blog/best-deepseek-alternatives-2026.html</id>
@@ -1211,6 +1238,78 @@
     <updated>2026-04-18T00:00:00.000Z</updated>
     <published>2026-04-18T00:00:00.000Z</published>
     <summary>HuggingChat vs Meta AI: Open-source model hub vs Meta official chatbot</summary>
+    <category term="compare"/>
+  </entry>
+  <entry>
+    <title>Zoom AI Companion vs Otter.ai</title>
+    <link href="https://thealtai.com/compare/zoom-ai-vs-otter.html"/>
+    <id>https://thealtai.com/compare/zoom-ai-vs-otter.html</id>
+    <updated>2026-04-18T00:00:00.000Z</updated>
+    <published>2026-04-18T00:00:00.000Z</published>
+    <summary>AI meeting features built into Zoom vs dedicated AI meeting recorder.</summary>
+    <category term="compare"/>
+  </entry>
+  <entry>
+    <title>Zoom AI Companion vs Fireflies.ai</title>
+    <link href="https://thealtai.com/compare/zoom-ai-vs-fireflies.html"/>
+    <id>https://thealtai.com/compare/zoom-ai-vs-fireflies.html</id>
+    <updated>2026-04-18T00:00:00.000Z</updated>
+    <published>2026-04-18T00:00:00.000Z</published>
+    <summary>All-in-one video + AI vs lightweight transcription-first meeting tool.</summary>
+    <category term="compare"/>
+  </entry>
+  <entry>
+    <title>Kagi vs Perplexity</title>
+    <link href="https://thealtai.com/compare/kagi-vs-perplexity.html"/>
+    <id>https://thealtai.com/compare/kagi-vs-perplexity.html</id>
+    <updated>2026-04-18T00:00:00.000Z</updated>
+    <published>2026-04-18T00:00:00.000Z</published>
+    <summary>Ad-free paid search engine vs AI-native research assistant.</summary>
+    <category term="compare"/>
+  </entry>
+  <entry>
+    <title>Kagi vs You.com</title>
+    <link href="https://thealtai.com/compare/kagi-vs-you.html"/>
+    <id>https://thealtai.com/compare/kagi-vs-you.html</id>
+    <updated>2026-04-18T00:00:00.000Z</updated>
+    <published>2026-04-18T00:00:00.000Z</published>
+    <summary>Privacy-first subscription search vs customizable AI search engine.</summary>
+    <category term="compare"/>
+  </entry>
+  <entry>
+    <title>Krisp vs Adobe Podcast</title>
+    <link href="https://thealtai.com/compare/krisp-vs-adobe-podcast.html"/>
+    <id>https://thealtai.com/compare/krisp-vs-adobe-podcast.html</id>
+    <updated>2026-04-18T00:00:00.000Z</updated>
+    <published>2026-04-18T00:00:00.000Z</published>
+    <summary>Real-time noise cancellation for calls vs AI audio enhancement in post.</summary>
+    <category term="compare"/>
+  </entry>
+  <entry>
+    <title>Perplexity Pages vs Notion AI</title>
+    <link href="https://thealtai.com/compare/perplexity-pages-vs-notion-ai.html"/>
+    <id>https://thealtai.com/compare/perplexity-pages-vs-notion-ai.html</id>
+    <updated>2026-04-18T00:00:00.000Z</updated>
+    <published>2026-04-18T00:00:00.000Z</published>
+    <summary>AI-generated shareable research pages vs AI within your workspace.</summary>
+    <category term="compare"/>
+  </entry>
+  <entry>
+    <title>Adobe Express vs Canva AI</title>
+    <link href="https://thealtai.com/compare/adobe-express-vs-canva-ai.html"/>
+    <id>https://thealtai.com/compare/adobe-express-vs-canva-ai.html</id>
+    <updated>2026-04-18T00:00:00.000Z</updated>
+    <published>2026-04-18T00:00:00.000Z</published>
+    <summary>Adobe&apos;s AI-first quick design tool vs Canva&apos;s AI-powered creative platform.</summary>
+    <category term="compare"/>
+  </entry>
+  <entry>
+    <title>Adobe Express vs Figma</title>
+    <link href="https://thealtai.com/compare/adobe-express-vs-figma.html"/>
+    <id>https://thealtai.com/compare/adobe-express-vs-figma.html</id>
+    <updated>2026-04-18T00:00:00.000Z</updated>
+    <published>2026-04-18T00:00:00.000Z</published>
+    <summary>Quick content creation and templates vs professional UI/UX design.</summary>
     <category term="compare"/>
   </entry>
   <entry>
