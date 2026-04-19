@@ -5948,6 +5948,48 @@
           "why": "Spaces + Inference API for AI-specific workflows. Better model selection.",
           "price": "Free / $9/mo",
           "affiliate": "https://huggingface.co"
+        },
+        {
+          "slug": "pipedream",
+          "name": "Pipedream",
+          "why": "Developer-friendly automation with real-time triggers and Node.js steps.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://pipedream.com"
+        },
+        {
+          "slug": "activepieces",
+          "name": "Activepieces",
+          "why": "Open-source Zapier alternative. Self-hostable with 200+ integrations.",
+          "price": "Free",
+          "affiliate": "https://www.activepieces.com"
+        },
+        {
+          "slug": "windmill",
+          "name": "Windmill",
+          "why": "Open-source workflow engine with a code-first approach. Highly flexible.",
+          "price": "Free",
+          "affiliate": "https://www.windmill.dev"
+        },
+        {
+          "slug": "lindy",
+          "name": "Lindy",
+          "why": "No-code AI agent builder for personal and business automation.",
+          "price": "Free / $49/mo",
+          "affiliate": "https://www.lindy.ai"
+        },
+        {
+          "slug": "claude",
+          "name": "Claude API",
+          "why": "Add Claude as a step in automation workflows for AI-powered logic.",
+          "price": "Pay-per-use",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "slug": "chatgpt",
+          "name": "ChatGPT Actions",
+          "why": "OpenAI's automation integration for AI steps in GPT-powered workflows.",
+          "price": "Pay-per-use",
+          "affiliate": "https://chatgpt.com"
         }
       ]
     },
@@ -6368,6 +6410,48 @@
           "why": "Browser-based AI IDE. Best for quick prototypes.",
           "price": "Free / $25/mo Core",
           "affiliate": "https://replit.com"
+        },
+        {
+          "slug": "aider",
+          "name": "Aider",
+          "why": "Terminal-based AI coding agent. Edits entire codebases from CLI.",
+          "price": "Free (BYOK)",
+          "affiliate": "https://aider.chat"
+        },
+        {
+          "slug": "bolt",
+          "name": "Bolt.new",
+          "why": "Web-based AI full-stack builder. Zero IDE setup required.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://bolt.new"
+        },
+        {
+          "slug": "v0",
+          "name": "v0 by Vercel",
+          "why": "AI UI component generator from text. Best for React/Next.js.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://v0.dev"
+        },
+        {
+          "slug": "lovable",
+          "name": "Lovable",
+          "why": "Full-stack app from text prompts with automatic deployment.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://lovable.dev"
+        },
+        {
+          "slug": "tabnine",
+          "name": "Tabnine",
+          "why": "Privacy-first AI code completion. On-premises option for enterprises.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.tabnine.com"
+        },
+        {
+          "slug": "cline",
+          "name": "Cline",
+          "why": "Open-source VS Code agentic coding agent. BYOK, free to use.",
+          "price": "Free (BYOK)",
+          "affiliate": "https://github.com/cline/cline"
         }
       ]
     },
@@ -6428,6 +6512,48 @@
           "why": "Async video messages with AI summaries. Better for sharing recordings.",
           "price": "Free / $12.50/mo Business",
           "affiliate": "https://www.loom.com"
+        },
+        {
+          "slug": "notta",
+          "name": "Notta",
+          "why": "AI meeting recorder with detailed summaries and search.",
+          "price": "Free / $8.25/mo",
+          "affiliate": "https://www.notta.ai"
+        },
+        {
+          "slug": "descript",
+          "name": "Descript",
+          "why": "Transcription plus video editing in one polished workspace.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.descript.com"
+        },
+        {
+          "slug": "avoma",
+          "name": "Avoma",
+          "why": "Revenue intelligence platform with meeting AI for sales teams.",
+          "price": "$19/mo",
+          "affiliate": "https://www.avoma.com"
+        },
+        {
+          "slug": "grain",
+          "name": "Grain",
+          "why": "Meeting capture with CRM sync and shareable highlight clips.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://grain.com"
+        },
+        {
+          "slug": "sembly",
+          "name": "Sembly AI",
+          "why": "Structured AI meeting notes with automatic task extraction.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://www.sembly.ai"
+        },
+        {
+          "slug": "airgram",
+          "name": "Airgram",
+          "why": "Auto-join and record Zoom/Teams/Meet meetings with AI notes.",
+          "price": "Free / $18/mo",
+          "affiliate": "https://www.airgram.io"
         }
       ]
     },
@@ -6488,6 +6614,48 @@
           "why": "Actual AI video generation (not just stock clips). More creative.",
           "price": "Free / $15/mo Standard",
           "affiliate": "https://runwayml.com"
+        },
+        {
+          "slug": "capcut",
+          "name": "CapCut",
+          "why": "Free video editor with AI effects, captions, and templates.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://www.capcut.com"
+        },
+        {
+          "slug": "veed",
+          "name": "VEED.IO",
+          "why": "Browser-based video editor with AI subtitles and screen recording.",
+          "price": "Free / $18/mo",
+          "affiliate": "https://www.veed.io"
+        },
+        {
+          "slug": "descript",
+          "name": "Descript",
+          "why": "Edit video by editing the transcript. Great for talking-head content.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.descript.com"
+        },
+        {
+          "slug": "luma-ai",
+          "name": "Luma AI",
+          "why": "Photorealistic AI video generation from text and image prompts.",
+          "price": "Free / $30/mo",
+          "affiliate": "https://lumalabs.ai"
+        },
+        {
+          "slug": "pika",
+          "name": "Pika",
+          "why": "AI text-to-video with consistent character style and lip sync.",
+          "price": "Free / $8/mo",
+          "affiliate": "https://pika.art"
+        },
+        {
+          "slug": "sora",
+          "name": "Sora",
+          "why": "OpenAI's high-quality 1080p video generator. Best cinematic quality.",
+          "price": "$20/mo",
+          "affiliate": "https://sora.com"
         }
       ]
     },
@@ -6541,6 +6709,55 @@
           "why": "Best for text-to-speech consumption. Reads any content aloud.",
           "price": "Free / $11.58/mo Premium",
           "affiliate": "https://speechify.com"
+        },
+        {
+          "slug": "descript",
+          "name": "Descript",
+          "why": "Full podcast studio with AI voice cloning and transcript-based editing.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.descript.com"
+        },
+        {
+          "slug": "fliki",
+          "name": "Fliki",
+          "why": "Turn text and scripts into videos with natural-sounding AI voices.",
+          "price": "Free / $21/mo",
+          "affiliate": "https://fliki.ai"
+        },
+        {
+          "slug": "adobe-podcast",
+          "name": "Adobe Podcast",
+          "why": "Professional audio enhancement and AI voice tools from Adobe.",
+          "price": "Free / CC subscription",
+          "affiliate": "https://podcast.adobe.com"
+        },
+        {
+          "slug": "voicemaker",
+          "name": "Voicemaker",
+          "why": "500+ AI voices in 100+ languages. Budget-friendly option.",
+          "price": "$10/mo",
+          "affiliate": "https://voicemaker.in"
+        },
+        {
+          "slug": "resemble-ai",
+          "name": "Resemble AI",
+          "why": "Clone your own voice and deploy it in any project with API access.",
+          "price": "Free / $29/mo",
+          "affiliate": "https://www.resemble.ai"
+        },
+        {
+          "slug": "wellsaid-labs",
+          "name": "WellSaid Labs",
+          "why": "Enterprise AI voiceover. Studio-quality cloning for L&D and marketing.",
+          "price": "$49/mo",
+          "affiliate": "https://wellsaidlabs.com"
+        },
+        {
+          "slug": "lovo",
+          "name": "Lovo AI",
+          "why": "AI voice generator with video editor for e-learning and marketing.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://lovo.ai"
         }
       ]
     },
@@ -6601,6 +6818,48 @@
           "why": "Template-based video creation with AI script generation.",
           "price": "Free / $25/mo Plus",
           "affiliate": "https://invideo.io"
+        },
+        {
+          "slug": "captions",
+          "name": "Captions",
+          "why": "AI auto-captions and short-form video editor optimized for social.",
+          "price": "Free / $7/mo",
+          "affiliate": "https://www.captions.ai"
+        },
+        {
+          "slug": "fliki",
+          "name": "Fliki",
+          "why": "Text-to-video with AI voices and scene creation from scripts.",
+          "price": "Free / $21/mo",
+          "affiliate": "https://fliki.ai"
+        },
+        {
+          "slug": "synthesia",
+          "name": "Synthesia",
+          "why": "AI avatar video from text. 140+ presenter avatars for training content.",
+          "price": "$18/mo",
+          "affiliate": "https://www.synthesia.io"
+        },
+        {
+          "slug": "heygen",
+          "name": "HeyGen",
+          "why": "AI video with lifelike talking avatars and voice cloning.",
+          "price": "Free / $24/mo",
+          "affiliate": "https://www.heygen.com"
+        },
+        {
+          "slug": "opus-clip",
+          "name": "Opus Clip",
+          "why": "AI repurposing of long video into high-retention short clips.",
+          "price": "Free / $13/mo",
+          "affiliate": "https://www.opus.pro"
+        },
+        {
+          "slug": "luma-ai",
+          "name": "Luma AI",
+          "why": "Photorealistic AI video generation model. Next level creative output.",
+          "price": "Free / $30/mo",
+          "affiliate": "https://lumalabs.ai"
         }
       ]
     },
@@ -6654,6 +6913,55 @@
           "why": "More powerful brand voice and long-form. Higher price.",
           "price": "$49/mo Creator",
           "affiliate": "https://www.jasper.ai"
+        },
+        {
+          "slug": "grammarly",
+          "name": "Grammarly",
+          "why": "Grammar and writing improvement with a Go button for full drafts.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://grammarly.com"
+        },
+        {
+          "slug": "notion-ai",
+          "name": "Notion AI",
+          "why": "AI built directly into Notion. Best if you already live in Notion.",
+          "price": "$10/mo add-on",
+          "affiliate": "https://www.notion.so/product/ai"
+        },
+        {
+          "slug": "claude",
+          "name": "Claude",
+          "why": "Best AI for long-form writing, nuanced tone, and document drafts.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "why": "Versatile content writer. Large context window for long-form work.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "slug": "anyword",
+          "name": "Anyword",
+          "why": "Data-driven copywriting with performance score predictions.",
+          "price": "$39/mo",
+          "affiliate": "https://anyword.com"
+        },
+        {
+          "slug": "wordtune",
+          "name": "Wordtune",
+          "why": "Sentence rephrasing, expansion, and tone-shift with Chrome extension.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://www.wordtune.com"
+        },
+        {
+          "slug": "hyperwrite",
+          "name": "HyperWrite",
+          "why": "Autocomplete for emails and docs. Learns your personal writing style.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://www.hyperwriteai.com"
         }
       ]
     },
@@ -6707,6 +7015,55 @@
           "why": "Browser-based agentic coding, no setup needed.",
           "price": "Free / $20/mo Pro",
           "affiliate": "https://bolt.new"
+        },
+        {
+          "slug": "copilot",
+          "name": "GitHub Copilot",
+          "why": "Microsoft's AI. Chat and inline completion in VS Code and JetBrains.",
+          "price": "$10/mo",
+          "affiliate": "https://github.com/features/copilot"
+        },
+        {
+          "slug": "codeium",
+          "name": "Codeium",
+          "why": "Free AI coding assistant with inline completion across 40+ editors.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://codeium.com"
+        },
+        {
+          "slug": "replit",
+          "name": "Replit",
+          "why": "Cloud IDE with AI that writes, runs, and deploys code.",
+          "price": "Free / $25/mo",
+          "affiliate": "https://replit.com"
+        },
+        {
+          "slug": "claude",
+          "name": "Claude",
+          "why": "Best for complex architecture discussions and thorough code review.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "slug": "v0",
+          "name": "v0 by Vercel",
+          "why": "Generates React and Next.js UI components from text descriptions.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://v0.dev"
+        },
+        {
+          "slug": "lovable",
+          "name": "Lovable",
+          "why": "Full-stack app builder from natural language. Deploys automatically.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://lovable.dev"
+        },
+        {
+          "slug": "cline",
+          "name": "Cline",
+          "why": "Open-source VS Code coding agent. Agentic like Aider but with a GUI.",
+          "price": "Free (BYOK)",
+          "affiliate": "https://github.com/cline/cline"
         }
       ]
     },
@@ -6760,6 +7117,55 @@
           "why": "Unlimited recordings free. AI highlights and clips.",
           "price": "Free / $18/mo Pro",
           "affiliate": "https://tldv.io"
+        },
+        {
+          "slug": "fathom",
+          "name": "Fathom",
+          "why": "Free meeting recorder with no-limit AI summaries and highlights.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://fathom.video"
+        },
+        {
+          "slug": "loom",
+          "name": "Loom",
+          "why": "Video messaging with AI summaries and screen recording.",
+          "price": "Free / $12.50/mo",
+          "affiliate": "https://www.loom.com"
+        },
+        {
+          "slug": "descript",
+          "name": "Descript",
+          "why": "All-in-one transcription, video editing, and collaboration workspace.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.descript.com"
+        },
+        {
+          "slug": "avoma",
+          "name": "Avoma",
+          "why": "Revenue intelligence with meeting recordings for sales teams.",
+          "price": "$19/mo",
+          "affiliate": "https://www.avoma.com"
+        },
+        {
+          "slug": "grain",
+          "name": "Grain",
+          "why": "Meeting capture with CRM integration and shareable video clips.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://grain.com"
+        },
+        {
+          "slug": "sembly",
+          "name": "Sembly AI",
+          "why": "AI meeting notes with automatic action item tracking.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://www.sembly.ai"
+        },
+        {
+          "slug": "airgram",
+          "name": "Airgram",
+          "why": "Auto-joins and records meetings with structured AI notes.",
+          "price": "Free / $18/mo",
+          "affiliate": "https://www.airgram.io"
         }
       ]
     },
@@ -6813,6 +7219,677 @@
           "why": "Edit video by editing transcript. Better for longer content.",
           "price": "Free / $24/mo Creator",
           "affiliate": "https://www.descript.com"
+        },
+        {
+          "slug": "runway",
+          "name": "Runway",
+          "why": "Professional AI video editing with Gen-3 Alpha generative model.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://runwayml.com"
+        },
+        {
+          "slug": "fliki",
+          "name": "Fliki",
+          "why": "Turn scripts into videos with AI voices and automatic captions.",
+          "price": "Free / $21/mo",
+          "affiliate": "https://fliki.ai"
+        },
+        {
+          "slug": "invideo",
+          "name": "InVideo AI",
+          "why": "AI video creation from text prompts with voiceover and captions.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://invideo.io"
+        },
+        {
+          "slug": "canva-ai",
+          "name": "Canva AI",
+          "why": "Magic Studio video with auto-captions and branded templates.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.canva.com"
+        },
+        {
+          "slug": "submagic",
+          "name": "Submagic",
+          "why": "AI auto-captions designed for viral short-form social content.",
+          "price": "Free / $17/mo",
+          "affiliate": "https://www.submagic.co"
+        },
+        {
+          "slug": "opus-clip",
+          "name": "Opus Clip",
+          "why": "AI clip repurposing with auto-captions and social-ready formatting.",
+          "price": "Free / $13/mo",
+          "affiliate": "https://www.opus.pro"
+        },
+        {
+          "slug": "mango-animate",
+          "name": "Mango Animate",
+          "why": "Animated explainer videos with automatic subtitle generation.",
+          "price": "$20/mo",
+          "affiliate": "https://mangoanimate.com"
+        }
+      ]
+    },
+    {
+      "slug": "ollama",
+      "name": "Ollama",
+      "category": "Developer Platforms",
+      "vendor": "Ollama",
+      "pricing": {
+        "free": true,
+        "paid_from": null,
+        "currency": null,
+        "model": "free"
+      },
+      "headline": "Run open-source LLMs locally on your Mac, Windows, or Linux",
+      "summary": "Ollama lets you download and run large language models like Llama 3, Mistral, Phi, and Gemma directly on your computer. No cloud, no API costs, full privacy. One command to install, one command to run. The REST API is OpenAI-compatible so any client just works.",
+      "strengths": [
+        "Completely free forever",
+        "Full privacy — data never leaves your machine",
+        "500+ model library via one-liner install",
+        "REST API compatible with OpenAI clients",
+        "Works fully offline"
+      ],
+      "weaknesses": [
+        "Requires 8GB+ RAM for small models, 16GB+ for large",
+        "No built-in chat UI",
+        "Slower than cloud models on consumer hardware"
+      ],
+      "affiliate": {
+        "url": "https://ollama.com",
+        "program": null
+      },
+      "searches_per_month": 420000,
+      "alternatives": [
+        {
+          "slug": "lm-studio",
+          "name": "LM Studio",
+          "why": "GUI-based local LLM runner. Better interface than Ollama for non-developers.",
+          "price": "Free",
+          "affiliate": "https://lmstudio.ai"
+        },
+        {
+          "slug": "huggingface",
+          "name": "Hugging Face",
+          "why": "Cloud model hub with Spaces for free inference — no local hardware needed.",
+          "price": "Free",
+          "affiliate": "https://huggingface.co"
+        },
+        {
+          "slug": "replicate",
+          "name": "Replicate",
+          "why": "Run open-source models via API. No local GPU required.",
+          "price": "$0.0001/token",
+          "affiliate": "https://replicate.com"
+        },
+        {
+          "slug": "mistral",
+          "name": "Mistral",
+          "why": "Fast cloud API with European privacy. Skip the hardware.",
+          "price": "Free / €14.99/mo",
+          "affiliate": "https://mistral.ai"
+        },
+        {
+          "slug": "llama",
+          "name": "Llama.cpp",
+          "why": "The core engine behind Ollama. More control, lower level.",
+          "price": "Free",
+          "affiliate": "https://github.com/ggerganov/llama.cpp"
+        },
+        {
+          "slug": "huggingchat",
+          "name": "HuggingChat",
+          "why": "Free chat UI over open-source models. No install whatsoever.",
+          "price": "Free",
+          "affiliate": "https://huggingface.co/chat"
+        },
+        {
+          "slug": "cohere",
+          "name": "Cohere",
+          "why": "Enterprise cloud API for embeddings and generation. Reliable SLA.",
+          "price": "Free / pay-per-use",
+          "affiliate": "https://cohere.com"
+        },
+        {
+          "slug": "jan-ai",
+          "name": "Jan",
+          "why": "Offline-first AI chat app with a nicer UI than Ollama.",
+          "price": "Free",
+          "affiliate": "https://jan.ai"
+        },
+        {
+          "slug": "gpt4all",
+          "name": "GPT4All",
+          "why": "Beginner-friendly local AI chat. Easier setup than Ollama.",
+          "price": "Free",
+          "affiliate": "https://gpt4all.io"
+        },
+        {
+          "slug": "localai",
+          "name": "LocalAI",
+          "why": "Drop-in OpenAI API replacement that runs entirely on your hardware.",
+          "price": "Free",
+          "affiliate": "https://localai.io"
+        }
+      ]
+    },
+    {
+      "slug": "ms-copilot",
+      "name": "Microsoft Copilot",
+      "category": "AI Chatbots",
+      "vendor": "Microsoft",
+      "pricing": {
+        "free": true,
+        "paid_from": 30,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Microsoft's AI assistant built into Windows, Edge, and Microsoft 365",
+      "summary": "Microsoft Copilot is the AI layer across Microsoft's product ecosystem — built into Windows 11, Edge browser, Bing search, and Microsoft 365 apps. It runs GPT-4o under the hood and gives you a capable AI assistant at no extra cost if you already use Microsoft products. Copilot Pro unlocks deeper Office integration and faster responses.",
+      "strengths": [
+        "Free for most users — built into Windows and Edge",
+        "Real-time Bing web search in every answer",
+        "Integrated with Office 365 (Word, Excel, Outlook)",
+        "Free DALL-E 3 image generation",
+        "No account required for basic use"
+      ],
+      "weaknesses": [
+        "Less capable than Claude on complex reasoning",
+        "No persistent memory across sessions by default",
+        "Shares data with Microsoft",
+        "Limited compared to ChatGPT Plus on tool use"
+      ],
+      "affiliate": {
+        "url": "https://copilot.microsoft.com",
+        "program": null
+      },
+      "searches_per_month": 520000,
+      "alternatives": [
+        {
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "why": "OpenAI's flagship. More capable reasoning, better tool use, memory features.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "slug": "claude",
+          "name": "Claude",
+          "why": "Best for long documents, writing, and nuanced analysis. 200K context.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "slug": "gemini",
+          "name": "Gemini",
+          "why": "Google's AI. Better search integration and Google Workspace sync.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://gemini.google.com"
+        },
+        {
+          "slug": "perplexity",
+          "name": "Perplexity",
+          "why": "Real-time web search with citations. More accurate than Copilot for research.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://www.perplexity.ai/?ref=altai"
+        },
+        {
+          "slug": "grok",
+          "name": "Grok",
+          "why": "X/Twitter real-time data access. Fewer guardrails.",
+          "price": "Free / $30/mo",
+          "affiliate": "https://grok.com"
+        },
+        {
+          "slug": "deepseek",
+          "name": "DeepSeek",
+          "why": "Free GPT-4 class reasoning model. No Microsoft account needed.",
+          "price": "Free",
+          "affiliate": "https://chat.deepseek.com"
+        },
+        {
+          "slug": "you",
+          "name": "You.com",
+          "why": "AI search with model selection and privacy-first design.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://you.com"
+        },
+        {
+          "slug": "poe",
+          "name": "Poe",
+          "why": "One subscription to access ChatGPT, Claude, Gemini, and more.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://poe.com"
+        },
+        {
+          "slug": "meta-ai",
+          "name": "Meta AI",
+          "why": "Free AI from Meta, available inside WhatsApp, Instagram, and Messenger.",
+          "price": "Free",
+          "affiliate": "https://meta.ai"
+        },
+        {
+          "slug": "huggingchat",
+          "name": "HuggingChat",
+          "why": "Open-source model selection. No subscription or Microsoft account.",
+          "price": "Free",
+          "affiliate": "https://huggingface.co/chat"
+        }
+      ]
+    },
+    {
+      "slug": "manus",
+      "name": "Manus AI",
+      "category": "AI Agents",
+      "vendor": "Monica AI",
+      "pricing": {
+        "free": false,
+        "paid_from": 39,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "Fully autonomous AI agent that completes multi-step tasks without supervision",
+      "summary": "Manus is an AI agent from Monica AI that autonomously executes complex, multi-step tasks. Give it a research assignment, a data analysis task, or a web project and it works through it independently — no hand-holding required. It can browse the web, write and run code, manage files, and produce polished deliverables.",
+      "strengths": [
+        "Autonomous multi-step task execution end-to-end",
+        "Can browse the web, write code, and manage files",
+        "Produces polished deliverables (reports, slides, scripts)",
+        "Persistent task memory within sessions",
+        "No micromanagement needed"
+      ],
+      "weaknesses": [
+        "Expensive — $39+/mo",
+        "Can silently fail mid-chain on complex tasks",
+        "Waitlisted / limited capacity in 2026",
+        "Slower than direct chatbots for single questions"
+      ],
+      "affiliate": {
+        "url": "https://manus.im",
+        "program": null
+      },
+      "searches_per_month": 280000,
+      "alternatives": [
+        {
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "why": "GPT-4o with Operator and web browsing for agentic tasks.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "slug": "claude",
+          "name": "Claude",
+          "why": "Projects and computer use for autonomous workflows. More reliable.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "slug": "gemini",
+          "name": "Gemini",
+          "why": "Google's agent with Workspace and real-time search automation.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://gemini.google.com"
+        },
+        {
+          "slug": "perplexity",
+          "name": "Perplexity",
+          "why": "Deep research agent with real-time citations. Great for research tasks.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://www.perplexity.ai/?ref=altai"
+        },
+        {
+          "slug": "n8n",
+          "name": "n8n",
+          "why": "Build custom automation agents with a visual workflow builder.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://n8n.io"
+        },
+        {
+          "slug": "make",
+          "name": "Make",
+          "why": "Visual automation platform for multi-step agent workflows.",
+          "price": "Free / $9/mo",
+          "affiliate": "https://www.make.com"
+        },
+        {
+          "slug": "zapier",
+          "name": "Zapier",
+          "why": "No-code task automation across 6,000+ apps. Broad integration.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://zapier.com"
+        },
+        {
+          "slug": "copilot",
+          "name": "Microsoft Copilot",
+          "why": "Agentic Microsoft 365 features for enterprise document work.",
+          "price": "Free / $30/mo",
+          "affiliate": "https://copilot.microsoft.com"
+        },
+        {
+          "slug": "lovable",
+          "name": "Lovable",
+          "why": "AI agent that builds full-stack web apps from prompts autonomously.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://lovable.dev"
+        },
+        {
+          "slug": "replit",
+          "name": "Replit",
+          "why": "AI coding agent with cloud execution and deployment built in.",
+          "price": "Free / $25/mo",
+          "affiliate": "https://replit.com"
+        }
+      ]
+    },
+    {
+      "slug": "lm-studio",
+      "name": "LM Studio",
+      "category": "Developer Platforms",
+      "vendor": "LM Studio",
+      "pricing": {
+        "free": true,
+        "paid_from": null,
+        "currency": null,
+        "model": "free"
+      },
+      "headline": "Download and run local LLMs with a clean desktop interface",
+      "summary": "LM Studio gives you a polished desktop app for discovering, downloading, and running open-source LLMs locally. Unlike Ollama (terminal-first), LM Studio has a full chat UI and model browser built in. Download from Hugging Face, chat directly in the app, and expose a local OpenAI-compatible API for your tools.",
+      "strengths": [
+        "Clean GUI — no terminal commands needed",
+        "Built-in chat interface for testing models directly",
+        "Easy model discovery and download from Hugging Face",
+        "Local server with OpenAI-compatible API",
+        "Mac, Windows, and Linux support"
+      ],
+      "weaknesses": [
+        "Heavier app footprint than terminal-based Ollama",
+        "Some models require NVIDIA GPU for good performance",
+        "Model library smaller than Ollama's one-liner catalog"
+      ],
+      "affiliate": {
+        "url": "https://lmstudio.ai",
+        "program": null
+      },
+      "searches_per_month": 180000,
+      "alternatives": [
+        {
+          "slug": "ollama",
+          "name": "Ollama",
+          "why": "Terminal-first local LLM runner. Lighter footprint than LM Studio.",
+          "price": "Free",
+          "affiliate": "https://ollama.com"
+        },
+        {
+          "slug": "huggingface",
+          "name": "Hugging Face",
+          "why": "Cloud model hub and Spaces. No local hardware required.",
+          "price": "Free",
+          "affiliate": "https://huggingface.co"
+        },
+        {
+          "slug": "jan-ai",
+          "name": "Jan",
+          "why": "Another open-source local AI desktop app. Simpler UI.",
+          "price": "Free",
+          "affiliate": "https://jan.ai"
+        },
+        {
+          "slug": "gpt4all",
+          "name": "GPT4All",
+          "why": "Beginner-friendly local AI. Even easier setup than LM Studio.",
+          "price": "Free",
+          "affiliate": "https://gpt4all.io"
+        },
+        {
+          "slug": "replicate",
+          "name": "Replicate",
+          "why": "Cloud API for the same models. Zero hardware investment.",
+          "price": "$0.0001/token",
+          "affiliate": "https://replicate.com"
+        },
+        {
+          "slug": "cohere",
+          "name": "Cohere",
+          "why": "Enterprise cloud API. Reliable SLA without the local setup.",
+          "price": "Free / pay-per-use",
+          "affiliate": "https://cohere.com"
+        },
+        {
+          "slug": "mistral",
+          "name": "Mistral",
+          "why": "Fast European cloud API. Skip the local hardware cost.",
+          "price": "Free / €14.99/mo",
+          "affiliate": "https://mistral.ai"
+        },
+        {
+          "slug": "llama",
+          "name": "Llama.cpp",
+          "why": "Lower-level engine. Maximum control for developers.",
+          "price": "Free",
+          "affiliate": "https://github.com/ggerganov/llama.cpp"
+        },
+        {
+          "slug": "localai",
+          "name": "LocalAI",
+          "why": "OpenAI-compatible local API server. More Docker-native than LM Studio.",
+          "price": "Free",
+          "affiliate": "https://localai.io"
+        },
+        {
+          "slug": "huggingchat",
+          "name": "HuggingChat",
+          "why": "Run open-source models in-browser. Zero install required.",
+          "price": "Free",
+          "affiliate": "https://huggingface.co/chat"
+        }
+      ]
+    },
+    {
+      "slug": "adobe-podcast",
+      "name": "Adobe Podcast",
+      "category": "Audio & Voice",
+      "vendor": "Adobe",
+      "pricing": {
+        "free": true,
+        "paid_from": 54.99,
+        "currency": "USD",
+        "model": "subscription"
+      },
+      "headline": "AI audio enhancement that makes voice recordings sound studio-quality",
+      "summary": "Adobe Podcast Enhance Speech uses AI to strip background noise, normalize levels, and make any voice recording sound like it was captured in a professional studio. Upload a clip, download broadcast-quality audio. Part of Adobe Creative Cloud, it also includes AI-powered transcription and a web-based recorder.",
+      "strengths": [
+        "One-click background noise removal — remarkable quality",
+        "Free tier available (limited minutes)",
+        "Web-based — no software install needed",
+        "Integrates with Adobe Premiere and Audition",
+        "Handles room echo, HVAC noise, keyboard clicks"
+      ],
+      "weaknesses": [
+        "Free tier limited to a few hours/month",
+        "Paid tier requires full Creative Cloud subscription",
+        "No multi-track recording or mixing",
+        "Transcription less accurate than dedicated tools"
+      ],
+      "affiliate": {
+        "url": "https://podcast.adobe.com",
+        "program": null
+      },
+      "searches_per_month": 120000,
+      "alternatives": [
+        {
+          "slug": "elevenlabs",
+          "name": "ElevenLabs",
+          "why": "Best AI voice cloning and text-to-speech. Different use case but overlaps.",
+          "price": "Free / $5/mo",
+          "affiliate": "https://elevenlabs.io"
+        },
+        {
+          "slug": "descript",
+          "name": "Descript",
+          "why": "All-in-one podcast recording, transcription, and editing in one app.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.descript.com"
+        },
+        {
+          "slug": "otter",
+          "name": "Otter.ai",
+          "why": "Real-time meeting transcription and AI notes. Simpler than Adobe.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://otter.ai"
+        },
+        {
+          "slug": "murf",
+          "name": "Murf",
+          "why": "AI voiceover studio with 120+ realistic voices for content creation.",
+          "price": "Free / $19/mo",
+          "affiliate": "https://murf.ai"
+        },
+        {
+          "slug": "speechify",
+          "name": "Speechify",
+          "why": "Text-to-speech for consuming content. Different angle from Podcast.",
+          "price": "Free / $11.58/mo",
+          "affiliate": "https://speechify.com"
+        },
+        {
+          "slug": "fireflies",
+          "name": "Fireflies.ai",
+          "why": "Auto-join meetings and get AI-powered summaries. Meeting-focused.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://fireflies.ai"
+        },
+        {
+          "slug": "auphonic",
+          "name": "Auphonic",
+          "why": "Automatic audio leveling and loudness normalization for podcasters.",
+          "price": "Free / $11/mo",
+          "affiliate": "https://auphonic.com"
+        },
+        {
+          "slug": "cleanvoice-ai",
+          "name": "Cleanvoice",
+          "why": "Removes filler words, stutters, and silence from podcast recordings.",
+          "price": "Pay-per-use",
+          "affiliate": "https://cleanvoice.ai"
+        },
+        {
+          "slug": "riverside-fm",
+          "name": "Riverside.fm",
+          "why": "Remote podcast recording with local-quality tracks for guests.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://riverside.fm"
+        },
+        {
+          "slug": "podcastle",
+          "name": "Podcastle",
+          "why": "AI-powered podcast studio and hosting in one web app.",
+          "price": "Free / $11.99/mo",
+          "affiliate": "https://podcastle.ai"
+        }
+      ]
+    },
+    {
+      "slug": "cline",
+      "name": "Cline",
+      "category": "AI Coding",
+      "vendor": "Cline",
+      "pricing": {
+        "free": true,
+        "paid_from": null,
+        "currency": null,
+        "model": "bring-your-own-key"
+      },
+      "headline": "Open-source VS Code agent that writes, edits, and runs code autonomously",
+      "summary": "Cline is a free, open-source VS Code extension that acts as a fully autonomous coding agent. It reads your codebase, writes files, runs terminal commands, and iterates on errors — all without leaving VS Code. Bring your own API key (Claude, OpenAI, DeepSeek, or any OpenAI-compatible model) and pay only for the tokens you use.",
+      "strengths": [
+        "Free and open-source — no subscription required",
+        "Bring-your-own API key (use the cheapest model that works)",
+        "Fully autonomous — reads, writes, and runs terminal commands",
+        "Full codebase awareness with smart context management",
+        "Works with Claude, GPT-4, DeepSeek, and local models"
+      ],
+      "weaknesses": [
+        "Requires API key setup — not plug-and-play like Cursor",
+        "Can be expensive on long tasks using GPT-4o or Claude Opus",
+        "Less polished UX than Cursor or Windsurf",
+        "No cloud IDE — local VS Code only"
+      ],
+      "affiliate": {
+        "url": "https://github.com/cline/cline",
+        "program": null
+      },
+      "searches_per_month": 95000,
+      "alternatives": [
+        {
+          "slug": "cursor",
+          "name": "Cursor",
+          "why": "Paid AI IDE with built-in model subscription. More polished, less setup.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://cursor.com"
+        },
+        {
+          "slug": "windsurf",
+          "name": "Windsurf",
+          "why": "Agentic IDE from Codeium. Cascade AI agent built in. Free tier generous.",
+          "price": "Free / $15/mo",
+          "affiliate": "https://codeium.com/windsurf"
+        },
+        {
+          "slug": "aider",
+          "name": "Aider",
+          "why": "Terminal-based coding agent. More flexible than VS Code extensions.",
+          "price": "Free",
+          "affiliate": "https://aider.chat"
+        },
+        {
+          "slug": "copilot",
+          "name": "GitHub Copilot",
+          "why": "Microsoft's enterprise-grade AI assistant. $10/mo all-in.",
+          "price": "$10/mo",
+          "affiliate": "https://github.com/features/copilot"
+        },
+        {
+          "slug": "codeium",
+          "name": "Codeium",
+          "why": "Free AI coding assistant with inline completion. Less agentic than Cline.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://codeium.com"
+        },
+        {
+          "slug": "bolt",
+          "name": "Bolt.new",
+          "why": "Web-based AI full-stack builder. No IDE or API key needed.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://bolt.new"
+        },
+        {
+          "slug": "v0",
+          "name": "v0 by Vercel",
+          "why": "AI UI component generator. Great complement to Cline for frontend.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://v0.dev"
+        },
+        {
+          "slug": "replit",
+          "name": "Replit",
+          "why": "Cloud IDE with AI agent and one-click deployment built in.",
+          "price": "Free / $25/mo",
+          "affiliate": "https://replit.com"
+        },
+        {
+          "slug": "lovable",
+          "name": "Lovable",
+          "why": "Full-stack app builder from natural language. No API key to manage.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://lovable.dev"
+        },
+        {
+          "slug": "continue-dev",
+          "name": "Continue",
+          "why": "Alternative open-source VS Code/JetBrains AI copilot. Free, BYOK.",
+          "price": "Free",
+          "affiliate": "https://continue.dev"
         }
       ]
     }
@@ -7157,6 +8234,61 @@
       "a": "aider",
       "b": "cursor",
       "headline": "Open-source CLI coding vs IDE-native AI pair programmer."
+    },
+    {
+      "a": "ollama",
+      "b": "lm-studio",
+      "headline": "Two ways to run AI models locally — terminal power vs. desktop polish."
+    },
+    {
+      "a": "ms-copilot",
+      "b": "chatgpt",
+      "headline": "Microsoft's free bundled AI vs OpenAI's premium market leader."
+    },
+    {
+      "a": "ms-copilot",
+      "b": "claude",
+      "headline": "Microsoft's ecosystem AI vs Anthropic's writing and reasoning champion."
+    },
+    {
+      "a": "ms-copilot",
+      "b": "gemini",
+      "headline": "Two free, search-integrated AI assistants — Microsoft vs Google."
+    },
+    {
+      "a": "ollama",
+      "b": "huggingface",
+      "headline": "Local LLM runner vs cloud model hub — privacy vs convenience."
+    },
+    {
+      "a": "manus",
+      "b": "chatgpt",
+      "headline": "Autonomous multi-step agent vs conversational AI powerhouse."
+    },
+    {
+      "a": "manus",
+      "b": "claude",
+      "headline": "Agentic autonomous AI vs the most trusted manual-chat assistant."
+    },
+    {
+      "a": "cline",
+      "b": "cursor",
+      "headline": "Free open-source coding agent vs the polished paid AI IDE."
+    },
+    {
+      "a": "cline",
+      "b": "aider",
+      "headline": "Two autonomous coding agents — VS Code GUI vs terminal CLI."
+    },
+    {
+      "a": "adobe-podcast",
+      "b": "elevenlabs",
+      "headline": "AI audio enhancement vs AI voice cloning — which do you need?"
+    },
+    {
+      "a": "lm-studio",
+      "b": "huggingface",
+      "headline": "Desktop local model runner vs the world's largest open model hub."
     }
   ],
   "blog": [
@@ -8065,6 +9197,165 @@
           "why": "Text-to-video with AI voiceover, stock footage, and music. Generate full YouTube videos from a script in minutes. Best for faceless YouTube channel automation.",
           "price": "Free / $20/mo",
           "affiliate": "https://invideo.io"
+        }
+      ]
+    },
+    {
+      "slug": "best-ai-agents-2026",
+      "title": "Best AI Agents in 2026: Autonomous Tools That Actually Work",
+      "description": "AI agents that complete multi-step tasks without supervision — tested and ranked for reliability, capability, and value in 2026.",
+      "category": "AI Agents",
+      "published": "2026-04-19",
+      "intro": "<p>An AI agent isn't a chatbot. Where ChatGPT waits for your next message, an AI agent takes a goal and executes it — browsing the web, writing code, creating files, and checking its own work. In 2026, the gap between 'chatbot' and 'agent' has become the most important distinction in AI.</p><p>We tested seven leading agents on complex real-world tasks. Here's what can actually get work done without constant hand-holding.</p>",
+      "outro": "<p><strong>Bottom line:</strong> Manus is the most autonomous, but Claude and ChatGPT are more reliable for most professional tasks. For coding specifically, Cline and Cursor win on depth. For no-code automation, n8n and Zapier still outperform AI agents on complex multi-app workflows.</p><p>→ <a href='/tools/manus-alternatives.html'>See all AI agent alternatives</a></p>",
+      "tools": [
+        {
+          "name": "Manus AI",
+          "why": "Most autonomous agent tested. Handles research, coding, and file management end-to-end.",
+          "price": "$39/mo",
+          "affiliate": "https://manus.im"
+        },
+        {
+          "name": "ChatGPT Operator",
+          "why": "OpenAI's web agent. More reliable than Manus for structured tasks.",
+          "price": "$200/mo Pro",
+          "affiliate": "https://chatgpt.com"
+        },
+        {
+          "name": "Claude Projects",
+          "why": "Document-aware agents with persistent memory. Best for long research tasks.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai"
+        },
+        {
+          "name": "Perplexity Deep Research",
+          "why": "Autonomous research agent with cited sources. Best for fact-finding missions.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://www.perplexity.ai/?ref=altai"
+        },
+        {
+          "name": "Lovable",
+          "why": "Full-stack app builder that acts as a coding agent. Deploys automatically.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://lovable.dev"
+        },
+        {
+          "name": "Cline",
+          "why": "Open-source VS Code agent. Best autonomous coding agent for developers.",
+          "price": "Free (BYOK)",
+          "affiliate": "https://github.com/cline/cline"
+        },
+        {
+          "name": "n8n",
+          "why": "Build multi-step automation agents visually. Reliable for production workflows.",
+          "price": "Free / $20/mo",
+          "affiliate": "https://n8n.io"
+        }
+      ]
+    },
+    {
+      "slug": "best-local-ai-tools-2026",
+      "title": "Best Local AI Tools in 2026: Run LLMs Privately on Your Own Machine",
+      "description": "The top tools for running large language models locally on Mac, Windows, or Linux — no cloud, no subscriptions, full privacy.",
+      "category": "Developer Platforms",
+      "published": "2026-04-19",
+      "intro": "<p>Cloud AI is fast and capable — but it sends your data to someone else's servers, costs money per query, and goes offline when the API does. Local LLMs solve all three problems at once. In 2026, the open-source model quality has caught up to GPT-3.5 levels, and a decent laptop can run Llama 3 or Mistral 7B comfortably.</p><p>We tested every major local AI tool. Here's the honest breakdown of what to use and when.</p>",
+      "outro": "<p><strong>Bottom line:</strong> Ollama for developers, LM Studio for everyone else. Both are free. For enterprise/team use, Jan or LocalAI with a shared server. If you want the power of local models without the hardware, Hugging Face Spaces gives you cloud inference on open models for free.</p><p>→ <a href='/tools/ollama-alternatives.html'>See all Ollama alternatives</a></p>",
+      "tools": [
+        {
+          "name": "Ollama",
+          "why": "Best for developers. One-line install, 500+ models, OpenAI-compatible API.",
+          "price": "Free",
+          "affiliate": "https://ollama.com"
+        },
+        {
+          "name": "LM Studio",
+          "why": "Best for non-developers. Clean GUI, model browser, and chat interface built in.",
+          "price": "Free",
+          "affiliate": "https://lmstudio.ai"
+        },
+        {
+          "name": "Jan",
+          "why": "Privacy-first local AI chat app. Beautiful UI, self-hostable server mode.",
+          "price": "Free",
+          "affiliate": "https://jan.ai"
+        },
+        {
+          "name": "GPT4All",
+          "why": "Simplest setup of all local tools. One installer, curated model library.",
+          "price": "Free",
+          "affiliate": "https://gpt4all.io"
+        },
+        {
+          "name": "LocalAI",
+          "why": "Drop-in OpenAI API replacement for Docker-native self-hosted setups.",
+          "price": "Free",
+          "affiliate": "https://localai.io"
+        },
+        {
+          "name": "Hugging Face",
+          "why": "Cloud inference on 500k+ models. Free Spaces for zero-hardware testing.",
+          "price": "Free",
+          "affiliate": "https://huggingface.co"
+        },
+        {
+          "name": "Replicate",
+          "why": "Run the same open models via API. Pay-per-use, no hardware investment.",
+          "price": "$0.0001/token",
+          "affiliate": "https://replicate.com"
+        }
+      ]
+    },
+    {
+      "slug": "best-ai-video-editing-tools-2026",
+      "title": "Best AI Video Editing Tools in 2026: Tested and Ranked",
+      "description": "The top AI video editors for creators, marketers, and businesses — compared on ease of use, output quality, and value in 2026.",
+      "category": "Video Generation",
+      "published": "2026-04-19",
+      "intro": "<p>AI video tools have split into two distinct categories: generators that create video from text prompts, and editors that help you cut, caption, and repurpose footage you already have. In 2026, you need both — and they're not interchangeable.</p><p>We tested 10 tools across both categories. Here's which ones are actually worth your subscription budget.</p>",
+      "outro": "<p><strong>Bottom line:</strong> CapCut wins on price-to-feature for short-form social. Runway wins on creative quality for professional work. VEED wins for browser-based editing with subtitles. Sora and Luma AI win for pure text-to-video generation. For repurposing long content, Opus Clip is unbeaten.</p><p>→ <a href='/tools/runway-alternatives.html'>See all AI video tool alternatives</a></p>",
+      "tools": [
+        {
+          "name": "CapCut",
+          "why": "Best free option. AI effects, auto-captions, and templates. Dominant on TikTok.",
+          "price": "Free / $10/mo",
+          "affiliate": "https://www.capcut.com"
+        },
+        {
+          "name": "Runway",
+          "why": "Best professional AI video editor. Gen-3 Alpha model, 4K exports, green screen AI.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://runwayml.com"
+        },
+        {
+          "name": "VEED.IO",
+          "why": "Best for browser-based editing with automatic subtitles. No install needed.",
+          "price": "Free / $18/mo",
+          "affiliate": "https://www.veed.io"
+        },
+        {
+          "name": "Sora",
+          "why": "OpenAI's text-to-video model. Highest quality generation for storytelling.",
+          "price": "$20/mo",
+          "affiliate": "https://sora.com"
+        },
+        {
+          "name": "Luma AI",
+          "why": "Photorealistic video from text and image prompts. Dream Machine model.",
+          "price": "Free / $30/mo",
+          "affiliate": "https://lumalabs.ai"
+        },
+        {
+          "name": "Opus Clip",
+          "why": "Best for repurposing long podcasts/webinars into social clips automatically.",
+          "price": "Free / $13/mo",
+          "affiliate": "https://www.opus.pro"
+        },
+        {
+          "name": "Descript",
+          "why": "Edit video by editing the text transcript. Unique approach, great for talking heads.",
+          "price": "Free / $12/mo",
+          "affiliate": "https://www.descript.com"
         }
       ]
     }
