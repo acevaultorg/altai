@@ -8968,6 +8968,116 @@
       "a": "lm-studio",
       "b": "huggingface",
       "headline": "Desktop local model runner vs the world's largest open model hub."
+    },
+    {
+      "a": "deepseek",
+      "b": "grok",
+      "headline": "DeepSeek vs Grok: Open-source powerhouse vs real-time AI chatbot"
+    },
+    {
+      "a": "claude",
+      "b": "meta-ai",
+      "headline": "Claude vs Meta AI: Anthropic thoughtful AI vs Meta free chatbot"
+    },
+    {
+      "a": "gemini",
+      "b": "meta-ai",
+      "headline": "Gemini vs Meta AI: Google multimodal AI vs Meta open chatbot"
+    },
+    {
+      "a": "chatgpt",
+      "b": "mistral",
+      "headline": "ChatGPT vs Mistral Le Chat: OpenAI flagship vs Europe open LLM"
+    },
+    {
+      "a": "claude",
+      "b": "mistral",
+      "headline": "Claude vs Mistral: Long-context reasoning vs open-weight efficiency"
+    },
+    {
+      "a": "deepseek",
+      "b": "mistral",
+      "headline": "DeepSeek vs Mistral: Two open-weight LLMs competing for GPT-4 status"
+    },
+    {
+      "a": "deepseek",
+      "b": "meta-ai",
+      "headline": "DeepSeek vs Meta AI: Chinese open-source vs Meta LLaMA-powered chatbot"
+    },
+    {
+      "a": "deepseek",
+      "b": "poe",
+      "headline": "DeepSeek vs Poe: Standalone open model vs multi-model aggregator"
+    },
+    {
+      "a": "poe",
+      "b": "perplexity",
+      "headline": "Poe vs Perplexity: Multi-model AI hub vs AI-powered search engine"
+    },
+    {
+      "a": "replit",
+      "b": "lovable",
+      "headline": "Replit vs Lovable: AI coding environment vs natural-language app builder"
+    },
+    {
+      "a": "v0",
+      "b": "lovable",
+      "headline": "v0 vs Lovable: Vercel UI generator vs full-stack AI app builder"
+    },
+    {
+      "a": "v0",
+      "b": "windsurf",
+      "headline": "v0 vs Windsurf: Component generator vs AI IDE for complete codebases"
+    },
+    {
+      "a": "flux",
+      "b": "dalle",
+      "headline": "FLUX.1 vs DALL-E 3: Open diffusion powerhouse vs OpenAI image model"
+    },
+    {
+      "a": "flux",
+      "b": "stable-diffusion",
+      "headline": "FLUX.1 vs Stable Diffusion: Next-gen open model vs the original open diffusion"
+    },
+    {
+      "a": "krea",
+      "b": "midjourney",
+      "headline": "Krea AI vs Midjourney: Real-time AI canvas vs the gold standard of AI art"
+    },
+    {
+      "a": "kling",
+      "b": "pika",
+      "headline": "Kling AI vs Pika: Chinese video powerhouse vs the viral short-clip generator"
+    },
+    {
+      "a": "capcut",
+      "b": "descript",
+      "headline": "CapCut vs Descript: TikTok-native editor vs podcast-first transcript editor"
+    },
+    {
+      "a": "invideo",
+      "b": "fliki",
+      "headline": "InVideo AI vs Fliki: Full-video maker vs text-to-video blog converter"
+    },
+    {
+      "a": "opus-clip",
+      "b": "captions",
+      "headline": "Opus Clip vs Captions: AI clip extractor vs AI-native creator studio"
+    },
+    {
+      "a": "jasper",
+      "b": "rytr",
+      "headline": "Jasper vs Rytr: Enterprise AI writer vs the budget copywriting tool"
+    },
+    {
+      "a": "playht",
+      "b": "speechify",
+      "headline": "Play.ht vs Speechify: TTS API platform vs the read-aloud app"
+    },
+    {
+      "a": "huggingchat",
+      "b": "meta-ai",
+      "headline": "HuggingChat vs Meta AI: Open-source model hub vs Meta official chatbot"
     }
   ],
   "blog": [
