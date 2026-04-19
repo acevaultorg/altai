@@ -46,11 +46,12 @@
   }
 
   // ---------- Email capture ----------
-  // Configure by setting one of these globals in a <script> on the page, or edit the consts below:
-  //   window.ALTAI_EMAIL_ENDPOINT = "https://buttondown.email/api/emails/embed-subscribe/<user>"
-  //   window.ALTAI_EMAIL_PROVIDER = "buttondown" | "convertkit" | "beehiiv" | "custom"
-  // Until one is set, the form shows a "not yet wired" message so nothing gets silently dropped.
-  const EMAIL_ENDPOINT = window.ALTAI_EMAIL_ENDPOINT || "/api/subscribe";
+  // Config is injected at build time from env vars (see scripts/build.js
+  // resolveEmailConfig + ENV-AFFILIATES.md § Email provider). Until a provider
+  // is configured, the form shows a "not yet wired" message — never a fake
+  // success, never a silent drop.
+  const EMAIL_ENDPOINT = (typeof window.ALTAI_EMAIL_ENDPOINT === "string" && window.ALTAI_EMAIL_ENDPOINT.trim()) || "";
+  const EMAIL_FIELD = (typeof window.ALTAI_EMAIL_FIELD === "string" && window.ALTAI_EMAIL_FIELD.trim()) || "email";
 
   const emailForms = document.querySelectorAll('[data-email-form]');
 
@@ -84,8 +85,8 @@
 
       try {
         const formData = new FormData();
-        formData.append("email", email);
-        const res = await fetch(EMAIL_ENDPOINT, { method: "POST", body: formData, mode: "no-cors" });
+        formData.append(EMAIL_FIELD, email);
+        await fetch(EMAIL_ENDPOINT, { method: "POST", body: formData, mode: "no-cors" });
         renderMessage(form, "Got it. Check your inbox to confirm.", "success");
 
         if (typeof window.plausible === "function") {
@@ -128,18 +129,48 @@
     });
   });
 
-  // ---------- Category card navigation ----------
-  // Category cards are <a> elements linking to /#<slug>. The click handler adds a filter-and-scroll behavior
-  // on the homepage without breaking the anchor link.
-  document.querySelectorAll("a[data-category]").forEach((card) => {
-    card.addEventListener("click", (e) => {
-      if (!searchInput) return; // let the anchor navigate normally if search isn't present
-      e.preventDefault();
-      const name = card.querySelector("h3")?.textContent || "";
-      searchInput.value = name;
-      searchInput.dispatchEvent(new Event("input"));
-      const toolsSection = document.getElementById("tools");
-      if (toolsSection) toolsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
+  // Category cards are <a> elements linking to /category/<slug>/. They navigate
+  // to dedicated category landing pages — no click-intercept needed. Users can
+  // filter tools on the homepage via the search box.
+
+  // ---------- Cookie consent ----------
+  // The banner is rendered server-side only when AdSense is enabled
+  // (trackingPosture.setsCookies in scripts/build.js). JS here just handles
+  // accept/reject + persists the choice. Once the user has chosen, the banner
+  // stays hidden on future visits regardless of route.
+  //
+  // Storage keys:
+  //   altai_consent = "accept" | "reject"   (persistent, localStorage)
+  //   altai_consent_at = ISO timestamp       (audit trail)
+  const consentBanner = document.getElementById("cookie-banner");
+  if (consentBanner) {
+    const existing = (() => {
+      try { return window.localStorage.getItem("altai_consent"); }
+      catch (_) { return null; } // privacy-mode browsers → null; banner stays visible
+    })();
+
+    if (existing === "accept" || existing === "reject") {
+      consentBanner.hidden = true;
+    } else {
+      // Show the banner. It is rendered in-DOM but starts visible; we ensure it
+      // is not hidden in case CSS defaults hide it.
+      consentBanner.hidden = false;
+    }
+
+    const persist = (value) => {
+      try {
+        window.localStorage.setItem("altai_consent", value);
+        window.localStorage.setItem("altai_consent_at", new Date().toISOString());
+      } catch (_) { /* no-op */ }
+      consentBanner.hidden = true;
+      if (typeof window.plausible === "function") {
+        window.plausible("consent", { props: { value } });
+      }
+    };
+
+    const acceptBtn = consentBanner.querySelector("[data-cookie-accept]");
+    const declineBtn = consentBanner.querySelector("[data-cookie-decline]");
+    if (acceptBtn) acceptBtn.addEventListener("click", () => persist("accept"));
+    if (declineBtn) declineBtn.addEventListener("click", () => persist("reject"));
+  }
 })();

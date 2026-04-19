@@ -22,6 +22,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="alternate" type="application/rss+xml" title="AltAI — RSS" href="/feed.xml">
+  <link rel="alternate" type="application/atom+xml" title="AltAI — Atom" href="/feed.atom">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AltAI","url":"https://thealtai.com","description":"A curated directory of alternatives to the most popular AI tools. 200 options, compared on price, speed, and capability. No fluff.","potentialAction":{"@type":"SearchAction","target":"https://thealtai.com/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AltAI","url":"https://thealtai.com","description":"A curated directory of alternatives to the most popular AI tools. 200 options, compared on price, speed, and capability. No fluff."}</script>
   <script defer data-domain="thealtai.com" src="https://plausible.io/js/script.js"></script>
@@ -46,7 +48,7 @@ window.addEventListener('unhandledrejection', function(e) {
       <li><a href="/#categories">Categories</a></li>
       <li><a href="/#tools">Tools</a></li>
       <li><a href="/blog/">Blog</a></li>
-      <li><a href="/#about">About</a></li>
+      <li><a href="/methodology/">How we rank</a></li>
     </ul>
   </div>
 </header>
@@ -54,7 +56,7 @@ window.addEventListener('unhandledrejection', function(e) {
   <main id="main">
     <section class="hero">
       <div class="container">
-        <p class="hero-eyebrow">83 tools · 833 alternatives · Updated weekly</p>
+        <p class="hero-eyebrow">88 tools · 858 alternatives · Updated weekly</p>
         <h1>Find the best <span class="accent">alternative</span> to any AI tool.</h1>
         <p>A curated directory of alternatives to the most popular AI tools. 200 options, compared on price, speed, and capability. No fluff.</p>
         <form class="hero-search" role="search" onsubmit="return false">
@@ -62,8 +64,8 @@ window.addEventListener('unhandledrejection', function(e) {
           <input id="tool-search" type="search" placeholder="Search ChatGPT, Midjourney, Cursor…" autocomplete="off">
         </form>
         <div class="hero-stats">
-          <div><strong>83</strong> tools tracked</div>
-          <div><strong>833</strong> alternatives</div>
+          <div><strong>88</strong> tools tracked</div>
+          <div><strong>858</strong> alternatives</div>
           <div><strong>11</strong> categories</div>
         </div>
       </div>
@@ -103,11 +105,29 @@ window.addEventListener('unhandledrejection', function(e) {
         </div>
       </section>
 
+    <section class="section section-subscribe">
+      <div class="container">
+        
+  <section class="subscribe-block subscribe-block-hero" aria-label="Subscribe">
+    <div class="subscribe-intro">
+      <h3>Follow ranking changes</h3>
+      <p>Weekly-ish. Only when the directory actually changes.</p>
+    </div>
+    <form class="subscribe-form" data-email-form>
+      <label class="sr-only" for="subscribe-email-hero">Email address</label>
+      <input id="subscribe-email-hero" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
+    <p class="subscribe-alt">Prefer a reader? <a href="/feed.xml">RSS</a> · <a href="/feed.atom">Atom</a> · <a href="/updates/">what's new</a></p>
+  </section>
+      </div>
+    </section>
+
     <section class="section" id="categories">
       <div class="container">
         <div class="trust-bar">
-    <span><strong>83</strong> tools tracked</span>
-    <span><strong>833</strong> alternatives listed</span>
+    <span><strong>88</strong> tools tracked</span>
+    <span><strong>858</strong> alternatives listed</span>
     <span><strong>11</strong> categories</span>
     <span><strong>101</strong> head-to-head comparisons</span>
     <span>Updated <strong>2026-04-18</strong></span>
@@ -118,47 +138,47 @@ window.addEventListener('unhandledrejection', function(e) {
         </div>
         <div class="category-grid">
           
-    <a class="category-card" href="#chat" data-category="chat" id="chat">
+    <a class="category-card" href="/category/chat/" data-category="chat" id="chat">
       <h3>Conversational AI</h3>
       <p>General-purpose chatbots and assistants.</p>
     </a>
-    <a class="category-card" href="#image" data-category="image" id="image">
+    <a class="category-card" href="/category/image/" data-category="image" id="image">
       <h3>Image Generation</h3>
       <p>Text-to-image and image editing models.</p>
     </a>
-    <a class="category-card" href="#video" data-category="video" id="video">
+    <a class="category-card" href="/category/video/" data-category="video" id="video">
       <h3>Video Generation</h3>
       <p>Text-to-video and AI video editing.</p>
     </a>
-    <a class="category-card" href="#code" data-category="code" id="code">
+    <a class="category-card" href="/category/code/" data-category="code" id="code">
       <h3>Coding Assistants</h3>
       <p>AI pair programmers and code completion.</p>
     </a>
-    <a class="category-card" href="#voice" data-category="voice" id="voice">
+    <a class="category-card" href="/category/voice/" data-category="voice" id="voice">
       <h3>Voice &amp; Audio</h3>
       <p>Text-to-speech, voice cloning, audio editing.</p>
     </a>
-    <a class="category-card" href="#writing" data-category="writing" id="writing">
+    <a class="category-card" href="/category/writing/" data-category="writing" id="writing">
       <h3>Writing &amp; Marketing</h3>
       <p>Copywriting, marketing content, SEO.</p>
     </a>
-    <a class="category-card" href="#search" data-category="search" id="search">
+    <a class="category-card" href="/category/search/" data-category="search" id="search">
       <h3>AI Search</h3>
       <p>AI-powered search and research tools.</p>
     </a>
-    <a class="category-card" href="#platform" data-category="platform" id="platform">
+    <a class="category-card" href="/category/platform/" data-category="platform" id="platform">
       <h3>ML Platforms</h3>
       <p>Model hosting, training, and deployment.</p>
     </a>
-    <a class="category-card" href="#design" data-category="design" id="design">
+    <a class="category-card" href="/category/design/" data-category="design" id="design">
       <h3>Design &amp; Prototyping</h3>
       <p>AI-powered design tools, prototyping platforms, and creative suites.</p>
     </a>
-    <a class="category-card" href="#automation" data-category="automation" id="automation">
+    <a class="category-card" href="/category/automation/" data-category="automation" id="automation">
       <h3>AI Automation</h3>
       <p>Workflow automation, AI orchestration, and no-code integration platforms.</p>
     </a>
-    <a class="category-card" href="#meeting" data-category="meeting" id="meeting">
+    <a class="category-card" href="/category/meeting/" data-category="meeting" id="meeting">
       <h3>Meeting &amp; Transcription</h3>
       <p>AI meeting recorders, transcription, and note-taking.</p>
     </a>
@@ -1021,70 +1041,125 @@ window.addEventListener('unhandledrejection', function(e) {
         <span class="alts">10 alternatives →</span>
       </div>
     </article>
-    <article class="tool-card" data-tool-card data-search="ollama developer platforms ollama run open-source llms locally on your mac, windows, or linux">
+    <article class="tool-card" data-tool-card data-search="ollama platform ollama run open-source llms locally on your mac, windows, or linux">
       <div class="tool-card-head">
         <h3><a href="/tools/ollama-alternatives.html">Ollama</a></h3>
         <span class="price-badge free">Free</span>
       </div>
       <p class="tool-card-headline">Run open-source LLMs locally on your Mac, Windows, or Linux</p>
       <div class="tool-card-meta">
-        <span>Developer Platforms</span>
+        <span>ML Platforms</span>
         <span class="alts">10 alternatives →</span>
       </div>
     </article>
-    <article class="tool-card" data-tool-card data-search="microsoft copilot ai chatbots microsoft microsoft&#39;s ai assistant built into windows, edge, and microsoft 365">
+    <article class="tool-card" data-tool-card data-search="microsoft copilot chat microsoft microsoft&#39;s ai assistant built into windows, edge, and microsoft 365">
       <div class="tool-card-head">
         <h3><a href="/tools/ms-copilot-alternatives.html">Microsoft Copilot</a></h3>
         <span class="price-badge free">Free / $30+</span>
       </div>
       <p class="tool-card-headline">Microsoft&#39;s AI assistant built into Windows, Edge, and Microsoft 365</p>
       <div class="tool-card-meta">
-        <span>AI Chatbots</span>
+        <span>Conversational AI</span>
         <span class="alts">10 alternatives →</span>
       </div>
     </article>
-    <article class="tool-card" data-tool-card data-search="manus ai ai agents monica ai fully autonomous ai agent that completes multi-step tasks without supervision">
+    <article class="tool-card" data-tool-card data-search="manus ai chat monica ai fully autonomous ai agent that completes multi-step tasks without supervision">
       <div class="tool-card-head">
         <h3><a href="/tools/manus-alternatives.html">Manus AI</a></h3>
         <span class="price-badge">$39+/mo</span>
       </div>
       <p class="tool-card-headline">Fully autonomous AI agent that completes multi-step tasks without supervision</p>
       <div class="tool-card-meta">
-        <span>AI Agents</span>
+        <span>Conversational AI</span>
         <span class="alts">10 alternatives →</span>
       </div>
     </article>
-    <article class="tool-card" data-tool-card data-search="lm studio developer platforms lm studio download and run local llms with a clean desktop interface">
+    <article class="tool-card" data-tool-card data-search="lm studio platform lm studio download and run local llms with a clean desktop interface">
       <div class="tool-card-head">
         <h3><a href="/tools/lm-studio-alternatives.html">LM Studio</a></h3>
         <span class="price-badge free">Free</span>
       </div>
       <p class="tool-card-headline">Download and run local LLMs with a clean desktop interface</p>
       <div class="tool-card-meta">
-        <span>Developer Platforms</span>
+        <span>ML Platforms</span>
         <span class="alts">10 alternatives →</span>
       </div>
     </article>
-    <article class="tool-card" data-tool-card data-search="adobe podcast audio &amp; voice adobe ai audio enhancement that makes voice recordings sound studio-quality">
+    <article class="tool-card" data-tool-card data-search="adobe podcast voice adobe ai audio enhancement that makes voice recordings sound studio-quality">
       <div class="tool-card-head">
         <h3><a href="/tools/adobe-podcast-alternatives.html">Adobe Podcast</a></h3>
         <span class="price-badge free">Free / $54.99+</span>
       </div>
       <p class="tool-card-headline">AI audio enhancement that makes voice recordings sound studio-quality</p>
       <div class="tool-card-meta">
-        <span>Audio &amp; Voice</span>
+        <span>Voice &amp; Audio</span>
         <span class="alts">10 alternatives →</span>
       </div>
     </article>
-    <article class="tool-card" data-tool-card data-search="cline ai coding cline open-source vs code agent that writes, edits, and runs code autonomously">
+    <article class="tool-card" data-tool-card data-search="cline code cline open-source vs code agent that writes, edits, and runs code autonomously">
       <div class="tool-card-head">
         <h3><a href="/tools/cline-alternatives.html">Cline</a></h3>
         <span class="price-badge free">Free</span>
       </div>
       <p class="tool-card-headline">Open-source VS Code agent that writes, edits, and runs code autonomously</p>
       <div class="tool-card-meta">
-        <span>AI Coding</span>
+        <span>Coding Assistants</span>
         <span class="alts">10 alternatives →</span>
+      </div>
+    </article>
+    <article class="tool-card" data-tool-card data-search="zoom ai companion meeting zoom ai meeting assistant built into zoom — summaries, q&amp;a, catch-up">
+      <div class="tool-card-head">
+        <h3><a href="/tools/zoom-ai-alternatives.html">Zoom AI Companion</a></h3>
+        <span class="price-badge">$15+/mo</span>
+      </div>
+      <p class="tool-card-headline">AI meeting assistant built into Zoom — summaries, Q&amp;A, catch-up</p>
+      <div class="tool-card-meta">
+        <span>Meeting &amp; Transcription</span>
+        <span class="alts">5 alternatives →</span>
+      </div>
+    </article>
+    <article class="tool-card" data-tool-card data-search="kagi search kagi inc. ad-free ai-powered search engine with personalized results">
+      <div class="tool-card-head">
+        <h3><a href="/tools/kagi-alternatives.html">Kagi</a></h3>
+        <span class="price-badge">$5+/mo</span>
+      </div>
+      <p class="tool-card-headline">Ad-free AI-powered search engine with personalized results</p>
+      <div class="tool-card-meta">
+        <span>AI Search</span>
+        <span class="alts">5 alternatives →</span>
+      </div>
+    </article>
+    <article class="tool-card" data-tool-card data-search="krisp voice krisp technologies ai noise cancellation and voice enhancement for calls and recordings">
+      <div class="tool-card-head">
+        <h3><a href="/tools/krisp-alternatives.html">Krisp</a></h3>
+        <span class="price-badge free">Free / $8+</span>
+      </div>
+      <p class="tool-card-headline">AI noise cancellation and voice enhancement for calls and recordings</p>
+      <div class="tool-card-meta">
+        <span>Voice &amp; Audio</span>
+        <span class="alts">5 alternatives →</span>
+      </div>
+    </article>
+    <article class="tool-card" data-tool-card data-search="perplexity pages writing perplexity ai ai-powered research articles with cited sources and shareable layout">
+      <div class="tool-card-head">
+        <h3><a href="/tools/perplexity-pages-alternatives.html">Perplexity Pages</a></h3>
+        <span class="price-badge free">Free / $20+</span>
+      </div>
+      <p class="tool-card-headline">AI-powered research articles with cited sources and shareable layout</p>
+      <div class="tool-card-meta">
+        <span>Writing &amp; Marketing</span>
+        <span class="alts">5 alternatives →</span>
+      </div>
+    </article>
+    <article class="tool-card" data-tool-card data-search="adobe express design adobe ai-powered quick creation for social graphics, videos, and presentations">
+      <div class="tool-card-head">
+        <h3><a href="/tools/adobe-express-alternatives.html">Adobe Express</a></h3>
+        <span class="price-badge free">Free / $10+</span>
+      </div>
+      <p class="tool-card-headline">AI-powered quick creation for social graphics, videos, and presentations</p>
+      <div class="tool-card-meta">
+        <span>Design &amp; Prototyping</span>
+        <span class="alts">5 alternatives →</span>
       </div>
     </article>
         </div>
@@ -1138,7 +1213,7 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="footer-col">
         <h4>Categories</h4>
         <ul>
-          <li><a href="/#chat">Conversational AI</a></li><li><a href="/#image">Image Generation</a></li><li><a href="/#video">Video Generation</a></li><li><a href="/#code">Coding Assistants</a></li><li><a href="/#voice">Voice &amp; Audio</a></li><li><a href="/#writing">Writing &amp; Marketing</a></li><li><a href="/#search">AI Search</a></li><li><a href="/#platform">ML Platforms</a></li><li><a href="/#design">Design &amp; Prototyping</a></li><li><a href="/#automation">AI Automation</a></li><li><a href="/#meeting">Meeting &amp; Transcription</a></li>
+          <li><a href="/category/chat/">Conversational AI</a></li><li><a href="/category/image/">Image Generation</a></li><li><a href="/category/video/">Video Generation</a></li><li><a href="/category/code/">Coding Assistants</a></li><li><a href="/category/voice/">Voice &amp; Audio</a></li><li><a href="/category/writing/">Writing &amp; Marketing</a></li><li><a href="/category/search/">AI Search</a></li><li><a href="/category/platform/">ML Platforms</a></li><li><a href="/category/design/">Design &amp; Prototyping</a></li><li><a href="/category/automation/">AI Automation</a></li><li><a href="/category/meeting/">Meeting &amp; Transcription</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1146,8 +1221,13 @@ window.addEventListener('unhandledrejection', function(e) {
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/#tools">Tools</a></li>
-          <li><a href="/sitemap.xml">Sitemap</a></li>
-          <li><a href="/#about">About</a></li>
+          <li><a href="/methodology/">How we rank</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/updates/">What's new</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a> · <a href="/feed.xml">RSS</a></li>
         </ul>
       </div>
     </div>
@@ -1156,7 +1236,7 @@ window.addEventListener('unhandledrejection', function(e) {
     </p>
     <div class="footer-bottom">
       <span>&copy; 2026 AltAI. Data last updated 2026-04-18.</span>
-      <span>Built static. No tracking. No cookies.</span>
+      <span>Cookieless analytics. No third-party cookies.</span>
       <span style="font-size:0.75rem;opacity:0.55;">Powered by AcePilot</span>
     </div>
   </div>

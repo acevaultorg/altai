@@ -7953,7 +7953,7 @@
     {
       "slug": "ollama",
       "name": "Ollama",
-      "category": "Developer Platforms",
+      "category": "platform",
       "vendor": "Ollama",
       "pricing": {
         "free": true,
@@ -8056,7 +8056,7 @@
     {
       "slug": "ms-copilot",
       "name": "Microsoft Copilot",
-      "category": "AI Chatbots",
+      "category": "chat",
       "vendor": "Microsoft",
       "pricing": {
         "free": true,
@@ -8160,7 +8160,7 @@
     {
       "slug": "manus",
       "name": "Manus AI",
-      "category": "AI Agents",
+      "category": "chat",
       "vendor": "Monica AI",
       "pricing": {
         "free": false,
@@ -8264,7 +8264,7 @@
     {
       "slug": "lm-studio",
       "name": "LM Studio",
-      "category": "Developer Platforms",
+      "category": "platform",
       "vendor": "LM Studio",
       "pricing": {
         "free": true,
@@ -8367,7 +8367,7 @@
     {
       "slug": "adobe-podcast",
       "name": "Adobe Podcast",
-      "category": "Audio & Voice",
+      "category": "voice",
       "vendor": "Adobe",
       "pricing": {
         "free": true,
@@ -8471,7 +8471,7 @@
     {
       "slug": "cline",
       "name": "Cline",
-      "category": "AI Coding",
+      "category": "code",
       "vendor": "Cline",
       "pricing": {
         "free": true,
@@ -8571,6 +8571,351 @@
           "affiliate": "https://continue.dev"
         }
       ]
+    },
+    {
+      "slug": "zoom-ai",
+      "name": "Zoom AI Companion",
+      "vendor": "Zoom",
+      "category": "meeting",
+      "headline": "AI meeting assistant built into Zoom — summaries, Q&A, catch-up",
+      "summary": "Zoom AI Companion is included at no extra cost with paid Zoom plans. It automatically generates meeting summaries, action items, and can answer questions about what was discussed during or after a call. The catch-up feature lets latecomers get up to speed without interrupting the meeting. It integrates with Zoom Chat, Whiteboard, and Docs.",
+      "searches_per_month": 320000,
+      "pricing": {
+        "free": false,
+        "model": "included-with-plan",
+        "paid_from": 15,
+        "currency": "USD"
+      },
+      "strengths": [
+        "Included at no extra cost for Zoom paid subscribers",
+        "Catch-up feature lets latecomers ask questions mid-meeting",
+        "Integrated with Zoom Chat, Docs, and Whiteboard",
+        "Generates summaries and action items automatically",
+        "Works in both Zoom Meetings and Zoom Phone"
+      ],
+      "weaknesses": [
+        "Only useful if your team already uses Zoom",
+        "Requires paid Zoom plan — not available on free tier",
+        "Less customizable than standalone meeting AI tools",
+        "Transcript accuracy varies by accent and audio quality"
+      ],
+      "alternatives": [
+        {
+          "slug": "otter",
+          "name": "Otter.ai",
+          "price": "Free / $17/mo",
+          "affiliate": "https://otter.ai",
+          "why": "Works across Zoom, Teams, and Google Meet. Better free tier."
+        },
+        {
+          "slug": "fathom",
+          "name": "Fathom",
+          "price": "Free / $19/mo",
+          "affiliate": "https://fathom.video",
+          "why": "Generous free tier. Real-time highlights during the call."
+        },
+        {
+          "slug": "fireflies",
+          "name": "Fireflies.ai",
+          "price": "Free / $18/mo",
+          "affiliate": "https://fireflies.ai",
+          "why": "Works on any platform. Better CRM integrations."
+        },
+        {
+          "slug": "tl-dv",
+          "name": "tl;dv",
+          "price": "Free / $20/mo",
+          "affiliate": "https://tldv.io",
+          "why": "Free tier with unlimited recordings. Great for async teams."
+        },
+        {
+          "slug": "avoma",
+          "name": "Avoma",
+          "price": "From $24/mo",
+          "affiliate": "https://www.avoma.com",
+          "why": "Full meeting lifecycle tool — agenda, notes, coaching."
+        }
+      ],
+      "affiliate": {
+        "url": "https://zoom.us/pricing",
+        "program": null
+      }
+    },
+    {
+      "slug": "kagi",
+      "name": "Kagi",
+      "vendor": "Kagi Inc.",
+      "category": "search",
+      "headline": "Ad-free AI-powered search engine with personalized results",
+      "summary": "Kagi is a paid, ad-free search engine with a built-in AI assistant (Kagi Assistant). Because it is subscription-funded, Kagi shows zero ads and does not sell your data. Its AI features include Summarizer (instant summaries of any webpage), FastGPT (quick answers from the web), and the full Kagi Assistant powered by GPT-4, Claude, or Gemini with citations.",
+      "searches_per_month": 185000,
+      "pricing": {
+        "free": false,
+        "model": "subscription",
+        "paid_from": 5,
+        "currency": "USD"
+      },
+      "strengths": [
+        "Zero ads — search results ranked purely on relevance",
+        "No tracking, no data selling, no personalized ad profiles",
+        "Built-in AI assistant with citations (GPT-4, Claude, Gemini)",
+        "Webpage Summarizer: summarize any URL instantly",
+        "User-controlled result blocking and boosting"
+      ],
+      "weaknesses": [
+        "Paid only — no free tier beyond 100 searches",
+        "Smaller index than Google — occasional gaps in freshness",
+        "AI Assistant adds cost to already-paid subscription",
+        "Less useful for local/map searches than Google"
+      ],
+      "alternatives": [
+        {
+          "slug": "perplexity",
+          "name": "Perplexity",
+          "price": "Free / $20/mo",
+          "affiliate": "https://perplexity.ai",
+          "why": "Better AI summaries with inline citations. Free tier available."
+        },
+        {
+          "slug": "you-com",
+          "name": "You.com",
+          "price": "Free / $15/mo",
+          "affiliate": "https://you.com",
+          "why": "Free AI search with web results and code output. No subscription required."
+        },
+        {
+          "slug": "brave-leo",
+          "name": "Brave + Leo",
+          "price": "Free / $15/mo",
+          "affiliate": "https://brave.com",
+          "why": "Built into Brave browser. Privacy-first. Leo AI included with Brave Premium."
+        },
+        {
+          "slug": "bing-copilot",
+          "name": "Microsoft Copilot",
+          "price": "Free",
+          "affiliate": "https://copilot.microsoft.com",
+          "why": "Free AI search integrated into Bing. GPT-4 powered. No subscription."
+        },
+        {
+          "slug": "duckduckgo-ai",
+          "name": "DuckDuckGo AI Chat",
+          "price": "Free",
+          "affiliate": "https://duckduckgo.com",
+          "why": "Free, anonymous AI chat. No account. GPT-4o mini and Claude Haiku."
+        }
+      ],
+      "affiliate": {
+        "url": "https://kagi.com",
+        "program": null
+      }
+    },
+    {
+      "slug": "krisp",
+      "name": "Krisp",
+      "vendor": "Krisp Technologies",
+      "category": "voice",
+      "headline": "AI noise cancellation and voice enhancement for calls and recordings",
+      "summary": "Krisp uses AI to remove background noise from microphone and speaker audio in real time. It works as a virtual audio device across any call or recording app — Zoom, Teams, Meet, Discord, and more. The paid plan adds AI meeting notes with action items, call summaries, and accent softening for clearer communication.",
+      "searches_per_month": 240000,
+      "pricing": {
+        "free": true,
+        "model": "freemium",
+        "paid_from": 8,
+        "currency": "USD"
+      },
+      "strengths": [
+        "Works with any call app as a virtual audio device",
+        "Industry-leading background noise and echo removal",
+        "Accent softening — makes non-native speakers easier to understand",
+        "AI meeting notes included with paid plan",
+        "60 free minutes per week — enough for most light users"
+      ],
+      "weaknesses": [
+        "Free tier limited to 60 minutes/week of noise cancellation",
+        "Uses local CPU — can slow down older machines",
+        "Meeting notes only available in paid plan",
+        "Only works on desktop — no mobile app"
+      ],
+      "alternatives": [
+        {
+          "slug": "nvidia-rtx-voice",
+          "name": "NVIDIA RTX Voice",
+          "price": "Free",
+          "affiliate": "https://www.nvidia.com/en-us/geforce/guides/nvidia-rtx-voice-setup-guide/",
+          "why": "Free for NVIDIA RTX GPU owners. Comparable noise removal quality."
+        },
+        {
+          "slug": "cleanfeed",
+          "name": "Cleanfeed",
+          "price": "Free / $12/mo",
+          "affiliate": "https://cleanfeed.net",
+          "why": "Studio-grade audio for podcasts and broadcasts. Browser-based."
+        },
+        {
+          "slug": "otter",
+          "name": "Otter.ai",
+          "price": "Free / $17/mo",
+          "affiliate": "https://otter.ai",
+          "why": "Transcription + meeting notes. No noise cancellation but better AI summaries."
+        },
+        {
+          "slug": "descript",
+          "name": "Descript",
+          "price": "Free / $24/mo",
+          "affiliate": "https://www.descript.com",
+          "why": "Full studio tools: noise removal + overdub + editing. Better for recordings."
+        },
+        {
+          "slug": "adobe-podcast",
+          "name": "Adobe Podcast",
+          "price": "Free / $5.99/mo",
+          "affiliate": "https://podcast.adobe.com",
+          "why": "Enhance Speech turns any recording into studio-quality audio. Free for basic use."
+        }
+      ],
+      "affiliate": {
+        "url": "https://krisp.ai",
+        "program": null
+      }
+    },
+    {
+      "slug": "perplexity-pages",
+      "name": "Perplexity Pages",
+      "vendor": "Perplexity AI",
+      "category": "writing",
+      "headline": "AI-powered research articles with cited sources and shareable layout",
+      "summary": "Perplexity Pages lets you generate comprehensive, cited research articles from a topic or question. Pages are structured like Wikipedia articles with sections, images, and inline citations to real sources. They can be shared publicly and are indexed by search engines. It's part of the Perplexity Pro subscription or available in limited form on the free tier.",
+      "searches_per_month": 95000,
+      "pricing": {
+        "free": true,
+        "model": "freemium",
+        "paid_from": 20,
+        "currency": "USD"
+      },
+      "strengths": [
+        "Generates comprehensive, structured research articles automatically",
+        "Every claim is cited with a link to the real source",
+        "Articles are shareable and publicly indexable",
+        "Adjustable reading level (beginner to expert)",
+        "Integrated with Perplexity's search — fresh results, not cached knowledge"
+      ],
+      "weaknesses": [
+        "Best features require Perplexity Pro ($20/mo)",
+        "Article depth can be shallow on niche topics",
+        "Images sourced automatically — may not always be ideal",
+        "Not a full content editor — limited formatting control"
+      ],
+      "alternatives": [
+        {
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "price": "Free / $20/mo",
+          "affiliate": "https://chat.openai.com",
+          "why": "More flexible output. Can write in any format. Better for creative writing."
+        },
+        {
+          "slug": "claude",
+          "name": "Claude",
+          "price": "Free / $20/mo",
+          "affiliate": "https://claude.ai",
+          "why": "Longer documents, better at nuanced tone. Excellent for research-heavy writing."
+        },
+        {
+          "slug": "jasper",
+          "name": "Jasper",
+          "price": "From $49/mo",
+          "affiliate": "https://www.jasper.ai",
+          "why": "Purpose-built for marketing copy. Brand voice. Team collaboration."
+        },
+        {
+          "slug": "writesonic",
+          "name": "Writesonic",
+          "price": "Free / $16/mo",
+          "affiliate": "https://writesonic.com",
+          "why": "Cheaper than Jasper. Article writer + AI chatbot + image gen in one."
+        },
+        {
+          "slug": "notion-ai",
+          "name": "Notion AI",
+          "price": "$10/mo add-on",
+          "affiliate": "https://notion.so",
+          "why": "Write inside your notes. No context-switching. Better for team wikis."
+        }
+      ],
+      "affiliate": {
+        "url": "https://www.perplexity.ai/pages",
+        "program": null
+      }
+    },
+    {
+      "slug": "adobe-express",
+      "name": "Adobe Express",
+      "vendor": "Adobe",
+      "category": "design",
+      "headline": "AI-powered quick creation for social graphics, videos, and presentations",
+      "summary": "Adobe Express is Adobe's Canva competitor — a browser and mobile design tool for non-designers. It includes Adobe Firefly AI for generating images, removing backgrounds, and creating text effects. Express connects to Creative Cloud libraries, making it easy to keep brand colors and fonts consistent across quick social posts, flyers, and short videos.",
+      "searches_per_month": 550000,
+      "pricing": {
+        "free": true,
+        "model": "freemium",
+        "paid_from": 10,
+        "currency": "USD"
+      },
+      "strengths": [
+        "Free tier is generous — thousands of templates, unlimited projects",
+        "Adobe Firefly AI built in — generate images, text effects, background removal",
+        "Sync with Creative Cloud — fonts, colors, and assets always on-brand",
+        "One-click resize for every social format",
+        "Mobile app for on-the-go edits"
+      ],
+      "weaknesses": [
+        "Less powerful than Figma or Photoshop for complex design work",
+        "Template quality can feel generic vs. premium Canva Pro",
+        "AI features limited on free tier (25 generative credits/mo)",
+        "Video editing less capable than CapCut or Descript"
+      ],
+      "alternatives": [
+        {
+          "slug": "canva-ai",
+          "name": "Canva AI",
+          "price": "Free / $15/mo",
+          "affiliate": "https://www.canva.com",
+          "why": "More templates and a longer-established community. Magic Studio AI solid."
+        },
+        {
+          "slug": "figma",
+          "name": "Figma",
+          "price": "Free / $15/mo",
+          "affiliate": "https://figma.com",
+          "why": "Better for UI/product design. Real-time collaboration. Dev-handoff built in."
+        },
+        {
+          "slug": "adobe-firefly",
+          "name": "Adobe Firefly",
+          "price": "Free / $20/mo",
+          "affiliate": "https://firefly.adobe.com",
+          "why": "Pure generative AI for images and effects. Deeper than Express's AI features."
+        },
+        {
+          "slug": "picsart",
+          "name": "PicsArt",
+          "price": "Free / $10/mo",
+          "affiliate": "https://picsart.com",
+          "why": "Strong mobile-first editor with AI background removal and effects."
+        },
+        {
+          "slug": "visme",
+          "name": "Visme",
+          "price": "Free / $13/mo",
+          "affiliate": "https://www.visme.co",
+          "why": "Better for data visualization and presentations. Infographic-first."
+        }
+      ],
+      "affiliate": {
+        "url": "https://www.adobe.com/express",
+        "program": null
+      }
     }
   ],
   "comparisons": [

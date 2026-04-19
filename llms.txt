@@ -1,0 +1,76 @@
+# AltAI
+
+> A curated directory of alternatives to the most popular AI tools. 200 options, compared on price, speed, and capability. No fluff.
+
+AltAI is an editorial directory. Rankings are curated, not algorithmic. See [Methodology](https://thealtai.com/methodology/) for the full ranking process and disqualifier list, and [Privacy](https://thealtai.com/privacy/) for data handling. Outbound links to vendors may be affiliate-tagged; affiliate status never affects rank order.
+
+## Editorial policy
+
+- [Methodology](https://thealtai.com/methodology/): How AltAI ranks AI tools — criteria, disqualifiers, affiliate stance, correction commitments.
+- [Terms of use](https://thealtai.com/terms/): Use terms + "what we will never do" editorial commitments.
+- [Privacy policy](https://thealtai.com/privacy/): Data collection, cookies, third-party disclosures.
+- [Contact](https://thealtai.com/contact/): Corrections, affiliate, press, privacy requests.
+
+## Category indexes
+
+- [Conversational AI](https://thealtai.com/category/chat/): General-purpose chatbots and assistants.
+- [Image Generation](https://thealtai.com/category/image/): Text-to-image and image editing models.
+- [Video Generation](https://thealtai.com/category/video/): Text-to-video and AI video editing.
+- [Coding Assistants](https://thealtai.com/category/code/): AI pair programmers and code completion.
+- [Voice & Audio](https://thealtai.com/category/voice/): Text-to-speech, voice cloning, audio editing.
+- [Writing & Marketing](https://thealtai.com/category/writing/): Copywriting, marketing content, SEO.
+- [AI Search](https://thealtai.com/category/search/): AI-powered search and research tools.
+- [ML Platforms](https://thealtai.com/category/platform/): Model hosting, training, and deployment.
+- [Design & Prototyping](https://thealtai.com/category/design/): AI-powered design tools, prototyping platforms, and creative suites.
+- [AI Automation](https://thealtai.com/category/automation/): Workflow automation, AI orchestration, and no-code integration platforms.
+- [Meeting & Transcription](https://thealtai.com/category/meeting/): AI meeting recorders, transcription, and note-taking.
+
+## Top tool alternatives pages
+
+- [DeepSeek alternatives](https://thealtai.com/tools/deepseek-alternatives.html): The open-source AI that shook the industry.
+- [ChatGPT alternatives](https://thealtai.com/tools/chatgpt-alternatives.html): The household-name AI chatbot.
+- [Character.AI alternatives](https://thealtai.com/tools/character-ai-alternatives.html): Millions of user-created AI characters to chat with.
+- [Grammarly alternatives](https://thealtai.com/tools/grammarly-alternatives.html): Writing assistant and grammar checker.
+- [NotebookLM alternatives](https://thealtai.com/tools/notebooklm-alternatives.html): Google's AI research assistant grounded in your sources.
+- [Replit alternatives](https://thealtai.com/tools/replit-alternatives.html): Build and deploy apps with AI in the browser.
+- [Meta AI alternatives](https://thealtai.com/tools/meta-ai-alternatives.html): Facebook's free AI assistant, powered by Llama 4.
+- [Figma alternatives](https://thealtai.com/tools/figma-alternatives.html): The design tool that ate the industry.
+- [Midjourney alternatives](https://thealtai.com/tools/midjourney-alternatives.html): The aesthetic image generator.
+- [Grok alternatives](https://thealtai.com/tools/grok-alternatives.html): The AI that searches X (Twitter) in real-time.
+- [FLUX.1 alternatives](https://thealtai.com/tools/flux-alternatives.html): The open-source image model that challenged Midjourney.
+- [QuillBot alternatives](https://thealtai.com/tools/quillbot-alternatives.html): The paraphrasing tool millions use to rewrite and improve text.
+
+## Blog / deep dives
+
+- [Best ChatGPT Alternatives in 2026 (Free & Paid)](https://thealtai.com/blog/best-chatgpt-alternatives-2026.html): 10 tested ChatGPT alternatives ranked by writing quality, speed, and price. Includes free options that match GPT-4o on most tasks.
+- [Best AI Image Generators in 2026 — Ranked & Compared](https://thealtai.com/blog/best-ai-image-generators-2026.html): The 10 best AI image generators tested side-by-side. Which creates the most realistic photos? Best for art? Best free option? We answer all three.
+- [Best AI Coding Assistants in 2026 — Ranked by Developers](https://thealtai.com/blog/best-ai-coding-tools-2026.html): We compared the 10 best AI coding tools on real-world tasks: bug fixing, code generation, refactoring, and full-stack app building. Here's the honest ranking.
+- [Best Free AI Tools in 2026 — No Credit Card Required](https://thealtai.com/blog/best-free-ai-tools-2026.html): The 10 most powerful AI tools you can use completely free in 2026. No trial, no credit card, no catch. We list the genuinely free options for chat, images, code, and video.
+- [Best DeepSeek Alternatives in 2026 (Tested & Ranked)](https://thealtai.com/blog/best-deepseek-alternatives-2026.html): DeepSeek shook the AI world in 2025 — but it's not right for everyone. Here are the 8 best alternatives ranked by quality, privacy, and price.
+- [Best AI Music Generators in 2026 — Full Songs from Text](https://thealtai.com/blog/best-ai-music-generators-2026.html): Generate complete songs with vocals and instruments from a text prompt. We tested 8 AI music tools on quality, style range, and free tier generosity.
+- [Best AI Voice Generators in 2026 — Ranked by Quality](https://thealtai.com/blog/best-ai-voice-generators-2026.html): 8 AI text-to-speech tools tested on naturalness, voice cloning, and price. ElevenLabs vs Murf vs Speechify — here's the honest ranking.
+- [Best AI Video Generators in 2026 — Ranked & Tested](https://thealtai.com/blog/best-ai-video-generators-2026.html): 8 AI text-to-video tools ranked on quality, length, and price. Runway vs Sora vs Kling vs Pika — which is actually worth paying for?
+- [Best AI Writing Tools in 2026 — Tested for Real Work](https://thealtai.com/blog/best-ai-writing-tools-2026.html): 10 AI writing assistants ranked on output quality, brand voice control, and value. From blog posts to ads — which AI writing tool is worth paying for?
+- [Best Midjourney Alternatives in 2026 — Free & Paid](https://thealtai.com/blog/best-midjourney-alternatives-2026.html): Midjourney needs a Discord account and has no free trial. These 9 alternatives produce great AI art without the friction — some are completely free.
+- [Best CapCut Alternatives in 2026 — Free & Pro Options](https://thealtai.com/blog/best-capcut-alternatives-2026.html): CapCut great for TikTok, but what about YouTube, marketing, or professional video? 7 tested alternatives ranked by quality, price, and use case.
+- [Best Zapier Alternatives in 2026 — Cheaper & More Powerful](https://thealtai.com/blog/best-zapier-alternatives-2026.html): Zapier's pricing jumped. Here are 6 alternatives that do the same job for less — including a free open-source option developers love.
+- [Best AI Design Tools in 2026 — Figma, Canva, and Beyond](https://thealtai.com/blog/best-ai-design-tools-2026.html): AI is rewriting design workflows. From Figma's AI features to Canva's Magic Studio to pure AI design generators — here's what's actually worth using in 2026.
+- [Best QuillBot Alternatives in 2026 — AI Paraphrasing & Rewriting Tools](https://thealtai.com/blog/best-quillbot-alternatives-2026.html): QuillBot is the go-to AI paraphraser, but is it the best? We compare QuillBot vs Grammarly, Jasper, Writesonic, and 4 more writing AI tools in 2026.
+- [Best AI Meeting Tools in 2026 — Record, Transcribe, and Summarize Automatically](https://thealtai.com/blog/best-meeting-ai-tools-2026.html): Never take meeting notes again. We compare tl;dv, Otter.ai, Fathom, Fireflies, and Notta — the best AI meeting recorders and transcription tools in 2026.
+- [Best AI Video Editors in 2026 — VEED, CapCut, and the Tools That Actually Save Time](https://thealtai.com/blog/best-ai-video-editors-2026.html): AI video editing used to mean auto-captions. In 2026 it means auto-cut, auto-reframe, AI avatars, and text-to-video. We rank VEED, CapCut, Captions, Descript, and more.
+- [Best AI Agents in 2026: Autonomous Tools That Actually Work](https://thealtai.com/blog/best-ai-agents-2026.html): AI agents that complete multi-step tasks without supervision — tested and ranked for reliability, capability, and value in 2026.
+- [Best Local AI Tools in 2026: Run LLMs Privately on Your Own Machine](https://thealtai.com/blog/best-local-ai-tools-2026.html): The top tools for running large language models locally on Mac, Windows, or Linux — no cloud, no subscriptions, full privacy.
+- [Best AI Video Editing Tools in 2026: Tested and Ranked](https://thealtai.com/blog/best-ai-video-editing-tools-2026.html): The top AI video editors for creators, marketers, and businesses — compared on ease of use, output quality, and value in 2026.
+- [Best Claude Alternatives in 2026](https://thealtai.com/blog/best-claude-alternatives-2026.html): ChatGPT, Gemini, DeepSeek, Grok — the best AI assistants to use instead of or alongside Claude.
+- [Best Cursor Alternatives in 2026](https://thealtai.com/blog/best-cursor-alternatives-2026.html): Windsurf, Cline, GitHub Copilot, Aider — top AI coding tools to use instead of Cursor in 2026.
+- [Best Gemini Alternatives in 2026](https://thealtai.com/blog/best-gemini-alternatives-2026.html): ChatGPT, Claude, DeepSeek, Perplexity — the best AI tools to use instead of Google Gemini in 2026.
+
+## Feeds
+
+- RSS: https://thealtai.com/feed.xml
+- Atom: https://thealtai.com/feed.atom
+- Human-readable updates: https://thealtai.com/updates/
+
+## Optional
+
+- [Sitemap](https://thealtai.com/sitemap.xml): full page index
