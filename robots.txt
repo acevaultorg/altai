@@ -1,3 +1,37 @@
+# robots.txt — thealtai.com
+# Updated 2026-04-24: AI crawler allowlist per v19.4 bot-harvest
+
+# AI crawlers — explicit allowlist
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
 User-agent: *
 Allow: /
 
