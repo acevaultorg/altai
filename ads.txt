@@ -1,0 +1,8 @@
+# ads.txt (IAB Tech Lab v1.0.2)
+# Authorized digital sellers of ad inventory for this domain.
+# AdSense pub-id shared across AceVault fleet under one publisher account.
+# Format: <domain>, <publisher-id>, <relationship>, <tag-id>
+# See: https://support.google.com/adsense/answer/7532444
+
+google.com, pub-7449214764048186, DIRECT, f08c47fec0942fa0
+
